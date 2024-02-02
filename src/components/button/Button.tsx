@@ -2,19 +2,16 @@ import React from 'react';
 import * as Bootstrap from 'react-bootstrap';
 import { themes } from 'types';
 
-interface ButtonProps extends React.ComponentProps<typeof Bootstrap.Button> {
+interface ButtonProps extends Bootstrap.ButtonProps {
   label: string;
   variant?: themes;
-  disabled?: boolean;
-  href?: string;
 }
 
-const Button = ({ label, variant, disabled, href, ...rest }: ButtonProps) => {
+const Button = ({ label, className, variant, ...rest }: ButtonProps) => {
   return (
     <Bootstrap.Button
+      className={className}
       variant={variant || 'primary'}
-      disabled={disabled}
-      href={href}
       {...rest}
     >
       {label}

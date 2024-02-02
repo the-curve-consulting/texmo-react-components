@@ -4,6 +4,7 @@ import FormGroup from './FormGroup';
 import FormSelect from './components/FormSelect';
 import FormCheck from './components/FormCheck';
 import FormLabel from './components/FormLabel';
+import FormRichText from './components/FormRichText';
 
 interface FormProps extends React.HTMLProps<HTMLFormElement> {}
 
@@ -13,6 +14,7 @@ class Form extends React.PureComponent<FormProps> {
   static Select = FormSelect;
   static Check = FormCheck;
   static Label = FormLabel;
+  static RichText = FormRichText;
 
   render() {
     const { children, ...rest } = this.props;

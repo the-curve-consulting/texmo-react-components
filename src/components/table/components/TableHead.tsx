@@ -1,9 +1,8 @@
 import React from 'react';
 import TableSectionContext, { TableSection } from '../TableSectionContext';
 
-interface TableHeadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  children: React.ReactNode;
-}
+export interface TableHeadProps
+  extends React.HTMLProps<HTMLTableSectionElement> {}
 
 const TableHead = ({ children, ...rest }: TableHeadProps) => {
   return (

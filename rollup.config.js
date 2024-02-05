@@ -37,10 +37,6 @@ module.exports = {
   plugins: [
     external(),
     postcss({
-      "includePaths": [
-        './node_modules'
-      ],
-      "importer": tildeImporter,
       modules: true,
     }),
     // Allow json resolution

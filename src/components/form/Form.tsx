@@ -11,10 +11,10 @@ interface FormProps extends React.HTMLProps<HTMLFormElement> {}
 
 class Form extends React.PureComponent<FormProps> {
   static Group = FormGroup;
+  static Label = FormLabel;
   static Control = FormControl;
   static Select = FormSelect;
   static Check = FormCheck;
-  static Label = FormLabel;
   static RichText = FormRichText;
   static DateTime = FormDateTime;
 

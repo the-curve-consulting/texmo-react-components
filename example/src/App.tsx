@@ -1,4 +1,4 @@
-import { Title, Button, Table, Form } from "texmo-react-components";
+import { Title, Button, Table, Form, Card } from "texmo-react-components";
 import './index.scss';
 
 function App() {
@@ -21,9 +21,9 @@ function App() {
         <Table striped bordered hover>
           <Table.Head>
             <Table.Row>
-              <Table.Cell>Test</Table.Cell>
-              <Table.Cell>Test 2</Table.Cell>
-              <Table.Cell>Test 3</Table.Cell>
+              <Table.Cell>Head 1</Table.Cell>
+              <Table.Cell>Head 2</Table.Cell>
+              <Table.Cell>Head 3</Table.Cell>
             </Table.Row>
           </Table.Head>
 
@@ -54,7 +54,7 @@ function App() {
 
         <Form>
           <Form.Group label='Control' className='mt-3'>
-            <Form.Control />
+            <Form.Control placeholder='Placeholder...'/>
           </Form.Group>
 
           <Form.Group label='Select' className='mt-3'>
@@ -71,6 +71,12 @@ function App() {
             <Form.Check name='group-check' label='Option 3' disabled/>
           </Form.Group>
 
+          <Form.Group label='Radio' className='mt-3'>
+            <Form.Check name='group-radio' type='radio' label='Option 1'/>
+            <Form.Check name='group-radio' type='radio' label='Option 2'/>
+            <Form.Check name='group-radio' type='radio' label='Option 3' disabled/>
+          </Form.Group>
+
           <Form.Group label='Rich Text' className='mt-3'>
             <Form.RichText />
           </Form.Group>
@@ -79,6 +85,12 @@ function App() {
             <Form.DateTime />
           </Form.Group>
         </Form>
+      </div>
+
+      <div className="mt-5">
+        <Title text='Card'/>
+
+        <Card header='Header' />
       </div>
     </div>
   )

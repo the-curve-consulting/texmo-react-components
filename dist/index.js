@@ -2133,7 +2133,7 @@ function useButtonProps({
     onKeyDown: handleKeyDown
   }, meta];
 }
-const Button$5 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
+const Button$6 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   let {
       as: asProp,
       disabled
@@ -2149,9 +2149,9 @@ const Button$5 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
     ref: ref
   }));
 });
-Button$5.displayName = 'Button';
+Button$6.displayName = 'Button';
 
-const Button$3 = /*#__PURE__*/React__namespace.forwardRef(({
+const Button$4 = /*#__PURE__*/React__namespace.forwardRef(({
   as,
   bsPrefix,
   variant = 'primary',
@@ -2178,8 +2178,8 @@ const Button$3 = /*#__PURE__*/React__namespace.forwardRef(({
     className: classNames(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
   });
 });
-Button$3.displayName = 'Button';
-var Button$4 = Button$3;
+Button$4.displayName = 'Button';
+var Button$5 = Button$4;
 
 /**
  * Finds whether a component's `children` prop includes a React element of the
@@ -4487,9 +4487,9 @@ const Table$1 = /*#__PURE__*/React__namespace.forwardRef(({
 });
 var Table$2 = Table$1;
 
-var Button$2 = function (_a) {
+var Button$3 = function (_a) {
     var label = _a.label, className = _a.className, variant = _a.variant, rest = __rest(_a, ["label", "className", "variant"]);
-    return (React.createElement(Button$4, __assign$1({ className: className, variant: variant || 'primary' }, rest), label));
+    return (React.createElement(Button$5, __assign$1({ className: className, variant: variant || 'primary' }, rest), label));
 };
 
 var TableSection;
@@ -44023,7 +44023,7 @@ const ButtonEndIcon = styled$1('span', {
 }, ownerState.size === 'small' && {
   marginRight: -2
 }, commonIconStyles(ownerState)));
-const Button = /*#__PURE__*/React__namespace.forwardRef(function Button(inProps, ref) {
+const Button$1 = /*#__PURE__*/React__namespace.forwardRef(function Button(inProps, ref) {
   // props priority: `inProps` > `contextProps` > `themeDefaultProps`
   const contextProps = React__namespace.useContext(ButtonGroupContext$1);
   const buttonGroupButtonContextPositionClassName = React__namespace.useContext(ButtonGroupButtonContext$1);
@@ -44086,7 +44086,7 @@ const Button = /*#__PURE__*/React__namespace.forwardRef(function Button(inProps,
     children: [startIcon, children, endIcon]
   }));
 });
-process.env.NODE_ENV !== "production" ? Button.propTypes /* remove-proptypes */ = {
+process.env.NODE_ENV !== "production" ? Button$1.propTypes /* remove-proptypes */ = {
   // ┌────────────────────────────── Warning ──────────────────────────────┐
   // │ These PropTypes are generated from the TypeScript type definitions. │
   // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
@@ -44180,7 +44180,7 @@ process.env.NODE_ENV !== "production" ? Button.propTypes /* remove-proptypes */ 
    */
   variant: PropTypes /* @typescript-to-proptypes-ignore */.oneOfType([PropTypes.oneOf(['contained', 'outlined', 'text']), PropTypes.string])
 } : void 0;
-var Button$1 = Button;
+var Button$2 = Button$1;
 
 const _excluded$r = ["className", "selected", "value"];
 const useUtilityClasses$l = ownerState => {
@@ -44238,7 +44238,7 @@ const useUtilityClasses$k = ownerState => {
   };
   return composeClasses(slots, getPickersToolbarUtilityClass, classes);
 };
-const PickersToolbarButtonRoot = styled$1(Button$1, {
+const PickersToolbarButtonRoot = styled$1(Button$2, {
   name: 'MuiPickersToolbarButton',
   slot: 'Root',
   overridesResolver: (_, styles) => styles.root
@@ -45066,22 +45066,22 @@ function PickersActionBar(props) {
   const buttons = actions == null ? void 0 : actions.map(actionType => {
     switch (actionType) {
       case 'clear':
-        return /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+        return /*#__PURE__*/jsxRuntime.jsx(Button$2, {
           onClick: onClear,
           children: localeText.clearButtonLabel
         }, actionType);
       case 'cancel':
-        return /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+        return /*#__PURE__*/jsxRuntime.jsx(Button$2, {
           onClick: onCancel,
           children: localeText.cancelButtonLabel
         }, actionType);
       case 'accept':
-        return /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+        return /*#__PURE__*/jsxRuntime.jsx(Button$2, {
           onClick: onAccept,
           children: localeText.okButtonLabel
         }, actionType);
       case 'today':
-        return /*#__PURE__*/jsxRuntime.jsx(Button$1, {
+        return /*#__PURE__*/jsxRuntime.jsx(Button$2, {
           onClick: onSetToday,
           children: localeText.todayButtonLabel
         }, actionType);
@@ -54319,7 +54319,15 @@ var Title = function (_a) {
     return (React.createElement("h1", __assign$1({ className: "title" }, rest), text));
 };
 
-exports.Button = Button$2;
+var Button = function (_a) {
+    var header = _a.header, children = _a.children, className = _a.className, rest = __rest(_a, ["header", "children", "className"]);
+    return (React.createElement("div", __assign$1({ className: "card ".concat(className) }, rest),
+        React.createElement("h3", { className: "mb-3 card-header" }, header),
+        children));
+};
+
+exports.Button = Button$3;
+exports.Card = Button;
 exports.Form = Form;
 exports.Table = Table;
 exports.Title = Title;

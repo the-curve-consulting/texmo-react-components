@@ -1,0 +1,15 @@
+.btn-primary, .btn-success, .btn-danger {
+  color: white;
+
+  &:active, &:hover, &:disabled {
+    color: white !important;
+  }
+}
+
+.btn-secondary {
+  color: var(--texmo-text-color);
+}
+
+.btn-xl {
+  padding: 10px 55px;
+}

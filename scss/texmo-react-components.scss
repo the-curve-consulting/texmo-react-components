@@ -1,9 +1,12 @@
 @import './App.scss';
 @import '_variables.scss';
+@import 'fonts.scss';
 
 // Import Bootstrap and its default variables
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
-// Necessary import for React-Quill
-@import '../node_modules/react-quill/dist/quill.snow.css';
 
+// Import custom component styles
+@import '../src/components/button/Button.scss';
 @import '../src/components/title/Title.scss';
+@import '../src/components/card/Card.scss';
+@import '../src/components/form/components/FormRichText.scss';

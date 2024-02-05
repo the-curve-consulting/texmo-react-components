@@ -1,0 +1,100 @@
+// Import Bootstrap and its default variables
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import './Text.scss';
+
+// $primary: #6A955B;
+// $secondary: #E5E5E5;
+// $info: #0D6EFD;
+// $danger: #FF002F;
+
+// :root {
+//     --texmo-primary-color: #6A955B;
+//     --texmo-text-color: #424244;
+//     --texmo-bg-primary: #F2F2F2;
+//     --texmo-bg-secondary: #E5E5E5;
+//     --texmo-font: "kohinoor", sans-serif;
+// }
+
+// .btn-primary, .btn-success, .btn-danger {
+//     color: white;
+
+//     &:active, &:hover, &:disabled {
+//         color: white !important;
+//     }
+// }
+
+// .btn-secondary {
+//     color: var(--texmo-text-color);
+// }
+
+// .btn-xl {
+//     padding: 10px 55px;
+// }
+
+// body {
+//     color: var(--texmo-text-color);
+//     font-family: var(--texmo-font);
+//     font-weight: 400;
+//     font-style: normal;
+// }
+
+// h1 {
+//     color: var(--texmo-text-color);
+//     font-family: var(--texmo-font);
+//     font-weight: 800;
+//     font-style: normal;
+// }
+
+// .sidebar-bg-grey {
+//     background-color: var(--texmo-bg-primary);
+// }
+
+// .main-nav {
+//     i {
+//         font-size: 3rem;
+//     }
+
+//     .nav-link.active {
+//         background-color: var(--texmo-bg-secondary);
+//         color: var(--texmo-text-color);
+//     }
+// }
+
+// .logo {
+//     width: 200px;
+
+//     @media(min-width: 1024px) {
+//         width: 300px;
+//         margin: 30px 0 0 30px;
+//     }
+// }
+
+// .tile {
+//     .segment {
+//         background-color: var(--texmo-bg-primary);
+//     }
+
+//     .count {
+//         background-color: var(--texmo-primary-color);
+//     }
+// }
+
+// .card {
+//     background-color: var(--texmo-bg-primary);
+//     border: none;
+//     font-family: var(--texmo-font);
+//     font-weight: 400;
+//     font-style: normal;
+//     border-radius: 0;
+// }
+
+// .card-header {
+//     font-family: var(--texmo-font);
+//     font-weight: 800;
+//     font-style: normal;
+// }
+
+// .search-input {
+//     background-color: var(--texmo-bg-primary);
+//     padding: 15px;
+// }

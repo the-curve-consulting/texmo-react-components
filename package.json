@@ -1,7 +1,10 @@
 {
-  "name": "texmo-react-components",
+  "name": "@the-curve-consulting/texmo-react-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-curve-consulting/texmo-react-components.git"
+  },
   "version": "0.1.0",
-  "keywords": [],
   "description": "",
   "main": "dist/index.min.js",
   "module": "dist/index.es.js",
@@ -9,26 +12,19 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "url": "",
-    "type": "git"
-  },
-  "homepage": "",
+  "homepage": "https://github.com/the-curve-consulting/texmo-react-components",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
     "build": "tsc && rollup -c rollup.config.js",
-    "coverage": "codecov -e TRAVIS_NODE_VERSION -f coverage/*.json",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:ci": "cross-env CI=1 jest",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "peerDependencies": {
     "react": ">=18",

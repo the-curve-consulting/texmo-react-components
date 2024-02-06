@@ -40,20 +40,6 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 /* global Reflect, Promise, SuppressedError, Symbol */
 
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends$1(d, b) {
-    if (typeof b !== "function" && b !== null)
-        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
 
 var __assign$1 = function() {
     __assign$1 = Object.assign || function __assign(t) {
@@ -4530,21 +4516,14 @@ var TableBody = function (_a) {
         React.createElement(TableSectionContext.Provider, { value: TableSection.BODY }, children)));
 };
 
-var Table = /** @class */ (function (_super) {
-    __extends$1(Table, _super);
-    function Table() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Table.prototype.render = function () {
-        var _a = this.props, className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
-        return (React.createElement(Table$2, __assign$1({ className: className }, rest), children));
-    };
-    Table.Head = TableHead;
-    Table.Row = TableRow;
-    Table.Cell = TableCell;
-    Table.Body = TableBody;
-    return Table;
-}(React.PureComponent));
+var Table = function (_a) {
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement(Table$2, __assign$1({ className: className }, rest), children));
+};
+Table.Head = TableHead;
+Table.Row = TableRow;
+Table.Cell = TableCell;
+Table.Body = TableBody;
 
 var FormControl$2 = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
@@ -54292,27 +54271,17 @@ var FormDateTime = function (_a) {
             } }, rest))));
 };
 
-var Form = /** @class */ (function (_super) {
-    __extends$1(Form, _super);
-    function Form() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Form.prototype.render = function () {
-        var _a = this.props, children = _a.children, rest = __rest(_a, ["children"]);
-        return React.createElement("form", __assign$1({}, rest),
-            " ",
-            children,
-            " ");
-    };
-    Form.Group = FormGroup;
-    Form.Label = FormLabel$2;
-    Form.Control = FormControl$2;
-    Form.Select = FormSelect;
-    Form.Check = FormCheck;
-    Form.RichText = FormRichText;
-    Form.DateTime = FormDateTime;
-    return Form;
-}(React.PureComponent));
+var Form = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return React.createElement("form", __assign$1({}, rest), children);
+};
+Form.Group = FormGroup;
+Form.Label = FormLabel$2;
+Form.Control = FormControl$2;
+Form.Select = FormSelect;
+Form.Check = FormCheck;
+Form.RichText = FormRichText;
+Form.DateTime = FormDateTime;
 
 var Title = function (_a) {
     var text = _a.text, rest = __rest(_a, ["text"]);

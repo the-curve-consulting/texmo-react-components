@@ -7,20 +7,17 @@ import TableBody from './components/TableBody';
 
 interface TableProps extends Bootstrap.TableProps {}
 
-class Table extends React.PureComponent<TableProps> {
-  static Head = TableHead;
-  static Row = TableRow;
-  static Cell = TableCell;
-  static Body = TableBody;
+const Table = ({ className, children, ...rest }: TableProps) => {
+  return (
+    <Bootstrap.Table className={className} {...rest}>
+      {children}
+    </Bootstrap.Table>
+  );
+};
 
-  render() {
-    const { className, children, ...rest } = this.props;
-    return (
-      <Bootstrap.Table className={className} {...rest}>
-        {children}
-      </Bootstrap.Table>
-    );
-  }
-}
+Table.Head = TableHead;
+Table.Row = TableRow;
+Table.Cell = TableCell;
+Table.Body = TableBody;
 
 export default Table;

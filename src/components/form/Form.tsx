@@ -7,21 +7,18 @@ import FormLabel from './components/FormLabel';
 import FormRichText from './components/FormRichText';
 import FormDateTime from './components/FormDateTime';
 
-interface FormProps extends React.HTMLProps<HTMLFormElement> {}
+export interface FormProps extends React.HTMLProps<HTMLFormElement> {}
 
-class Form extends React.PureComponent<FormProps> {
-  static Group = FormGroup;
-  static Label = FormLabel;
-  static Control = FormControl;
-  static Select = FormSelect;
-  static Check = FormCheck;
-  static RichText = FormRichText;
-  static DateTime = FormDateTime;
+const Form = ({ children, ...rest }: FormProps) => {
+  return <form {...rest}>{children}</form>;
+};
 
-  render() {
-    const { children, ...rest } = this.props;
-    return <form {...rest}> {children} </form>;
-  }
-}
+Form.Group = FormGroup;
+Form.Label = FormLabel;
+Form.Control = FormControl;
+Form.Select = FormSelect;
+Form.Check = FormCheck;
+Form.RichText = FormRichText;
+Form.DateTime = FormDateTime;
 
 export default Form;

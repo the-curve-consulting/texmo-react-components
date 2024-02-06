@@ -1,1 +1,0 @@
-{"version":3,"file":"FormLabel.d.ts","sourceRoot":"","sources":["../../../../src/components/form/components/FormLabel.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAE1B,OAAO,EAAE,cAAc,IAAI,uBAAuB,EAAE,MAAM,iBAAiB,CAAC;AAE5E,KAAK,cAAc,GAAG,uBAAuB,GAAG;IAC9C,KAAK,EAAE,MAAM,CAAC;CACf,CAAC;AAEF,QAAA,MAAM,SAAS,yBAA0B,cAAc,sBAItD,CAAC;AAEF,eAAe,SAAS,CAAC"}

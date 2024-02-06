@@ -1,8 +1,0 @@
-import React from 'react';
-import { FormLabelProps as BootstrapFormLabelProps } from 'react-bootstrap';
-type FormLabelProps = BootstrapFormLabelProps & {
-    label: string;
-};
-declare const FormLabel: ({ label, className }: FormLabelProps) => React.JSX.Element;
-export default FormLabel;
-//# sourceMappingURL=FormLabel.d.ts.map

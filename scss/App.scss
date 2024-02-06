@@ -1,0 +1,52 @@
+body {
+  color: var(--texmo-text-color);
+  font-family: var(--texmo-font);
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  color: var(--texmo-text-color);
+  font-family: var(--texmo-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.sidebar-bg-grey {
+  background-color: var(--texmo-bg-primary);
+}
+
+.main-nav {
+  i {
+    font-size: 3rem;
+  }
+
+  .nav-link.active {
+    background-color: var(--texmo-bg-secondary);
+    color: var(--texmo-text-color);
+  }
+}
+
+.logo {
+  width: 200px;
+
+  @media(min-width: 1024px) {
+    width: 300px;
+    margin: 30px 0 0 30px;
+  }
+}
+
+.tile {
+  .segment {
+    background-color: var(--texmo-bg-primary);
+  }
+
+  .count {
+    background-color: var(--texmo-primary-color);
+  }
+}
+
+.search-input {
+  background-color: var(--texmo-bg-primary);
+  padding: 15px;
+}

@@ -3,13 +3,12 @@ const json = require('@rollup/plugin-json');
 const resolve = require('@rollup/plugin-node-resolve');
 const external = require('rollup-plugin-peer-deps-external');
 const postcss = require('rollup-plugin-postcss');
-const sourceMaps = require('rollup-plugin-sourcemaps');
 const terser = require('@rollup/plugin-terser');
-const typescript = require('rollup-plugin-typescript2');
+const typescript = require('@rollup/plugin-typescript');
 const pkg = require('./package.json');
 
 module.exports = {
-  input: `src/index.tsx`,
+  input: `src/index.ts`,
   output: [
     {
       file: pkg.main,
@@ -44,9 +43,7 @@ module.exports = {
     json(),
     // Compile TypeScript files
     typescript({
-      useTsconfigDeclarationDir: true,
       exclude: ['**/__tests__/**', '*.spec.*', '*.test.*'],
-      clean: true,
     }),
     // Allow node_modules resolution, so you can use 'external' to control
     // which external modules to include in the bundle
@@ -54,7 +51,5 @@ module.exports = {
     resolve(),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
-    // Resolve source maps to the original source
-    sourceMaps(),
   ],
 };

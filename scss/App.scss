@@ -1,0 +1,166 @@
+body {
+  color: var(--texmo-text-color);
+  font-family: var(--texmo-font) !important;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  color: var(--texmo-text-color);
+  font-family: var(--texmo-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.main-nav {
+  i {
+    font-size: 3rem;
+  }
+
+  .nav-link.active {
+    background-color: var(--texmo-bg-secondary) !important;
+    color: var(--texmo-text-color) !important;
+  }
+}
+
+.logo {
+  max-height: 80px;
+  max-width: 260px;
+  width: auto;
+  margin: 1.5rem;
+
+  @media(min-width: 1024px) {
+    margin: 2.5rem;
+  }
+}
+
+.input-group-button {
+  background-color: var(--texmo-bg-primary);
+  color: #9c9b9b;
+  @extend .border;
+  border-left: 0 !important;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background-image: none;
+}
+
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none;
+}
+
+
+a.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card.card-hover-effect {
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(5px);
+}
+
+.gray-text {
+  color: #9fa8b3;
+}
+
+.page-header {
+  width: 100%;
+  margin-top: 45px;
+
+  @media(max-width: 768px) {
+    margin-top: 26px;
+  }
+}
+
+.page-header-column {
+  flex: 1;
+}
+
+.right-page-header-column {
+  justify-content: flex-end;
+}
+
+.Toastify__toast-container--top-center {
+  top: 0
+}
+
+.Toastify__toast-container {
+  padding: 0;
+}
+
+.Toastify__toast {
+  border-radius: 0px;
+  min-height: 80px;
+}
+
+.Toastify__toast-icon {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 30px;
+}
+
+.Toastify__close-button {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.list-desktop {
+  display: none;
+
+  @media (min-width: 768px) {
+      display: block;
+  }
+}
+
+.list-mobile {
+  display: none;
+
+  @media(max-width: 768px) {
+      display: block;
+  }
+}
+
+.sidebar-bg-grey {
+  background-color: var(--texmo-bg-primary);
+}
+
+.tooltip-inner {
+  background-color: #424244 !important;
+  color: white;
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: #424244 !important;
+}
+
+.w-0 {
+  width: 0%;
+}
+
+.open-dummy {
+  flex: 0;
+  transition: flex 0.3s;
+
+  &.opened {
+    flex: auto;
+  }
+
+  &.closed {
+    width: 0%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}

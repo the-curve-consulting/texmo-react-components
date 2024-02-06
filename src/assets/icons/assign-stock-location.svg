@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.631 57.704">
+  <g id="assign-stock-location" transform="translate(-91.75 -20.615)">
+    <rect id="Rectangle_1575" data-name="Rectangle 1575" width="66.331" height="4.971" transform="translate(92.4 67.143)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1576" data-name="Rectangle 1576" width="5.514" height="5.514" transform="translate(92.4 72.155)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1577" data-name="Rectangle 1577" width="5.514" height="5.514" transform="translate(153.175 72.155)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1578" data-name="Rectangle 1578" width="5.514" height="5.514" transform="translate(122.808 72.155)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1579" data-name="Rectangle 1579" width="14.787" height="14.787" transform="translate(99.376 48.681)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1580" data-name="Rectangle 1580" width="14.787" height="14.787" transform="translate(118.13 48.681)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <rect id="Rectangle_1581" data-name="Rectangle 1581" width="14.787" height="14.787" transform="translate(136.593 48.681)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    <g id="Group_390" data-name="Group 390" transform="translate(104.137 53.902)">
+      <line id="Line_157" data-name="Line 157" x1="3.634" y2="4.344" transform="translate(1.587)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+      <line id="Line_158" data-name="Line 158" x2="1.587" y2="1.88" transform="translate(0 2.464)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    </g>
+    <g id="Group_391" data-name="Group 391" transform="translate(122.934 53.902)">
+      <line id="Line_159" data-name="Line 159" x1="3.634" y2="4.344" transform="translate(1.587)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+      <line id="Line_160" data-name="Line 160" x2="1.587" y2="1.88" transform="translate(0 2.464)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    </g>
+    <g id="Group_392" data-name="Group 392" transform="translate(141.354 53.902)">
+      <line id="Line_161" data-name="Line 161" x1="3.676" y2="4.344" transform="translate(1.587)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+      <line id="Line_162" data-name="Line 162" x2="1.587" y2="1.88" transform="translate(0 2.464)" fill="none" stroke="#434241" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.3"/>
+    </g>
+    <path id="Path_95" data-name="Path 95" d="M309.8,198.033c4.527,0,8.2,3.341,8.2,7.462a6.845,6.845,0,0,1-.3,1.995,6.963,6.963,0,0,1-.274.746l-.248.514L309.8,221.16l-7.388-12.428-.224-.463a6.957,6.957,0,0,1-.289-.779,6.838,6.838,0,0,1-.3-1.995C301.6,201.374,305.268,198.033,309.8,198.033Zm0,11.3a3.926,3.926,0,1,0-4.294-3.908A4.119,4.119,0,0,0,309.8,209.335Z" transform="translate(-184.303 -176.768)" fill="none" stroke="#3b3a39" stroke-width="1.3"/>
+  </g>
+</svg>

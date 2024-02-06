@@ -1,0 +1,7 @@
+.texmo-table.table {
+  height: 1px;
+}
+
+.texmo-table.table > :not(caption) > * > * {
+  border-bottom-width: 0px;
+}

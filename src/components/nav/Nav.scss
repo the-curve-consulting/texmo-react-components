@@ -1,0 +1,94 @@
+.nav-item-menu-icon {
+  display: block;
+
+  @media(max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.sidenav-button {
+  height: 54px;
+
+  &-container {
+    display: flex !important;
+    cursor: pointer;
+
+    justify-content: center;
+
+    // `md` applies to small devices (landscape phones, less than 768px)
+    @media (max-width: 767.98px) {
+      display: none !important;
+      background-color: red;
+    }
+
+    &-divider {
+      height: 1px;
+      width: 80%;
+      background: #ccc !important;
+      margin-left: 10%;
+    }
+  }
+
+  &-opened {
+    margin-right: 10%;
+  }
+}
+
+.sidenav-item {
+  &::after {
+    content: '';
+
+    display: block;
+    background: #ccc !important;
+    width: 80%;
+    margin-left: 10%;
+    height: 1px;
+  }
+}
+
+.sidenav-link {
+  padding: 16px 46px;
+}
+
+.nav-link {
+  border-radius: 0px !important;
+}
+
+.nav-item-text {
+  opacity: 0;
+  margin-left: 0;
+  width: 0;
+
+  transition: width 300ms ease;
+  transition: margin-left 300ms ease;
+
+  &.opened {
+    transition: opacity 320ms ease;
+
+    margin-left: 18px;
+    opacity: 1;
+    width: auto;
+  }
+
+  // `md` applies to small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    opacity: 1 !important;
+    margin-left: 18px;
+    width: unset !important;
+  }
+}
+
+.nav-item-expand {
+  flex: 0;
+  transition: flex 0.5s;
+  width: 0%;
+}
+
+.nav-item-expand-open {
+  flex: auto;
+  width: auto;
+}

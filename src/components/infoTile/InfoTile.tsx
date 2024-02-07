@@ -6,7 +6,6 @@ import InfoTileText from './components/InfoTileText';
 
 export interface InfoTileProps extends React.HTMLProps<HTMLBaseElement> {
   title: string;
-  colour: string;
   icon: string;
 }
 

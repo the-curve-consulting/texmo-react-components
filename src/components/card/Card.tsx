@@ -1,15 +1,16 @@
 import React from 'react';
+import * as Bootstrap from 'react-bootstrap';
 
-interface CardProps extends React.HTMLProps<HTMLDivElement> {
+interface CardProps extends Bootstrap.CardProps {
   header?: string;
 }
 
 const Button = ({ header, children, className, ...rest }: CardProps) => {
   return (
-    <div className={`card ${className}`} {...rest}>
-      <h3 className="mb-3 card-header">{header}</h3>
+    <Bootstrap.Card {...rest}>
+      <h3 className={`mb-3 card-header + ${className}`}>{header}</h3>
       {children}
-    </div>
+    </Bootstrap.Card>
   );
 };
 

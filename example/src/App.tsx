@@ -1,4 +1,5 @@
-import { Title, Button, Table, Form, Card } from "texmo-react-components";
+import { Title, Button, Table, Form, Card, Chip, List } from "@the-curve-consulting/texmo-react-components";
+
 import './index.scss';
 
 function App() {
@@ -18,17 +19,41 @@ function App() {
       <div className="mt-5">
         <Title text='Table'/>
 
-        <Table striped bordered hover>
+        <Table>
           <Table.Head>
             <Table.Row>
               <Table.Cell>Head 1</Table.Cell>
               <Table.Cell>Head 2</Table.Cell>
               <Table.Cell>Head 3</Table.Cell>
+              <Table.Cell>Head 4</Table.Cell>
+              <Table.Cell>Head 5</Table.Cell>
+              <Table.Cell>Head 6</Table.Cell>
             </Table.Row>
           </Table.Head>
 
           <Table.Body>
             <Table.Row>
+              <Table.Cell>
+                <div className="mt-2">Test</div>
+                <div>
+                    <h3>
+                        Test 2
+                    </h3>
+                </div>
+              </Table.Cell>
+              <Table.Cell className="borderStart">
+                <Chip label="Test" color="#B8F1A6"/>
+              </Table.Cell>
+              <Table.Cell className="borderStart">Value 3</Table.Cell>
+              <Table.Cell className="borderStart">Value 1</Table.Cell>
+              <Table.Cell className="borderStart">Value 2</Table.Cell>
+              <Table.Cell className="borderStart">Value 3</Table.Cell>
+            </Table.Row>
+
+            <Table.Row>
+              <Table.Cell>Value 1</Table.Cell>
+              <Table.Cell>Value 2</Table.Cell>
+              <Table.Cell>Value 3</Table.Cell>
               <Table.Cell>Value 1</Table.Cell>
               <Table.Cell>Value 2</Table.Cell>
               <Table.Cell>Value 3</Table.Cell>
@@ -38,13 +63,11 @@ function App() {
               <Table.Cell>Value 1</Table.Cell>
               <Table.Cell>Value 2</Table.Cell>
               <Table.Cell>Value 3</Table.Cell>
-            </Table.Row>
-
-            <Table.Row>
               <Table.Cell>Value 1</Table.Cell>
               <Table.Cell>Value 2</Table.Cell>
               <Table.Cell>Value 3</Table.Cell>
             </Table.Row>
+            
           </Table.Body>
         </Table>
       </div>
@@ -92,6 +115,66 @@ function App() {
 
         <Card header='Header' />
       </div>
+
+      <List>
+        <List.Head>
+          <List.Cell>Head 1</List.Cell>
+          <List.Cell>Head 2</List.Cell>
+          <List.Cell>Head 3</List.Cell>
+        </List.Head>
+
+        <List.Body>
+          <List.Row>
+            <List.Col>
+              <List.Cell>
+                <div className="mt-2">Test</div>
+                  <div>
+                    <h3>
+                      Test 2
+                    </h3>
+                </div>
+              </List.Cell>
+            </List.Col>
+
+            <List.Col>
+              <List.Cell>
+                <Chip label="Test" color="#B8F1A6"/>
+              </List.Cell>
+            </List.Col>
+
+            <List.Col>
+              <List.Cell>
+                <p>Test</p>
+              </List.Cell>
+            </List.Col>
+          </List.Row>
+
+          <List.Row>
+            <List.Col>
+              <List.Cell>
+                <div className="mt-2">Test</div>
+                  <div>
+                    <h3>
+                      Test 2
+                    </h3>
+                </div>
+              </List.Cell>
+            </List.Col>
+
+            <List.Col>
+              <List.Cell>
+                <Chip label="Test" color="#B8F1A6"/>
+              </List.Cell>
+            </List.Col>
+
+            <List.Col>
+              <List.Cell>
+                <p>Test</p>
+              </List.Cell>
+            </List.Col>
+          </List.Row>
+        </List.Body>
+      </List>
     </div>
   )
 }

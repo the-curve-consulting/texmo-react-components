@@ -8,7 +8,9 @@ type FormLabelProps = BootstrapFormLabelProps & {
 
 const FormLabel = ({ label, className }: FormLabelProps) => {
   return (
-    <Bootstrap.Form.Label className={className}>{label}</Bootstrap.Form.Label>
+    <Bootstrap.Form.Label className={className}>
+      <small className="text-muted">{label}</small>
+    </Bootstrap.Form.Label>
   );
 };
 

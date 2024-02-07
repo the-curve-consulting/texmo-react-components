@@ -19,12 +19,12 @@ const ListCell = ({ className, children, ...rest }: ListCellProps) => {
     default:
       return (
         <div
-          className={`pt-3 h-100 d-flex align-items-center ${className}`}
+          className={`h-100 d-flex align-items-center ${className}`}
           {...rest}
         >
           <Bootstrap.Card className="h-100 w-100">
             <Bootstrap.Card.Body className="d-flex justify-content-center align-items-center">
-              <Bootstrap.Row className="text-center">{children}</Bootstrap.Row>
+              <div className="w-100">{children}</div>
             </Bootstrap.Card.Body>
           </Bootstrap.Card>
         </div>

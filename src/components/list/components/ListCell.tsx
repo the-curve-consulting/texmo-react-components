@@ -10,7 +10,7 @@ const ListCell = ({ className, children, ...rest }: ListCellProps) => {
   switch (section) {
     case ListSection.HEAD:
       return (
-        <div className={`col-2 ${className}`} {...rest}>
+        <div className={`col ${className}`} {...rest}>
           {children}
         </div>
       );

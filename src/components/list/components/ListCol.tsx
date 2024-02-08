@@ -14,7 +14,7 @@ const ListCol = ({
   const border = borderStart ? 'border-start' : undefined;
 
   return (
-    <Bootstrap.Col xs="2" className={`px-0 ${border} ${className}`} {...rest}>
+    <Bootstrap.Col className={`px-0 ${border} ${className}`} {...rest}>
       {children}
     </Bootstrap.Col>
   );

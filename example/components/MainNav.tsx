@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import { SideNavbar } from '@the-curve-consulting/texmo-react-components';
 
 export interface NavItemProps {
   route: string;
@@ -26,7 +25,7 @@ const NavItem = ({ route, label, icon }: NavItemProps) => {
 
 const Navbar = () => {
   return (
-    <SideNavbar>
+    <>
       <NavItem 
         route={'/'} 
         icon={'house'}
@@ -42,7 +41,7 @@ const Navbar = () => {
         icon={'list-task'}
         label={'List'}
       />
-    </SideNavbar>
+    </>
   )
 }
 

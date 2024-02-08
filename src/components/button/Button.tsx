@@ -1,10 +1,10 @@
 import React from 'react';
 import * as Bootstrap from 'react-bootstrap';
-import { themes } from 'types';
+import { Themes } from 'types';
 
 interface ButtonProps extends Bootstrap.ButtonProps {
   label: string;
-  variant?: themes;
+  variant?: Themes;
 }
 
 const Button = ({ label, className, variant, ...rest }: ButtonProps) => {

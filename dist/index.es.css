@@ -969,8 +969,8 @@ h1, .h1 {
   font-size: 3rem;
 }
 .main-nav .nav-link.active {
-  background-color: var(--texmo-bg-secondary);
-  color: var(--texmo-text-color);
+  background-color: var(--texmo-bg-secondary) !important;
+  color: var(--texmo-text-color) !important;
 }
 
 .logo {

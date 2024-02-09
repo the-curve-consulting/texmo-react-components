@@ -22850,7 +22850,7 @@ Form$1.DateTime = FormDateTime;
 
 var Title = function (_a) {
     var text = _a.text, rest = __rest(_a, ["text"]);
-    return (React.createElement("h1", __assign$1({ className: "title" }, rest), text));
+    return (React.createElement("h1", __assign$1({ className: "fw-bold" }, rest), text));
 };
 
 var Card = function (_a) {
@@ -24290,7 +24290,7 @@ var InfoTileItem = function (_a) {
     return (React.createElement(CardText$1, null,
         React.createElement("span", { className: "d-flex mb-3 justify-content-between" },
             text,
-            React.createElement("span", { className: "badge text-bg-".concat(theme, " p-2") }, value))));
+            React.createElement("span", { className: "badge bg-".concat(theme, " p-2") }, value))));
 };
 
 var InfoTile = function (_a) {
@@ -24300,7 +24300,7 @@ var InfoTile = function (_a) {
             React.createElement(Col$1, { xs: "auto", className: "p-4 d-none d-md-block" },
                 React.createElement("div", { className: "segment p-4 h-100" },
                     React.createElement("i", { className: "bi bi-".concat(icon), style: { fontSize: '4rem' } }))),
-            React.createElement(Col$1, { className: "py-4" },
+            React.createElement(Col$1, { className: "py-4 me-4" },
                 React.createElement(Card$2.Body, null, children)))));
 };
 InfoTile.Item = InfoTileItem;

@@ -1,25 +1,16 @@
 import React from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import {
-  DateTimePicker,
-  DateTimePickerProps,
-} from '@mui/x-date-pickers/DateTimePicker';
+import { FormControlProps, Form } from 'react-bootstrap';
 
-export interface FormDateTime extends DateTimePickerProps<Date> {}
+export interface FormDateTimeProps extends FormControlProps {}
 
-const FormDateTime = ({ ...rest }: FormDateTime) => {
+const FormDateTime = ({ className, ...rest }: FormDateTimeProps) => {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateTimePicker
-        slotProps={{
-          textField: {
-            fullWidth: true,
-          },
-        }}
-        {...rest}
-      />
-    </LocalizationProvider>
+    <Form.Control
+      as="input"
+      type="datetime-local"
+      className={className}
+      {...rest}
+    />
   );
 };
 

@@ -1,1 +1,1 @@
-export type themes = 'primary' | 'secondary' | 'info' | 'danger';
+export type Themes = 'primary' | 'secondary' | 'info' | 'danger';

@@ -1,10 +1,13 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  FormControl as BootstrapFormControl,
+  FormControlProps as BootstrapFormControlProps,
+} from 'react-bootstrap';
 
-export interface FormControlProps extends Bootstrap.FormControlProps {}
+export interface FormControlProps extends BootstrapFormControlProps {}
 
 const FormControl = ({ className, ...rest }: FormControlProps) => {
-  return <Bootstrap.Form.Control as="input" className={className} {...rest} />;
+  return <BootstrapFormControl as="input" className={className} {...rest} />;
 };
 
 export default FormControl;

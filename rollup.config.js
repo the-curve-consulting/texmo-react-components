@@ -38,6 +38,7 @@ module.exports = {
     external(),
     postcss({
       modules: true,
+      extract: true,
     }),
     // Allow json resolution
     json(),

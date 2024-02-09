@@ -1,14 +1,14 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
 import SearchBarInput from './components/SearchBarInput';
 import SearchBarButton from './components/SearchBarButton';
+import { InputGroupProps, InputGroup } from 'react-bootstrap';
 
-export interface SearchBarProps extends Bootstrap.InputGroupProps {}
+export interface SearchBarProps extends InputGroupProps {}
 
 const SearchBar = ({ children, ...rest }: SearchBarProps) => {
   return (
     <div className="d-flex">
-      <Bootstrap.InputGroup {...rest}>{children}</Bootstrap.InputGroup>
+      <InputGroup {...rest}>{children}</InputGroup>
     </div>
   );
 };

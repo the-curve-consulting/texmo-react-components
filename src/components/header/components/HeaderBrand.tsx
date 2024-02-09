@@ -1,10 +1,10 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { NavbarBrandProps, Navbar } from 'react-bootstrap';
 
-export interface HeaderBrandProps extends Bootstrap.NavbarBrandProps {}
+export interface HeaderBrandProps extends NavbarBrandProps {}
 
 const HeaderBrand = ({ children }: HeaderBrandProps) => {
-  return <Bootstrap.Navbar.Brand>{children}</Bootstrap.Navbar.Brand>;
+  return <Navbar.Brand>{children}</Navbar.Brand>;
 };
 
 export default HeaderBrand;

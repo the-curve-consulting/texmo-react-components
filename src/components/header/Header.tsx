@@ -1,21 +1,26 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
 import HeaderBrand from './components/HeaderBrand';
 import HeaderDropdown from './components/HeaderDropdown';
 import HeaderNavbar from './components/HeaderNavbar';
+import {
+  NavbarProps,
+  ContainerProps,
+  Navbar,
+  Container,
+} from 'react-bootstrap';
 
-export interface HeaderProps extends Bootstrap.NavbarProps {
-  container?: Bootstrap.ContainerProps;
+export interface HeaderProps extends NavbarProps {
+  container?: ContainerProps;
 }
 
 const Header = ({ container, children, ...rest }: HeaderProps) => {
   return (
     <header>
-      <Bootstrap.Navbar expand="md" {...rest}>
-        <Bootstrap.Container fluid className="px-4" {...container}>
+      <Navbar expand="md" {...rest}>
+        <Container fluid className="px-4" {...container}>
           {children}
-        </Bootstrap.Container>
-      </Bootstrap.Navbar>
+        </Container>
+      </Navbar>
     </header>
   );
 };

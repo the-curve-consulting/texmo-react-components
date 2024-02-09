@@ -1,13 +1,13 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { RowProps, Row } from 'react-bootstrap';
 
-export interface ListRowProps extends Bootstrap.RowProps {}
+export interface ListRowProps extends RowProps {}
 
 const ListRow = ({ children, ...rest }: ListRowProps) => {
   return (
-    <Bootstrap.Row className="text-center mt-3" {...rest}>
+    <Row className="text-center mt-3" {...rest}>
       {children}
-    </Bootstrap.Row>
+    </Row>
   );
 };
 

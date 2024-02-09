@@ -1,6 +1,8 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
-import { FormLabelProps as BootstrapFormLabelProps } from 'react-bootstrap';
+import {
+  FormLabelProps as BootstrapFormLabelProps,
+  FormLabel as BootstrapFormLabel,
+} from 'react-bootstrap';
 
 type FormLabelProps = BootstrapFormLabelProps & {
   label: string;
@@ -8,9 +10,9 @@ type FormLabelProps = BootstrapFormLabelProps & {
 
 const FormLabel = ({ label, className }: FormLabelProps) => {
   return (
-    <Bootstrap.Form.Label className={className}>
+    <BootstrapFormLabel className={className}>
       <small className="text-muted">{label}</small>
-    </Bootstrap.Form.Label>
+    </BootstrapFormLabel>
   );
 };
 

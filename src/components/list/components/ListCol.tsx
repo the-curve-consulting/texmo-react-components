@@ -1,7 +1,7 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { ColProps, Col } from 'react-bootstrap';
 
-export interface ListColProps extends Bootstrap.ColProps {
+export interface ListColProps extends ColProps {
   borderStart?: boolean;
 }
 
@@ -14,9 +14,9 @@ const ListCol = ({
   const border = borderStart ? 'border-start' : undefined;
 
   return (
-    <Bootstrap.Col className={`px-0 ${border} ${className}`} {...rest}>
+    <Col className={`px-0 ${border} ${className}`} {...rest}>
       {children}
-    </Bootstrap.Col>
+    </Col>
   );
 };
 

@@ -1,12 +1,13 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  Dropdown,
+  DropdownItemProps as BootstrapDropdownItemProps,
+} from 'react-bootstrap';
 
-export interface DropdownItemProps extends Bootstrap.DropdownItemProps {}
+export interface DropdownItemProps extends BootstrapDropdownItemProps {}
 
 const DropdownItem = ({ children, ...rest }: DropdownItemProps) => {
-  return (
-    <Bootstrap.Dropdown.Item {...rest}>{children}</Bootstrap.Dropdown.Item>
-  );
+  return <Dropdown.Item {...rest}>{children}</Dropdown.Item>;
 };
 
 export default DropdownItem;

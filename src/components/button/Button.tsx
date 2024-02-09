@@ -1,21 +1,24 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
 import { Themes } from 'types';
+import {
+  Button as BootstrapButton,
+  ButtonProps as BootstrapButtonProps,
+} from 'react-bootstrap';
 
-interface ButtonProps extends Bootstrap.ButtonProps {
+interface ButtonProps extends BootstrapButtonProps {
   label: string;
   variant?: Themes;
 }
 
 const Button = ({ label, className, variant, ...rest }: ButtonProps) => {
   return (
-    <Bootstrap.Button
+    <BootstrapButton
       className={className}
       variant={variant || 'primary'}
       {...rest}
     >
       {label}
-    </Bootstrap.Button>
+    </BootstrapButton>
   );
 };
 

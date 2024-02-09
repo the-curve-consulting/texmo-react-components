@@ -1,17 +1,20 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
 import FormLabel from './components/FormLabel';
+import {
+  FormGroup as BootstrapFormGroup,
+  FormGroupProps as BootstrapFormGroupProps,
+} from 'react-bootstrap';
 
-export interface FormGroupProps extends Bootstrap.FormGroupProps {
+export interface FormGroupProps extends BootstrapFormGroupProps {
   label?: string;
 }
 
 const FormGroup = ({ label, className, children, ...rest }: FormGroupProps) => {
   return (
-    <Bootstrap.Form.Group className={className} {...rest}>
+    <BootstrapFormGroup className={className} {...rest}>
       {label ? <FormLabel label={label} /> : null}
       {children}
-    </Bootstrap.Form.Group>
+    </BootstrapFormGroup>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { CardText } from 'react-bootstrap';
 import { Themes } from 'types';
 
 export interface InfoTileItemProps extends React.HTMLProps<HTMLSpanElement> {
@@ -14,12 +14,12 @@ const InfoTileItem = ({
   theme = 'primary',
 }: InfoTileItemProps) => {
   return (
-    <Bootstrap.Card.Text>
+    <CardText>
       <span className="d-flex mb-3 justify-content-between">
         {text}
         <span className={`badge text-bg-${theme} p-2`}>{value}</span>
       </span>
-    </Bootstrap.Card.Text>
+    </CardText>
   );
 };
 

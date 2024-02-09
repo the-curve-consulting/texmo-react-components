@@ -1,17 +1,17 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { ButtonProps, Button } from 'react-bootstrap';
 
-export interface SearchBarButtonProps extends Bootstrap.ButtonProps {}
+export interface SearchBarButtonProps extends ButtonProps {}
 
 const SearchBarButton = ({ className, ...rest }: SearchBarButtonProps) => {
   return (
-    <Bootstrap.Button
+    <Button
       variant="light"
       className={`input-group-button ${className}`}
       {...rest}
     >
       <i className="bi bi-search"></i>
-    </Bootstrap.Button>
+    </Button>
   );
 };
 

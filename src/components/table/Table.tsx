@@ -1,17 +1,20 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
 import TableHead from './components/TableHead';
 import TableRow from './components/TableRow';
 import TableCell from './components/TableCell';
 import TableBody from './components/TableBody';
+import {
+  Table as BootstrapTable,
+  TableProps as BootstrapTableProps,
+} from 'react-bootstrap';
 
-interface TableProps extends Bootstrap.TableProps {}
+interface TableProps extends BootstrapTableProps {}
 
 const Table = ({ className, children, ...rest }: TableProps) => {
   return (
-    <Bootstrap.Table className={className} {...rest}>
+    <BootstrapTable className={className} {...rest}>
       {children}
-    </Bootstrap.Table>
+    </BootstrapTable>
   );
 };
 

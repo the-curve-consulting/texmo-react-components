@@ -1,12 +1,13 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  Dropdown,
+  DropdownMenuProps as BootstrapDropdownMenuProps,
+} from 'react-bootstrap';
 
-export interface DropdownMenuProps extends Bootstrap.DropdownMenuProps {}
+export interface DropdownMenuProps extends BootstrapDropdownMenuProps {}
 
 const DropdownMenu = ({ children, ...rest }: DropdownMenuProps) => {
-  return (
-    <Bootstrap.Dropdown.Menu {...rest}>{children}</Bootstrap.Dropdown.Menu>
-  );
+  return <Dropdown.Menu {...rest}>{children}</Dropdown.Menu>;
 };
 
 export default DropdownMenu;

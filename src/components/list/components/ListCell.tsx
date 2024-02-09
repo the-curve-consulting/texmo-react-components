@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ListSectionContext, { ListSection } from '../ListSectionContext';
-import * as Bootstrap from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {}
 
@@ -22,11 +22,11 @@ const ListCell = ({ className, children, ...rest }: ListCellProps) => {
           className={`h-100 d-flex align-items-center ${className}`}
           {...rest}
         >
-          <Bootstrap.Card className="h-100 w-100">
-            <Bootstrap.Card.Body className="d-flex justify-content-center align-items-center">
+          <Card className="h-100 w-100">
+            <Card.Body className="d-flex justify-content-center align-items-center">
               <div className="w-100">{children}</div>
-            </Bootstrap.Card.Body>
-          </Bootstrap.Card>
+            </Card.Body>
+          </Card>
         </div>
       );
   }

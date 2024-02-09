@@ -1,18 +1,21 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  Nav as BootstrapNav,
+  NavProps as BootstrapNavProps,
+} from 'react-bootstrap';
 
-export interface NavProps extends Bootstrap.NavProps {}
+export interface NavProps extends BootstrapNavProps {}
 
 const Nav = ({ className, children, ...rest }: NavProps) => {
   return (
-    <Bootstrap.Nav
+    <BootstrapNav
       navbar={false}
       variant="pills"
       className={`flex-column mb-auto mx-auto text-center main-nav ${className}`}
       {...rest}
     >
       {children}
-    </Bootstrap.Nav>
+    </BootstrapNav>
   );
 };
 

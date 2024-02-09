@@ -1,11 +1,11 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import { FormControlProps, Form } from 'react-bootstrap';
 
-export interface FormDateTime extends Bootstrap.FormControlProps {}
+export interface FormDateTimeProps extends FormControlProps {}
 
-const FormDateTime = ({ className, ...rest }: FormDateTime) => {
+const FormDateTime = ({ className, ...rest }: FormDateTimeProps) => {
   return (
-    <Bootstrap.Form.Control
+    <Form.Control
       as="input"
       type="datetime-local"
       className={className}

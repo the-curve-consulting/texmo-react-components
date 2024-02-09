@@ -1,13 +1,16 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  FormSelect as BootstrapFormSelect,
+  FormSelectProps as BootstrapFormSelectProps,
+} from 'react-bootstrap';
 
-export interface FormSelectProps extends Bootstrap.FormSelectProps {}
+export interface FormSelectProps extends BootstrapFormSelectProps {}
 
 const FormSelect = ({ className, children, ...rest }: FormSelectProps) => {
   return (
-    <Bootstrap.Form.Select className={className} {...rest}>
+    <BootstrapFormSelect className={className} {...rest}>
       {children}
-    </Bootstrap.Form.Select>
+    </BootstrapFormSelect>
   );
 };
 

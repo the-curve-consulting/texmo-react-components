@@ -1,16 +1,20 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  DropdownToggle as BootstrapDropdownToggle,
+  DropdownToggleProps as BootstrapDropdownToggleProps,
+  NavLink,
+} from 'react-bootstrap';
 
-export interface DropdownToggleProps extends Bootstrap.DropdownToggleProps {}
+export interface DropdownToggleProps extends BootstrapDropdownToggleProps {}
 
 const DropdownToggle = ({ className, children }: DropdownToggleProps) => {
   return (
-    <Bootstrap.Dropdown.Toggle
-      as={Bootstrap.NavLink}
+    <BootstrapDropdownToggle
+      as={NavLink}
       className={`d-flex align-items-center ${className}`}
     >
       {children}
-    </Bootstrap.Dropdown.Toggle>
+    </BootstrapDropdownToggle>
   );
 };
 

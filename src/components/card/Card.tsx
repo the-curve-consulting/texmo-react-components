@@ -1,17 +1,20 @@
 import React from 'react';
-import * as Bootstrap from 'react-bootstrap';
+import {
+  Card as BootstrapCard,
+  CardProps as BootstrapCardProps,
+} from 'react-bootstrap';
 
-interface CardProps extends Bootstrap.CardProps {
+interface CardProps extends BootstrapCardProps {
   header?: string;
 }
 
-const Button = ({ header, children, className, ...rest }: CardProps) => {
+const Card = ({ header, children, className, ...rest }: CardProps) => {
   return (
-    <Bootstrap.Card {...rest}>
+    <BootstrapCard {...rest}>
       <h3 className={`mb-3 card-header + ${className}`}>{header}</h3>
       {children}
-    </Bootstrap.Card>
+    </BootstrapCard>
   );
 };
 
-export default Button;
+export default Card;

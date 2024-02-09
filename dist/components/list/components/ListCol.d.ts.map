@@ -1,0 +1,1 @@
+{"version":3,"file":"ListCol.d.ts","sourceRoot":"","sources":["../../../../src/components/list/components/ListCol.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,QAAQ,EAAO,MAAM,iBAAiB,CAAC;AAEhD,MAAM,WAAW,YAAa,SAAQ,QAAQ;IAC5C,WAAW,CAAC,EAAE,OAAO,CAAC;CACvB;AAED,QAAA,MAAM,OAAO,kDAKV,YAAY,sBAQd,CAAC;AAEF,eAAe,OAAO,CAAC"}

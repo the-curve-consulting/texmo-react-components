@@ -16,7 +16,7 @@ const InfoTile = ({ icon, children }: InfoTileProps) => {
             <i className={`bi bi-${icon}`} style={{ fontSize: '4rem' }}></i>
           </div>
         </Col>
-        <Col className="py-4">
+        <Col className="py-4 me-4">
           <Card.Body>{children}</Card.Body>
         </Col>
       </Row>

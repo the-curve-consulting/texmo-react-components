@@ -37,7 +37,7 @@ module.exports = {
   plugins: [
     external(),
     postcss({
-      modules: true,
+      modules: false,
       extract: true,
     }),
     // Allow json resolution

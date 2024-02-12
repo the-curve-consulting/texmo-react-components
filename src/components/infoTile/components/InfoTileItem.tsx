@@ -17,7 +17,7 @@ const InfoTileItem = ({
     <CardText>
       <span className="d-flex mb-3 justify-content-between">
         {text}
-        <span className={`badge text-bg-${theme} p-2`}>{value}</span>
+        <span className={`badge bg-${theme} p-2`}>{value}</span>
       </span>
     </CardText>
   );

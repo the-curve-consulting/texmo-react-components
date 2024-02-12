@@ -22,8 +22,8 @@ h1 {
   }
 
   .nav-link.active {
-    background-color: var(--texmo-bg-secondary);
-    color: var(--texmo-text-color);
+    background-color: var(--texmo-bg-secondary) !important;
+    color: var(--texmo-text-color) !important;
   }
 }
 

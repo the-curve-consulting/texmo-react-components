@@ -13,6 +13,7 @@ import UserProfile from 'components/userProfile/UserProfile';
 import Nav from 'components/nav/Nav';
 import Footer from 'components/footer/Footer';
 import SearchBar from 'components/searchBar/SearchBar';
+import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -31,4 +32,5 @@ export {
   Nav,
   Footer,
   SearchBar,
+  Breadcrumb,
 };

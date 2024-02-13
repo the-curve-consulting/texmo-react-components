@@ -1,6 +1,6 @@
 body {
   color: var(--texmo-text-color);
-  font-family: var(--texmo-font);
+  font-family: var(--texmo-font) !important;
   font-weight: 400;
   font-style: normal;
 }
@@ -51,13 +51,13 @@ h1 {
   padding: 15px;
 
   &:focus {
-      background-color: var(--texmo-bg-primary);
+    background-color: var(--texmo-bg-primary);
   }
 }
 
 .input-group {
   .search-input {
-      border-right: 0;
+    border-right: 0;
   }
 }
 
@@ -66,4 +66,56 @@ h1 {
   color: #9c9b9b;
   @extend .border;
   border-left: 0 !important;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background-image: none;
+}
+
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none;
+}
+
+
+a.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card.card-hover-effect {
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(5px);
+}
+
+.gray-text {
+  color: #9fa8b3;
+}
+
+.page-header {
+  width: 100%;
+}
+
+.page-header-column {
+  flex: 1;
+}
+
+.right-page-header-column {
+  justify-content: flex-end;
+}
+
+a.breadcrumb-item {
+  text-decoration: none;
+  color: var(--texmo-text-color);
+}
+
+a.breadcrumb-item:hover {
+  text-decoration: underline;
+  color: var(--texmo-text-color);
 }

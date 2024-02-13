@@ -5,16 +5,9 @@ export interface ListColProps extends ColProps {
   borderStart?: boolean;
 }
 
-const ListCol = ({
-  borderStart,
-  className,
-  children,
-  ...rest
-}: ListColProps) => {
-  const border = borderStart ? 'border-start' : undefined;
-
+const ListCol = ({ className, children, ...rest }: ListColProps) => {
   return (
-    <Col className={`px-0 ${border} ${className}`} {...rest}>
+    <Col className={`px-0 ${className}`} {...rest}>
       {children}
     </Col>
   );

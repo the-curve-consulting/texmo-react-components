@@ -22862,7 +22862,7 @@ var Card = function (_a) {
 
 var Chip = function (_a) {
     var label = _a.label, color = _a.color, rest = __rest(_a, ["label", "color"]);
-    return (React.createElement("h5", null,
+    return (React.createElement("h5", { className: "mb-0" },
         React.createElement("span", __assign$1({ style: {
                 backgroundColor: color,
                 padding: '10px 15px',
@@ -22887,12 +22887,20 @@ var ListHead = function (_a) {
 
 var ListRow = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
-    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3" }, rest), children));
+    var childrenArray = React.Children.toArray(children);
+    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3" }, rest), childrenArray.map(function (child, index) {
+        var childElement = child;
+        return React.cloneElement(childElement, {
+            key: index,
+            borderStart: index !== 0,
+        });
+    })));
 };
 
 var ListCell = function (_a) {
-    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    var borderStart = _a.borderStart, className = _a.className, children = _a.children, rest = __rest(_a, ["borderStart", "className", "children"]);
     var section = React.useContext(ListSectionContext);
+    var border = borderStart ? 'border-start' : undefined;
     switch (section) {
         case ListSection.HEAD:
             return (React.createElement("div", __assign$1({ className: "col ".concat(className) }, rest), children));
@@ -22900,16 +22908,15 @@ var ListCell = function (_a) {
         case ListSection.NONE:
         default:
             return (React.createElement("div", __assign$1({ className: "h-100 d-flex align-items-center ".concat(className) }, rest),
-                React.createElement(Card$2, { className: "h-100 w-100" },
-                    React.createElement(Card$2.Body, { className: "d-flex justify-content-center align-items-center" },
+                React.createElement(Card$2, { className: "h-100 w-100 py-3" },
+                    React.createElement(Card$2.Body, { className: "d-flex justify-content-center align-items-center py-0 ".concat(border) },
                         React.createElement("div", { className: "w-100" }, children)))));
     }
 };
 
 var ListCol = function (_a) {
-    var borderStart = _a.borderStart, className = _a.className, children = _a.children, rest = __rest(_a, ["borderStart", "className", "children"]);
-    var border = borderStart ? 'border-start' : undefined;
-    return (React.createElement(Col$1, __assign$1({ className: "px-0 ".concat(border, " ").concat(className) }, rest), children));
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement(Col$1, __assign$1({ className: "px-0 ".concat(className) }, rest), children));
 };
 
 var ListBody = function (_a) {

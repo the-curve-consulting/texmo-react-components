@@ -53,20 +53,20 @@ const ListPage = () => {
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <Chip label="Test" color="#B8F1A6"/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <ProgressBar percentage={40}/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>
@@ -84,20 +84,20 @@ const ListPage = () => {
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <Chip label="Test" color="#B8F1A6"/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>

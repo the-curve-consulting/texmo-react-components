@@ -1,33 +1,36 @@
-import { Chip, List, ProgressBar, InfoTile, SearchBar } from '@the-curve-consulting/texmo-react-components';
-import { Row, Col } from 'react-bootstrap';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb } from '@the-curve-consulting/texmo-react-components';
+import { Col, Row } from 'react-bootstrap';
 
 const ListPage = () => {
   return (
     <div className="mt-5">
 
-    <Row className="g-4">
-      <Col xl={6}>
-        <InfoTile icon={'house'}>
-          <InfoTile.Title title='Title 1'/>
-          <InfoTile.Item text={'Text'} value={5}/>
-        </InfoTile>
+    <Row className="mt-4">
+      <Col>
+        <Breadcrumb>
+          <Breadcrumb.Item
+            text='Home' 
+            href='http://localhost:5173/' 
+          />
+          <Breadcrumb.Item 
+            text='List'
+            active
+          />
+        </Breadcrumb>
+
+        <Title text='Dashboard'/>
+        <div>This is a list</div>
       </Col>
 
-      <Col xl={6}>
-        <InfoTile icon={'house'}>
-          <InfoTile.Title title='Title 1'/> 
-          <InfoTile.Item text={'Text'} value={5}/>
-          <InfoTile.Item text={'Text'} value={3} theme={'secondary'}/>
-        </InfoTile>
+      <Col className='d-flex align-items-end'>
+        <div className='d-flex mt-3 justify-content-end w-100'>
+          <SearchBar>
+            <SearchBar.Input />
+            <SearchBar.Button />
+          </SearchBar>
+        </div>
       </Col>
     </Row>
-
-    <div className='d-flex mt-3 justify-content-end w-100'>
-      <SearchBar>
-        <SearchBar.Input />
-        <SearchBar.Button />
-      </SearchBar>
-    </div>
 
     <List>
       <List.Head>

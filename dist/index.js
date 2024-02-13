@@ -22850,7 +22850,7 @@ Form$1.DateTime = FormDateTime;
 
 var Title = function (_a) {
     var text = _a.text, rest = __rest(_a, ["text"]);
-    return (React.createElement("h1", __assign$1({ className: "fw-bold" }, rest), text));
+    return React.createElement("h1", __assign$1({}, rest), text);
 };
 
 var Card = function (_a) {
@@ -24391,12 +24391,15 @@ SearchBar.Input = SearchBarInput;
 SearchBar.Button = SearchBarButton;
 
 var BreadcrumbItem = function (_a) {
-    var text = _a.text, active = _a.active, route = _a.route, className = _a.className, rest = __rest(_a, ["text", "active", "route", "className"]);
+    var text = _a.text, active = _a.active, route = _a.route, showSlash = _a.showSlash, className = _a.className, rest = __rest(_a, ["text", "active", "route", "showSlash", "className"]);
     if (active) {
-        return (React.createElement("span", __assign$1({ className: "gray-text ".concat(className) }, rest), text));
+        return (React.createElement("span", __assign$1({ className: "gray-text ".concat(className) }, rest),
+            showSlash ? ' / ' : null,
+            text));
     }
     var baseUrl = window.location.origin;
     return (React.createElement("span", __assign$1({ className: className }, rest),
+        showSlash ? ' / ' : null,
         React.createElement("a", { className: "breadcrumb-item", href: "".concat(baseUrl).concat(route) }, text)));
 };
 
@@ -24405,14 +24408,9 @@ var Breadcrumb = function (_a) {
     var childrenArray = React.Children.toArray(children);
     return (React.createElement("h5", __assign$1({}, rest), childrenArray.map(function (child, index) {
         var childElement = child;
-        var childProps = childElement.props;
-        var text = childProps.text;
-        if (index > 0) {
-            text = " / ".concat(text);
-        }
         return React.cloneElement(childElement, {
-            text: text,
             key: index,
+            showSlash: index !== 0,
         });
     })));
 };

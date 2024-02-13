@@ -10,7 +10,7 @@ const ListPage = () => {
         <Breadcrumb>
           <Breadcrumb.Item
             text='Home' 
-            href='http://localhost:5173/' 
+            route='/' 
           />
           <Breadcrumb.Item 
             text='List'

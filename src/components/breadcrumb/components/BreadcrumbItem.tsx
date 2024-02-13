@@ -15,7 +15,7 @@ const BreadcrumbItem = ({
 }: BreadcrumbItemProps) => {
   if (active) {
     return (
-      <span className={className} {...rest}>
+      <span className={`gray-text ${className}`} {...rest}>
         {text}
       </span>
     );

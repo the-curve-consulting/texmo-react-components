@@ -14,13 +14,6 @@ const Breadcrumb = ({ children, ...rest }: BreadcrumbProps) => {
         const childElement = child as React.ReactElement;
         const childProps = childElement.props as BreadcrumbItemProps;
 
-        const isActive = childProps.active;
-
-        let className = childProps.className;
-        if (isActive) {
-          className = `${className} gray-text`;
-        }
-
         let text = childProps.text;
         if (index > 0) {
           text = ` / ${text}`;
@@ -28,7 +21,6 @@ const Breadcrumb = ({ children, ...rest }: BreadcrumbProps) => {
 
         return React.cloneElement(childElement, {
           text,
-          className,
           key: index,
         });
       })}

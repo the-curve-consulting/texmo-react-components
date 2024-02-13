@@ -3,13 +3,13 @@ import React from 'react';
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
   active: boolean;
-  href: string;
+  route: string;
 }
 
 const BreadcrumbItem = ({
   text,
   active,
-  href,
+  route,
   className,
   ...rest
 }: BreadcrumbItemProps) => {
@@ -21,9 +21,11 @@ const BreadcrumbItem = ({
     );
   }
 
+  const baseUrl = window.location.origin;
+
   return (
     <span className={className} {...rest}>
-      <a className="breadcrumb-item" href={href}>
+      <a className="breadcrumb-item" href={`${baseUrl}${route}`}>
         {text}
       </a>
     </span>

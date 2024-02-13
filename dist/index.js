@@ -24391,12 +24391,13 @@ SearchBar.Input = SearchBarInput;
 SearchBar.Button = SearchBarButton;
 
 var BreadcrumbItem = function (_a) {
-    var text = _a.text, active = _a.active, href = _a.href, className = _a.className, rest = __rest(_a, ["text", "active", "href", "className"]);
+    var text = _a.text, active = _a.active, route = _a.route, className = _a.className, rest = __rest(_a, ["text", "active", "route", "className"]);
     if (active) {
         return (React.createElement("span", __assign$1({ className: "gray-text ".concat(className) }, rest), text));
     }
+    var baseUrl = window.location.origin;
     return (React.createElement("span", __assign$1({ className: className }, rest),
-        React.createElement("a", { className: "breadcrumb-item", href: href }, text)));
+        React.createElement("a", { className: "breadcrumb-item", href: "".concat(baseUrl).concat(route) }, text)));
 };
 
 var Breadcrumb = function (_a) {

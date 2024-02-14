@@ -26,6 +26,7 @@ declare const Form: {
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
     };
     Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
+    Text: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"small", import("react-bootstrap").FormTextProps>;
 };
 export default Form;
 //# sourceMappingURL=Form.d.ts.map

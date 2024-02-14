@@ -22857,6 +22857,7 @@ Form$1.Check = FormCheck;
 Form$1.RichText = FormRichText;
 Form$1.DateTime = FormDateTime;
 Form$1.Feedback = Feedback$1;
+Form$1.Text = FormText$1;
 
 var Title = function (_a) {
     var text = _a.text, rest = __rest(_a, ["text"]);
@@ -22887,7 +22888,7 @@ var ListSectionContext = React.createContext(ListSection.NONE);
 var ListHead = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement(ListSectionContext.Provider, { value: ListSection.HEAD },
-        React.createElement("div", __assign$1({ className: "row mt-5 card-header text-center ".concat(className) }, rest), children)));
+        React.createElement("div", __assign$1({ className: "".concat(className, " row card-header text-center") }, rest), children)));
 };
 
 var ListRow = function (_a) {

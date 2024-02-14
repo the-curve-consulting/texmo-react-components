@@ -7,7 +7,10 @@ const FormPage = () => {
 
       <Form>
         <Form.Group label='Control' className='mt-3'>
-          <Form.Control placeholder='Placeholder...'/>
+          <Form.Control placeholder='Placeholder...' isInvalid/>
+          <Form.Feedback type="invalid">
+            This is Feedback
+          </Form.Feedback>
         </Form.Group>
 
         <Form.Group label='Select' className='mt-3'>

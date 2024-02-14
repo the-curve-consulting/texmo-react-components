@@ -4,7 +4,7 @@ import {
   FormLabel as BootstrapFormLabel,
 } from 'react-bootstrap';
 
-type FormLabelProps = BootstrapFormLabelProps & {
+export type FormLabelProps = BootstrapFormLabelProps & {
   label?: string;
 };
 

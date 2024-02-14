@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormLabelProps as BootstrapFormLabelProps } from 'react-bootstrap';
-type FormLabelProps = BootstrapFormLabelProps & {
+export type FormLabelProps = BootstrapFormLabelProps & {
     label?: string;
 };
 declare const FormLabel: ({ label, children, className }: FormLabelProps) => React.JSX.Element;

@@ -8540,6 +8540,7 @@ var FormControl = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
     return React.createElement(FormControl$2, __assign$1({ as: "input", className: className }, rest));
 };
+FormControl.Feedback = Feedback$1;
 
 var FormLabel = function (_a) {
     var label = _a.label, children = _a.children, className = _a.className;
@@ -8559,11 +8560,13 @@ var FormSelect = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement(BootstrapFormSelect, __assign$1({ className: className }, rest), children));
 };
+FormSelect.Feedback = Feedback$1;
 
 var FormCheck = function (_a) {
     var type = _a.type, className = _a.className, rest = __rest(_a, ["type", "className"]);
     return React.createElement(BootstrapFormCheck, __assign$1({ type: type }, rest, { className: className }));
 };
+FormCheck.Feedback = Feedback$1;
 
 /**
  * Removes all key-value entries from the list cache.
@@ -22834,11 +22837,13 @@ var FormRichText = function (_a) {
     var style = _a.style, rest = __rest(_a, ["style"]);
     return React.createElement(ReactQuill$1, __assign$1({ theme: "snow", style: __assign$1({}, style) }, rest));
 };
+FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
     return (React.createElement(Form$3.Control, __assign$1({ as: "input", type: "datetime-local", className: className }, rest)));
 };
+FormDateTime.Feedback = Feedback$1;
 
 var Form$1 = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
@@ -22851,6 +22856,7 @@ Form$1.Select = FormSelect;
 Form$1.Check = FormCheck;
 Form$1.RichText = FormRichText;
 Form$1.DateTime = FormDateTime;
+Form$1.Feedback = Feedback$1;
 
 var Title = function (_a) {
     var text = _a.text, rest = __rest(_a, ["text"]);

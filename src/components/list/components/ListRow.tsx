@@ -12,7 +12,6 @@ const ListRow = ({ children, ...rest }: ListRowProps) => {
         const childElement = child as React.ReactElement;
 
         return React.cloneElement(childElement, {
-          key: index,
           borderStart: index !== 0,
         });
       })}

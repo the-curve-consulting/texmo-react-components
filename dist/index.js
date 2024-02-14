@@ -22860,8 +22860,8 @@ Form$1.Feedback = Feedback$1;
 Form$1.Text = FormText$1;
 
 var Title = function (_a) {
-    var text = _a.text, rest = __rest(_a, ["text"]);
-    return React.createElement("h1", __assign$1({}, rest), text);
+    var text = _a.text, className = _a.className, rest = __rest(_a, ["text", "className"]);
+    return (React.createElement("h1", __assign$1({ className: "".concat(className, " mb-0") }, rest), text));
 };
 
 var Card = function (_a) {
@@ -22897,14 +22897,13 @@ var ListRow = function (_a) {
     return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3" }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
-            key: index,
             borderStart: index !== 0,
         });
     })));
 };
 
 var ListCell = function (_a) {
-    var borderStart = _a.borderStart, className = _a.className, children = _a.children, rest = __rest(_a, ["borderStart", "className", "children"]);
+    var borderStart = _a.borderStart, className = _a.className, children = _a.children, background = _a.background, rest = __rest(_a, ["borderStart", "className", "children", "background"]);
     var section = React.useContext(ListSectionContext);
     var border = borderStart ? 'border-start' : undefined;
     switch (section) {
@@ -22914,7 +22913,7 @@ var ListCell = function (_a) {
         case ListSection.NONE:
         default:
             return (React.createElement("div", __assign$1({ className: "h-100 d-flex align-items-center ".concat(className) }, rest),
-                React.createElement(Card$2, { className: "h-100 w-100 py-3" },
+                React.createElement(Card$2, { className: "h-100 w-100 py-3", style: { backgroundColor: background } },
                     React.createElement(Card$2.Body, { className: "d-flex justify-content-center align-items-center py-0 ".concat(border) },
                         React.createElement("div", { className: "w-100" }, children)))));
     }
@@ -24375,11 +24374,11 @@ var UserProfile = function (_a) {
 };
 
 var Footer = function (_a) {
-    var className = _a.className, organization = _a.organization;
+    var className = _a.className, organisation = _a.organisation;
     var currentYear = new Date().getFullYear();
     return (React.createElement("footer", { className: "mt-auto pt-3 pb-2 text-end text-muted small ".concat(className) },
         "Copyright \u00A9 ",
-        organization,
+        organisation,
         " ",
         currentYear));
 };

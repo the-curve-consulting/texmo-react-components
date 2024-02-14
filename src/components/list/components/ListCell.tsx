@@ -4,12 +4,14 @@ import { Card } from 'react-bootstrap';
 
 export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {
   borderStart?: boolean;
+  background?: string;
 }
 
 const ListCell = ({
   borderStart,
   className,
   children,
+  background,
   ...rest
 }: ListCellProps) => {
   const section = useContext(ListSectionContext);
@@ -30,7 +32,10 @@ const ListCell = ({
           className={`h-100 d-flex align-items-center ${className}`}
           {...rest}
         >
-          <Card className="h-100 w-100 py-3">
+          <Card
+            className="h-100 w-100 py-3"
+            style={{ backgroundColor: background }}
+          >
             <Card.Body
               className={`d-flex justify-content-center align-items-center py-0 ${border}`}
             >

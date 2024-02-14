@@ -7,12 +7,16 @@ import FormLabel from './components/FormLabel';
 import FormRichText from './components/FormRichText';
 import FormDateTime from './components/FormDateTime';
 import Feedback from 'react-bootstrap/esm/Feedback';
-import { FormText } from 'react-bootstrap';
+import {
+  FormText,
+  Form as BootstrapForm,
+  FormProps as BootstrapFormProps,
+} from 'react-bootstrap';
 
-export interface FormProps extends React.HTMLProps<HTMLFormElement> {}
+export interface FormProps extends BootstrapFormProps {}
 
 const Form = ({ children, ...rest }: FormProps) => {
-  return <form {...rest}>{children}</form>;
+  return <BootstrapForm {...rest}>{children}</BootstrapForm>;
 };
 
 Form.Group = FormGroup;

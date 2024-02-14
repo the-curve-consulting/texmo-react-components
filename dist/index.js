@@ -6786,7 +6786,7 @@ const Form$2 = /*#__PURE__*/React__namespace.forwardRef(({
 }));
 Form$2.displayName = 'Form';
 Form$2.propTypes = propTypes;
-var Form$3 = Object.assign(Form$2, {
+var BootstrapForm = Object.assign(Form$2, {
   Group: BootstrapFormGroup,
   Control: FormControl$2,
   Floating: FormFloating$1,
@@ -22841,13 +22841,13 @@ FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
-    return (React.createElement(Form$3.Control, __assign$1({ as: "input", type: "datetime-local", className: className }, rest)));
+    return (React.createElement(BootstrapForm.Control, __assign$1({ as: "input", type: "datetime-local", className: className }, rest)));
 };
 FormDateTime.Feedback = Feedback$1;
 
 var Form$1 = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
-    return React.createElement("form", __assign$1({}, rest), children);
+    return React.createElement(BootstrapForm, __assign$1({}, rest), children);
 };
 Form$1.Group = FormGroup;
 Form$1.Label = FormLabel;

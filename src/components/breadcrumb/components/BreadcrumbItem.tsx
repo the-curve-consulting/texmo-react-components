@@ -2,9 +2,9 @@ import React from 'react';
 
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
-  active: boolean;
+  active?: boolean;
   route?: string;
-  showSlash: boolean;
+  showSlash?: boolean;
 }
 
 const BreadcrumbItem = ({

@@ -13,7 +13,7 @@ const FormPage = () => {
           </Form.Feedback>
         </Form.Group>
 
-        <Form.Group label='Select' className='mt-3'>
+        <Form.Group md="12" label='Select' className='mt-3'>
           <Form.Select>
             <option>Option 1</option>
             <option>Option 2</option>

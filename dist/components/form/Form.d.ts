@@ -1,5 +1,6 @@
 import React from 'react';
-export interface FormProps extends React.HTMLProps<HTMLFormElement> {
+import { FormProps as BootstrapFormProps } from 'react-bootstrap';
+export interface FormProps extends BootstrapFormProps {
 }
 declare const Form: {
     ({ children, ...rest }: FormProps): React.JSX.Element;

@@ -1,4 +1,4 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton } from '@the-curve-consulting/texmo-react-components';
 import { Col, Row } from 'react-bootstrap';
 
 const ListPage = () => {
@@ -28,6 +28,8 @@ const ListPage = () => {
             <SearchBar.Input />
             <SearchBar.Button />
           </SearchBar>
+
+          <FilterButton filterExists/>
         </div>
       </Col>
     </Row>

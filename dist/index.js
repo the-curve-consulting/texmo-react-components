@@ -24429,10 +24429,19 @@ var Breadcrumb = function (_a) {
 };
 Breadcrumb.Item = BreadcrumbItem;
 
+var FilterButton = function (_a) {
+    var _b = _a.variant, variant = _b === void 0 ? 'secondary' : _b, filterExists = _a.filterExists, className = _a.className, rest = __rest(_a, ["variant", "filterExists", "className"]);
+    return (React.createElement(Button$2, __assign$1({ variant: variant, className: "".concat(className, " position-relative ms-2") }, rest),
+        React.createElement("i", { className: "bi bi-filter" }),
+        filterExists ? (React.createElement("span", { className: "position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" },
+            React.createElement("span", { className: "visually-hidden" }, "Filter applied"))) : null));
+};
+
 exports.Breadcrumb = Breadcrumb;
 exports.Button = Button;
 exports.Card = Card;
 exports.Chip = Chip;
+exports.FilterButton = FilterButton;
 exports.Footer = Footer;
 exports.Form = Form$1;
 exports.Header = Header;

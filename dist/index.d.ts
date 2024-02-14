@@ -14,6 +14,7 @@ import Nav from 'components/nav/Nav';
 import Footer from 'components/footer/Footer';
 import SearchBar from 'components/searchBar/SearchBar';
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
+import FilterButton from 'components/filterButton/FilterButton';
 import '../scss/texmo-react-components.scss';
-export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Nav, Footer, SearchBar, Breadcrumb, };
+export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Nav, Footer, SearchBar, Breadcrumb, FilterButton, };
 //# sourceMappingURL=index.d.ts.map

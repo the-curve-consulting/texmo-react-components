@@ -6,18 +6,28 @@ import {
 } from 'react-bootstrap';
 
 interface ButtonProps extends BootstrapButtonProps {
-  label: string;
+  label?: string;
+  icon?: string;
   variant?: Themes;
 }
 
-const Button = ({ label, className, variant, ...rest }: ButtonProps) => {
+const Button = ({
+  label,
+  icon,
+  children,
+  className,
+  variant,
+  ...rest
+}: ButtonProps) => {
   return (
     <BootstrapButton
       className={className}
       variant={variant || 'primary'}
       {...rest}
     >
-      {label}
+      {label || null}
+      {icon ? <i className={`bi bi-${icon}`} /> : null}
+      {children}
     </BootstrapButton>
   );
 };

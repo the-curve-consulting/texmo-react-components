@@ -8482,8 +8482,11 @@ const Table$1 = /*#__PURE__*/React__namespace.forwardRef(({
 var BootstrapTable = Table$1;
 
 var Button = function (_a) {
-    var label = _a.label, className = _a.className, variant = _a.variant, rest = __rest(_a, ["label", "className", "variant"]);
-    return (React.createElement(Button$2, __assign$1({ className: className, variant: variant || 'primary' }, rest), label));
+    var label = _a.label, icon = _a.icon, children = _a.children, className = _a.className, variant = _a.variant, rest = __rest(_a, ["label", "icon", "children", "className", "variant"]);
+    return (React.createElement(Button$2, __assign$1({ className: className, variant: variant || 'primary' }, rest),
+        label || null,
+        icon ? React.createElement("i", { className: "bi bi-".concat(icon) }) : null,
+        children));
 };
 
 var TableSection;
@@ -8539,9 +8542,10 @@ var FormControl = function (_a) {
 };
 
 var FormLabel = function (_a) {
-    var label = _a.label, className = _a.className;
+    var label = _a.label, children = _a.children, className = _a.className;
     return (React.createElement(BootstrapFormLabel, { className: className },
-        React.createElement("small", { className: "text-muted" }, label)));
+        label ? React.createElement("small", { className: "text-muted" }, label) : null,
+        children));
 };
 
 var FormGroup = function (_a) {
@@ -22861,14 +22865,9 @@ var Card = function (_a) {
 };
 
 var Chip = function (_a) {
-    var label = _a.label, color = _a.color, rest = __rest(_a, ["label", "color"]);
+    var style = _a.style, label = _a.label, color = _a.color, rest = __rest(_a, ["style", "label", "color"]);
     return (React.createElement("h5", { className: "mb-0" },
-        React.createElement("span", __assign$1({ style: {
-                backgroundColor: color,
-                padding: '10px 15px',
-                fontSize: '16px',
-                borderRadius: '35px',
-            } }, rest), label)));
+        React.createElement("span", __assign$1({ style: __assign$1({ backgroundColor: color, padding: '10px 15px', fontSize: '16px', borderRadius: '35px' }, style) }, rest), label)));
 };
 
 var ListSection;

@@ -4,8 +4,8 @@ export interface FormProps extends React.HTMLProps<HTMLFormElement> {
 declare const Form: {
     ({ children, ...rest }: FormProps): React.JSX.Element;
     Group: ({ label, className, children, ...rest }: import("./FormGroup").FormGroupProps) => React.JSX.Element;
-    Label: ({ label, className }: import("react-bootstrap").FormLabelProps & {
-        label: string;
+    Label: ({ label, children, className }: import("react-bootstrap").FormLabelProps & {
+        label?: string | undefined;
     }) => React.JSX.Element;
     Control: ({ className, ...rest }: import("./components/FormControl").FormControlProps) => React.JSX.Element;
     Select: ({ className, children, ...rest }: import("./components/FormSelect").FormSelectProps) => React.JSX.Element;

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
-import { NavLink } from 'react-router-dom';
+// import { NavLink as RouterNavLink } from 'react-router-dom';
+import NavContext from './NavContext';
 
 export interface NavItemProps {
   route: string;
@@ -9,6 +10,7 @@ export interface NavItemProps {
 }
 
 const NavItem = ({ route, label, icon }: NavItemProps) => {
+  const NavLink = useContext(NavContext);
   const linkClass = (isActive: boolean): string => {
     return isActive ? 'nav-link active' : 'nav-link link-dark';
   };

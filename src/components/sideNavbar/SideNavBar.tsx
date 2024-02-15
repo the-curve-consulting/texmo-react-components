@@ -1,6 +1,5 @@
 import React from 'react';
 import Nav from '../nav/Nav';
-import NavItem from './components/NavItem';
 
 export interface SideNavbarProps extends React.HTMLProps<HTMLDivElement> {}
 
@@ -14,7 +13,5 @@ const SideNavbar = ({ className, children, ...rest }: SideNavbarProps) => {
     </div>
   );
 };
-
-SideNavbar.Item = NavItem;
 
 export default SideNavbar;

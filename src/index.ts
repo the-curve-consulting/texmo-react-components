@@ -15,6 +15,8 @@ import Footer from './components/footer/Footer';
 import SearchBar from './components/searchBar/SearchBar';
 import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import FilterButton from './components/filterButton/FilterButton';
+import NavItem from './components/navItem/NavItem';
+import NavContext from 'components/navItem/NavContext';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -35,4 +37,6 @@ export {
   SearchBar,
   Breadcrumb,
   FilterButton,
+  NavItem,
+  NavContext,
 };

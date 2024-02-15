@@ -4,14 +4,15 @@ import {
   FormLabel as BootstrapFormLabel,
 } from 'react-bootstrap';
 
-type FormLabelProps = BootstrapFormLabelProps & {
-  label: string;
+export type FormLabelProps = BootstrapFormLabelProps & {
+  label?: string;
 };
 
-const FormLabel = ({ label, className }: FormLabelProps) => {
+const FormLabel = ({ label, children, className }: FormLabelProps) => {
   return (
     <BootstrapFormLabel className={className}>
-      <small className="text-muted">{label}</small>
+      {label ? <small className="text-muted">{label}</small> : null}
+      {children}
     </BootstrapFormLabel>
   );
 };

@@ -1,4 +1,4 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton } from '@the-curve-consulting/texmo-react-components';
 import { Col, Row } from 'react-bootstrap';
 
 const ListPage = () => {
@@ -10,7 +10,7 @@ const ListPage = () => {
         <Breadcrumb>
           <Breadcrumb.Item
             text='Home' 
-            href='http://localhost:5173/' 
+            route='/' 
           />
           <Breadcrumb.Item 
             text='List'
@@ -28,6 +28,8 @@ const ListPage = () => {
             <SearchBar.Input />
             <SearchBar.Button />
           </SearchBar>
+
+          <FilterButton filterExists/>
         </div>
       </Col>
     </Row>
@@ -53,20 +55,20 @@ const ListPage = () => {
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <Chip label="Test" color="#B8F1A6"/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <ProgressBar percentage={40}/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>
@@ -84,20 +86,20 @@ const ListPage = () => {
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <Chip label="Test" color="#B8F1A6"/>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>
 
-          <List.Col borderStart>
-            <List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
               <p className="m-0">Test</p>
             </List.Cell>
           </List.Col>

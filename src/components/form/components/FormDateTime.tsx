@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormControlProps, Form } from 'react-bootstrap';
+import Feedback from 'react-bootstrap/esm/Feedback';
 
 export interface FormDateTimeProps extends FormControlProps {}
 
@@ -13,5 +14,7 @@ const FormDateTime = ({ className, ...rest }: FormDateTimeProps) => {
     />
   );
 };
+
+FormDateTime.Feedback = Feedback;
 
 export default FormDateTime;

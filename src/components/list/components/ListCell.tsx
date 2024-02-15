@@ -2,10 +2,20 @@ import React, { useContext } from 'react';
 import ListSectionContext, { ListSection } from '../ListSectionContext';
 import { Card } from 'react-bootstrap';
 
-export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {}
+export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {
+  borderStart?: boolean;
+  background?: string;
+}
 
-const ListCell = ({ className, children, ...rest }: ListCellProps) => {
+const ListCell = ({
+  borderStart,
+  className,
+  children,
+  background,
+  ...rest
+}: ListCellProps) => {
   const section = useContext(ListSectionContext);
+  const border = borderStart ? 'border-start' : undefined;
 
   switch (section) {
     case ListSection.HEAD:
@@ -22,8 +32,13 @@ const ListCell = ({ className, children, ...rest }: ListCellProps) => {
           className={`h-100 d-flex align-items-center ${className}`}
           {...rest}
         >
-          <Card className="h-100 w-100">
-            <Card.Body className="d-flex justify-content-center align-items-center">
+          <Card
+            className="h-100 w-100 py-3"
+            style={{ backgroundColor: background }}
+          >
+            <Card.Body
+              className={`d-flex justify-content-center align-items-center py-0 ${border}`}
+            >
               <div className="w-100">{children}</div>
             </Card.Body>
           </Card>

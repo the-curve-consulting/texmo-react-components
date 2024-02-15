@@ -17,7 +17,7 @@ const Layout = () => {
             <Outlet />
           </Container>
         </main>
-        <Footer organization='Test' />
+        <Footer organisation='Test' />
       </Container>
     </div>
   );

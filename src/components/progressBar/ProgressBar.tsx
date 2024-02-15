@@ -1,32 +1,38 @@
 import React from 'react';
+import { Themes } from '../../types';
 
 export interface ProgressBarProps extends React.HTMLProps<HTMLDivElement> {
   percentage: number;
-  color?: string;
+  theme?: Themes;
+  showPercentage?: boolean;
 }
 
-const ProgressBar = ({ percentage, color, ...rest }: ProgressBarProps) => {
+const ProgressBar = ({
+  percentage,
+  theme = 'primary',
+  showPercentage = true,
+  ...rest
+}: ProgressBarProps) => {
   return (
-    <div {...rest} className="d-flex flex-column align-items-center">
+    <div className="d-flex flex-column align-items-center" {...rest}>
       <div
-        className="mt-4 mb-2"
+        className="my-2 w-100"
         style={{
           height: '10px',
-          width: '80%',
-          border: '1px solid #5cb85c',
+          border: '1px solid',
           borderRadius: '2px',
         }}
       >
         <div
-          className="h-100"
+          className={`h-100 bg-${theme}`}
           style={{
             width: `${percentage}%`,
-            backgroundColor: color || '#5cb85c',
-            borderRadius: '2px',
+            borderRadius: '1px',
           }}
-        ></div>
+        />
       </div>
-      <div>{Math.floor(percentage)}%</div>
+
+      {showPercentage ? <div>{Math.floor(percentage)}%</div> : null}
     </div>
   );
 };

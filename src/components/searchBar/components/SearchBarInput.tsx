@@ -5,11 +5,9 @@ export interface SearchBarInputProps extends FormControlProps {}
 
 const SearchBarInput = ({ className, ...rest }: SearchBarInputProps) => {
   return (
-    <FormControl
-      className={`search-input ${className}`}
-      style={{ maxWidth: '300px' }}
-      {...rest}
-    />
+    <div className="form-outline w-100">
+      <FormControl className={`search-input ${className}`} {...rest} />
+    </div>
   );
 };
 

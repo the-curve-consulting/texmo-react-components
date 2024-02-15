@@ -1,24 +1,15 @@
 import React from 'react';
+import { Themes } from '../../types';
 
-interface ChipProps extends React.HTMLProps<HTMLSpanElement> {
-  color: string;
+interface ChipProps extends React.HTMLProps<HTMLDivElement> {
+  theme?: Themes;
   label: string;
 }
-const Chip = ({ style, label, color, ...rest }: ChipProps) => {
+const Chip = ({ className, label, theme = 'primary', ...rest }: ChipProps) => {
   return (
-    <span
-      style={{
-        backgroundColor: color,
-        padding: '10px 15px',
-        fontSize: '16px',
-        borderRadius: '35px',
-        fontWeight: '500',
-        ...style,
-      }}
-      {...rest}
-    >
+    <div className={`${className} bg-${theme} text-center chip`} {...rest}>
       {label}
-    </span>
+    </div>
   );
 };
 

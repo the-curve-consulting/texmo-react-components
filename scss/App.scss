@@ -12,10 +12,6 @@ h1 {
   font-style: normal;
 }
 
-.sidebar-bg-grey {
-  background-color: var(--texmo-bg-primary);
-}
-
 .main-nav {
   i {
     font-size: 3rem;
@@ -28,36 +24,13 @@ h1 {
 }
 
 .logo {
-  width: 200px;
+  max-height: 80px;
+  max-width: 260px;
+  width: auto;
+  margin: 1.5rem;
 
   @media(min-width: 1024px) {
-    width: 300px;
-    margin: 30px 0 0 30px;
-  }
-}
-
-.tile {
-  .segment {
-    background-color: var(--texmo-bg-primary);
-  }
-
-  .count {
-    background-color: var(--texmo-primary-color);
-  }
-}
-
-.search-input {
-  background-color: var(--texmo-bg-primary);
-  padding: 15px;
-
-  &:focus {
-    background-color: var(--texmo-bg-primary);
-  }
-}
-
-.input-group {
-  .search-input {
-    border-right: 0;
+    margin: 2.5rem;
   }
 }
 
@@ -100,6 +73,11 @@ a.card-link {
 
 .page-header {
   width: 100%;
+  margin-top: 45px;
+
+  @media(max-width: 768px) {
+    margin-top: 26px;
+  } 
 }
 
 .page-header-column {
@@ -110,11 +88,95 @@ a.card-link {
   justify-content: flex-end;
 }
 
-a.breadcrumb-item {
-  text-decoration: none;
-  color: var(--texmo-text-color);
+.Toastify__toast-container--top-center {
+  top: 0
 }
 
-a.breadcrumb-item:hover {
-  text-decoration: underline;
+.Toastify__toast-container {
+  padding: 0;
+}
+
+.Toastify__toast {
+  border-radius: 0px;
+  min-height: 80px;
+}
+
+.Toastify__toast-icon {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 30px;
+}
+
+.Toastify__close-button {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.list-desktop {
+  display: none;
+
+  @media (min-width: 768px) {
+      display: block;
+  }
+}
+
+.list-mobile {
+  display: none;
+
+  @media(max-width: 768px) {
+      display: block;
+  }
+}
+
+.sidebar-bg-grey {
+  background-color: var(--texmo-bg-primary);
+}
+
+.tooltip-inner {
+  background-color: #424244 !important;
+  color: white;
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: #424244 !important;
+}
+
+.w-0 {
+  width: 0%;
+}
+
+.open-container {
+  display: flex !important;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    justify-content: start;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.open-content {
+  flex: 1;
+  max-width: fit-content;
+}
+
+.open-dummy {
+  flex: 0;
+  transition: flex 0.3s,;
+}
+
+.open-container-opened .opened {
+  flex: auto;
+}
+
+.open-dummy.closed {
+  width: 0%;
+
+  @media (max-width: 768px) {
+    width: 100%;    
+  }
 }

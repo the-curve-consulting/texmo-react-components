@@ -9,7 +9,7 @@ const Footer = ({ className, organisation }: FooterProps) => {
 
   return (
     <footer
-      className={`mt-auto pt-3 pb-2 text-end text-muted small ${className}`}
+      className={`mt-auto pt-3 pb-2 text-end text-muted small px-3 ${className}`}
     >
       Copyright © {organisation} {currentYear}
     </footer>

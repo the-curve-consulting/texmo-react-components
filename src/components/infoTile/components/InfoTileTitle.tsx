@@ -3,22 +3,30 @@ import { Link, LinkProps } from 'react-router-dom';
 
 export interface InfoTileTitleProps {
   title: string;
-  link?: string;
+  route?: string;
+  link?: typeof Link;
   linkProps?: LinkProps;
 }
 
-const InfoTileTitle = ({ title, link, linkProps }: InfoTileTitleProps) => {
-  const titleComponent = <h3 className="fw-bold mb-4">{title}</h3>;
+const InfoTileTitle = ({
+  title,
+  route = '',
+  link,
+  linkProps,
+}: InfoTileTitleProps) => {
+  const titleComponent = <h4 className="fw-bold mb-4">{title}</h4>;
 
   if (link) {
+    const LinkComponent = link;
+
     return (
-      <Link
-        to={link}
+      <LinkComponent
+        to={route}
         className={`stretched-link text-reset link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover ${linkProps?.className}`}
         {...linkProps}
       >
-        <>{titleComponent}</>
-      </Link>
+        {titleComponent}
+      </LinkComponent>
     );
   }
 

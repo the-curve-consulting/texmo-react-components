@@ -1,5 +1,5 @@
 import React from 'react';
-import { Themes } from 'types';
+import { Themes } from '../../types';
 import {
   Button as BootstrapButton,
   ButtonProps as BootstrapButtonProps,

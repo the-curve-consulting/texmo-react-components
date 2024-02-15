@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import ListSectionContext, { ListSection } from '../ListSectionContext';
-import { Card } from 'react-bootstrap';
 
 export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {
   borderStart?: boolean;
@@ -20,7 +19,7 @@ const ListCell = ({
   switch (section) {
     case ListSection.HEAD:
       return (
-        <div className={`col list-cell ${className}`} {...rest}>
+        <div className={`col list-cell ${className} text-uppercase`} {...rest}>
           {children}
         </div>
       );
@@ -32,16 +31,12 @@ const ListCell = ({
           className={`h-100 d-flex align-items-center list-cell ${className}`}
           {...rest}
         >
-          <Card
-            className="h-100 w-100 py-3"
+          <div
+            className={`bg-transparent card card-body h-100 w-100 py-3 d-flex justify-content-center align-items-center py-0 ${border}`}
             style={{ backgroundColor: background }}
           >
-            <Card.Body
-              className={`d-flex justify-content-center align-items-center py-0 ${border}`}
-            >
-              <div className="w-100">{children}</div>
-            </Card.Body>
-          </Card>
+            <div className="w-100">{children}</div>
+          </div>
         </div>
       );
   }

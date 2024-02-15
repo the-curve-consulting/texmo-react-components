@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.212 50.675">
+  <g id="ship-asn" transform="translate(-105.234 -544.7)">
+    <g id="Group_2824" data-name="Group 2824" transform="translate(105.234 579.519)">
+      <g id="Group_553" data-name="Group 553" transform="translate(0 0)">
+        <path id="Path_350" data-name="Path 350" d="M44.694,10.706A1.533,1.533,0,0,1,46.421,12.2v1.2a1.533,1.533,0,0,1-1.727,1.495H3.227A1.533,1.533,0,0,1,1.5,13.4V12.2a1.533,1.533,0,0,1,1.727-1.495Z" transform="translate(-1.5 -10.694)" fill="#424244"/>
+        <circle id="Ellipse_168" data-name="Ellipse 168" cx="4.783" cy="4.783" r="4.783" transform="translate(0 6.29)" fill="#424244"/>
+        <circle id="Ellipse_169" data-name="Ellipse 169" cx="4.783" cy="4.783" r="4.783" transform="translate(35.647 6.29)" fill="#424244"/>
+      </g>
+    </g>
+    <g id="Group_1628" data-name="Group 1628" transform="translate(144.131 544.7) rotate(90)">
+      <path id="Path_798" data-name="Path 798" d="M0,23.884v7.93H25.409V0H17.617" transform="translate(5.48 1.095)" fill="none" stroke="#424244" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
+      <rect id="Rectangle_1869" data-name="Rectangle 1869" width="9.76" height="14.444" transform="translate(22.549 15.353) rotate(135)" fill="#424244"/>
+      <path id="Path_799" data-name="Path 799" d="M0,0,9.368.782l8.978.78-8.2,8.588-8.2,8.2L.782,9.368Z" transform="translate(0 0)" fill="#424244"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+.search-input {
+  background-color: var(--texmo-bg-primary);
+
+  &:focus {
+    background-color: var(--texmo-bg-primary);
+  }
+}
+
+.input-group {
+  .search-input {
+    border-right: 0;
+    height: 46px;
+  }
+}
+
+.search-input-group {
+  min-width: 120px;
+}

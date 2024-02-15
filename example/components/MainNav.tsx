@@ -11,19 +11,19 @@ const Navbar = () => {
   return (
     <Nav navLink={NavLink}>
       <Nav.Item
-        route={'/'} 
-        icon={'house'}
-        label={'Home'}
+        route={'/'}
+        icon='assets'
+        text='Dashboard'
       />
       <Nav.Item
-        route={'/form'} 
-        icon={'ui-checks'}
-        label={'Form'}
+        route={'/form'}
+        icon='checklist' 
+        text='Form'
       />
       <Nav.Item
-        route={'/list'} 
-        icon={'list-task'}
-        label={'List'}
+        route={'/list'}
+        icon='stock-management'
+        text='List'
       />
     </Nav>
   )

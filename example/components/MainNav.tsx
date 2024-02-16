@@ -1,5 +1,5 @@
+import { Nav } from '@the-curve-consulting/texmo-react-components';
 import { NavLink } from 'react-router-dom';
-import { NavItem, NavContext } from '@the-curve-consulting/texmo-react-components';
 
 export interface NavItemProps {
   route: string;
@@ -9,23 +9,23 @@ export interface NavItemProps {
 
 const Navbar = () => {
   return (
-    <NavContext.Provider value={NavLink}>
-      <NavItem
+    <Nav navLink={NavLink}>
+      <Nav.Item
         route={'/'} 
         icon={'house'}
         label={'Home'}
       />
-      <NavItem
+      <Nav.Item
         route={'/form'} 
         icon={'ui-checks'}
         label={'Form'}
       />
-      <NavItem
+      <Nav.Item
         route={'/list'} 
         icon={'list-task'}
         label={'List'}
       />
-    </NavContext.Provider>
+    </Nav>
   )
 }
 

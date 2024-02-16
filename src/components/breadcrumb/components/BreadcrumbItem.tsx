@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import BreadcrumbContext from '../BreadCrumbContext';
 
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
@@ -15,6 +16,8 @@ const BreadcrumbItem = ({
   className,
   ...rest
 }: BreadcrumbItemProps) => {
+  const Link = useContext(BreadcrumbContext);
+
   if (active) {
     return (
       <span className={`gray-text ${className}`} {...rest}>
@@ -24,14 +27,16 @@ const BreadcrumbItem = ({
     );
   }
 
-  const baseUrl = window.location.origin;
-
   return (
     <span className={className} {...rest}>
       {showSlash ? ' / ' : null}
-      <a className="breadcrumb-item" href={`${baseUrl}${route}`}>
-        {text}
-      </a>
+      {route ? (
+        <Link className="breadcrumb-item" to={route}>
+          {text}
+        </Link>
+      ) : (
+        text
+      )}
     </span>
   );
 };

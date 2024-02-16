@@ -1,5 +1,6 @@
 import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton } from '@the-curve-consulting/texmo-react-components';
 import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ListPage = () => {
   return (
@@ -7,7 +8,7 @@ const ListPage = () => {
 
     <Row className="mt-4">
       <Col>
-        <Breadcrumb>
+        <Breadcrumb link={Link}>
           <Breadcrumb.Item
             text='Home' 
             route='/' 
@@ -34,7 +35,7 @@ const ListPage = () => {
       </Col>
     </Row>
 
-    <List>
+    <List className='mt-4'>
       <List.Head>
         <List.Cell>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>

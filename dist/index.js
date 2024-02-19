@@ -22888,13 +22888,13 @@ var ListSectionContext = React.createContext(ListSection.NONE);
 var ListHead = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement(ListSectionContext.Provider, { value: ListSection.HEAD },
-        React.createElement("div", __assign$1({ className: "".concat(className, " row card-header text-center") }, rest), children)));
+        React.createElement("div", __assign$1({ className: "".concat(className, " mx-0 row card-header text-center") }, rest), children)));
 };
 
 var ListRow = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3" }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0" }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,

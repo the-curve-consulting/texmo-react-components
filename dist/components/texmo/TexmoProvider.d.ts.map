@@ -1,0 +1,1 @@
+{"version":3,"file":"TexmoProvider.d.ts","sourceRoot":"","sources":["../../../src/components/texmo/TexmoProvider.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAE1B,OAAO,EAAE,UAAU,EAAE,MAAM,OAAO,CAAC;AAEnC,MAAM,WAAW,kBAAmB,SAAQ,UAAU;IACpD,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B;AAED,QAAA,MAAM,aAAa,0BAA2B,kBAAkB,sBAE/D,CAAC;AAEF,eAAe,aAAa,CAAC"}

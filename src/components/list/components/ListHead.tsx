@@ -7,7 +7,7 @@ const ListHead = ({ className, children, ...rest }: ListHeadProps) => {
   return (
     <ListSectionContext.Provider value={ListSection.HEAD}>
       <div
-        className={`${className} mx-0 row card-header text-center`}
+        className={`${className} mx-0 row card-header text-center list-row`}
         {...rest}
       >
         {children}

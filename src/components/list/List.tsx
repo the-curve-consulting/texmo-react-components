@@ -7,8 +7,12 @@ import ListBody from './components/ListBody';
 
 interface ListProps extends React.HTMLProps<HTMLDivElement> {}
 
-const List = ({ children, ...rest }: ListProps) => {
-  return <div {...rest}>{children}</div>;
+const List = ({ className, children, ...rest }: ListProps) => {
+  return (
+    <div className={`list-container ${className}`} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 List.Head = ListHead;

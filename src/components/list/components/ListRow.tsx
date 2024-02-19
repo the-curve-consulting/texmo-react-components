@@ -7,7 +7,7 @@ const ListRow = ({ children, ...rest }: ListRowProps) => {
   const childrenArray = React.Children.toArray(children);
 
   return (
-    <Row className="text-center mt-3 mx-0" {...rest}>
+    <Row className="text-center mt-3 mx-0 list-row" {...rest}>
       {childrenArray.map((child, index) => {
         const childElement = child as React.ReactElement;
 

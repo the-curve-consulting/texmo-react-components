@@ -1057,6 +1057,11 @@ a.breadcrumb-item:hover {
   text-decoration: underline;
 }
 
+.list-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 :root {
   --texmo-primary-color: #6A955B;
   --texmo-text-color: #424244;

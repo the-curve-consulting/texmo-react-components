@@ -22888,13 +22888,13 @@ var ListSectionContext = React.createContext(ListSection.NONE);
 var ListHead = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement(ListSectionContext.Provider, { value: ListSection.HEAD },
-        React.createElement("div", __assign$1({ className: "".concat(className, " mx-0 row card-header text-center") }, rest), children)));
+        React.createElement("div", __assign$1({ className: "".concat(className, " mx-0 row card-header text-center list-row") }, rest), children)));
 };
 
 var ListRow = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0" }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0 list-row" }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,
@@ -22908,11 +22908,11 @@ var ListCell = function (_a) {
     var border = borderStart ? 'border-start' : undefined;
     switch (section) {
         case ListSection.HEAD:
-            return (React.createElement("div", __assign$1({ className: "col ".concat(className) }, rest), children));
+            return (React.createElement("div", __assign$1({ className: "col list-cell ".concat(className) }, rest), children));
         case ListSection.BODY:
         case ListSection.NONE:
         default:
-            return (React.createElement("div", __assign$1({ className: "h-100 d-flex align-items-center ".concat(className) }, rest),
+            return (React.createElement("div", __assign$1({ className: "h-100 d-flex align-items-center list-cell ".concat(className) }, rest),
                 React.createElement(Card$2, { className: "h-100 w-100 py-3", style: { backgroundColor: background } },
                     React.createElement(Card$2.Body, { className: "d-flex justify-content-center align-items-center py-0 ".concat(border) },
                         React.createElement("div", { className: "w-100" }, children)))));
@@ -22931,8 +22931,8 @@ var ListBody = function (_a) {
 };
 
 var List = function (_a) {
-    var children = _a.children, rest = __rest(_a, ["children"]);
-    return React.createElement("div", __assign$1({}, rest), children);
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement("div", __assign$1({ className: "list-container ".concat(className) }, rest), children));
 };
 List.Head = ListHead;
 List.Cell = ListCell;

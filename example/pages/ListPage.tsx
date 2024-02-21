@@ -37,7 +37,7 @@ const ListPage = () => {
 
     <List className='mt-4'>
       <List.Head>
-        <List.Cell>Head 1</List.Cell>
+        <List.Cell className='col-3'>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>
         <List.Cell>Head 3</List.Cell>
         <List.Cell>Head 4</List.Cell>

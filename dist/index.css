@@ -946,6 +946,7 @@
 
 @charset "UTF-8";
 @import url("https://p.typekit.net/p.css?s=1&k=crw8sum&ht=tk&f=53406.53407.53408.53411.53414&a=3304106&app=typekit&e=css");
+@import 'react-bootstrap-typeahead/css/Typeahead.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 body {
   color: var(--texmo-text-color);
@@ -1055,11 +1056,6 @@ a.breadcrumb-item {
 
 a.breadcrumb-item:hover {
   text-decoration: underline;
-}
-
-.list-container {
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 :root {
@@ -13002,4 +12998,18 @@ textarea.form-control-lg {
   font-family: var(--texmo-font);
   font-weight: 800;
   font-style: normal;
+}
+
+.list-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.list-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.list-cell {
+  min-width: 150px;
 }

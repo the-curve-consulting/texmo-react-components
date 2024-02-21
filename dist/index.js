@@ -26038,8 +26038,7 @@ var Card = function (_a) {
 
 var Chip = function (_a) {
     var style = _a.style, label = _a.label, color = _a.color, rest = __rest(_a, ["style", "label", "color"]);
-    return (React.createElement("h5", { className: "mb-0" },
-        React.createElement("span", __assign$1({ style: __assign$1({ backgroundColor: color, padding: '10px 15px', fontSize: '16px', borderRadius: '35px' }, style) }, rest), label)));
+    return (React.createElement("span", __assign$1({ style: __assign$1({ backgroundColor: color, padding: '10px 15px', fontSize: '16px', borderRadius: '35px', fontWeight: '500' }, style) }, rest), label));
 };
 
 var ListSection;
@@ -26057,9 +26056,9 @@ var ListHead = function (_a) {
 };
 
 var ListRow = function (_a) {
-    var style = _a.style, borderColour = _a.borderColour, children = _a.children, rest = __rest(_a, ["style", "borderColour", "children"]);
+    var className = _a.className, style = _a.style, borderColour = _a.borderColour, children = _a.children, rest = __rest(_a, ["className", "style", "borderColour", "children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0 list-row", style: __assign$1({ border: "2px solid ".concat(borderColour) }, style) }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement(Row$1, __assign$1({ className: "".concat(className, " text-center mt-3 mx-0 list-row"), style: __assign$1({ border: "2px solid ".concat(borderColour) }, style) }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,

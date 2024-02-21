@@ -26057,9 +26057,9 @@ var ListHead = function (_a) {
 };
 
 var ListRow = function (_a) {
-    var children = _a.children, rest = __rest(_a, ["children"]);
+    var borderColour = _a.borderColour, children = _a.children, rest = __rest(_a, ["borderColour", "children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0 list-row" }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement(Row$1, __assign$1({ className: "text-center mt-3 mx-0 list-row", style: { border: "2px solid ".concat(borderColour) } }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,

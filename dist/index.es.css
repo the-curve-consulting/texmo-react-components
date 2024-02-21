@@ -13014,3 +13014,7 @@ textarea.form-control-lg {
   min-width: 150px;
   flex-shrink: 0;
 }
+
+.list-head {
+  background-color: white;
+}

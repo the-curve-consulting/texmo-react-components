@@ -26052,7 +26052,7 @@ var ListSectionContext = React.createContext(ListSection.NONE);
 var ListHead = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement(ListSectionContext.Provider, { value: ListSection.HEAD },
-        React.createElement("div", __assign$1({ className: "".concat(className, " mx-0 row card-header text-center list-row") }, rest), children)));
+        React.createElement("div", __assign$1({ className: "".concat(className, " mx-0 row card-header text-center list-row py-2 list-head sticky-top") }, rest), children)));
 };
 
 var ListRow = function (_a) {

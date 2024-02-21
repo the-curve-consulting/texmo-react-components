@@ -6,6 +6,7 @@ import FormCheck from './components/FormCheck';
 import FormLabel from './components/FormLabel';
 import FormRichText from './components/FormRichText';
 import FormDateTime from './components/FormDateTime';
+import FormTypeahead from './components/FormTypeahead';
 import Feedback from 'react-bootstrap/esm/Feedback';
 import {
   FormText,
@@ -28,5 +29,6 @@ Form.RichText = FormRichText;
 Form.DateTime = FormDateTime;
 Form.Feedback = Feedback;
 Form.Text = FormText;
+Form.Typeahead = FormTypeahead;
 
 export default Form;

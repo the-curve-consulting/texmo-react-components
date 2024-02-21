@@ -1,6 +1,12 @@
 import { Title, Form } from '@the-curve-consulting/texmo-react-components';
 
 const FormPage = () => {
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+
   return (
     <div className="mt-5">
       <Title text='Form'/>
@@ -33,12 +39,19 @@ const FormPage = () => {
           <Form.Check name='group-radio' type='radio' label='Option 3' disabled/>
         </Form.Group>
 
-        <Form.Group label='Rich Text' className='mt-3'>
-          <Form.RichText />
-        </Form.Group>
-
         <Form.Group label='Date Time' className='mt-3'>
           <Form.DateTime />
+        </Form.Group>
+
+        <Form.Group label='Typeahead' className='mt-3'>
+          <Form.Typeahead 
+            options={options}
+            multiple
+          />
+        </Form.Group>
+
+        <Form.Group label='Rich Text' className='mt-3'>
+          <Form.RichText />
         </Form.Group>
       </Form>
     </div>

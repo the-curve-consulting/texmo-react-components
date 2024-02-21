@@ -22,6 +22,7 @@ function _interopNamespaceDefault(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespaceDefault(React);
+var ReactDOM__namespace = /*#__PURE__*/_interopNamespaceDefault(ReactDOM);
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -152,7 +153,7 @@ var classnames = {exports: {}};
 } (classnames));
 
 var classnamesExports = classnames.exports;
-var classNames = /*@__PURE__*/getDefaultExportFromCjs(classnamesExports);
+var cx = /*@__PURE__*/getDefaultExportFromCjs(classnamesExports);
 
 function _extends$3() {
   _extends$3 = Object.assign ? Object.assign.bind() : function (target) {
@@ -340,7 +341,7 @@ function useIsRTL() {
  * 
  * @param node the element
  */
-function ownerDocument(node) {
+function ownerDocument$1(node) {
   return node && node.ownerDocument || document;
 }
 
@@ -351,7 +352,7 @@ function ownerDocument(node) {
  */
 
 function ownerWindow(node) {
-  var doc = ownerDocument(node);
+  var doc = ownerDocument$1(node);
   return doc && doc.defaultView || window;
 }
 
@@ -362,7 +363,7 @@ function ownerWindow(node) {
  * @param psuedoElement the style property
  */
 
-function getComputedStyle$1(node, psuedoElement) {
+function getComputedStyle$2(node, psuedoElement) {
   return ownerWindow(node).getComputedStyle(node, psuedoElement);
 }
 
@@ -391,7 +392,7 @@ function style(node, property) {
   var transforms = '';
 
   if (typeof property === 'string') {
-    return node.style.getPropertyValue(hyphenateStyleName(property)) || getComputedStyle$1(node).getPropertyValue(hyphenateStyleName(property));
+    return node.style.getPropertyValue(hyphenateStyleName(property)) || getComputedStyle$2(node).getPropertyValue(hyphenateStyleName(property));
   }
 
   Object.keys(property).forEach(function (key) {
@@ -413,7 +414,7 @@ function style(node, property) {
   node.style.cssText += ";" + css;
 }
 
-var propTypes$3 = {exports: {}};
+var propTypes$b = {exports: {}};
 
 var reactIs = {exports: {}};
 
@@ -1586,14 +1587,14 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  propTypes$3.exports = requireFactoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
+  propTypes$b.exports = requireFactoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  propTypes$3.exports = requireFactoryWithThrowingShims()();
+  propTypes$b.exports = requireFactoryWithThrowingShims()();
 }
 
-var propTypesExports = propTypes$3.exports;
+var propTypesExports = propTypes$b.exports;
 var PropTypes = /*@__PURE__*/getDefaultExportFromCjs(propTypesExports);
 
 var config = {
@@ -2218,7 +2219,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
   onExited: PropTypes.func
 } : {}; // Name the function so it is clearer in the documentation
 
-function noop$4() {}
+function noop$6() {}
 
 Transition.defaultProps = {
   in: false,
@@ -2227,12 +2228,12 @@ Transition.defaultProps = {
   appear: false,
   enter: true,
   exit: true,
-  onEnter: noop$4,
-  onEntering: noop$4,
-  onEntered: noop$4,
-  onExit: noop$4,
-  onExiting: noop$4,
-  onExited: noop$4
+  onEnter: noop$6,
+  onEntering: noop$6,
+  onEntered: noop$6,
+  onExit: noop$6,
+  onExiting: noop$6,
+  onExited: noop$6
 };
 Transition.UNMOUNTED = UNMOUNTED;
 Transition.EXITED = EXITED;
@@ -2459,7 +2460,7 @@ function useMergedRefs(refA, refB) {
   return React.useMemo(() => mergeRefs(refA, refB), [refA, refB]);
 }
 
-function safeFindDOMNode(componentOrElement) {
+function safeFindDOMNode$1(componentOrElement) {
   if (componentOrElement && 'setState' in componentOrElement) {
     return ReactDOM.findDOMNode(componentOrElement);
   }
@@ -2482,7 +2483,7 @@ const TransitionWrapper = /*#__PURE__*/React.forwardRef(({
   const nodeRef = React.useRef(null);
   const mergedRef = useMergedRefs(nodeRef, childRef);
   const attachRef = r => {
-    mergedRef(safeFindDOMNode(r));
+    mergedRef(safeFindDOMNode$1(r));
   };
   const normalize = callback => param => {
     if (callback && nodeRef.current) {
@@ -2601,7 +2602,7 @@ const Collapse = /*#__PURE__*/React.forwardRef(({
     appear: appear,
     children: (state, innerProps) => /*#__PURE__*/React.cloneElement(children, {
       ...innerProps,
-      className: classNames(className, children.props.className, collapseStyles[state], computedDimension === 'width' && 'collapse-horizontal')
+      className: cx(className, children.props.className, collapseStyles[state], computedDimension === 'width' && 'collapse-horizontal')
     })
   });
 });
@@ -2637,7 +2638,7 @@ function useEventCallback(fn) {
 var divWithClassName = (className => /*#__PURE__*/React__namespace.forwardRef((p, ref) => /*#__PURE__*/jsxRuntime.jsx("div", {
   ...p,
   ref: ref,
-  className: classNames(p.className, className)
+  className: cx(p.className, className)
 })));
 
 /**
@@ -2760,7 +2761,7 @@ const isDOM = typeof document !== 'undefined';
  */
 var useIsomorphicEffect = isDOM || isReactNative ? React.useLayoutEffect : React.useEffect;
 
-const _excluded$8 = ["as", "disabled"];
+const _excluded$m = ["as", "disabled"];
 function _objectWithoutPropertiesLoose$8(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function isTrivialHref$1(href) {
   return !href || href.trim() === '#';
@@ -2834,7 +2835,7 @@ const Button$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       as: asProp,
       disabled
     } = _ref,
-    props = _objectWithoutPropertiesLoose$8(_ref, _excluded$8);
+    props = _objectWithoutPropertiesLoose$8(_ref, _excluded$m);
   const [buttonProps, {
     tagName: Component
   }] = useButtonProps(Object.assign({
@@ -2847,7 +2848,7 @@ const Button$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
 });
 Button$3.displayName = 'Button';
 
-const _excluded$7 = ["onKeyDown"];
+const _excluded$l = ["onKeyDown"];
 function _objectWithoutPropertiesLoose$7(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function isTrivialHref(href) {
   return !href || href.trim() === '#';
@@ -2860,7 +2861,7 @@ const Anchor = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   let {
       onKeyDown
     } = _ref,
-    props = _objectWithoutPropertiesLoose$7(_ref, _excluded$7);
+    props = _objectWithoutPropertiesLoose$7(_ref, _excluded$l);
   const [buttonProps] = useButtonProps(Object.assign({
     tagName: 'a'
   }, props));
@@ -2915,14 +2916,14 @@ const Fade = /*#__PURE__*/React__namespace.forwardRef(({
     childRef: children.ref,
     children: (status, innerProps) => /*#__PURE__*/React__namespace.cloneElement(children, {
       ...innerProps,
-      className: classNames('fade', className, children.props.className, fadeStyles[status], transitionClasses[status])
+      className: cx('fade', className, children.props.className, fadeStyles[status], transitionClasses[status])
     })
   });
 });
 Fade.displayName = 'Fade';
 var Fade$1 = Fade;
 
-const propTypes$2 = {
+const propTypes$a = {
   /** An accessible label indicating the relevant information about the Close Button. */
   'aria-label': PropTypes.string,
   /** A callback fired after the Close Button is clicked. */
@@ -2942,12 +2943,12 @@ const CloseButton = /*#__PURE__*/React__namespace.forwardRef(({
 }, ref) => /*#__PURE__*/jsxRuntime.jsx("button", {
   ref: ref,
   type: "button",
-  className: classNames('btn-close', variant && `btn-close-${variant}`, className),
+  className: cx('btn-close', variant && `btn-close-${variant}`, className),
   "aria-label": ariaLabel,
   ...props
 }));
 CloseButton.displayName = 'CloseButton';
-CloseButton.propTypes = propTypes$2;
+CloseButton.propTypes = propTypes$a;
 var CloseButton$1 = CloseButton;
 
 const Button$1 = /*#__PURE__*/React__namespace.forwardRef(({
@@ -2974,7 +2975,7 @@ const Button$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ...props,
     ref: ref,
     disabled: disabled,
-    className: classNames(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
+    className: cx(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
   });
 });
 Button$1.displayName = 'Button';
@@ -2989,7 +2990,7 @@ const CardBody = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-body');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3005,7 +3006,7 @@ const CardFooter = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-footer');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3032,7 +3033,7 @@ const CardHeader = /*#__PURE__*/React__namespace.forwardRef(({
     children: /*#__PURE__*/jsxRuntime.jsx(Component, {
       ref: ref,
       ...props,
-      className: classNames(className, prefix)
+      className: cx(className, prefix)
     })
   });
 });
@@ -3051,7 +3052,7 @@ const CardImg = /*#__PURE__*/React__namespace.forwardRef(
   const prefix = useBootstrapPrefix(bsPrefix, 'card-img');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(variant ? `${prefix}-${variant}` : prefix, className),
+    className: cx(variant ? `${prefix}-${variant}` : prefix, className),
     ...props
   });
 });
@@ -3067,7 +3068,7 @@ const CardImgOverlay = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-img-overlay');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3083,7 +3084,7 @@ const CardLink = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-link');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3100,7 +3101,7 @@ const CardSubtitle = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-subtitle');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3116,7 +3117,7 @@ const CardText = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-text');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3133,7 +3134,7 @@ const CardTitle = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'card-title');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -3156,7 +3157,7 @@ const Card$1 = /*#__PURE__*/React__namespace.forwardRef(({
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
     ...props,
-    className: classNames(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
+    className: cx(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
     children: body ? /*#__PURE__*/jsxRuntime.jsx(CardBody$1, {
       children: children
     }) : children
@@ -3239,7 +3240,7 @@ function useCol({
   });
   return [{
     ...props,
-    className: classNames(className, ...spans, ...classes)
+    className: cx(className, ...spans, ...classes)
   }, {
     as,
     bsPrefix,
@@ -3260,7 +3261,7 @@ const Col = /*#__PURE__*/React__namespace.forwardRef(
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ...colProps,
     ref: ref,
-    className: classNames(className, !spans.length && bsPrefix)
+    className: cx(className, !spans.length && bsPrefix)
   });
 });
 Col.displayName = 'Col';
@@ -3279,7 +3280,7 @@ const Container = /*#__PURE__*/React__namespace.forwardRef(({
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
     ...props,
-    className: classNames(className, fluid ? `${prefix}${suffix}` : prefix)
+    className: cx(className, fluid ? `${prefix}${suffix}` : prefix)
   });
 });
 Container.displayName = 'Container';
@@ -3629,7 +3630,7 @@ function getNodeName(element) {
   return element ? (element.nodeName || '').toLowerCase() : null;
 }
 
-function getComputedStyle(element) {
+function getComputedStyle$1(element) {
   return getWindow(element).getComputedStyle(element);
 }
 
@@ -3662,7 +3663,7 @@ function getParentNode(element) {
 
 function getTrueOffsetParent(element) {
   if (!isHTMLElement(element) || // https://github.com/popperjs/popper-core/issues/837
-  getComputedStyle(element).position === 'fixed') {
+  getComputedStyle$1(element).position === 'fixed') {
     return null;
   }
 
@@ -3677,7 +3678,7 @@ function getContainingBlock(element) {
 
   if (isIE && isHTMLElement(element)) {
     // In IE 9, 10 and 11 fixed elements containing block is always established by the viewport
-    var elementCss = getComputedStyle(element);
+    var elementCss = getComputedStyle$1(element);
 
     if (elementCss.position === 'fixed') {
       return null;
@@ -3691,7 +3692,7 @@ function getContainingBlock(element) {
   }
 
   while (isHTMLElement(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
-    var css = getComputedStyle(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+    var css = getComputedStyle$1(currentNode); // This is non-exhaustive but covers the most common CSS properties that
     // create a containing block.
     // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
 
@@ -3711,11 +3712,11 @@ function getOffsetParent(element) {
   var window = getWindow(element);
   var offsetParent = getTrueOffsetParent(element);
 
-  while (offsetParent && isTableElement(offsetParent) && getComputedStyle(offsetParent).position === 'static') {
+  while (offsetParent && isTableElement(offsetParent) && getComputedStyle$1(offsetParent).position === 'static') {
     offsetParent = getTrueOffsetParent(offsetParent);
   }
 
-  if (offsetParent && (getNodeName(offsetParent) === 'html' || getNodeName(offsetParent) === 'body' && getComputedStyle(offsetParent).position === 'static')) {
+  if (offsetParent && (getNodeName(offsetParent) === 'html' || getNodeName(offsetParent) === 'body' && getComputedStyle$1(offsetParent).position === 'static')) {
     return window;
   }
 
@@ -3798,7 +3799,7 @@ function arrow(_ref) {
   state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
 }
 
-function effect$1(_ref2) {
+function effect$2(_ref2) {
   var state = _ref2.state,
       options = _ref2.options;
   var _options$element = options.element,
@@ -3830,7 +3831,7 @@ var arrow$1 = {
   enabled: true,
   phase: 'main',
   fn: arrow,
-  effect: effect$1,
+  effect: effect$2,
   requires: ['popperOffsets'],
   requiresIfExists: ['preventOverflow']
 };
@@ -3900,7 +3901,7 @@ function mapToStyles(_ref2) {
     if (offsetParent === getWindow(popper)) {
       offsetParent = getDocumentElement(popper);
 
-      if (getComputedStyle(offsetParent).position !== 'static' && position === 'absolute') {
+      if (getComputedStyle$1(offsetParent).position !== 'static' && position === 'absolute') {
         heightProp = 'scrollHeight';
         widthProp = 'scrollWidth';
       }
@@ -4004,7 +4005,7 @@ var passive = {
   passive: true
 };
 
-function effect(_ref) {
+function effect$1(_ref) {
   var state = _ref.state,
       instance = _ref.instance,
       options = _ref.options;
@@ -4044,7 +4045,7 @@ var eventListeners = {
   enabled: true,
   phase: 'write',
   fn: function fn() {},
-  effect: effect,
+  effect: effect$1,
   data: {}
 };
 
@@ -4132,7 +4133,7 @@ function getDocumentRect(element) {
   var x = -winScroll.scrollLeft + getWindowScrollBarX(element);
   var y = -winScroll.scrollTop;
 
-  if (getComputedStyle(body || html).direction === 'rtl') {
+  if (getComputedStyle$1(body || html).direction === 'rtl') {
     x += max(html.clientWidth, body ? body.clientWidth : 0) - width;
   }
 
@@ -4146,7 +4147,7 @@ function getDocumentRect(element) {
 
 function isScrollParent(element) {
   // Firefox wants us to check `-x` and `-y` variations as well
-  var _getComputedStyle = getComputedStyle(element),
+  var _getComputedStyle = getComputedStyle$1(element),
       overflow = _getComputedStyle.overflow,
       overflowX = _getComputedStyle.overflowX,
       overflowY = _getComputedStyle.overflowY;
@@ -4221,7 +4222,7 @@ function getClientRectFromMixedType(element, clippingParent, strategy) {
 
 function getClippingParents(element) {
   var clippingParents = listScrollParents(getParentNode(element));
-  var canEscapeClipping = ['absolute', 'fixed'].indexOf(getComputedStyle(element).position) >= 0;
+  var canEscapeClipping = ['absolute', 'fixed'].indexOf(getComputedStyle$1(element).position) >= 0;
   var clipperElement = canEscapeClipping && isHTMLElement(element) ? getOffsetParent(element) : element;
 
   if (!isElement(clipperElement)) {
@@ -5155,11 +5156,11 @@ function popperGenerator(generatorOptions) {
 
 // For the common JS build we will turn this file into a bundle with no imports.
 // This is b/c the Popper lib is all esm files, and would break in a common js only environment
-const createPopper = popperGenerator({
+const createPopper$1 = popperGenerator({
   defaultModifiers: [hide$1, popperOffsets$1, computeStyles$1, eventListeners, offset$1, flip$1, preventOverflow$1, arrow$1]
 });
 
-const _excluded$6 = ["enabled", "placement", "strategy", "modifiers"];
+const _excluded$k = ["enabled", "placement", "strategy", "modifiers"];
 function _objectWithoutPropertiesLoose$6(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 const disabledApplyStylesModifier = {
   name: 'applyStyles',
@@ -5204,7 +5205,7 @@ const ariaDescribedByModifier = {
     }
   }
 };
-const EMPTY_MODIFIERS = [];
+const EMPTY_MODIFIERS$1 = [];
 /**
  * Position an element relative some reference element using Popper.js
  *
@@ -5220,14 +5221,14 @@ const EMPTY_MODIFIERS = [];
  *
  * @returns {UsePopperState} The popper state
  */
-function usePopper(referenceElement, popperElement, _ref = {}) {
+function usePopper$1(referenceElement, popperElement, _ref = {}) {
   let {
       enabled = true,
       placement = 'bottom',
       strategy = 'absolute',
-      modifiers = EMPTY_MODIFIERS
+      modifiers = EMPTY_MODIFIERS$1
     } = _ref,
-    config = _objectWithoutPropertiesLoose$6(_ref, _excluded$6);
+    config = _objectWithoutPropertiesLoose$6(_ref, _excluded$k);
   const prevModifiers = React.useRef(modifiers);
   const popperInstanceRef = React.useRef();
   const update = React.useCallback(() => {
@@ -5290,7 +5291,7 @@ function usePopper(referenceElement, popperElement, _ref = {}) {
     if (!enabled || referenceElement == null || popperElement == null) {
       return undefined;
     }
-    popperInstanceRef.current = createPopper(referenceElement, popperElement, Object.assign({}, config, {
+    popperInstanceRef.current = createPopper$1(referenceElement, popperElement, Object.assign({}, config, {
       placement,
       strategy,
       modifiers: [...nextModifiers, ariaDescribedByModifier, updateModifier]
@@ -5391,14 +5392,14 @@ var warning_1 = warning$1;
 
 var warning$2 = /*@__PURE__*/getDefaultExportFromCjs(warning_1);
 
-const noop$3 = () => {};
-function isLeftClickEvent(event) {
+const noop$5 = () => {};
+function isLeftClickEvent$1(event) {
   return event.button === 0;
 }
-function isModifiedEvent$1(event) {
+function isModifiedEvent$2(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
-const getRefTarget = ref => ref && ('current' in ref ? ref.current : ref);
+const getRefTarget$1 = ref => ref && ('current' in ref ? ref.current : ref);
 const InitialTriggerEvents = {
   click: 'mousedown',
   mouseup: 'mousedown',
@@ -5415,20 +5416,20 @@ const InitialTriggerEvents = {
  * @param {boolean=} options.disabled
  * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
  */
-function useClickOutside(ref, onClickOutside = noop$3, {
+function useClickOutside(ref, onClickOutside = noop$5, {
   disabled,
   clickTrigger = 'click'
 } = {}) {
   const preventMouseClickOutsideRef = React.useRef(false);
   const waitingForTrigger = React.useRef(false);
   const handleMouseCapture = React.useCallback(e => {
-    const currentTarget = getRefTarget(ref);
+    const currentTarget = getRefTarget$1(ref);
     warning$2(!!currentTarget, 'ClickOutside captured a close event but does not have a ref to compare it to. ' + 'useClickOutside(), should be passed a ref that resolves to a DOM node');
-    preventMouseClickOutsideRef.current = !currentTarget || isModifiedEvent$1(e) || !isLeftClickEvent(e) || !!contains(currentTarget, e.target) || waitingForTrigger.current;
+    preventMouseClickOutsideRef.current = !currentTarget || isModifiedEvent$2(e) || !isLeftClickEvent$1(e) || !!contains(currentTarget, e.target) || waitingForTrigger.current;
     waitingForTrigger.current = false;
   }, [ref]);
   const handleInitialMouse = useEventCallback(e => {
-    const currentTarget = getRefTarget(ref);
+    const currentTarget = getRefTarget$1(ref);
     if (currentTarget && contains(currentTarget, e.target)) {
       waitingForTrigger.current = true;
     }
@@ -5441,7 +5442,7 @@ function useClickOutside(ref, onClickOutside = noop$3, {
   React.useEffect(() => {
     var _ownerWindow$event, _ownerWindow$parent;
     if (disabled || ref == null) return undefined;
-    const doc = ownerDocument(getRefTarget(ref));
+    const doc = ownerDocument$1(getRefTarget$1(ref));
     const ownerWindow = doc.defaultView || window;
 
     // Store the current event to avoid triggering handlers immediately
@@ -5468,7 +5469,7 @@ function useClickOutside(ref, onClickOutside = noop$3, {
     });
     let mobileSafariHackListeners = [];
     if ('ontouchstart' in doc.documentElement) {
-      mobileSafariHackListeners = [].slice.call(doc.body.children).map(el => listen(el, 'mousemove', noop$3));
+      mobileSafariHackListeners = [].slice.call(doc.body.children).map(el => listen(el, 'mousemove', noop$5));
     }
     return () => {
       removeInitialTriggerListener == null ? void 0 : removeInitialTriggerListener();
@@ -5543,9 +5544,9 @@ function mergeOptionsWithPopperConfig({
   });
 }
 
-const _excluded$5 = ["children"];
+const _excluded$j = ["children"];
 function _objectWithoutPropertiesLoose$5(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-const noop$2 = () => {};
+const noop$4 = () => {};
 
 /**
  * @memberOf Dropdown
@@ -5584,7 +5585,7 @@ function useDropdownMenu(options = {}) {
     menuElement,
     toggleElement
   } = context || {};
-  const popper = usePopper(toggleElement, menuElement, mergeOptionsWithPopperConfig({
+  const popper = usePopper$1(toggleElement, menuElement, mergeOptionsWithPopperConfig({
     placement: placementOverride || placement || 'bottom-start',
     enabled: shouldUsePopper,
     enableEvents: enableEventListeners == null ? show : enableEventListeners,
@@ -5595,7 +5596,7 @@ function useDropdownMenu(options = {}) {
     popperConfig
   }));
   const menuProps = Object.assign({
-    ref: setMenu || noop$2,
+    ref: setMenu || noop$4,
     'aria-labelledby': toggleElement == null ? void 0 : toggleElement.id
   }, popper.attributes.popper, {
     style: popper.styles.popper
@@ -5618,7 +5619,7 @@ function useDropdownMenu(options = {}) {
   });
   return [menuProps, metadata];
 }
-const defaultProps = {
+const defaultProps$2 = {
   usePopper: true
 };
 /**
@@ -5631,14 +5632,14 @@ function DropdownMenu$3(_ref) {
   let {
       children
     } = _ref,
-    options = _objectWithoutPropertiesLoose$5(_ref, _excluded$5);
+    options = _objectWithoutPropertiesLoose$5(_ref, _excluded$j);
   const [props, meta] = useDropdownMenu(options);
   return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
     children: children(props, meta)
   });
 }
 DropdownMenu$3.displayName = 'DropdownMenu';
-DropdownMenu$3.defaultProps = defaultProps;
+DropdownMenu$3.defaultProps = defaultProps$2;
 
 /*
  * Copyright 2020 Adobe. All rights reserved.
@@ -5754,7 +5755,7 @@ const isRoleMenu = el => {
   var _el$getAttribute;
   return ((_el$getAttribute = el.getAttribute('role')) == null ? void 0 : _el$getAttribute.toLowerCase()) === 'menu';
 };
-const noop$1 = () => {};
+const noop$3 = () => {};
 
 /**
  * Wires up Dropdown toggle functionality, returning a set a props to attach
@@ -5766,7 +5767,7 @@ function useDropdownToggle() {
   const id = $b5e257d569688ac6$export$619500959fc48b26();
   const {
     show = false,
-    toggle = noop$1,
+    toggle = noop$3,
     setToggle,
     menuElement
   } = React.useContext(DropdownContext$3) || {};
@@ -5775,7 +5776,7 @@ function useDropdownToggle() {
   }, [show, toggle]);
   const props = {
     id,
-    ref: setToggle || noop$1,
+    ref: setToggle || noop$3,
     onClick: handleClick,
     'aria-expanded': !!show
   };
@@ -5826,7 +5827,7 @@ function dataProp(property) {
   return `${PROPERTY_PREFIX}${property}`;
 }
 
-const _excluded$4 = ["eventKey", "disabled", "onClick", "active", "as"];
+const _excluded$i = ["eventKey", "disabled", "onClick", "active", "as"];
 function _objectWithoutPropertiesLoose$4(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 /**
  * Create a dropdown item. Returns a set of props for the dropdown item component
@@ -5870,7 +5871,7 @@ const DropdownItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       active,
       as: Component = Button$3
     } = _ref,
-    props = _objectWithoutPropertiesLoose$4(_ref, _excluded$4);
+    props = _objectWithoutPropertiesLoose$4(_ref, _excluded$i);
   const [dropdownItemProps] = useDropdownItem({
     key: eventKey,
     href: props.href,
@@ -6088,7 +6089,7 @@ const DropdownDivider = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'dropdown-divider');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     role: role,
     ...props
   });
@@ -6106,7 +6107,7 @@ const DropdownHeader = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'dropdown-header');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     role: role,
     ...props
   });
@@ -6136,7 +6137,7 @@ const DropdownItem$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ...props,
     ...dropdownItemProps,
     ref: ref,
-    className: classNames(className, prefix, meta.isActive && 'active', disabled && 'disabled')
+    className: cx(className, prefix, meta.isActive && 'active', disabled && 'disabled')
   });
 });
 DropdownItem$1.displayName = 'DropdownItem';
@@ -6151,7 +6152,7 @@ const DropdownItemText = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'dropdown-item-text');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -6283,7 +6284,7 @@ const DropdownMenu$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ...((alignClasses.length || isNavbar) && {
       'data-bs-popper': 'static'
     }),
-    className: classNames(className, prefix, show && 'show', alignEnd && `${prefix}-end`, variant && `${prefix}-${variant}`, ...alignClasses)
+    className: cx(className, prefix, show && 'show', alignEnd && `${prefix}-end`, variant && `${prefix}-${variant}`, ...alignClasses)
   });
 });
 DropdownMenu$1.displayName = 'DropdownMenu';
@@ -6309,7 +6310,7 @@ const DropdownToggle$1 = /*#__PURE__*/React__namespace.forwardRef(({
   // This intentionally forwards size and variant (if set) to the
   // underlying component, to allow it to render size and style variants.
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
-    className: classNames(className, prefix, split && `${prefix}-split`, (dropdownContext == null ? void 0 : dropdownContext.show) && 'show'),
+    className: cx(className, prefix, split && `${prefix}-split`, (dropdownContext == null ? void 0 : dropdownContext.show) && 'show'),
     ...toggleProps,
     ...props
   });
@@ -6388,7 +6389,7 @@ const Dropdown = /*#__PURE__*/React__namespace.forwardRef((pProps, ref) => {
       children: isInputGroup ? props.children : /*#__PURE__*/jsxRuntime.jsx(Component, {
         ...props,
         ref: ref,
-        className: classNames(className, show && 'show', directionClasses[drop])
+        className: cx(className, show && 'show', directionClasses[drop])
       })
     })
   });
@@ -6403,7 +6404,7 @@ var Dropdown$1 = Object.assign(Dropdown, {
   Header: DropdownHeader$1
 });
 
-const propTypes$1 = {
+const propTypes$9 = {
   /**
    * Specify whether the feedback is for valid or invalid fields
    *
@@ -6425,10 +6426,10 @@ const Feedback = /*#__PURE__*/React__namespace.forwardRef(
 }, ref) => /*#__PURE__*/jsxRuntime.jsx(Component, {
   ...props,
   ref: ref,
-  className: classNames(className, `${type}-${tooltip ? 'tooltip' : 'feedback'}`)
+  className: cx(className, `${type}-${tooltip ? 'tooltip' : 'feedback'}`)
 }));
 Feedback.displayName = 'Feedback';
-Feedback.propTypes = propTypes$1;
+Feedback.propTypes = propTypes$9;
 var Feedback$1 = Feedback;
 
 // TODO
@@ -6456,7 +6457,7 @@ const FormCheckInput = /*#__PURE__*/React__namespace.forwardRef(({
     ref: ref,
     type: type,
     id: id || controlId,
-    className: classNames(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid')
+    className: cx(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid')
   });
 });
 FormCheckInput.displayName = 'FormCheckInput';
@@ -6476,7 +6477,7 @@ const FormCheckLabel = /*#__PURE__*/React__namespace.forwardRef(({
     ...props,
     ref: ref,
     htmlFor: htmlFor || controlId,
-    className: classNames(className, bsPrefix)
+    className: cx(className, bsPrefix)
   });
 });
 FormCheckLabel.displayName = 'FormCheckLabel';
@@ -6526,7 +6527,7 @@ const FormCheck$1 = /*#__PURE__*/React__namespace.forwardRef(({
     value: innerFormContext,
     children: /*#__PURE__*/jsxRuntime.jsx("div", {
       style: style,
-      className: classNames(className, hasLabel && bsPrefix, inline && `${bsPrefix}-inline`, reverse && `${bsPrefix}-reverse`, type === 'switch' && bsSwitchPrefix),
+      className: cx(className, hasLabel && bsPrefix, inline && `${bsPrefix}-inline`, reverse && `${bsPrefix}-reverse`, type === 'switch' && bsSwitchPrefix),
       children: children || /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
         children: [input, hasLabel && /*#__PURE__*/jsxRuntime.jsx(FormCheckLabel$1, {
           title: title,
@@ -6573,7 +6574,7 @@ const FormControl$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ref: ref,
     readOnly: readOnly,
     id: id || controlId,
-    className: classNames(className, plaintext ? `${bsPrefix}-plaintext` : bsPrefix, size && `${bsPrefix}-${size}`, type === 'color' && `${bsPrefix}-color`, isValid && 'is-valid', isInvalid && 'is-invalid')
+    className: cx(className, plaintext ? `${bsPrefix}-plaintext` : bsPrefix, size && `${bsPrefix}-${size}`, type === 'color' && `${bsPrefix}-color`, isValid && 'is-valid', isInvalid && 'is-invalid')
   });
 });
 FormControl$1.displayName = 'FormControl';
@@ -6590,7 +6591,7 @@ const FormFloating = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form-floating');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -6633,7 +6634,7 @@ const FormLabel$1 = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form-label');
   let columnClass = 'col-form-label';
   if (typeof column === 'string') columnClass = `${columnClass} ${columnClass}-${column}`;
-  const classes = classNames(className, bsPrefix, visuallyHidden && 'visually-hidden', column && columnClass);
+  const classes = cx(className, bsPrefix, visuallyHidden && 'visually-hidden', column && columnClass);
   process.env.NODE_ENV !== "production" ? warning$2(controlId == null || !htmlFor, '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.') : void 0;
   htmlFor = htmlFor || controlId;
   if (column) return /*#__PURE__*/jsxRuntime.jsx(Col$1, {
@@ -6671,7 +6672,7 @@ const FormRange = /*#__PURE__*/React__namespace.forwardRef(({
     ...props,
     type: "range",
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     id: id || controlId
   });
 });
@@ -6696,7 +6697,7 @@ const FormSelect$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ...props,
     size: htmlSize,
     ref: ref,
-    className: classNames(className, bsPrefix, size && `${bsPrefix}-${size}`, isValid && `is-valid`, isInvalid && `is-invalid`),
+    className: cx(className, bsPrefix, size && `${bsPrefix}-${size}`, isValid && `is-valid`, isInvalid && `is-invalid`),
     id: id || controlId
   });
 });
@@ -6716,7 +6717,7 @@ const FormText = /*#__PURE__*/React__namespace.forwardRef(
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ...props,
     ref: ref,
-    className: classNames(className, bsPrefix, muted && 'text-muted')
+    className: cx(className, bsPrefix, muted && 'text-muted')
   });
 });
 FormText.displayName = 'FormText';
@@ -6744,7 +6745,7 @@ const FloatingLabel = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'form-floating');
   return /*#__PURE__*/jsxRuntime.jsxs(BootstrapFormGroup, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     controlId: controlId,
     ...props,
     children: [children, /*#__PURE__*/jsxRuntime.jsx("label", {
@@ -6756,7 +6757,7 @@ const FloatingLabel = /*#__PURE__*/React__namespace.forwardRef(({
 FloatingLabel.displayName = 'FloatingLabel';
 var FloatingLabel$1 = FloatingLabel;
 
-const propTypes = {
+const propTypes$8 = {
   /**
    * The Form `ref` will be forwarded to the underlying element,
    * which means, unless it's rendered `as` a composite component,
@@ -6782,10 +6783,10 @@ const Form$2 = /*#__PURE__*/React__namespace.forwardRef(({
 }, ref) => /*#__PURE__*/jsxRuntime.jsx(Component, {
   ...props,
   ref: ref,
-  className: classNames(className, validated && 'was-validated')
+  className: cx(className, validated && 'was-validated')
 }));
 Form$2.displayName = 'Form';
-Form$2.propTypes = propTypes;
+Form$2.propTypes = propTypes$8;
 var BootstrapForm = Object.assign(Form$2, {
   Group: BootstrapFormGroup,
   Control: FormControl$2,
@@ -6808,7 +6809,7 @@ const InputGroupText = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group-text');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -6846,7 +6847,7 @@ const InputGroup = /*#__PURE__*/React__namespace.forwardRef(({
     children: /*#__PURE__*/jsxRuntime.jsx(Component, {
       ref: ref,
       ...props,
-      className: classNames(className, bsPrefix, size && `${bsPrefix}-${size}`, hasValidation && 'has-validation')
+      className: cx(className, bsPrefix, size && `${bsPrefix}-${size}`, hasValidation && 'has-validation')
     })
   });
 });
@@ -6860,7 +6861,7 @@ var InputGroup$1 = Object.assign(InputGroup, {
 const TabContext = /*#__PURE__*/React__namespace.createContext(null);
 var TabContext$1 = TabContext;
 
-const _excluded$3 = ["as", "active", "eventKey"];
+const _excluded$h = ["as", "active", "eventKey"];
 function _objectWithoutPropertiesLoose$3(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function useNavItem({
   key,
@@ -6928,7 +6929,7 @@ const NavItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       active,
       eventKey
     } = _ref,
-    options = _objectWithoutPropertiesLoose$3(_ref, _excluded$3);
+    options = _objectWithoutPropertiesLoose$3(_ref, _excluded$h);
   const [props, meta] = useNavItem(Object.assign({
     key: makeEventKey(eventKey, options.href),
     active
@@ -6943,10 +6944,10 @@ const NavItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
 NavItem$3.displayName = 'NavItem';
 var NavItem$4 = NavItem$3;
 
-const _excluded$2 = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
+const _excluded$g = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
 function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {};
+const noop$2 = () => {};
 const EVENT_KEY_ATTR = dataAttr('event-key');
 const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   let {
@@ -6957,7 +6958,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       role,
       onKeyDown
     } = _ref,
-    props = _objectWithoutPropertiesLoose$2(_ref, _excluded$2);
+    props = _objectWithoutPropertiesLoose$2(_ref, _excluded$g);
   // A ref and forceUpdate for refocus, b/c we only want to trigger when needed
   // and don't want to reset the set in the effect
   const forceUpdate = useForceUpdate();
@@ -7030,8 +7031,8 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
         role,
         // used by NavLink to determine it's role
         activeKey: makeEventKey(activeKey),
-        getControlledId: getControlledId || noop,
-        getControllerId: getControllerId || noop
+        getControlledId: getControlledId || noop$2,
+        getControllerId: getControllerId || noop$2
       },
       children: /*#__PURE__*/jsxRuntime.jsx(Component, Object.assign({}, props, {
         onKeyDown: handleKeyDown,
@@ -7054,7 +7055,7 @@ var BaseNav = Object.assign(Nav$2, {
 
 function activeElement(doc) {
   if (doc === void 0) {
-    doc = ownerDocument();
+    doc = ownerDocument$1();
   }
 
   // Support: IE 9 only
@@ -7179,7 +7180,7 @@ var ModalManager$1 = ModalManager;
 
 const resolveContainerRef = (ref, document) => {
   if (!canUseDOM) return null;
-  if (ref == null) return (document || ownerDocument()).body;
+  if (ref == null) return (document || ownerDocument$1()).body;
   if (typeof ref === 'function') ref = ref();
   if (ref && 'current' in ref) ref = ref.current;
   if (ref && ('nodeType' in ref || ref.getBoundingClientRect)) return ref;
@@ -7325,7 +7326,7 @@ function isEscKey(e) {
   return e.code === 'Escape' || e.keyCode === 27;
 }
 
-const _excluded$1 = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "runTransition", "backdropTransition", "runBackdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
+const _excluded$f = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "runTransition", "backdropTransition", "runBackdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
 function _objectWithoutPropertiesLoose$1(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 let manager;
 function getManager(window) {
@@ -7385,7 +7386,7 @@ const Modal = /*#__PURE__*/React.forwardRef((_ref, ref) => {
       onEntering,
       onEntered
     } = _ref,
-    rest = _objectWithoutPropertiesLoose$1(_ref, _excluded$1);
+    rest = _objectWithoutPropertiesLoose$1(_ref, _excluded$f);
   const ownerWindow = useWindow();
   const container = useWaitForDOMRef(containerRef);
   const modal = useModalManager(providedManager);
@@ -7777,7 +7778,7 @@ const NavItem$1 = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'nav-item');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -7805,7 +7806,7 @@ const NavLink$1 = /*#__PURE__*/React__namespace.forwardRef(({
     ...navItemProps,
     ref: ref,
     disabled: disabled,
-    className: classNames(className, bsPrefix, disabled && 'disabled', meta.isActive && 'active')
+    className: cx(className, bsPrefix, disabled && 'disabled', meta.isActive && 'active')
   });
 });
 NavLink$1.displayName = 'NavLink';
@@ -7844,7 +7845,7 @@ const Nav$1 = /*#__PURE__*/React__namespace.forwardRef((uncontrolledProps, ref) 
     as: as,
     ref: ref,
     activeKey: activeKey,
-    className: classNames(className, {
+    className: cx(className, {
       [bsPrefix]: !isNavbar,
       [`${navbarBsPrefix}-nav`]: isNavbar,
       [`${navbarBsPrefix}-nav-scroll`]: isNavbar && navbarScroll,
@@ -7873,7 +7874,7 @@ const NavbarBrand = /*#__PURE__*/React__namespace.forwardRef(({
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ...props,
     ref: ref,
-    className: classNames(className, bsPrefix)
+    className: cx(className, bsPrefix)
   });
 });
 NavbarBrand.displayName = 'NavbarBrand';
@@ -7926,7 +7927,7 @@ const NavbarToggle = /*#__PURE__*/React__namespace.forwardRef(({
     ref: ref,
     onClick: handleClick,
     "aria-label": label,
-    className: classNames(className, bsPrefix, !expanded && 'collapsed'),
+    className: cx(className, bsPrefix, !expanded && 'collapsed'),
     children: children || /*#__PURE__*/jsxRuntime.jsx("span", {
       className: `${bsPrefix}-icon`
     })
@@ -8117,7 +8118,7 @@ const OffcanvasBody = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'offcanvas-body');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -8150,7 +8151,7 @@ const OffcanvasToggling = /*#__PURE__*/React__namespace.forwardRef(({
     childRef: children.ref,
     children: (status, innerProps) => /*#__PURE__*/React__namespace.cloneElement(children, {
       ...innerProps,
-      className: classNames(className, children.props.className, (status === ENTERING || status === EXITING) && `${bsPrefix}-toggling`, transitionStyles[status])
+      className: cx(className, children.props.className, (status === ENTERING || status === EXITING) && `${bsPrefix}-toggling`, transitionStyles[status])
     })
   });
 });
@@ -8168,7 +8169,7 @@ const OffcanvasHeader = /*#__PURE__*/React__namespace.forwardRef(({
   return /*#__PURE__*/jsxRuntime.jsx(AbstractModalHeader$1, {
     ref: ref,
     ...props,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     closeLabel: closeLabel,
     closeButton: closeButton
   });
@@ -8186,7 +8187,7 @@ const OffcanvasTitle = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'offcanvas-title');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -8276,12 +8277,12 @@ const Offcanvas = /*#__PURE__*/React__namespace.forwardRef(({
   };
   const renderBackdrop = React.useCallback(backdropProps => /*#__PURE__*/jsxRuntime.jsx("div", {
     ...backdropProps,
-    className: classNames(`${bsPrefix}-backdrop`, backdropClassName)
+    className: cx(`${bsPrefix}-backdrop`, backdropClassName)
   }), [backdropClassName, bsPrefix]);
   const renderDialog = dialogProps => /*#__PURE__*/jsxRuntime.jsx("div", {
     ...dialogProps,
     ...props,
-    className: classNames(className, responsive ? `${bsPrefix}-${responsive}` : bsPrefix, `${bsPrefix}-${placement}`),
+    className: cx(className, responsive ? `${bsPrefix}-${responsive}` : bsPrefix, `${bsPrefix}-${placement}`),
     "aria-labelledby": ariaLabelledby,
     children: children
   });
@@ -8344,7 +8345,7 @@ const NavbarText = /*#__PURE__*/React__namespace.forwardRef(({
   bsPrefix = useBootstrapPrefix(bsPrefix, 'navbar-text');
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
-    className: classNames(className, bsPrefix),
+    className: cx(className, bsPrefix),
     ...props
   });
 });
@@ -8399,7 +8400,7 @@ const Navbar = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
       children: /*#__PURE__*/jsxRuntime.jsx(Component, {
         ref: ref,
         ...controlledProps,
-        className: classNames(className, bsPrefix, expand && expandClass, variant && `${bsPrefix}-${variant}`, bg && `bg-${bg}`, sticky && `sticky-${sticky}`, fixed && `fixed-${fixed}`)
+        className: cx(className, bsPrefix, expand && expandClass, variant && `${bsPrefix}-${variant}`, bg && `bg-${bg}`, sticky && `sticky-${sticky}`, fixed && `fixed-${fixed}`)
       })
     })
   });
@@ -8442,7 +8443,7 @@ const Row = /*#__PURE__*/React__namespace.forwardRef(({
   return /*#__PURE__*/jsxRuntime.jsx(Component, {
     ref: ref,
     ...props,
-    className: classNames(className, decoratedBsPrefix, ...classes)
+    className: cx(className, decoratedBsPrefix, ...classes)
   });
 });
 Row.displayName = 'Row';
@@ -8461,7 +8462,7 @@ const Table$1 = /*#__PURE__*/React__namespace.forwardRef(({
   ...props
 }, ref) => {
   const decoratedBsPrefix = useBootstrapPrefix(bsPrefix, 'table');
-  const classes = classNames(className, decoratedBsPrefix, variant && `${decoratedBsPrefix}-${variant}`, size && `${decoratedBsPrefix}-${size}`, striped && `${decoratedBsPrefix}-${typeof striped === 'string' ? `striped-${striped}` : 'striped'}`, bordered && `${decoratedBsPrefix}-bordered`, borderless && `${decoratedBsPrefix}-borderless`, hover && `${decoratedBsPrefix}-hover`);
+  const classes = cx(className, decoratedBsPrefix, variant && `${decoratedBsPrefix}-${variant}`, size && `${decoratedBsPrefix}-${size}`, striped && `${decoratedBsPrefix}-${typeof striped === 'string' ? `striped-${striped}` : 'striped'}`, bordered && `${decoratedBsPrefix}-bordered`, borderless && `${decoratedBsPrefix}-borderless`, hover && `${decoratedBsPrefix}-hover`);
   const table = /*#__PURE__*/jsxRuntime.jsx("table", {
     ...props,
     className: classes,
@@ -8847,17 +8848,17 @@ var _stackHas = stackHas$1;
 
 /** Detect free variable `global` from Node.js. */
 
-var freeGlobal$1 = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+var freeGlobal$2 = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
-var _freeGlobal = freeGlobal$1;
+var _freeGlobal = freeGlobal$2;
 
-var freeGlobal = _freeGlobal;
+var freeGlobal$1 = _freeGlobal;
 
 /** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+var freeSelf$1 = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
-var root$8 = freeGlobal || freeSelf || Function('return this')();
+var root$8 = freeGlobal$1 || freeSelf$1 || Function('return this')();
 
 var _root = root$8;
 
@@ -8874,7 +8875,7 @@ var Symbol$3 = _Symbol;
 var objectProto$b = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$8 = objectProto$b.hasOwnProperty;
+var hasOwnProperty$9 = objectProto$b.hasOwnProperty;
 
 /**
  * Used to resolve the
@@ -8894,7 +8895,7 @@ var symToStringTag$1 = Symbol$3 ? Symbol$3.toStringTag : undefined;
  * @returns {string} Returns the raw `toStringTag`.
  */
 function getRawTag$1(value) {
-  var isOwn = hasOwnProperty$8.call(value, symToStringTag$1),
+  var isOwn = hasOwnProperty$9.call(value, symToStringTag$1),
       tag = value[symToStringTag$1];
 
   try {
@@ -9027,7 +9028,7 @@ var asyncTag = '[object AsyncFunction]',
  * _.isFunction(/abc/);
  * // => false
  */
-function isFunction$2(value) {
+function isFunction$3(value) {
   if (!isObject$1(value)) {
     return false;
   }
@@ -9037,7 +9038,7 @@ function isFunction$2(value) {
   return tag == funcTag$1 || tag == genTag || tag == asyncTag || tag == proxyTag;
 }
 
-var isFunction_1 = isFunction$2;
+var isFunction_1 = isFunction$3;
 
 var root$6 = _root;
 
@@ -9095,7 +9096,7 @@ function toSource$2(func) {
 
 var _toSource = toSource$2;
 
-var isFunction$1 = isFunction_1,
+var isFunction$2 = isFunction_1,
     isMasked = _isMasked,
     isObject = isObject_1,
     toSource$1 = _toSource;
@@ -9117,11 +9118,11 @@ var funcProto = Function.prototype,
 var funcToString = funcProto.toString;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$7 = objectProto$9.hasOwnProperty;
+var hasOwnProperty$8 = objectProto$9.hasOwnProperty;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
-  funcToString.call(hasOwnProperty$7).replace(reRegExpChar, '\\$&')
+  funcToString.call(hasOwnProperty$8).replace(reRegExpChar, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
 );
 
@@ -9137,7 +9138,7 @@ function baseIsNative$1(value) {
   if (!isObject(value) || isMasked(value)) {
     return false;
   }
-  var pattern = isFunction$1(value) ? reIsNative : reIsHostCtor;
+  var pattern = isFunction$2(value) ? reIsNative : reIsHostCtor;
   return pattern.test(toSource$1(value));
 }
 
@@ -9235,7 +9236,7 @@ var HASH_UNDEFINED$2 = '__lodash_hash_undefined__';
 var objectProto$8 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$6 = objectProto$8.hasOwnProperty;
+var hasOwnProperty$7 = objectProto$8.hasOwnProperty;
 
 /**
  * Gets the hash value for `key`.
@@ -9252,7 +9253,7 @@ function hashGet$1(key) {
     var result = data[key];
     return result === HASH_UNDEFINED$2 ? undefined : result;
   }
-  return hasOwnProperty$6.call(data, key) ? data[key] : undefined;
+  return hasOwnProperty$7.call(data, key) ? data[key] : undefined;
 }
 
 var _hashGet = hashGet$1;
@@ -9263,7 +9264,7 @@ var nativeCreate$1 = _nativeCreate;
 var objectProto$7 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$5 = objectProto$7.hasOwnProperty;
+var hasOwnProperty$6 = objectProto$7.hasOwnProperty;
 
 /**
  * Checks if a hash value for `key` exists.
@@ -9276,7 +9277,7 @@ var hasOwnProperty$5 = objectProto$7.hasOwnProperty;
  */
 function hashHas$1(key) {
   var data = this.__data__;
-  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$5.call(data, key);
+  return nativeCreate$1 ? (data[key] !== undefined) : hasOwnProperty$6.call(data, key);
 }
 
 var _hashHas = hashHas$1;
@@ -10151,7 +10152,7 @@ var baseIsArguments = _baseIsArguments,
 var objectProto$5 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$4 = objectProto$5.hasOwnProperty;
+var hasOwnProperty$5 = objectProto$5.hasOwnProperty;
 
 /** Built-in value references. */
 var propertyIsEnumerable = objectProto$5.propertyIsEnumerable;
@@ -10175,7 +10176,7 @@ var propertyIsEnumerable = objectProto$5.propertyIsEnumerable;
  * // => false
  */
 var isArguments$1 = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike$2(value) && hasOwnProperty$4.call(value, 'callee') &&
+  return isObjectLike$2(value) && hasOwnProperty$5.call(value, 'callee') &&
     !propertyIsEnumerable.call(value, 'callee');
 };
 
@@ -10467,7 +10468,7 @@ var baseTimes = _baseTimes,
 var objectProto$4 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$3 = objectProto$4.hasOwnProperty;
+var hasOwnProperty$4 = objectProto$4.hasOwnProperty;
 
 /**
  * Creates an array of the enumerable property names of the array-like `value`.
@@ -10487,7 +10488,7 @@ function arrayLikeKeys$1(value, inherited) {
       length = result.length;
 
   for (var key in value) {
-    if ((inherited || hasOwnProperty$3.call(value, key)) &&
+    if ((inherited || hasOwnProperty$4.call(value, key)) &&
         !(skipIndexes && (
            // Safari 9 has enumerable `arguments.length` in strict mode.
            key == 'length' ||
@@ -10557,7 +10558,7 @@ var isPrototype = _isPrototype,
 var objectProto$2 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$2 = objectProto$2.hasOwnProperty;
+var hasOwnProperty$3 = objectProto$2.hasOwnProperty;
 
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
@@ -10572,7 +10573,7 @@ function baseKeys$1(object) {
   }
   var result = [];
   for (var key in Object(object)) {
-    if (hasOwnProperty$2.call(object, key) && key != 'constructor') {
+    if (hasOwnProperty$3.call(object, key) && key != 'constructor') {
       result.push(key);
     }
   }
@@ -10581,7 +10582,7 @@ function baseKeys$1(object) {
 
 var _baseKeys = baseKeys$1;
 
-var isFunction = isFunction_1,
+var isFunction$1 = isFunction_1,
     isLength = isLength_1;
 
 /**
@@ -10610,7 +10611,7 @@ var isFunction = isFunction_1,
  * // => false
  */
 function isArrayLike$1(value) {
-  return value != null && isLength(value.length) && !isFunction(value);
+  return value != null && isLength(value.length) && !isFunction$1(value);
 }
 
 var isArrayLike_1 = isArrayLike$1;
@@ -10679,7 +10680,7 @@ var COMPARE_PARTIAL_FLAG$1 = 1;
 var objectProto$1 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$1 = objectProto$1.hasOwnProperty;
+var hasOwnProperty$2 = objectProto$1.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqualDeep` for objects with support for
@@ -10707,7 +10708,7 @@ function equalObjects$1(object, other, bitmask, customizer, equalFunc, stack) {
   var index = objLength;
   while (index--) {
     var key = objProps[index];
-    if (!(isPartial ? key in other : hasOwnProperty$1.call(other, key))) {
+    if (!(isPartial ? key in other : hasOwnProperty$2.call(other, key))) {
       return false;
     }
   }
@@ -10873,7 +10874,7 @@ var argsTag = '[object Arguments]',
 var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
+var hasOwnProperty$1 = objectProto.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqual` for arrays and objects which performs
@@ -10916,8 +10917,8 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
       : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
   }
   if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
-    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
-        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
+    var objIsWrapped = objIsObj && hasOwnProperty$1.call(object, '__wrapped__'),
+        othIsWrapped = othIsObj && hasOwnProperty$1.call(other, '__wrapped__');
 
     if (objIsWrapped || othIsWrapped) {
       var objUnwrapped = objIsWrapped ? object.value() : object,
@@ -10995,11 +10996,11 @@ var baseIsEqual = _baseIsEqual;
  * object === other;
  * // => false
  */
-function isEqual(value, other) {
+function isEqual$2(value, other) {
   return baseIsEqual(value, other);
 }
 
-var isEqual_1$1 = isEqual;
+var isEqual_1$1 = isEqual$2;
 
 var quill = {exports: {}};
 
@@ -22845,6 +22846,3169 @@ var FormDateTime = function (_a) {
 };
 FormDateTime.Feedback = Feedback$1;
 
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r ? String : Number)(t);
+}
+
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : String(i);
+}
+
+function _defineProperty(obj, key, value) {
+  key = toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose$9(source, excluded);
+  var key, i;
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+freeGlobal || freeSelf || Function('return this')();
+
+var ALIGN_VALUES = ['justify', 'left', 'right'];
+var DEFAULT_LABELKEY = 'label';
+var SIZES = ['lg', 'sm'];
+
+function getStringLabelKey(labelKey) {
+  return typeof labelKey === 'string' ? labelKey : DEFAULT_LABELKEY;
+}
+
+/**
+ * Check if an object has the given property in a type-safe way.
+ */
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+var idCounter = 0;
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+function isFunction(value) {
+  return typeof value === 'function';
+}
+function isString(value) {
+  return typeof value === 'string';
+}
+function noop$1() {}
+function pick(obj, keys) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  var result = {};
+  keys.forEach(function (key) {
+    result[key] = obj[key];
+  });
+  return result;
+}
+function uniqueId(prefix) {
+  idCounter += 1;
+  return (prefix == null ? '' : String(prefix)) + idCounter;
+}
+
+/**
+ * Retrieves the display string from an option. Options can be the string
+ * themselves, or an object with a defined display string. Anything else throws
+ * an error.
+ */
+function getOptionLabel(option, labelKey) {
+  // Handle internally created options first.
+  if (!isString(option) && (hasOwnProperty(option, 'paginationOption') || hasOwnProperty(option, 'customOption'))) {
+    return option[getStringLabelKey(labelKey)];
+  }
+  var optionLabel;
+  if (isFunction(labelKey)) {
+    optionLabel = labelKey(option);
+  } else if (isString(option)) {
+    optionLabel = option;
+  } else {
+    // `option` is an object and `labelKey` is a string.
+    optionLabel = option[labelKey];
+  }
+  !isString(optionLabel) ? process.env.NODE_ENV !== "production" ? invariant$2(false, 'One or more options does not have a valid label string. Check the ' + '`labelKey` prop to ensure that it matches the correct option key and ' + 'provides a string for filtering and display.') : invariant$2(false) : void 0;
+  return optionLabel;
+}
+
+function addCustomOption(results, props) {
+  var allowNew = props.allowNew,
+    labelKey = props.labelKey,
+    text = props.text;
+  if (!allowNew || !text.trim()) {
+    return false;
+  }
+
+  // If the consumer has provided a callback, use that to determine whether or
+  // not to add the custom option.
+  if (isFunction(allowNew)) {
+    return allowNew(results, props);
+  }
+
+  // By default, don't add the custom option if there is an exact text match
+  // with an existing option.
+  return !results.some(function (o) {
+    return getOptionLabel(o, labelKey) === text;
+  });
+}
+
+// do not edit .js files directly - edit src/index.jst
+
+
+
+var fastDeepEqual = function equal(a, b) {
+  if (a === b) return true;
+
+  if (a && b && typeof a == 'object' && typeof b == 'object') {
+    if (a.constructor !== b.constructor) return false;
+
+    var length, i, keys;
+    if (Array.isArray(a)) {
+      length = a.length;
+      if (length != b.length) return false;
+      for (i = length; i-- !== 0;)
+        if (!equal(a[i], b[i])) return false;
+      return true;
+    }
+
+
+
+    if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
+    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
+
+    keys = Object.keys(a);
+    length = keys.length;
+    if (length !== Object.keys(b).length) return false;
+
+    for (i = length; i-- !== 0;)
+      if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+
+    for (i = length; i-- !== 0;) {
+      var key = keys[i];
+
+      if (!equal(a[key], b[key])) return false;
+    }
+
+    return true;
+  }
+
+  // true if both NaN, false otherwise
+  return a!==a && b!==b;
+};
+
+var isEqual$1 = /*@__PURE__*/getDefaultExportFromCjs(fastDeepEqual);
+
+function getOptionProperty(option, key) {
+  if (isString(option)) {
+    return undefined;
+  }
+  return option[key];
+}
+
+// prettier-ignore
+
+var map = [{
+  base: 'A',
+  letters: "A\u24B6\uFF21\xC0\xC1\xC2\u1EA6\u1EA4\u1EAA\u1EA8\xC3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\xC4\u01DE\u1EA2\xC5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F"
+}, {
+  base: 'AA',
+  letters: "\uA732"
+}, {
+  base: 'AE',
+  letters: "\xC6\u01FC\u01E2"
+}, {
+  base: 'AO',
+  letters: "\uA734"
+}, {
+  base: 'AU',
+  letters: "\uA736"
+}, {
+  base: 'AV',
+  letters: "\uA738\uA73A"
+}, {
+  base: 'AY',
+  letters: "\uA73C"
+}, {
+  base: 'B',
+  letters: "B\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0182\u0181"
+}, {
+  base: 'C',
+  letters: "C\u24B8\uFF23\u0106\u0108\u010A\u010C\xC7\u1E08\u0187\u023B\uA73E"
+}, {
+  base: 'D',
+  letters: "D\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018B\u018A\u0189\uA779\xD0"
+}, {
+  base: 'DZ',
+  letters: "\u01F1\u01C4"
+}, {
+  base: 'Dz',
+  letters: "\u01F2\u01C5"
+}, {
+  base: 'E',
+  letters: "E\u24BA\uFF25\xC8\xC9\xCA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\xCB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E"
+}, {
+  base: 'F',
+  letters: "F\u24BB\uFF26\u1E1E\u0191\uA77B"
+}, {
+  base: 'G',
+  letters: "G\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E"
+}, {
+  base: 'H',
+  letters: "H\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D"
+}, {
+  base: 'I',
+  letters: "I\u24BE\uFF29\xCC\xCD\xCE\u0128\u012A\u012C\u0130\xCF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197"
+}, {
+  base: 'J',
+  letters: "J\u24BF\uFF2A\u0134\u0248"
+}, {
+  base: 'K',
+  letters: "K\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2"
+}, {
+  base: 'L',
+  letters: "L\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780"
+}, {
+  base: 'LJ',
+  letters: "\u01C7"
+}, {
+  base: 'Lj',
+  letters: "\u01C8"
+}, {
+  base: 'M',
+  letters: "M\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C"
+}, {
+  base: 'N',
+  letters: "N\u24C3\uFF2E\u01F8\u0143\xD1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u0220\u019D\uA790\uA7A4"
+}, {
+  base: 'NJ',
+  letters: "\u01CA"
+}, {
+  base: 'Nj',
+  letters: "\u01CB"
+}, {
+  base: 'O',
+  letters: "O\u24C4\uFF2F\xD2\xD3\xD4\u1ED2\u1ED0\u1ED6\u1ED4\xD5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\xD6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\xD8\u01FE\u0186\u019F\uA74A\uA74C"
+}, {
+  base: 'OI',
+  letters: "\u01A2"
+}, {
+  base: 'OO',
+  letters: "\uA74E"
+}, {
+  base: 'OU',
+  letters: "\u0222"
+}, {
+  base: 'OE',
+  letters: "\x8C\u0152"
+}, {
+  base: 'oe',
+  letters: "\x9C\u0153"
+}, {
+  base: 'P',
+  letters: "P\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754"
+}, {
+  base: 'Q',
+  letters: "Q\u24C6\uFF31\uA756\uA758\u024A"
+}, {
+  base: 'R',
+  letters: "R\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782"
+}, {
+  base: 'S',
+  letters: "S\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784"
+}, {
+  base: 'T',
+  letters: "T\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786"
+}, {
+  base: 'TZ',
+  letters: "\uA728"
+}, {
+  base: 'U',
+  letters: "U\u24CA\uFF35\xD9\xDA\xDB\u0168\u1E78\u016A\u1E7A\u016C\xDC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244"
+}, {
+  base: 'V',
+  letters: "V\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245"
+}, {
+  base: 'VY',
+  letters: "\uA760"
+}, {
+  base: 'W',
+  letters: "W\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72"
+}, {
+  base: 'X',
+  letters: "X\u24CD\uFF38\u1E8A\u1E8C"
+}, {
+  base: 'Y',
+  letters: "Y\u24CE\uFF39\u1EF2\xDD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE"
+}, {
+  base: 'Z',
+  letters: "Z\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762"
+}, {
+  base: 'a',
+  letters: "a\u24D0\uFF41\u1E9A\xE0\xE1\xE2\u1EA7\u1EA5\u1EAB\u1EA9\xE3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\xE4\u01DF\u1EA3\xE5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250"
+}, {
+  base: 'aa',
+  letters: "\uA733"
+}, {
+  base: 'ae',
+  letters: "\xE6\u01FD\u01E3"
+}, {
+  base: 'ao',
+  letters: "\uA735"
+}, {
+  base: 'au',
+  letters: "\uA737"
+}, {
+  base: 'av',
+  letters: "\uA739\uA73B"
+}, {
+  base: 'ay',
+  letters: "\uA73D"
+}, {
+  base: 'b',
+  letters: "b\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253"
+}, {
+  base: 'c',
+  letters: "c\u24D2\uFF43\u0107\u0109\u010B\u010D\xE7\u1E09\u0188\u023C\uA73F\u2184"
+}, {
+  base: 'd',
+  letters: "d\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\uA77A"
+}, {
+  base: 'dz',
+  letters: "\u01F3\u01C6"
+}, {
+  base: 'e',
+  letters: "e\u24D4\uFF45\xE8\xE9\xEA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\xEB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u025B\u01DD"
+}, {
+  base: 'f',
+  letters: "f\u24D5\uFF46\u1E1F\u0192\uA77C"
+}, {
+  base: 'g',
+  letters: "g\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\u1D79\uA77F"
+}, {
+  base: 'h',
+  letters: "h\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265"
+}, {
+  base: 'hv',
+  letters: "\u0195"
+}, {
+  base: 'i',
+  letters: "i\u24D8\uFF49\xEC\xED\xEE\u0129\u012B\u012D\xEF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131"
+}, {
+  base: 'j',
+  letters: "j\u24D9\uFF4A\u0135\u01F0\u0249"
+}, {
+  base: 'k',
+  letters: "k\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3"
+}, {
+  base: 'l',
+  letters: "l\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747"
+}, {
+  base: 'lj',
+  letters: "\u01C9"
+}, {
+  base: 'm',
+  letters: "m\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F"
+}, {
+  base: 'n',
+  letters: "n\u24DD\uFF4E\u01F9\u0144\xF1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5"
+}, {
+  base: 'nj',
+  letters: "\u01CC"
+}, {
+  base: 'o',
+  letters: "o\u24DE\uFF4F\xF2\xF3\xF4\u1ED3\u1ED1\u1ED7\u1ED5\xF5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\xF6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\xF8\u01FF\u0254\uA74B\uA74D\u0275"
+}, {
+  base: 'oi',
+  letters: "\u01A3"
+}, {
+  base: 'ou',
+  letters: "\u0223"
+}, {
+  base: 'oo',
+  letters: "\uA74F"
+}, {
+  base: 'p',
+  letters: "p\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755"
+}, {
+  base: 'q',
+  letters: "q\u24E0\uFF51\u024B\uA757\uA759"
+}, {
+  base: 'r',
+  letters: "r\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783"
+}, {
+  base: 's',
+  letters: "s\u24E2\uFF53\xDF\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B"
+}, {
+  base: 't',
+  letters: "t\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787"
+}, {
+  base: 'tz',
+  letters: "\uA729"
+}, {
+  base: 'u',
+  letters: "u\u24E4\uFF55\xF9\xFA\xFB\u0169\u1E79\u016B\u1E7B\u016D\xFC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289"
+}, {
+  base: 'v',
+  letters: "v\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C"
+}, {
+  base: 'vy',
+  letters: "\uA761"
+}, {
+  base: 'w',
+  letters: "w\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73"
+}, {
+  base: 'x',
+  letters: "x\u24E7\uFF58\u1E8B\u1E8D"
+}, {
+  base: 'y',
+  letters: "y\u24E8\uFF59\u1EF3\xFD\u0177\u1EF9\u0233\u1E8F\xFF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF"
+}, {
+  base: 'z',
+  letters: "z\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763"
+}].reduce(function (acc, _ref) {
+  var base = _ref.base,
+    letters = _ref.letters;
+  letters.split('').forEach(function (letter) {
+    acc[letter] = base;
+  });
+  return acc;
+}, {});
+
+// Combining marks
+var latin = "\u0300-\u036F";
+var japanese = "\u3099\u309A";
+function stripDiacritics(str) {
+  return str.normalize('NFD')
+  // Remove combining diacritics
+  .replace(new RegExp("[".concat(latin).concat(japanese, "]"), 'g'), '')
+  /* eslint-disable-next-line no-control-regex */.replace(/[^\u0000-\u007E]/g, function (a) {
+    return map[a] || a;
+  });
+}
+
+var warned = {};
+
+/**
+ * Copied from: https://github.com/ReactTraining/react-router/blob/master/modules/routerWarning.js
+ */
+function warn(falseToWarn, message) {
+  // Only issue deprecation warnings once.
+  if (!falseToWarn && message.indexOf('deprecated') !== -1) {
+    if (warned[message]) {
+      return;
+    }
+    warned[message] = true;
+  }
+  for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    args[_key - 2] = arguments[_key];
+  }
+  warning$2.apply(void 0, [falseToWarn, "[react-bootstrap-typeahead] ".concat(message)].concat(args));
+}
+
+function isMatch(input, string, props) {
+  var searchStr = input;
+  var str = string;
+  if (!props.caseSensitive) {
+    searchStr = searchStr.toLowerCase();
+    str = str.toLowerCase();
+  }
+  if (props.ignoreDiacritics) {
+    searchStr = stripDiacritics(searchStr);
+    str = stripDiacritics(str);
+  }
+  return str.indexOf(searchStr) !== -1;
+}
+
+/**
+ * Default algorithm for filtering results.
+ */
+function defaultFilterBy(option, props) {
+  var filterBy = props.filterBy,
+    labelKey = props.labelKey,
+    multiple = props.multiple,
+    selected = props.selected,
+    text = props.text;
+
+  // Don't show selected options in the menu for the multi-select case.
+  if (multiple && selected.some(function (o) {
+    return isEqual$1(o, option);
+  })) {
+    return false;
+  }
+  if (isFunction(labelKey)) {
+    return isMatch(text, labelKey(option), props);
+  }
+  var fields = filterBy.slice();
+  if (isString(labelKey)) {
+    // Add the `labelKey` field to the list of fields if it isn't already there.
+    if (fields.indexOf(labelKey) === -1) {
+      fields.unshift(labelKey);
+    }
+  }
+  if (isString(option)) {
+    warn(fields.length <= 1, 'You cannot filter by properties when `option` is a string.');
+    return isMatch(text, option, props);
+  }
+  return fields.some(function (field) {
+    var value = getOptionProperty(option, field);
+    if (!isString(value)) {
+      warn(false, 'Fields passed to `filterBy` should have string values. Value will ' + 'be converted to a string; results may be unexpected.');
+      value = String(value);
+    }
+    return isMatch(text, value, props);
+  });
+}
+
+/**
+ * Check if an input type is selectable, based on WHATWG spec.
+ *
+ * See:
+ *  - https://stackoverflow.com/questions/21177489/selectionstart-selectionend-on-input-type-number-no-longer-allowed-in-chrome/24175357
+ *  - https://html.spec.whatwg.org/multipage/input.html#do-not-apply
+ */
+function isSelectable(inputNode) {
+  return inputNode.selectionStart != null;
+}
+
+function defaultSelectHint(e, selectHint) {
+  var shouldSelectHint = false;
+  if (e.key === 'ArrowRight') {
+    // For selectable input types ("text", "search"), only select the hint if
+    // it's at the end of the input value. For non-selectable types ("email",
+    // "number"), always select the hint.
+    shouldSelectHint = isSelectable(e.currentTarget) ? e.currentTarget.selectionStart === e.currentTarget.value.length : true;
+  }
+  if (e.key === 'Tab') {
+    // Prevent input from blurring on TAB.
+    e.preventDefault();
+    shouldSelectHint = true;
+  }
+  return selectHint ? selectHint(shouldSelectHint, e) : shouldSelectHint;
+}
+
+var CASE_INSENSITIVE = 'i';
+var COMBINING_MARKS = /[\u0300-\u036F]/;
+// Export for testing.
+function escapeStringRegexp(str) {
+  !(typeof str === 'string') ? process.env.NODE_ENV !== "production" ? invariant$2(false, '`escapeStringRegexp` expected a string.') : invariant$2(false) : void 0;
+
+  // Escape characters with special meaning either inside or outside character
+  // sets. Use a simple backslash escape when it’s always valid, and a \unnnn
+  // escape when the simpler form would be disallowed by Unicode patterns’
+  // stricter grammar.
+  return str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
+}
+function getMatchBounds(subject, str) {
+  var search = new RegExp(escapeStringRegexp(stripDiacritics(str)), CASE_INSENSITIVE);
+  var matches = search.exec(stripDiacritics(subject));
+  if (!matches) {
+    return null;
+  }
+  var start = matches.index;
+  var matchLength = matches[0].length;
+
+  // Account for combining marks, which changes the indices.
+  if (COMBINING_MARKS.test(subject)) {
+    // Starting at the beginning of the subject string, check for the number of
+    // combining marks and increment the start index whenever one is found.
+    for (var ii = 0; ii <= start; ii++) {
+      if (COMBINING_MARKS.test(subject[ii])) {
+        start += 1;
+      }
+    }
+
+    // Similarly, increment the length of the match string if it contains a
+    // combining mark.
+    for (var _ii = start; _ii <= start + matchLength; _ii++) {
+      if (COMBINING_MARKS.test(subject[_ii])) {
+        matchLength += 1;
+      }
+    }
+  }
+  return {
+    end: start + matchLength,
+    start: start
+  };
+}
+
+function getHintText(_ref) {
+  var activeIndex = _ref.activeIndex,
+    initialItem = _ref.initialItem,
+    isFocused = _ref.isFocused,
+    isMenuShown = _ref.isMenuShown,
+    labelKey = _ref.labelKey,
+    multiple = _ref.multiple,
+    selected = _ref.selected,
+    text = _ref.text;
+  // Don't display a hint under the following conditions:
+  if (
+  // No text entered.
+  !text ||
+  // The input is not focused.
+  !isFocused ||
+  // The menu is hidden.
+  !isMenuShown ||
+  // No item in the menu.
+  !initialItem ||
+  // The initial item is a custom option.
+  !isString(initialItem) && hasOwnProperty(initialItem, 'customOption') ||
+  // One of the menu items is active.
+  activeIndex > -1 ||
+  // There's already a selection in single-select mode.
+  !!selected.length && !multiple) {
+    return '';
+  }
+  var initialItemStr = getOptionLabel(initialItem, labelKey);
+  var bounds = getMatchBounds(initialItemStr.toLowerCase(), text.toLowerCase());
+  if (!(bounds && bounds.start === 0)) {
+    return '';
+  }
+
+  // Text matching is case- and accent-insensitive, so to display the hint
+  // correctly, splice the input string with the hint string.
+  return text + initialItemStr.slice(bounds.end, initialItemStr.length);
+}
+
+function getMenuItemId() {
+  var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var position = arguments.length > 1 ? arguments[1] : undefined;
+  return "".concat(id, "-item-").concat(position);
+}
+
+var _excluded$e = ["activeIndex", "id", "isFocused", "isMenuShown", "multiple", "onClick", "onFocus", "placeholder"];
+function ownKeys$a(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$a(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$a(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$a(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var getInputProps = function getInputProps(_ref) {
+  var activeIndex = _ref.activeIndex,
+    id = _ref.id,
+    isFocused = _ref.isFocused,
+    isMenuShown = _ref.isMenuShown,
+    multiple = _ref.multiple,
+    onClick = _ref.onClick,
+    onFocus = _ref.onFocus,
+    placeholder = _ref.placeholder,
+    props = _objectWithoutProperties(_ref, _excluded$e);
+  return function () {
+    var _cx;
+    var inputProps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var className = hasOwnProperty(inputProps, 'className') ? String(inputProps.className) : undefined;
+    return _objectSpread$a(_objectSpread$a(_objectSpread$a(_objectSpread$a({
+      // These props can be overridden by values in `inputProps`.
+      autoComplete: 'off',
+      placeholder: placeholder,
+      type: 'text'
+    }, inputProps), props), {}, {
+      'aria-activedescendant': activeIndex >= 0 ? getMenuItemId(id, activeIndex) : undefined,
+      'aria-autocomplete': 'both',
+      'aria-expanded': isMenuShown,
+      'aria-haspopup': 'listbox',
+      'aria-multiselectable': multiple || undefined,
+      'aria-owns': isMenuShown ? id : undefined,
+      className: cx((_cx = {}, _defineProperty(_cx, className || '', !multiple), _defineProperty(_cx, "focus", isFocused), _cx))
+    }, multiple && {
+      inputClassName: className
+    }), {}, {
+      onClick: onClick,
+      onFocus: onFocus,
+      role: 'combobox'
+    });
+  };
+};
+
+function getInputText(props) {
+  var activeItem = props.activeItem,
+    labelKey = props.labelKey,
+    multiple = props.multiple,
+    selected = props.selected,
+    text = props.text;
+  if (activeItem) {
+    // Display the input value if the pagination item is active.
+    return getOptionLabel(activeItem, labelKey);
+  }
+  if (!multiple && selected.length && selected[0]) {
+    return getOptionLabel(selected[0], labelKey);
+  }
+  return text;
+}
+
+function getIsOnlyResult(props) {
+  var allowNew = props.allowNew,
+    highlightOnlyResult = props.highlightOnlyResult,
+    results = props.results;
+  if (!highlightOnlyResult || allowNew) {
+    return false;
+  }
+  return results.length === 1 && !getOptionProperty(results[0], 'disabled');
+}
+
+/**
+ * Truncates the result set based on `maxResults` and returns the new set.
+ */
+function getTruncatedOptions(options, maxResults) {
+  if (!maxResults || maxResults >= options.length) {
+    return options;
+  }
+  return options.slice(0, maxResults);
+}
+
+function isDisabledOption(index, items) {
+  var option = items[index];
+  return !!option && !!getOptionProperty(option, 'disabled');
+}
+function skipDisabledOptions(currentIndex, key, items) {
+  var newIndex = currentIndex;
+  while (isDisabledOption(newIndex, items)) {
+    newIndex += key === 'ArrowUp' ? -1 : 1;
+  }
+  return newIndex;
+}
+function getUpdatedActiveIndex(currentIndex, key, items) {
+  var newIndex = currentIndex;
+
+  // Increment or decrement index based on user keystroke.
+  newIndex += key === 'ArrowUp' ? -1 : 1;
+
+  // Skip over any disabled options.
+  newIndex = skipDisabledOptions(newIndex, key, items);
+
+  // If we've reached the end, go back to the beginning or vice-versa.
+  if (newIndex === items.length) {
+    newIndex = -1;
+  } else if (newIndex === -2) {
+    newIndex = items.length - 1;
+
+    // Skip over any disabled options.
+    newIndex = skipDisabledOptions(newIndex, key, items);
+  }
+  return newIndex;
+}
+
+function isShown(_ref) {
+  var open = _ref.open,
+    minLength = _ref.minLength,
+    showMenu = _ref.showMenu,
+    text = _ref.text;
+  // If menu visibility is controlled via props, that value takes precedence.
+  if (open || open === false) {
+    return open;
+  }
+  if (text.length < minLength) {
+    return false;
+  }
+  return showMenu;
+}
+
+/**
+ * Prevent the main input from blurring when a menu item or the clear button is
+ * clicked. (#226 & #310)
+ */
+function preventInputBlur(e) {
+  e.preventDefault();
+}
+
+function isSizeLarge(size) {
+  return size === 'lg';
+}
+function isSizeSmall(size) {
+  return size === 'sm';
+}
+
+var _excluded$d = ["className", "isInvalid", "isValid", "size"];
+function ownKeys$9(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$9(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$9(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$9(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+/**
+ * Returns Bootstrap classnames from `size` and validation props, along
+ * with pass-through props.
+ */
+function propsWithBsClassName(_ref) {
+  var className = _ref.className,
+    isInvalid = _ref.isInvalid,
+    isValid = _ref.isValid,
+    size = _ref.size,
+    props = _objectWithoutProperties(_ref, _excluded$d);
+  return _objectSpread$9(_objectSpread$9({}, props), {}, {
+    className: cx('form-control', 'rbt-input', {
+      'form-control-lg': isSizeLarge(size),
+      'form-control-sm': isSizeSmall(size),
+      'is-invalid': isInvalid,
+      'is-valid': isValid
+    }, className)
+  });
+}
+
+function validateSelectedPropChange(prevSelected, selected) {
+  var uncontrolledToControlled = !prevSelected && selected;
+  var controlledToUncontrolled = prevSelected && !selected;
+  var from, to, precedent;
+  if (uncontrolledToControlled) {
+    from = 'uncontrolled';
+    to = 'controlled';
+    precedent = 'an';
+  } else {
+    from = 'controlled';
+    to = 'uncontrolled';
+    precedent = 'a';
+  }
+  var message = "You are changing ".concat(precedent, " ").concat(from, " typeahead to be ").concat(to, ". ") + "Input elements should not switch from ".concat(from, " to ").concat(to, " (or vice versa). ") + 'Decide between using a controlled or uncontrolled element for the ' + 'lifetime of the component.';
+  warn(!(uncontrolledToControlled || controlledToUncontrolled), message);
+}
+
+var INPUT_PROPS_BLACKLIST = [{
+  alt: 'onBlur',
+  prop: 'onBlur'
+}, {
+  alt: 'onInputChange',
+  prop: 'onChange'
+}, {
+  alt: 'onFocus',
+  prop: 'onFocus'
+}, {
+  alt: 'onKeyDown',
+  prop: 'onKeyDown'
+}];
+var sizeType = PropTypes.oneOf(SIZES);
+/**
+ * Allows additional warnings or messaging related to prop validation.
+ */
+function checkPropType(validator, callback) {
+  return function (props, propName, componentName) {
+    PropTypes.checkPropTypes(_defineProperty({}, propName, validator), props, 'prop', componentName);
+    isFunction(callback) && callback(props, propName, componentName);
+  };
+}
+function caseSensitiveType(props) {
+  var caseSensitive = props.caseSensitive,
+    filterBy = props.filterBy;
+  warn(!caseSensitive || typeof filterBy !== 'function', 'Your `filterBy` function will override the `caseSensitive` prop.');
+}
+function defaultInputValueType(props) {
+  var defaultInputValue = props.defaultInputValue,
+    defaultSelected = props.defaultSelected,
+    multiple = props.multiple,
+    selected = props.selected;
+  var name = defaultSelected.length ? 'defaultSelected' : 'selected';
+  warn(!(!multiple && defaultInputValue && (defaultSelected.length || selected && selected.length)), "`defaultInputValue` will be overridden by the value from `".concat(name, "`."));
+}
+function defaultSelectedType(props) {
+  var defaultSelected = props.defaultSelected,
+    multiple = props.multiple;
+  warn(multiple || defaultSelected.length <= 1, 'You are passing multiple options to the `defaultSelected` prop of a ' + 'Typeahead in single-select mode. The selections will be truncated to a ' + 'single selection.');
+}
+function highlightOnlyResultType(_ref) {
+  var allowNew = _ref.allowNew,
+    highlightOnlyResult = _ref.highlightOnlyResult;
+  warn(!(highlightOnlyResult && allowNew), '`highlightOnlyResult` will not work with `allowNew`.');
+}
+function ignoreDiacriticsType(props) {
+  var filterBy = props.filterBy,
+    ignoreDiacritics = props.ignoreDiacritics;
+  warn(ignoreDiacritics || typeof filterBy !== 'function', 'Your `filterBy` function will override the `ignoreDiacritics` prop.');
+}
+function inputPropsType(_ref2) {
+  var inputProps = _ref2.inputProps;
+  if (!(inputProps && Object.prototype.toString.call(inputProps) === '[object Object]')) {
+    return;
+  }
+
+  // Blacklisted properties.
+  INPUT_PROPS_BLACKLIST.forEach(function (_ref3) {
+    var alt = _ref3.alt,
+      prop = _ref3.prop;
+    var msg = alt ? " Use the top-level `".concat(alt, "` prop instead.") : null;
+    warn(!inputProps[prop], "The `".concat(prop, "` property of `inputProps` will be ignored.").concat(msg));
+  });
+}
+function isRequiredForA11y(props, propName, componentName) {
+  warn(props[propName] != null, "The prop `".concat(propName, "` is required to make `").concat(componentName, "` ") + 'accessible for users of assistive technologies such as screen readers.');
+}
+function labelKeyType(_ref4) {
+  var allowNew = _ref4.allowNew,
+    labelKey = _ref4.labelKey;
+  warn(!(isFunction(labelKey) && allowNew), '`labelKey` must be a string when `allowNew={true}`.');
+}
+var optionType = PropTypes.oneOfType([PropTypes.object, PropTypes.string]);
+function selectedType(_ref5) {
+  var multiple = _ref5.multiple,
+    onChange = _ref5.onChange,
+    selected = _ref5.selected;
+  warn(multiple || !selected || selected.length <= 1, 'You are passing multiple options to the `selected` prop of a Typeahead ' + 'in single-select mode. This may lead to unexpected behaviors or errors.');
+  warn(!selected || selected && isFunction(onChange), 'You provided a `selected` prop without an `onChange` handler. If you ' + 'want the typeahead to be uncontrolled, use `defaultSelected`. ' + 'Otherwise, set `onChange`.');
+}
+
+({
+  /**
+   * Delay, in milliseconds, before performing search.
+   */
+  delay: PropTypes.number,
+  /**
+   * Whether or not a request is currently pending. Necessary for the
+   * container to know when new results are available.
+   */
+  isLoading: PropTypes.bool.isRequired,
+  /**
+   * Number of input characters that must be entered before showing results.
+   */
+  minLength: PropTypes.number,
+  /**
+   * Callback to perform when the search is executed.
+   */
+  onSearch: PropTypes.func.isRequired,
+  /**
+   * Options to be passed to the typeahead. Will typically be the query
+   * results, but can also be initial default options.
+   */
+  options: PropTypes.arrayOf(optionType),
+  /**
+   * Message displayed in the menu when there is no user input.
+   */
+  promptText: PropTypes.node,
+  /**
+   * Message displayed in the menu while the request is pending.
+   */
+  searchText: PropTypes.node,
+  /**
+   * Whether or not the component should cache query results.
+   */
+  useCache: PropTypes.bool
+});
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return _assertThisInitialized(self);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+var defaultContext = {
+  activeIndex: -1,
+  hintText: '',
+  id: '',
+  initialItem: null,
+  inputNode: null,
+  isOnlyResult: false,
+  onActiveItemChange: noop$1,
+  onAdd: noop$1,
+  onInitialItemChange: noop$1,
+  onMenuItemClick: noop$1,
+  setItem: noop$1
+};
+var TypeaheadContext = /*#__PURE__*/React.createContext(defaultContext);
+var useTypeaheadContext = function useTypeaheadContext() {
+  return React.useContext(TypeaheadContext);
+};
+
+function ownKeys$8(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$8(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$8(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$8(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var inputPropKeys = ['activeIndex', 'disabled', 'id', 'inputRef', 'isFocused', 'isMenuShown', 'multiple', 'onBlur', 'onChange', 'onClick', 'onFocus', 'onKeyDown', 'placeholder'];
+var propKeys = ['activeIndex', 'hideMenu', 'isMenuShown', 'labelKey', 'onClear', 'onHide', 'onRemove', 'results', 'selected', 'text', 'toggleMenu'];
+var contextKeys = ['activeIndex', 'id', 'initialItem', 'inputNode', 'onActiveItemChange', 'onAdd', 'onInitialItemChange', 'onMenuItemClick', 'setItem'];
+var TypeaheadManager = function TypeaheadManager(props) {
+  var allowNew = props.allowNew,
+    children = props.children,
+    initialItem = props.initialItem,
+    isMenuShown = props.isMenuShown,
+    onAdd = props.onAdd,
+    onInitialItemChange = props.onInitialItemChange,
+    onKeyDown = props.onKeyDown,
+    onMenuToggle = props.onMenuToggle,
+    results = props.results,
+    selectHint = props.selectHint;
+  var hintText = getHintText(props);
+  React.useEffect(function () {
+    // Clear the initial item when there are no results.
+    if (!(allowNew || results.length)) {
+      onInitialItemChange();
+    }
+  });
+  var isInitialRender = React.useRef(true);
+  React.useEffect(function () {
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    }
+    onMenuToggle(isMenuShown);
+  }, [isMenuShown, onMenuToggle]);
+  var handleKeyDown = function handleKeyDown(e) {
+    onKeyDown(e);
+    if (!initialItem) {
+      return;
+    }
+    var addOnlyResult = e.key === 'Enter' && getIsOnlyResult(props);
+    var shouldSelectHint = hintText && defaultSelectHint(e, selectHint);
+    if (addOnlyResult || shouldSelectHint) {
+      onAdd(initialItem);
+    }
+  };
+  var childProps = _objectSpread$8(_objectSpread$8({}, pick(props, propKeys)), {}, {
+    getInputProps: getInputProps(_objectSpread$8(_objectSpread$8({}, pick(props, inputPropKeys)), {}, {
+      onKeyDown: handleKeyDown,
+      value: getInputText(props)
+    }))
+  });
+  var contextValue = _objectSpread$8(_objectSpread$8({}, pick(props, contextKeys)), {}, {
+    hintText: hintText,
+    isOnlyResult: getIsOnlyResult(props)
+  });
+  return /*#__PURE__*/React.createElement(TypeaheadContext.Provider, {
+    value: contextValue
+  }, isFunction(children) ? children(childProps) : children);
+};
+
+function ownKeys$7(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$7(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$7(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$7(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function getInitialState(props) {
+  var defaultInputValue = props.defaultInputValue,
+    defaultOpen = props.defaultOpen,
+    defaultSelected = props.defaultSelected,
+    maxResults = props.maxResults,
+    multiple = props.multiple;
+  var selected = props.selected ? props.selected.slice() : defaultSelected.slice();
+  var text = defaultInputValue;
+  if (!multiple && selected.length) {
+    // Set the text if an initial selection is passed in.
+    text = getOptionLabel(selected[0], props.labelKey);
+    if (selected.length > 1) {
+      // Limit to 1 selection in single-select mode.
+      selected = selected.slice(0, 1);
+    }
+  }
+  return {
+    activeIndex: -1,
+    activeItem: undefined,
+    initialItem: undefined,
+    isFocused: false,
+    selected: selected,
+    showMenu: defaultOpen,
+    shownResults: maxResults,
+    text: text
+  };
+}
+function clearTypeahead(state, props) {
+  return _objectSpread$7(_objectSpread$7({}, getInitialState(props)), {}, {
+    isFocused: state.isFocused,
+    selected: [],
+    text: ''
+  });
+}
+function clickOrFocusInput(state) {
+  return _objectSpread$7(_objectSpread$7({}, state), {}, {
+    isFocused: true,
+    showMenu: true
+  });
+}
+function hideMenu(state, props) {
+  var _getInitialState = getInitialState(props),
+    activeIndex = _getInitialState.activeIndex,
+    activeItem = _getInitialState.activeItem,
+    initialItem = _getInitialState.initialItem,
+    shownResults = _getInitialState.shownResults;
+  return _objectSpread$7(_objectSpread$7({}, state), {}, {
+    activeIndex: activeIndex,
+    activeItem: activeItem,
+    initialItem: initialItem,
+    showMenu: false,
+    shownResults: shownResults
+  });
+}
+function toggleMenu(state, props) {
+  return state.showMenu ? hideMenu(state, props) : _objectSpread$7(_objectSpread$7({}, state), {}, {
+    showMenu: true
+  });
+}
+
+var _excluded$c = ["onChange"];
+function ownKeys$6(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$6(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$6(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$6(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var propTypes$7 = {
+  /**
+   * Allows the creation of new selections on the fly. Note that any new items
+   * will be added to the list of selections, but not the list of original
+   * options unless handled as such by `Typeahead`'s parent.
+   *
+   * If a function is specified, it will be used to determine whether a custom
+   * option should be included. The return value should be true or false.
+   */
+  allowNew: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+  /**
+   * Autofocus the input when the component initially mounts.
+   */
+  autoFocus: PropTypes.bool,
+  /**
+   * Whether or not filtering should be case-sensitive.
+   */
+  caseSensitive: checkPropType(PropTypes.bool, caseSensitiveType),
+  /**
+   * The initial value displayed in the text input.
+   */
+  defaultInputValue: checkPropType(PropTypes.string, defaultInputValueType),
+  /**
+   * Whether or not the menu is displayed upon initial render.
+   */
+  defaultOpen: PropTypes.bool,
+  /**
+   * Specify any pre-selected options. Use only if you want the component to
+   * be uncontrolled.
+   */
+  defaultSelected: checkPropType(PropTypes.arrayOf(optionType), defaultSelectedType),
+  /**
+   * Either an array of fields in `option` to search, or a custom filtering
+   * callback.
+   */
+  filterBy: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string.isRequired), PropTypes.func]),
+  /**
+   * Highlights the menu item if there is only one result and allows selecting
+   * that item by hitting enter. Does not work with `allowNew`.
+   */
+  highlightOnlyResult: checkPropType(PropTypes.bool, highlightOnlyResultType),
+  /**
+   * An html id attribute, required for assistive technologies such as screen
+   * readers.
+   */
+  id: checkPropType(PropTypes.oneOfType([PropTypes.number, PropTypes.string]), isRequiredForA11y),
+  /**
+   * Whether the filter should ignore accents and other diacritical marks.
+   */
+  ignoreDiacritics: checkPropType(PropTypes.bool, ignoreDiacriticsType),
+  /**
+   * Specify the option key to use for display or a function returning the
+   * display string. By default, the selector will use the `label` key.
+   */
+  labelKey: checkPropType(PropTypes.oneOfType([PropTypes.string, PropTypes.func]), labelKeyType),
+  /**
+   * Maximum number of results to display by default. Mostly done for
+   * performance reasons so as not to render too many DOM nodes in the case of
+   * large data sets.
+   */
+  maxResults: PropTypes.number,
+  /**
+   * Number of input characters that must be entered before showing results.
+   */
+  minLength: PropTypes.number,
+  /**
+   * Whether or not multiple selections are allowed.
+   */
+  multiple: PropTypes.bool,
+  /**
+   * Invoked when the input is blurred. Receives an event.
+   */
+  onBlur: PropTypes.func,
+  /**
+   * Invoked whenever items are added or removed. Receives an array of the
+   * selected options.
+   */
+  onChange: PropTypes.func,
+  /**
+   * Invoked when the input is focused. Receives an event.
+   */
+  onFocus: PropTypes.func,
+  /**
+   * Invoked when the input value changes. Receives the string value of the
+   * input.
+   */
+  onInputChange: PropTypes.func,
+  /**
+   * Invoked when a key is pressed. Receives an event.
+   */
+  onKeyDown: PropTypes.func,
+  /**
+   * Invoked when menu visibility changes.
+   */
+  onMenuToggle: PropTypes.func,
+  /**
+   * Invoked when the pagination menu item is clicked. Receives an event.
+   */
+  onPaginate: PropTypes.func,
+  /**
+   * Whether or not the menu should be displayed. `undefined` allows the
+   * component to control visibility, while `true` and `false` show and hide
+   * the menu, respectively.
+   */
+  open: PropTypes.bool,
+  /**
+   * Full set of options, including pre-selected options. Must either be an
+   * array of objects (recommended) or strings.
+   */
+  options: PropTypes.arrayOf(optionType).isRequired,
+  /**
+   * Give user the ability to display additional results if the number of
+   * results exceeds `maxResults`.
+   */
+  paginate: PropTypes.bool,
+  /**
+   * The selected option(s) displayed in the input. Use this prop if you want
+   * to control the component via its parent.
+   */
+  selected: checkPropType(PropTypes.arrayOf(optionType), selectedType)
+};
+var defaultProps$1 = {
+  allowNew: false,
+  autoFocus: false,
+  caseSensitive: false,
+  defaultInputValue: '',
+  defaultOpen: false,
+  defaultSelected: [],
+  filterBy: [],
+  highlightOnlyResult: false,
+  ignoreDiacritics: true,
+  labelKey: DEFAULT_LABELKEY,
+  maxResults: 100,
+  minLength: 0,
+  multiple: false,
+  onBlur: noop$1,
+  onFocus: noop$1,
+  onInputChange: noop$1,
+  onKeyDown: noop$1,
+  onMenuToggle: noop$1,
+  onPaginate: noop$1,
+  paginate: true
+};
+/**
+ * Manually trigger the input's change event.
+ * https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js/46012210#46012210
+ */
+function triggerInputChange(input, value) {
+  var inputValue = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value');
+  inputValue && inputValue.set && inputValue.set.call(input, value);
+  var e = new Event('input', {
+    bubbles: true
+  });
+  input.dispatchEvent(e);
+}
+var Typeahead$1 = /*#__PURE__*/function (_React$Component) {
+  _inherits(Typeahead, _React$Component);
+  var _super = _createSuper$1(Typeahead);
+  function Typeahead() {
+    var _this;
+    _classCallCheck(this, Typeahead);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    _this = _super.call.apply(_super, [this].concat(args));
+    _defineProperty(_assertThisInitialized(_this), "state", getInitialState(_this.props));
+    _defineProperty(_assertThisInitialized(_this), "inputNode", null);
+    _defineProperty(_assertThisInitialized(_this), "isMenuShown", false);
+    // Keeps track of actual items displayed in the menu, after sorting,
+    // truncating, grouping, etc.
+    _defineProperty(_assertThisInitialized(_this), "items", []);
+    _defineProperty(_assertThisInitialized(_this), "blur", function () {
+      _this.inputNode && _this.inputNode.blur();
+      _this.hideMenu();
+    });
+    _defineProperty(_assertThisInitialized(_this), "clear", function () {
+      _this.setState(clearTypeahead);
+    });
+    _defineProperty(_assertThisInitialized(_this), "focus", function () {
+      _this.inputNode && _this.inputNode.focus();
+    });
+    _defineProperty(_assertThisInitialized(_this), "getInput", function () {
+      return _this.inputNode;
+    });
+    _defineProperty(_assertThisInitialized(_this), "inputRef", function (inputNode) {
+      _this.inputNode = inputNode;
+    });
+    _defineProperty(_assertThisInitialized(_this), "setItem", function (item, position) {
+      _this.items[position] = item;
+    });
+    _defineProperty(_assertThisInitialized(_this), "hideMenu", function () {
+      _this.setState(hideMenu);
+    });
+    _defineProperty(_assertThisInitialized(_this), "toggleMenu", function () {
+      _this.setState(toggleMenu);
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleActiveIndexChange", function (activeIndex) {
+      _this.setState(function (state) {
+        return {
+          activeIndex: activeIndex,
+          activeItem: activeIndex >= 0 ? state.activeItem : undefined
+        };
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleActiveItemChange", function (activeItem) {
+      // Don't update the active item if it hasn't changed.
+      if (!isEqual$1(activeItem, _this.state.activeItem)) {
+        _this.setState({
+          activeItem: activeItem
+        });
+      }
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleBlur", function (e) {
+      e.persist();
+      _this.setState({
+        isFocused: false
+      }, function () {
+        return _this.props.onBlur(e);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleChange", function (selected) {
+      _this.props.onChange && _this.props.onChange(selected);
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleClear", function () {
+      _this.inputNode && triggerInputChange(_this.inputNode, '');
+      _this.setState(clearTypeahead, function () {
+        // Change handler is automatically triggered for single selections but
+        // not multi-selections.
+        if (_this.props.multiple) {
+          _this._handleChange([]);
+        }
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleClick", function (e) {
+      var _this$props$inputProp;
+      e.persist();
+      var onClick = (_this$props$inputProp = _this.props.inputProps) === null || _this$props$inputProp === void 0 ? void 0 : _this$props$inputProp.onClick;
+      _this.setState(clickOrFocusInput, function () {
+        return isFunction(onClick) && onClick(e);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleFocus", function (e) {
+      e.persist();
+      _this.setState(clickOrFocusInput, function () {
+        return _this.props.onFocus(e);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleInitialItemChange", function (initialItem) {
+      // Don't update the initial item if it hasn't changed.
+      if (!isEqual$1(initialItem, _this.state.initialItem)) {
+        _this.setState({
+          initialItem: initialItem
+        });
+      }
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleInputChange", function (e) {
+      e.persist();
+      var text = e.currentTarget.value;
+      var _this$props = _this.props,
+        multiple = _this$props.multiple,
+        onInputChange = _this$props.onInputChange;
+
+      // Clear selections when the input value changes in single-select mode.
+      var shouldClearSelections = _this.state.selected.length && !multiple;
+      _this.setState(function (state, props) {
+        var _getInitialState = getInitialState(props),
+          activeIndex = _getInitialState.activeIndex,
+          activeItem = _getInitialState.activeItem,
+          shownResults = _getInitialState.shownResults;
+        return {
+          activeIndex: activeIndex,
+          activeItem: activeItem,
+          selected: shouldClearSelections ? [] : state.selected,
+          showMenu: true,
+          shownResults: shownResults,
+          text: text
+        };
+      }, function () {
+        onInputChange(text, e);
+        shouldClearSelections && _this._handleChange([]);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleKeyDown", function (e) {
+      var activeItem = _this.state.activeItem;
+
+      // Skip most actions when the menu is hidden.
+      if (!_this.isMenuShown) {
+        if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+          _this.setState({
+            showMenu: true
+          });
+        }
+        _this.props.onKeyDown(e);
+        return;
+      }
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+          // Prevent input cursor from going to the beginning when pressing up.
+          e.preventDefault();
+          _this._handleActiveIndexChange(getUpdatedActiveIndex(_this.state.activeIndex, e.key, _this.items));
+          break;
+        case 'Enter':
+          // Prevent form submission while menu is open.
+          e.preventDefault();
+          activeItem && _this._handleMenuItemSelect(activeItem, e);
+          break;
+        case 'Escape':
+        case 'Tab':
+          // ESC simply hides the menu. TAB will blur the input and move focus to
+          // the next item; hide the menu so it doesn't gain focus.
+          _this.hideMenu();
+          break;
+      }
+      _this.props.onKeyDown(e);
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleMenuItemSelect", function (option, e) {
+      if (getOptionProperty(option, 'paginationOption')) {
+        _this._handlePaginate(e);
+      } else {
+        _this._handleSelectionAdd(option);
+      }
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handlePaginate", function (e) {
+      e.persist();
+      _this.setState(function (state, props) {
+        return {
+          shownResults: state.shownResults + props.maxResults
+        };
+      }, function () {
+        return _this.props.onPaginate(e, _this.state.shownResults);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleSelectionAdd", function (option) {
+      var _this$props2 = _this.props,
+        multiple = _this$props2.multiple,
+        labelKey = _this$props2.labelKey;
+      var selected;
+      var selection = option;
+      var text;
+
+      // Add a unique id to the custom selection. Avoid doing this in `render` so
+      // the id doesn't increment every time.
+      if (!isString(selection) && selection.customOption) {
+        selection = _objectSpread$6(_objectSpread$6({}, selection), {}, {
+          id: uniqueId('new-id-')
+        });
+      }
+      if (multiple) {
+        // If multiple selections are allowed, add the new selection to the
+        // existing selections.
+        selected = _this.state.selected.concat(selection);
+        text = '';
+      } else {
+        // If only a single selection is allowed, replace the existing selection
+        // with the new one.
+        selected = [selection];
+        text = getOptionLabel(selection, labelKey);
+      }
+      _this.setState(function (state, props) {
+        return _objectSpread$6(_objectSpread$6({}, hideMenu(state, props)), {}, {
+          initialItem: selection,
+          selected: selected,
+          text: text
+        });
+      }, function () {
+        return _this._handleChange(selected);
+      });
+    });
+    _defineProperty(_assertThisInitialized(_this), "_handleSelectionRemove", function (selection) {
+      var selected = _this.state.selected.filter(function (option) {
+        return !isEqual$1(option, selection);
+      });
+
+      // Make sure the input stays focused after the item is removed.
+      _this.focus();
+      _this.setState(function (state, props) {
+        return _objectSpread$6(_objectSpread$6({}, hideMenu(state, props)), {}, {
+          selected: selected
+        });
+      }, function () {
+        return _this._handleChange(selected);
+      });
+    });
+    return _this;
+  }
+  _createClass(Typeahead, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.autoFocus && this.focus();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      var _this$props3 = this.props,
+        labelKey = _this$props3.labelKey,
+        multiple = _this$props3.multiple,
+        selected = _this$props3.selected;
+      validateSelectedPropChange(selected, prevProps.selected);
+
+      // Sync selections in state with those in props.
+      if (selected && !isEqual$1(selected, prevState.selected)) {
+        this.setState({
+          selected: selected
+        });
+        if (!multiple) {
+          this.setState({
+            text: selected.length ? getOptionLabel(selected[0], labelKey) : ''
+          });
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props4 = this.props;
+        _this$props4.onChange;
+        var props = _objectWithoutProperties(_this$props4, _excluded$c);
+      var mergedPropsAndState = _objectSpread$6(_objectSpread$6({}, props), this.state);
+      var filterBy = mergedPropsAndState.filterBy,
+        labelKey = mergedPropsAndState.labelKey,
+        options = mergedPropsAndState.options,
+        paginate = mergedPropsAndState.paginate,
+        shownResults = mergedPropsAndState.shownResults,
+        text = mergedPropsAndState.text;
+      this.isMenuShown = isShown(mergedPropsAndState);
+      this.items = []; // Reset items on re-render.
+
+      var results = [];
+      if (this.isMenuShown) {
+        var cb = isFunction(filterBy) ? filterBy : defaultFilterBy;
+        results = options.filter(function (option) {
+          return cb(option, mergedPropsAndState);
+        });
+
+        // This must come before results are truncated.
+        var shouldPaginate = paginate && results.length > shownResults;
+
+        // Truncate results if necessary.
+        results = getTruncatedOptions(results, shownResults);
+
+        // Add the custom option if necessary.
+        if (addCustomOption(results, mergedPropsAndState)) {
+          results.push(_defineProperty({
+            customOption: true
+          }, getStringLabelKey(labelKey), text));
+        }
+
+        // Add the pagination item if necessary.
+        if (shouldPaginate) {
+          var _results$push2;
+          results.push((_results$push2 = {}, _defineProperty(_results$push2, getStringLabelKey(labelKey), ''), _defineProperty(_results$push2, "paginationOption", true), _results$push2));
+        }
+      }
+      return /*#__PURE__*/React.createElement(TypeaheadManager, _extends$3({}, mergedPropsAndState, {
+        hideMenu: this.hideMenu,
+        inputNode: this.inputNode,
+        inputRef: this.inputRef,
+        isMenuShown: this.isMenuShown,
+        onActiveItemChange: this._handleActiveItemChange,
+        onAdd: this._handleSelectionAdd,
+        onBlur: this._handleBlur,
+        onChange: this._handleInputChange,
+        onClear: this._handleClear,
+        onClick: this._handleClick,
+        onFocus: this._handleFocus,
+        onHide: this.hideMenu,
+        onInitialItemChange: this._handleInitialItemChange,
+        onKeyDown: this._handleKeyDown,
+        onMenuItemClick: this._handleMenuItemSelect,
+        onRemove: this._handleSelectionRemove,
+        results: results,
+        setItem: this.setItem,
+        toggleMenu: this.toggleMenu
+      }));
+    }
+  }]);
+  return Typeahead;
+}(React.Component);
+_defineProperty(Typeahead$1, "propTypes", propTypes$7);
+_defineProperty(Typeahead$1, "defaultProps", defaultProps$1);
+
+var _excluded$b = ["className", "label", "onClick", "onKeyDown", "size"];
+var propTypes$6 = {
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  size: sizeType
+};
+/**
+ * ClearButton
+ *
+ * http://getbootstrap.com/css/#helper-classes-close
+ */
+var ClearButton = function ClearButton(_ref) {
+  var className = _ref.className,
+    _ref$label = _ref.label,
+    label = _ref$label === void 0 ? 'Clear' : _ref$label,
+    _onClick = _ref.onClick,
+    _onKeyDown = _ref.onKeyDown,
+    size = _ref.size,
+    props = _objectWithoutProperties(_ref, _excluded$b);
+  return /*#__PURE__*/React.createElement("button", _extends$3({}, props, {
+    "aria-label": label,
+    className: cx('close', 'btn-close', 'rbt-close', {
+      'rbt-close-lg': isSizeLarge(size),
+      'rbt-close-sm': isSizeSmall(size)
+    }, className),
+    onClick: function onClick(e) {
+      e.stopPropagation();
+      _onClick && _onClick(e);
+    },
+    onKeyDown: function onKeyDown(e) {
+      // Prevent browser from navigating back.
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+      }
+      _onKeyDown && _onKeyDown(e);
+    },
+    type: "button"
+  }), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    className: "rbt-close-content"
+  }, "\xD7"), /*#__PURE__*/React.createElement("span", {
+    className: "sr-only visually-hidden"
+  }, label));
+};
+ClearButton.propTypes = propTypes$6;
+
+var propTypes$5 = {
+  label: PropTypes.string
+};
+var Loader = function Loader(_ref) {
+  var _ref$label = _ref.label,
+    label = _ref$label === void 0 ? 'Loading...' : _ref$label;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "rbt-loader spinner-border spinner-border-sm",
+    role: "status"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "sr-only visually-hidden"
+  }, label));
+};
+Loader.propTypes = propTypes$5;
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
+    try {
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
+    } finally {
+      try {
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
+      } finally {
+        if (o) throw n;
+      }
+    }
+    return a;
+  }
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+/**
+ * Simple ponyfill for Object.fromEntries
+ */
+
+var fromEntries = function fromEntries(entries) {
+  return entries.reduce(function (acc, _ref) {
+    var key = _ref[0],
+        value = _ref[1];
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+/**
+ * Small wrapper around `useLayoutEffect` to get rid of the warning on SSR envs
+ */
+
+var useIsomorphicLayoutEffect$1 = typeof window !== 'undefined' && window.document && window.document.createElement ? React__namespace.useLayoutEffect : React__namespace.useEffect;
+
+// and applies them to the HTMLElements such as popper and arrow
+
+function applyStyles(_ref) {
+  var state = _ref.state;
+  Object.keys(state.elements).forEach(function (name) {
+    var style = state.styles[name] || {};
+    var attributes = state.attributes[name] || {};
+    var element = state.elements[name]; // arrow is optional + virtual elements
+
+    if (!isHTMLElement(element) || !getNodeName(element)) {
+      return;
+    } // Flow doesn't support to extend this property, but it's the most
+    // effective way to apply styles to an HTMLElement
+    // $FlowFixMe[cannot-write]
+
+
+    Object.assign(element.style, style);
+    Object.keys(attributes).forEach(function (name) {
+      var value = attributes[name];
+
+      if (value === false) {
+        element.removeAttribute(name);
+      } else {
+        element.setAttribute(name, value === true ? '' : value);
+      }
+    });
+  });
+}
+
+function effect(_ref2) {
+  var state = _ref2.state;
+  var initialStyles = {
+    popper: {
+      position: state.options.strategy,
+      left: '0',
+      top: '0',
+      margin: '0'
+    },
+    arrow: {
+      position: 'absolute'
+    },
+    reference: {}
+  };
+  Object.assign(state.elements.popper.style, initialStyles.popper);
+  state.styles = initialStyles;
+
+  if (state.elements.arrow) {
+    Object.assign(state.elements.arrow.style, initialStyles.arrow);
+  }
+
+  return function () {
+    Object.keys(state.elements).forEach(function (name) {
+      var element = state.elements[name];
+      var attributes = state.attributes[name] || {};
+      var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
+
+      var style = styleProperties.reduce(function (style, property) {
+        style[property] = '';
+        return style;
+      }, {}); // arrow is optional + virtual elements
+
+      if (!isHTMLElement(element) || !getNodeName(element)) {
+        return;
+      }
+
+      Object.assign(element.style, style);
+      Object.keys(attributes).forEach(function (attribute) {
+        element.removeAttribute(attribute);
+      });
+    });
+  };
+} // eslint-disable-next-line import/no-unused-modules
+
+
+var applyStyles$1 = {
+  name: 'applyStyles',
+  enabled: true,
+  phase: 'write',
+  fn: applyStyles,
+  effect: effect,
+  requires: ['computeStyles']
+};
+
+var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
+var createPopper = /*#__PURE__*/popperGenerator({
+  defaultModifiers: defaultModifiers
+}); // eslint-disable-next-line import/no-unused-modules
+
+/* global Map:readonly, Set:readonly, ArrayBuffer:readonly */
+
+var hasElementType = typeof Element !== 'undefined';
+var hasMap = typeof Map === 'function';
+var hasSet = typeof Set === 'function';
+var hasArrayBuffer = typeof ArrayBuffer === 'function' && !!ArrayBuffer.isView;
+
+// Note: We **don't** need `envHasBigInt64Array` in fde es6/index.js
+
+function equal(a, b) {
+  // START: fast-deep-equal es6/index.js 3.1.3
+  if (a === b) return true;
+
+  if (a && b && typeof a == 'object' && typeof b == 'object') {
+    if (a.constructor !== b.constructor) return false;
+
+    var length, i, keys;
+    if (Array.isArray(a)) {
+      length = a.length;
+      if (length != b.length) return false;
+      for (i = length; i-- !== 0;)
+        if (!equal(a[i], b[i])) return false;
+      return true;
+    }
+
+    // START: Modifications:
+    // 1. Extra `has<Type> &&` helpers in initial condition allow es6 code
+    //    to co-exist with es5.
+    // 2. Replace `for of` with es5 compliant iteration using `for`.
+    //    Basically, take:
+    //
+    //    ```js
+    //    for (i of a.entries())
+    //      if (!b.has(i[0])) return false;
+    //    ```
+    //
+    //    ... and convert to:
+    //
+    //    ```js
+    //    it = a.entries();
+    //    while (!(i = it.next()).done)
+    //      if (!b.has(i.value[0])) return false;
+    //    ```
+    //
+    //    **Note**: `i` access switches to `i.value`.
+    var it;
+    if (hasMap && (a instanceof Map) && (b instanceof Map)) {
+      if (a.size !== b.size) return false;
+      it = a.entries();
+      while (!(i = it.next()).done)
+        if (!b.has(i.value[0])) return false;
+      it = a.entries();
+      while (!(i = it.next()).done)
+        if (!equal(i.value[1], b.get(i.value[0]))) return false;
+      return true;
+    }
+
+    if (hasSet && (a instanceof Set) && (b instanceof Set)) {
+      if (a.size !== b.size) return false;
+      it = a.entries();
+      while (!(i = it.next()).done)
+        if (!b.has(i.value[0])) return false;
+      return true;
+    }
+    // END: Modifications
+
+    if (hasArrayBuffer && ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
+      length = a.length;
+      if (length != b.length) return false;
+      for (i = length; i-- !== 0;)
+        if (a[i] !== b[i]) return false;
+      return true;
+    }
+
+    if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+    // START: Modifications:
+    // Apply guards for `Object.create(null)` handling. See:
+    // - https://github.com/FormidableLabs/react-fast-compare/issues/64
+    // - https://github.com/epoberezkin/fast-deep-equal/issues/49
+    if (a.valueOf !== Object.prototype.valueOf && typeof a.valueOf === 'function' && typeof b.valueOf === 'function') return a.valueOf() === b.valueOf();
+    if (a.toString !== Object.prototype.toString && typeof a.toString === 'function' && typeof b.toString === 'function') return a.toString() === b.toString();
+    // END: Modifications
+
+    keys = Object.keys(a);
+    length = keys.length;
+    if (length !== Object.keys(b).length) return false;
+
+    for (i = length; i-- !== 0;)
+      if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+    // END: fast-deep-equal
+
+    // START: react-fast-compare
+    // custom handling for DOM elements
+    if (hasElementType && a instanceof Element) return false;
+
+    // custom handling for React/Preact
+    for (i = length; i-- !== 0;) {
+      if ((keys[i] === '_owner' || keys[i] === '__v' || keys[i] === '__o') && a.$$typeof) {
+        // React-specific: avoid traversing React elements' _owner
+        // Preact-specific: avoid traversing Preact elements' __v and __o
+        //    __v = $_original / $_vnode
+        //    __o = $_owner
+        // These properties contain circular references and are not needed when
+        // comparing the actual elements (and not their owners)
+        // .$$typeof and ._store on just reasonable markers of elements
+
+        continue;
+      }
+
+      // all other properties should be traversed as usual
+      if (!equal(a[keys[i]], b[keys[i]])) return false;
+    }
+    // END: react-fast-compare
+
+    // START: fast-deep-equal
+    return true;
+  }
+
+  return a !== a && b !== b;
+}
+// end fast-deep-equal
+
+var reactFastCompare = function isEqual(a, b) {
+  try {
+    return equal(a, b);
+  } catch (error) {
+    if (((error.message || '').match(/stack|recursion/i))) {
+      // warn on circular references, don't crash
+      // browsers give this different errors name and messages:
+      // chrome/safari: "RangeError", "Maximum call stack size exceeded"
+      // firefox: "InternalError", too much recursion"
+      // edge: "Error", "Out of stack space"
+      console.warn('react-fast-compare cannot handle circular refs');
+      return false;
+    }
+    // some other error. we should definitely know about these
+    throw error;
+  }
+};
+
+var isEqual = /*@__PURE__*/getDefaultExportFromCjs(reactFastCompare);
+
+var EMPTY_MODIFIERS = [];
+var usePopper = function usePopper(referenceElement, popperElement, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  var prevOptions = React__namespace.useRef(null);
+  var optionsWithDefaults = {
+    onFirstUpdate: options.onFirstUpdate,
+    placement: options.placement || 'bottom',
+    strategy: options.strategy || 'absolute',
+    modifiers: options.modifiers || EMPTY_MODIFIERS
+  };
+
+  var _React$useState = React__namespace.useState({
+    styles: {
+      popper: {
+        position: optionsWithDefaults.strategy,
+        left: '0',
+        top: '0'
+      },
+      arrow: {
+        position: 'absolute'
+      }
+    },
+    attributes: {}
+  }),
+      state = _React$useState[0],
+      setState = _React$useState[1];
+
+  var updateStateModifier = React__namespace.useMemo(function () {
+    return {
+      name: 'updateState',
+      enabled: true,
+      phase: 'write',
+      fn: function fn(_ref) {
+        var state = _ref.state;
+        var elements = Object.keys(state.elements);
+        ReactDOM__namespace.flushSync(function () {
+          setState({
+            styles: fromEntries(elements.map(function (element) {
+              return [element, state.styles[element] || {}];
+            })),
+            attributes: fromEntries(elements.map(function (element) {
+              return [element, state.attributes[element]];
+            }))
+          });
+        });
+      },
+      requires: ['computeStyles']
+    };
+  }, []);
+  var popperOptions = React__namespace.useMemo(function () {
+    var newOptions = {
+      onFirstUpdate: optionsWithDefaults.onFirstUpdate,
+      placement: optionsWithDefaults.placement,
+      strategy: optionsWithDefaults.strategy,
+      modifiers: [].concat(optionsWithDefaults.modifiers, [updateStateModifier, {
+        name: 'applyStyles',
+        enabled: false
+      }])
+    };
+
+    if (isEqual(prevOptions.current, newOptions)) {
+      return prevOptions.current || newOptions;
+    } else {
+      prevOptions.current = newOptions;
+      return newOptions;
+    }
+  }, [optionsWithDefaults.onFirstUpdate, optionsWithDefaults.placement, optionsWithDefaults.strategy, optionsWithDefaults.modifiers, updateStateModifier]);
+  var popperInstanceRef = React__namespace.useRef();
+  useIsomorphicLayoutEffect$1(function () {
+    if (popperInstanceRef.current) {
+      popperInstanceRef.current.setOptions(popperOptions);
+    }
+  }, [popperOptions]);
+  useIsomorphicLayoutEffect$1(function () {
+    if (referenceElement == null || popperElement == null) {
+      return;
+    }
+
+    var createPopper$1 = options.createPopper || createPopper;
+    var popperInstance = createPopper$1(referenceElement, popperElement, popperOptions);
+    popperInstanceRef.current = popperInstance;
+    return function () {
+      popperInstance.destroy();
+      popperInstanceRef.current = null;
+    };
+  }, [referenceElement, popperElement, options.createPopper]);
+  return {
+    state: popperInstanceRef.current ? popperInstanceRef.current.state : null,
+    styles: state.styles,
+    attributes: state.attributes,
+    update: popperInstanceRef.current ? popperInstanceRef.current.update : null,
+    forceUpdate: popperInstanceRef.current ? popperInstanceRef.current.forceUpdate : null
+  };
+};
+
+function ownKeys$5(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$5(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$5(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$5(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var setPopperWidth = {
+  enabled: true,
+  fn: function fn(data) {
+    // eslint-disable-next-line no-param-reassign
+    data.state.styles.popper.width = "".concat(data.state.rects.reference.width, "px");
+  },
+  name: 'setPopperWidth',
+  phase: 'write'
+};
+function getModifiers(props) {
+  var modifiers = [{
+    enabled: !!props.flip,
+    name: 'flip'
+  }];
+  if (props.align !== 'right' && props.align !== 'left') {
+    modifiers.push(setPopperWidth);
+  }
+  return modifiers;
+}
+function getPlacement(props) {
+  var x = props.align === 'right' ? 'end' : 'start';
+  var y = props.dropup ? 'top' : 'bottom';
+  return "".concat(y, "-").concat(x);
+}
+function useOverlay(referenceElement, options) {
+  var _useState = React.useState(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    popperElement = _useState2[0],
+    attachRef = _useState2[1];
+  var _usePopper = usePopper(referenceElement, popperElement, {
+      modifiers: getModifiers(options),
+      placement: getPlacement(options),
+      strategy: options.positionFixed ? 'fixed' : 'absolute'
+    }),
+    attributes = _usePopper.attributes,
+    styles = _usePopper.styles,
+    forceUpdate = _usePopper.forceUpdate;
+  var refElementHeight = referenceElement === null || referenceElement === void 0 ? void 0 : referenceElement.offsetHeight;
+
+  // Re-position the popper if the height of the reference element changes.
+  // Exclude `forceUpdate` from dependencies since it changes with each render.
+  React.useEffect(function () {
+    forceUpdate && forceUpdate();
+  }, [refElementHeight]); // eslint-disable-line
+
+  return _objectSpread$5(_objectSpread$5({}, attributes.popper), {}, {
+    innerRef: attachRef,
+    style: styles.popper
+  });
+}
+
+var _excluded$a = ["referenceElement", "isMenuShown"];
+
+// `Element` is not defined during server-side rendering, so shim it here.
+/* istanbul ignore next */
+var SafeElement = typeof Element === 'undefined' ? noop$1 : Element;
+var propTypes$4 = {
+  /**
+   * Specify menu alignment. The default value is `justify`, which makes the
+   * menu as wide as the input and truncates long values. Specifying `left`
+   * or `right` will align the menu to that side and the width will be
+   * determined by the length of menu item values.
+   */
+  align: PropTypes.oneOf(ALIGN_VALUES),
+  children: PropTypes.func.isRequired,
+  /**
+   * Specify whether the menu should appear above the input.
+   */
+  dropup: PropTypes.bool,
+  /**
+   * Whether or not to automatically adjust the position of the menu when it
+   * reaches the viewport boundaries.
+   */
+  flip: PropTypes.bool,
+  isMenuShown: PropTypes.bool,
+  positionFixed: PropTypes.bool,
+  // @ts-ignore
+  referenceElement: PropTypes.instanceOf(SafeElement)
+};
+var Overlay = function Overlay(_ref) {
+  var referenceElement = _ref.referenceElement,
+    isMenuShown = _ref.isMenuShown,
+    props = _objectWithoutProperties(_ref, _excluded$a);
+  var overlayProps = useOverlay(referenceElement, props);
+  if (!isMenuShown) {
+    return null;
+  }
+  return props.children(overlayProps);
+};
+Overlay.propTypes = propTypes$4;
+
+function safeFindDOMNode(componentOrElement) {
+  if (componentOrElement && 'setState' in componentOrElement) {
+    return ReactDOM.findDOMNode(componentOrElement);
+  }
+
+  return componentOrElement != null ? componentOrElement : null;
+}
+
+var ownerDocument = (function (componentOrElement) {
+  return ownerDocument$1(safeFindDOMNode(componentOrElement));
+});
+
+var escapeKeyCode = 27;
+
+var noop = function noop() {};
+
+function isLeftClickEvent(event) {
+  return event.button === 0;
+}
+
+function isModifiedEvent$1(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+
+var getRefTarget = function getRefTarget(ref) {
+  return ref && ('current' in ref ? ref.current : ref);
+};
+
+/**
+ * The `useRootClose` hook registers your callback on the document
+ * when rendered. Powers the `<Overlay/>` component. This is used achieve modal
+ * style behavior where your callback is triggered when the user tries to
+ * interact with the rest of the document or hits the `esc` key.
+ *
+ * @param {Ref<HTMLElement>| HTMLElement} ref  The element boundary
+ * @param {function} onRootClose
+ * @param {object=}  options
+ * @param {boolean=} options.disabled
+ * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
+ */
+function useRootClose$1(ref, onRootClose, _temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      disabled = _ref.disabled,
+      _ref$clickTrigger = _ref.clickTrigger,
+      clickTrigger = _ref$clickTrigger === void 0 ? 'click' : _ref$clickTrigger;
+
+  var preventMouseRootCloseRef = React.useRef(false);
+  var onClose = onRootClose || noop;
+  var handleMouseCapture = React.useCallback(function (e) {
+    var _e$composedPath$;
+
+    var currentTarget = getRefTarget(ref);
+    warning$2(!!currentTarget, 'RootClose captured a close event but does not have a ref to compare it to. ' + 'useRootClose(), should be passed a ref that resolves to a DOM node');
+    preventMouseRootCloseRef.current = !currentTarget || isModifiedEvent$1(e) || !isLeftClickEvent(e) || !!contains(currentTarget, (_e$composedPath$ = e.composedPath == null ? void 0 : e.composedPath()[0]) != null ? _e$composedPath$ : e.target);
+  }, [ref]);
+  var handleMouse = useEventCallback(function (e) {
+    if (!preventMouseRootCloseRef.current) {
+      onClose(e);
+    }
+  });
+  var handleKeyUp = useEventCallback(function (e) {
+    if (e.keyCode === escapeKeyCode) {
+      onClose(e);
+    }
+  });
+  React.useEffect(function () {
+    if (disabled || ref == null) return undefined; // Store the current event to avoid triggering handlers immediately
+    // https://github.com/facebook/react/issues/20074
+
+    var currentEvent = window.event;
+    var doc = ownerDocument(getRefTarget(ref)); // Use capture for this listener so it fires before React's listener, to
+    // avoid false positives in the contains() check below if the target DOM
+    // element is removed in the React mouse callback.
+
+    var removeMouseCaptureListener = listen(doc, clickTrigger, handleMouseCapture, true);
+    var removeMouseListener = listen(doc, clickTrigger, function (e) {
+      // skip if this event is the same as the one running when we added the handlers
+      if (e === currentEvent) {
+        currentEvent = undefined;
+        return;
+      }
+
+      handleMouse(e);
+    });
+    var removeKeyupListener = listen(doc, 'keyup', function (e) {
+      // skip if this event is the same as the one running when we added the handlers
+      if (e === currentEvent) {
+        currentEvent = undefined;
+        return;
+      }
+
+      handleKeyUp(e);
+    });
+    var mobileSafariHackListeners = [];
+
+    if ('ontouchstart' in doc.documentElement) {
+      mobileSafariHackListeners = [].slice.call(doc.body.children).map(function (el) {
+        return listen(el, 'mousemove', noop);
+      });
+    }
+
+    return function () {
+      removeMouseCaptureListener();
+      removeMouseListener();
+      removeKeyupListener();
+      mobileSafariHackListeners.forEach(function (remove) {
+        return remove();
+      });
+    };
+  }, [ref, disabled, clickTrigger, handleMouseCapture, handleMouse, handleKeyUp]);
+}
+
+function useRootClose(onRootClose, options) {
+  var rootElementRef = React.useRef(null);
+  useRootClose$1(rootElementRef.current, onRootClose, options);
+  return rootElementRef;
+}
+
+var _excluded$9 = ["children", "onRootClose"];
+function RootClose(_ref) {
+  var children = _ref.children,
+    onRootClose = _ref.onRootClose,
+    props = _objectWithoutProperties(_ref, _excluded$9);
+  var rootRef = useRootClose(onRootClose, props);
+  return children(rootRef);
+}
+
+var _excluded$8 = ["onBlur", "onClick", "onFocus", "onRemove", "option"];
+function ownKeys$4(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$4(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+({
+  onBlur: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onRemove: PropTypes.func,
+  option: optionType.isRequired
+});
+function useToken(_ref) {
+  var onBlur = _ref.onBlur,
+    onClick = _ref.onClick,
+    onFocus = _ref.onFocus,
+    onRemove = _ref.onRemove,
+    option = _ref.option,
+    props = _objectWithoutProperties(_ref, _excluded$8);
+  var _useState = React.useState(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    active = _useState2[0],
+    setActive = _useState2[1];
+  var _useState3 = React.useState(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    rootElement = _useState4[0],
+    attachRef = _useState4[1];
+  var handleBlur = function handleBlur(e) {
+    setActive(false);
+    onBlur && onBlur(e);
+  };
+  var handleClick = function handleClick(e) {
+    setActive(true);
+    onClick && onClick(e);
+  };
+  var handleFocus = function handleFocus(e) {
+    setActive(true);
+    onFocus && onFocus(e);
+  };
+  var handleRemove = function handleRemove() {
+    onRemove && onRemove(option);
+  };
+  var handleKeyDown = function handleKeyDown(e) {
+    if (e.key === 'Backspace' && active) {
+      // Prevent browser from going back.
+      e.preventDefault();
+      handleRemove();
+    }
+  };
+  useRootClose$1(rootElement, handleBlur, _objectSpread$4(_objectSpread$4({}, props), {}, {
+    disabled: !active
+  }));
+  return {
+    active: active,
+    onBlur: handleBlur,
+    onClick: handleClick,
+    onFocus: handleFocus,
+    onKeyDown: handleKeyDown,
+    onRemove: isFunction(onRemove) ? handleRemove : undefined,
+    ref: attachRef
+  };
+}
+
+var _excluded$7 = ["active", "children", "className", "onRemove", "tabIndex"],
+  _excluded2$1 = ["children", "option", "readOnly"],
+  _excluded3$1 = ["ref"];
+function ownKeys$3(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$3(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$3(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$3(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var InteractiveToken = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+  var active = _ref.active,
+    children = _ref.children,
+    className = _ref.className,
+    onRemove = _ref.onRemove,
+    tabIndex = _ref.tabIndex,
+    props = _objectWithoutProperties(_ref, _excluded$7);
+  return /*#__PURE__*/React.createElement("div", _extends$3({}, props, {
+    className: cx('rbt-token', 'rbt-token-removeable', {
+      'rbt-token-active': !!active
+    }, className),
+    ref: ref,
+    tabIndex: tabIndex || 0
+  }), children, /*#__PURE__*/React.createElement(ClearButton, {
+    className: "rbt-token-remove-button",
+    label: "Remove",
+    onClick: onRemove,
+    tabIndex: -1
+  }));
+});
+var StaticToken = function StaticToken(_ref2) {
+  var children = _ref2.children,
+    className = _ref2.className,
+    disabled = _ref2.disabled,
+    href = _ref2.href;
+  var classnames = cx('rbt-token', {
+    'rbt-token-disabled': disabled
+  }, className);
+  if (href && !disabled) {
+    return /*#__PURE__*/React.createElement("a", {
+      className: classnames,
+      href: href
+    }, children);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    className: classnames
+  }, children);
+};
+/**
+ * Individual token component, generally displayed within the
+ * `TypeaheadInputMulti` component, but can also be rendered on its own.
+ */
+var Token = function Token(_ref3) {
+  var children = _ref3.children,
+    option = _ref3.option,
+    readOnly = _ref3.readOnly,
+    props = _objectWithoutProperties(_ref3, _excluded2$1);
+  var _useToken = useToken(_objectSpread$3(_objectSpread$3({}, props), {}, {
+      option: option
+    })),
+    ref = _useToken.ref,
+    tokenProps = _objectWithoutProperties(_useToken, _excluded3$1);
+  var child = /*#__PURE__*/React.createElement("div", {
+    className: "rbt-token-label"
+  }, children);
+  return !props.disabled && !readOnly && isFunction(tokenProps.onRemove) ? /*#__PURE__*/React.createElement(InteractiveToken, _extends$3({}, props, tokenProps, {
+    ref: ref
+  }), child) : /*#__PURE__*/React.createElement(StaticToken, props, child);
+};
+
+// IE doesn't seem to get the composite computed value (eg: 'padding',
+// 'borderStyle', etc.), so generate these from the individual values.
+function interpolateStyle(styles, attr) {
+  var subattr = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+  // Title-case the sub-attribute.
+  if (subattr) {
+    /* eslint-disable-next-line no-param-reassign */
+    subattr = subattr.replace(subattr[0], subattr[0].toUpperCase());
+  }
+  return ['Top', 'Right', 'Bottom', 'Left'].map(function (dir) {
+    return styles["".concat(attr).concat(dir).concat(subattr)];
+  }).join(' ');
+}
+function copyStyles(inputNode, hintNode) {
+  var inputStyle = window.getComputedStyle(inputNode);
+
+  /* eslint-disable no-param-reassign */
+  hintNode.style.borderStyle = interpolateStyle(inputStyle, 'border', 'style');
+  hintNode.style.borderWidth = interpolateStyle(inputStyle, 'border', 'width');
+  hintNode.style.fontSize = inputStyle.fontSize;
+  hintNode.style.fontWeight = inputStyle.fontWeight;
+  hintNode.style.height = inputStyle.height;
+  hintNode.style.lineHeight = inputStyle.lineHeight;
+  hintNode.style.margin = interpolateStyle(inputStyle, 'margin');
+  hintNode.style.padding = interpolateStyle(inputStyle, 'padding');
+  /* eslint-enable no-param-reassign */
+}
+
+var useHint = function useHint() {
+  var _useTypeaheadContext = useTypeaheadContext(),
+    hintText = _useTypeaheadContext.hintText,
+    inputNode = _useTypeaheadContext.inputNode;
+  var hintRef = React.useRef(null);
+  React.useEffect(function () {
+    if (inputNode && hintRef.current) {
+      copyStyles(inputNode, hintRef.current);
+    }
+  });
+  return {
+    hintRef: hintRef,
+    hintText: hintText
+  };
+};
+var Hint = function Hint(_ref) {
+  var children = _ref.children,
+    className = _ref.className;
+  var _useHint = useHint(),
+    hintRef = _useHint.hintRef,
+    hintText = _useHint.hintText;
+  return /*#__PURE__*/React.createElement("div", {
+    className: className,
+    style: {
+      display: 'flex',
+      flex: 1,
+      height: '100%',
+      position: 'relative'
+    }
+  }, children, /*#__PURE__*/React.createElement("input", {
+    "aria-hidden": true,
+    className: "rbt-input-hint",
+    ref: hintRef,
+    readOnly: true,
+    style: {
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      boxShadow: 'none',
+      color: 'rgba(0, 0, 0, 0.54)',
+      left: 0,
+      pointerEvents: 'none',
+      position: 'absolute',
+      top: 0,
+      width: '100%'
+    },
+    tabIndex: -1,
+    value: hintText
+  }));
+};
+
+var Input = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  return /*#__PURE__*/React.createElement("input", _extends$3({}, props, {
+    className: cx('rbt-input-main', props.className),
+    ref: ref
+  }));
+});
+
+var _excluded$6 = ["children", "className", "inputClassName", "inputRef", "referenceElementRef", "selected"];
+function TypeaheadInputMulti(props) {
+  var wrapperRef = React.useRef(null);
+  var inputElem = React.useRef(null);
+  var _propsWithBsClassName = propsWithBsClassName(props),
+    children = _propsWithBsClassName.children,
+    className = _propsWithBsClassName.className,
+    inputClassName = _propsWithBsClassName.inputClassName;
+    _propsWithBsClassName.inputRef;
+    var referenceElementRef = _propsWithBsClassName.referenceElementRef,
+    selected = _propsWithBsClassName.selected,
+    rest = _objectWithoutProperties(_propsWithBsClassName, _excluded$6);
+  function getInputRef(input) {
+    inputElem.current = input;
+    props.inputRef(input);
+  }
+
+  /**
+   * Forward click or focus events on the container element to the input.
+   */
+  function handleContainerClickOrFocus(e) {
+    // Don't focus the input if it's disabled.
+    if (props.disabled) {
+      e.currentTarget.blur();
+      return;
+    }
+    var inputNode = inputElem.current;
+    if (!inputNode ||
+    // Ignore if the clicked element is a child of the container, ie: a token
+    // or the input itself.
+    e.currentTarget.contains(e.target) && e.currentTarget !== e.target) {
+      return;
+    }
+    if (isSelectable(inputNode)) {
+      // Move cursor to the end if the user clicks outside the actual input.
+      inputNode.selectionStart = inputNode.value.length;
+    }
+    inputNode.focus();
+  }
+  function handleKeyDown(e) {
+    if (e.key === 'Backspace' && selected.length && !props.value) {
+      var _wrapperRef$current;
+      // Prevent browser from going back.
+      e.preventDefault();
+
+      // If the input is selected and there is no text, focus the last
+      // token when the user hits backspace.
+
+      var wrapperChildren = (_wrapperRef$current = wrapperRef.current) === null || _wrapperRef$current === void 0 ? void 0 : _wrapperRef$current.children;
+      if (wrapperChildren !== null && wrapperChildren !== void 0 && wrapperChildren.length) {
+        var lastToken = wrapperChildren[wrapperChildren.length - 2];
+        lastToken === null || lastToken === void 0 || lastToken.focus();
+      }
+    }
+    props.onKeyDown && props.onKeyDown(e);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx('rbt-input-multi', {
+      disabled: props.disabled
+    }, className),
+    onClick: handleContainerClickOrFocus,
+    onFocus: handleContainerClickOrFocus,
+    ref: referenceElementRef,
+    tabIndex: -1
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "rbt-input-wrapper",
+    ref: wrapperRef
+  }, children, /*#__PURE__*/React.createElement(Hint, null, /*#__PURE__*/React.createElement(Input, _extends$3({}, rest, {
+    className: inputClassName,
+    onKeyDown: handleKeyDown,
+    ref: getInputRef,
+    style: {
+      backgroundColor: 'transparent',
+      border: 0,
+      boxShadow: 'none',
+      cursor: 'inherit',
+      outline: 'none',
+      padding: 0,
+      width: '100%',
+      zIndex: 1
+    }
+  })))));
+}
+
+var _excluded$5 = ["inputRef", "referenceElementRef"];
+var TypeaheadInputSingle = function TypeaheadInputSingle(_ref) {
+  var inputRef = _ref.inputRef,
+    referenceElementRef = _ref.referenceElementRef,
+    props = _objectWithoutProperties(_ref, _excluded$5);
+  return /*#__PURE__*/React.createElement(Hint, null, /*#__PURE__*/React.createElement(Input, _extends$3({}, propsWithBsClassName(props), {
+    ref: function ref(node) {
+      inputRef(node);
+      referenceElementRef(node);
+    }
+  })));
+};
+
+var propTypes$3 = {
+  children: PropTypes.string.isRequired,
+  highlightClassName: PropTypes.string,
+  search: PropTypes.string.isRequired
+};
+/**
+ * Stripped-down version of https://github.com/helior/react-highlighter
+ *
+ * Results are already filtered by the time the component is used internally so
+ * we can safely ignore case and diacritical marks for the purposes of matching.
+ */
+var Highlighter = function Highlighter(_ref) {
+  var children = _ref.children,
+    _ref$highlightClassNa = _ref.highlightClassName,
+    highlightClassName = _ref$highlightClassNa === void 0 ? 'rbt-highlight-text' : _ref$highlightClassNa,
+    search = _ref.search;
+  if (!search || !children) {
+    return /*#__PURE__*/React.createElement(React.Fragment, null, children);
+  }
+  var matchCount = 0;
+  var remaining = children;
+  var highlighterChildren = [];
+  while (remaining) {
+    var bounds = getMatchBounds(remaining, search);
+
+    // No match anywhere in the remaining string, stop.
+    if (!bounds) {
+      highlighterChildren.push(remaining);
+      break;
+    }
+
+    // Capture the string that leads up to a match.
+    var nonMatch = remaining.slice(0, bounds.start);
+    if (nonMatch) {
+      highlighterChildren.push(nonMatch);
+    }
+
+    // Capture the matching string.
+    var match = remaining.slice(bounds.start, bounds.end);
+    highlighterChildren.push( /*#__PURE__*/React.createElement("mark", {
+      className: highlightClassName,
+      key: matchCount
+    }, match));
+    matchCount += 1;
+
+    // And if there's anything left over, continue the loop.
+    remaining = remaining.slice(bounds.end);
+  }
+  return /*#__PURE__*/React.createElement(React.Fragment, null, highlighterChildren);
+};
+Highlighter.propTypes = propTypes$3;
+
+const t=t=>"object"==typeof t&&null!=t&&1===t.nodeType,e$1=(t,e)=>(!e||"hidden"!==t)&&("visible"!==t&&"clip"!==t),n=(t,n)=>{if(t.clientHeight<t.scrollHeight||t.clientWidth<t.scrollWidth){const o=getComputedStyle(t,null);return e$1(o.overflowY,n)||e$1(o.overflowX,n)||(t=>{const e=(t=>{if(!t.ownerDocument||!t.ownerDocument.defaultView)return null;try{return t.ownerDocument.defaultView.frameElement}catch(t){return null}})(t);return !!e&&(e.clientHeight<t.scrollHeight||e.clientWidth<t.scrollWidth)})(t)}return !1},o$1=(t,e,n,o,l,r,i,s)=>r<t&&i>e||r>t&&i<e?0:r<=t&&s<=n||i>=e&&s>=n?r-t-o:i>e&&s<n||r<t&&s>n?i-e+l:0,l=t=>{const e=t.parentElement;return null==e?t.getRootNode().host||null:e},r=(e,r)=>{var i,s,d,h;if("undefined"==typeof document)return [];const{scrollMode:c,block:f,inline:u,boundary:a,skipOverflowHiddenElements:g}=r,p="function"==typeof a?a:t=>t!==a;if(!t(e))throw new TypeError("Invalid target");const m=document.scrollingElement||document.documentElement,w=[];let W=e;for(;t(W)&&p(W);){if(W=l(W),W===m){w.push(W);break}null!=W&&W===document.body&&n(W)&&!n(document.documentElement)||null!=W&&n(W,g)&&w.push(W);}const b=null!=(s=null==(i=window.visualViewport)?void 0:i.width)?s:innerWidth,H=null!=(h=null==(d=window.visualViewport)?void 0:d.height)?h:innerHeight,{scrollX:y,scrollY:M}=window,{height:v,width:E,top:x,right:C,bottom:I,left:R}=e.getBoundingClientRect(),{top:T,right:B,bottom:F,left:V}=(t=>{const e=window.getComputedStyle(t);return {top:parseFloat(e.scrollMarginTop)||0,right:parseFloat(e.scrollMarginRight)||0,bottom:parseFloat(e.scrollMarginBottom)||0,left:parseFloat(e.scrollMarginLeft)||0}})(e);let k="start"===f||"nearest"===f?x-T:"end"===f?I+F:x+v/2-T+F,D="center"===u?R+E/2-V+B:"end"===u?C+B:R-V;const L=[];for(let t=0;t<w.length;t++){const e=w[t],{height:n,width:l,top:r,right:i,bottom:s,left:d}=e.getBoundingClientRect();if("if-needed"===c&&x>=0&&R>=0&&I<=H&&C<=b&&x>=r&&I<=s&&R>=d&&C<=i)return L;const h=getComputedStyle(e),a=parseInt(h.borderLeftWidth,10),g=parseInt(h.borderTopWidth,10),p=parseInt(h.borderRightWidth,10),W=parseInt(h.borderBottomWidth,10);let T=0,B=0;const F="offsetWidth"in e?e.offsetWidth-e.clientWidth-a-p:0,V="offsetHeight"in e?e.offsetHeight-e.clientHeight-g-W:0,S="offsetWidth"in e?0===e.offsetWidth?0:l/e.offsetWidth:0,X="offsetHeight"in e?0===e.offsetHeight?0:n/e.offsetHeight:0;if(m===e)T="start"===f?k:"end"===f?k-H:"nearest"===f?o$1(M,M+H,H,g,W,M+k,M+k+v,v):k-H/2,B="start"===u?D:"center"===u?D-b/2:"end"===u?D-b:o$1(y,y+b,b,a,p,y+D,y+D+E,E),T=Math.max(0,T+M),B=Math.max(0,B+y);else {T="start"===f?k-r-g:"end"===f?k-s+W+V:"nearest"===f?o$1(r,s,n,g,W+V,k,k+v,v):k-(r+n/2)+V/2,B="start"===u?D-d-a:"center"===u?D-(d+l/2)+F/2:"end"===u?D-i+p+F:o$1(d,i,l,a,p+F,D,D+E,E);const{scrollLeft:t,scrollTop:h}=e;T=0===X?0:Math.max(0,Math.min(h+T/X,e.scrollHeight-n/X+V)),B=0===S?0:Math.max(0,Math.min(t+B/S,e.scrollWidth-l/S+F)),k+=h-T,D+=t-B;}L.push({el:e,top:T,left:B});}return L};
+
+const o=t=>!1===t?{block:"end",inline:"nearest"}:(t=>t===Object(t)&&0!==Object.keys(t).length)(t)?t:{block:"start",inline:"nearest"};function e(e,r$1){if(!e.isConnected||!(t=>{let o=t;for(;o&&o.parentNode;){if(o.parentNode===document)return !0;o=o.parentNode instanceof ShadowRoot?o.parentNode.host:o.parentNode;}return !1})(e))return;const n=(t=>{const o=window.getComputedStyle(t);return {top:parseFloat(o.scrollMarginTop)||0,right:parseFloat(o.scrollMarginRight)||0,bottom:parseFloat(o.scrollMarginBottom)||0,left:parseFloat(o.scrollMarginLeft)||0}})(e);if((t=>"object"==typeof t&&"function"==typeof t.behavior)(r$1))return r$1.behavior(r(e,r$1));const l="boolean"==typeof r$1||null==r$1?void 0:r$1.behavior;for(const{el:a,top:i,left:s}of r(e,o(r$1))){const t=i-n.top+n.bottom,o=s-n.left+n.right;a.scroll({top:t,left:o,behavior:l});}}
+
+var _excluded$4 = ["label", "onClick", "option", "position"];
+function ownKeys$2(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$2(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$2(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$2(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+({
+  option: optionType.isRequired,
+  position: PropTypes.number
+});
+function useItem(_ref) {
+  var label = _ref.label,
+    onClick = _ref.onClick,
+    option = _ref.option,
+    position = _ref.position,
+    props = _objectWithoutProperties(_ref, _excluded$4);
+  var _useTypeaheadContext = useTypeaheadContext(),
+    activeIndex = _useTypeaheadContext.activeIndex,
+    id = _useTypeaheadContext.id,
+    isOnlyResult = _useTypeaheadContext.isOnlyResult,
+    onActiveItemChange = _useTypeaheadContext.onActiveItemChange,
+    onInitialItemChange = _useTypeaheadContext.onInitialItemChange,
+    onMenuItemClick = _useTypeaheadContext.onMenuItemClick,
+    setItem = _useTypeaheadContext.setItem;
+  var itemRef = React.useRef(null);
+  React.useEffect(function () {
+    if (position === 0) {
+      onInitialItemChange(option);
+    }
+  });
+  React.useEffect(function () {
+    if (position === activeIndex) {
+      onActiveItemChange(option);
+
+      // Automatically scroll the menu as the user keys through it.
+      var node = itemRef.current;
+      node && e(node, {
+        boundary: node.parentNode,
+        scrollMode: 'if-needed'
+      });
+    }
+  }, [activeIndex, onActiveItemChange, option, position]);
+  var handleClick = React.useCallback(function (e) {
+    onMenuItemClick(option, e);
+    onClick && onClick(e);
+  }, [onClick, onMenuItemClick, option]);
+  var active = isOnlyResult || activeIndex === position;
+
+  // Update the item's position in the item stack.
+  setItem(option, position);
+  return _objectSpread$2(_objectSpread$2({}, props), {}, {
+    active: active,
+    'aria-label': label,
+    'aria-selected': active,
+    id: getMenuItemId(id, position),
+    onClick: handleClick,
+    onMouseDown: preventInputBlur,
+    ref: itemRef,
+    role: 'option'
+  });
+}
+
+var _excluded$3 = ["active", "children", "className", "disabled", "onClick"];
+var BaseMenuItem = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+  var active = _ref.active,
+    children = _ref.children,
+    className = _ref.className,
+    disabled = _ref.disabled,
+    _onClick = _ref.onClick,
+    props = _objectWithoutProperties(_ref, _excluded$3);
+  return /*#__PURE__*/React.createElement("a", _extends$3({}, props, {
+    className: cx('dropdown-item', {
+      active: active,
+      disabled: disabled
+    }, className),
+    href: props.href || '#',
+    onClick: function onClick(e) {
+      e.preventDefault();
+      !disabled && _onClick && _onClick(e);
+    },
+    ref: ref
+  }), children);
+});
+function MenuItem(props) {
+  return /*#__PURE__*/React.createElement(BaseMenuItem, useItem(props));
+}
+
+var _excluded$2 = ["emptyLabel", "innerRef", "maxHeight", "style"];
+function ownKeys$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var MenuDivider = function MenuDivider() {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "dropdown-divider",
+    role: "separator"
+  });
+};
+var MenuHeader = function MenuHeader(props) {
+  return (
+    /*#__PURE__*/
+    // eslint-disable-next-line jsx-a11y/role-has-required-aria-props
+    React.createElement("div", _extends$3({}, props, {
+      className: "dropdown-header",
+      role: "heading"
+    }))
+  );
+};
+var propTypes$2 = {
+  'aria-label': PropTypes.string,
+  /**
+   * Message to display in the menu if there are no valid results.
+   */
+  emptyLabel: PropTypes.node,
+  /**
+   * Needed for accessibility.
+   */
+  id: checkPropType(PropTypes.oneOfType([PropTypes.number, PropTypes.string]), isRequiredForA11y),
+  /**
+   * Maximum height of the dropdown menu.
+   */
+  maxHeight: PropTypes.string
+};
+/**
+ * Menu component that handles empty state when passed a set of results.
+ */
+var Menu = function Menu(_ref) {
+  var _ref$emptyLabel = _ref.emptyLabel,
+    emptyLabel = _ref$emptyLabel === void 0 ? 'No matches found.' : _ref$emptyLabel,
+    innerRef = _ref.innerRef,
+    _ref$maxHeight = _ref.maxHeight,
+    maxHeight = _ref$maxHeight === void 0 ? '300px' : _ref$maxHeight,
+    style = _ref.style,
+    props = _objectWithoutProperties(_ref, _excluded$2);
+  var children = React.Children.count(props.children) === 0 ? /*#__PURE__*/React.createElement(BaseMenuItem, {
+    disabled: true,
+    role: "option"
+  }, emptyLabel) : props.children;
+  return (
+    /*#__PURE__*/
+    /* eslint-disable jsx-a11y/interactive-supports-focus */
+    React.createElement("div", _extends$3({}, props, {
+      "aria-label": props['aria-label'] || 'menu-options',
+      className: cx('rbt-menu', 'dropdown-menu', 'show', props.className),
+      onMouseDown:
+      // Prevent input from blurring when clicking on the menu scrollbar.
+      preventInputBlur,
+      ref: innerRef,
+      role: "listbox",
+      style: _objectSpread$1(_objectSpread$1({}, style), {}, {
+        display: 'block',
+        maxHeight: maxHeight,
+        overflow: 'auto'
+      })
+    }), children)
+    /* eslint-enable jsx-a11y/interactive-supports-focus */
+  );
+};
+
+Menu.propTypes = propTypes$2;
+Menu.Divider = MenuDivider;
+Menu.Header = MenuHeader;
+
+var _excluded$1 = ["labelKey", "newSelectionPrefix", "options", "paginationText", "renderMenuItemChildren", "text"];
+var propTypes$1 = {
+  /**
+   * Provides the ability to specify a prefix before the user-entered text to
+   * indicate that the selection will be new. No-op unless `allowNew={true}`.
+   */
+  newSelectionPrefix: PropTypes.node,
+  /**
+   * Prompt displayed when large data sets are paginated.
+   */
+  paginationText: PropTypes.node,
+  /**
+   * Provides a hook for customized rendering of menu item contents.
+   */
+  renderMenuItemChildren: PropTypes.func
+};
+function renderMenuItemChildrenFn(option, props) {
+  return /*#__PURE__*/React.createElement(Highlighter, {
+    search: props.text
+  }, getOptionLabel(option, props.labelKey));
+}
+var TypeaheadMenu = function TypeaheadMenu(props) {
+  var labelKey = props.labelKey,
+    _props$newSelectionPr = props.newSelectionPrefix,
+    newSelectionPrefix = _props$newSelectionPr === void 0 ? 'New selection: ' : _props$newSelectionPr,
+    options = props.options,
+    _props$paginationText = props.paginationText,
+    paginationText = _props$paginationText === void 0 ? 'Display additional results...' : _props$paginationText,
+    _props$renderMenuItem = props.renderMenuItemChildren,
+    renderMenuItemChildren = _props$renderMenuItem === void 0 ? renderMenuItemChildrenFn : _props$renderMenuItem,
+    text = props.text,
+    menuProps = _objectWithoutProperties(props, _excluded$1);
+  var renderMenuItem = function renderMenuItem(option, position) {
+    var label = getOptionLabel(option, labelKey);
+    var menuItemProps = {
+      disabled: !!getOptionProperty(option, 'disabled'),
+      label: label,
+      option: option,
+      position: position
+    };
+    if (getOptionProperty(option, 'customOption')) {
+      return /*#__PURE__*/React.createElement(MenuItem, _extends$3({}, menuItemProps, {
+        className: "rbt-menu-custom-option",
+        key: position,
+        label: label
+      }), newSelectionPrefix, /*#__PURE__*/React.createElement(Highlighter, {
+        search: text
+      }, label));
+    }
+    if (getOptionProperty(option, 'paginationOption')) {
+      return /*#__PURE__*/React.createElement(React.Fragment, {
+        key: "pagination-option-divider"
+      }, /*#__PURE__*/React.createElement(Menu.Divider, null), /*#__PURE__*/React.createElement(MenuItem, _extends$3({}, menuItemProps, {
+        className: "rbt-menu-pagination-option",
+        label:
+        // TODO: Fix how (aria-)labels are passed to `MenuItem`.
+        // `paginationText` can be a ReactNode.
+        isString(paginationText) ? paginationText : ''
+      }), paginationText));
+    }
+    return /*#__PURE__*/React.createElement(MenuItem, _extends$3({}, menuItemProps, {
+      key: position
+    }), renderMenuItemChildren(option, props, position));
+  };
+  return /*#__PURE__*/React.createElement(Menu, _extends$3({}, menuProps, {
+    key:
+    // Force a re-render if the text changes to ensure that menu
+    // positioning updates correctly.
+    text
+  }), options.map(renderMenuItem));
+};
+TypeaheadMenu.propTypes = propTypes$1;
+
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var propTypes = {
+  /**
+   * Displays a button to clear the input when there are selections.
+   */
+  clearButton: PropTypes.bool,
+  /**
+   * Props to be applied directly to the input. `onBlur`, `onChange`,
+   * `onFocus`, and `onKeyDown` are ignored.
+   */
+  inputProps: checkPropType(PropTypes.object, inputPropsType),
+  /**
+   * Bootstrap 4 only. Adds the `is-invalid` classname to the `form-control`.
+   */
+  isInvalid: PropTypes.bool,
+  /**
+   * Indicate whether an asynchronous data fetch is happening.
+   */
+  isLoading: PropTypes.bool,
+  /**
+   * Bootstrap 4 only. Adds the `is-valid` classname to the `form-control`.
+   */
+  isValid: PropTypes.bool,
+  /**
+   * Callback for custom input rendering.
+   */
+  renderInput: PropTypes.func,
+  /**
+   * Callback for custom menu rendering.
+   */
+  renderMenu: PropTypes.func,
+  /**
+   * Callback for custom menu rendering.
+   */
+  renderToken: PropTypes.func,
+  /**
+   * Specifies the size of the input.
+   */
+  size: sizeType
+};
+var defaultProps = {
+  isLoading: false
+};
+var defaultRenderMenu = function defaultRenderMenu(results, menuProps, props) {
+  return /*#__PURE__*/React.createElement(TypeaheadMenu, _extends$3({}, menuProps, {
+    labelKey: props.labelKey,
+    options: results,
+    text: props.text
+  }));
+};
+var defaultRenderToken = function defaultRenderToken(option, props, idx) {
+  return /*#__PURE__*/React.createElement(Token, {
+    disabled: props.disabled,
+    key: idx,
+    onRemove: props.onRemove,
+    option: option,
+    tabIndex: props.tabIndex
+  }, getOptionLabel(option, props.labelKey));
+};
+var overlayPropKeys = ['align', 'dropup', 'flip', 'positionFixed'];
+function getOverlayProps(props) {
+  return pick(props, overlayPropKeys);
+}
+var TypeaheadComponent = /*#__PURE__*/function (_React$Component) {
+  _inherits(TypeaheadComponent, _React$Component);
+  var _super = _createSuper(TypeaheadComponent);
+  function TypeaheadComponent() {
+    var _this;
+    _classCallCheck(this, TypeaheadComponent);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    _this = _super.call.apply(_super, [this].concat(args));
+    _defineProperty(_assertThisInitialized(_this), "_referenceElement", null);
+    _defineProperty(_assertThisInitialized(_this), "referenceElementRef", function (referenceElement) {
+      _this._referenceElement = referenceElement;
+    });
+    _defineProperty(_assertThisInitialized(_this), "_renderInput", function (inputProps, props) {
+      var _this$props = _this.props,
+        isInvalid = _this$props.isInvalid,
+        isValid = _this$props.isValid,
+        multiple = _this$props.multiple,
+        renderInput = _this$props.renderInput,
+        renderToken = _this$props.renderToken,
+        size = _this$props.size;
+      if (isFunction(renderInput)) {
+        return renderInput(inputProps, props);
+      }
+      var commonProps = _objectSpread(_objectSpread({}, inputProps), {}, {
+        isInvalid: isInvalid,
+        isValid: isValid,
+        size: size
+      });
+      if (!multiple) {
+        return /*#__PURE__*/React.createElement(TypeaheadInputSingle, commonProps);
+      }
+      var labelKey = props.labelKey,
+        onRemove = props.onRemove,
+        selected = props.selected;
+      return /*#__PURE__*/React.createElement(TypeaheadInputMulti, _extends$3({}, commonProps, {
+        placeholder: selected.length ? '' : inputProps.placeholder,
+        selected: selected
+      }), selected.map(function (option, idx) {
+        return (renderToken || defaultRenderToken)(option, _objectSpread(_objectSpread({}, commonProps), {}, {
+          labelKey: labelKey,
+          onRemove: onRemove
+        }), idx);
+      }));
+    });
+    _defineProperty(_assertThisInitialized(_this), "_renderMenu", function (results, menuProps, props) {
+      var _this$props2 = _this.props,
+        emptyLabel = _this$props2.emptyLabel,
+        id = _this$props2.id,
+        maxHeight = _this$props2.maxHeight,
+        newSelectionPrefix = _this$props2.newSelectionPrefix,
+        paginationText = _this$props2.paginationText,
+        renderMenu = _this$props2.renderMenu,
+        renderMenuItemChildren = _this$props2.renderMenuItemChildren;
+      return (renderMenu || defaultRenderMenu)(results, _objectSpread(_objectSpread({}, menuProps), {}, {
+        emptyLabel: emptyLabel,
+        id: id,
+        maxHeight: maxHeight,
+        newSelectionPrefix: newSelectionPrefix,
+        paginationText: paginationText,
+        renderMenuItemChildren: renderMenuItemChildren
+      }), props);
+    });
+    _defineProperty(_assertThisInitialized(_this), "_renderAux", function (_ref) {
+      var onClear = _ref.onClear,
+        selected = _ref.selected;
+      var _this$props3 = _this.props,
+        clearButton = _this$props3.clearButton,
+        disabled = _this$props3.disabled,
+        isLoading = _this$props3.isLoading,
+        size = _this$props3.size;
+      var content;
+      if (isLoading) {
+        content = /*#__PURE__*/React.createElement(Loader, null);
+      } else if (clearButton && !disabled && selected.length) {
+        content = /*#__PURE__*/React.createElement(ClearButton, {
+          onClick: onClear,
+          onMouseDown: preventInputBlur,
+          size: size
+        });
+      }
+      return content ? /*#__PURE__*/React.createElement("div", {
+        className: cx('rbt-aux', {
+          'rbt-aux-lg': isSizeLarge(size)
+        })
+      }, content) : null;
+    });
+    return _this;
+  }
+  _createClass(TypeaheadComponent, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+      var _this$props4 = this.props,
+        children = _this$props4.children,
+        className = _this$props4.className,
+        instanceRef = _this$props4.instanceRef,
+        open = _this$props4.open,
+        options = _this$props4.options,
+        style = _this$props4.style;
+      return /*#__PURE__*/React.createElement(Typeahead$1, _extends$3({}, this.props, {
+        options: options,
+        ref: instanceRef
+      }), function (props) {
+        var hideMenu = props.hideMenu,
+          isMenuShown = props.isMenuShown,
+          results = props.results;
+        var auxContent = _this2._renderAux(props);
+        return /*#__PURE__*/React.createElement(RootClose, {
+          disabled: open || !isMenuShown,
+          onRootClose: hideMenu
+        }, function (ref) {
+          return /*#__PURE__*/React.createElement("div", {
+            className: cx('rbt', {
+              'has-aux': !!auxContent,
+              'is-invalid': _this2.props.isInvalid,
+              'is-valid': _this2.props.isValid
+            }, className),
+            ref: ref,
+            style: _objectSpread(_objectSpread({}, style), {}, {
+              outline: 'none',
+              position: 'relative'
+            }),
+            tabIndex: -1
+          }, _this2._renderInput(_objectSpread(_objectSpread({}, props.getInputProps(_this2.props.inputProps)), {}, {
+            referenceElementRef: _this2.referenceElementRef
+          }), props), /*#__PURE__*/React.createElement(Overlay, _extends$3({}, getOverlayProps(_this2.props), {
+            isMenuShown: isMenuShown,
+            referenceElement: _this2._referenceElement
+          }), function (menuProps) {
+            return _this2._renderMenu(results, menuProps, props);
+          }), auxContent, isFunction(children) ? children(props) : children);
+        });
+      });
+    }
+  }]);
+  return TypeaheadComponent;
+}(React.Component);
+_defineProperty(TypeaheadComponent, "propTypes", propTypes);
+_defineProperty(TypeaheadComponent, "defaultProps", defaultProps);
+var Typeahead = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  return /*#__PURE__*/React.createElement(TypeaheadComponent, _extends$3({}, props, {
+    instanceRef: ref
+  }));
+});
+
+var FormTypeahead = function (_a) {
+    var rest = __rest(_a, []);
+    return React.createElement(Typeahead, __assign$1({}, rest));
+};
+FormTypeahead.Feedback = Feedback$1;
+
 var Form$1 = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     return React.createElement(BootstrapForm, __assign$1({}, rest), children);
@@ -22858,6 +26022,7 @@ Form$1.RichText = FormRichText;
 Form$1.DateTime = FormDateTime;
 Form$1.Feedback = Feedback$1;
 Form$1.Text = FormText$1;
+Form$1.Typeahead = FormTypeahead;
 
 var Title = function (_a) {
     var text = _a.text, className = _a.className, rest = __rest(_a, ["text", "className"]);

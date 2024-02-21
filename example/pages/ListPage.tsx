@@ -37,7 +37,7 @@ const ListPage = () => {
 
     <List className='mt-4'>
       <List.Head>
-        <List.Cell className='col-3'>Head 1</List.Cell>
+        <List.Cell style={{width: '400px'}}>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>
         <List.Cell>Head 3</List.Cell>
         <List.Cell>Head 4</List.Cell>
@@ -46,7 +46,7 @@ const ListPage = () => {
 
       <List.Body>
         <List.Row borderColour='red'>
-          <List.Col className='col-3'>
+          <List.Col style={{width: '400px'}}>
             <List.Cell>
               <div className="mt-2">Test</div>
                 <div>
@@ -83,7 +83,7 @@ const ListPage = () => {
         </List.Row>
 
         <List.Row>
-          <List.Col className='col-3'>
+          <List.Col>
             <List.Cell>
               <div className="mt-2">Test</div>
                 <div>

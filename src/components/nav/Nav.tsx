@@ -16,7 +16,7 @@ const Nav = ({ navLink, className, children, ...rest }: NavProps) => {
     <BootstrapNav
       navbar={false}
       variant="pills"
-      className={`${className} flex-column mb-auto mx-auto text-center main-nav`}
+      className={`${className} flex-column mb-auto mx-auto text-center main-nav w-100`}
       {...rest}
     >
       <NavContext.Provider value={navLink}>{children}</NavContext.Provider>

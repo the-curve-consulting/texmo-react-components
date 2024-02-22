@@ -16,6 +16,7 @@ import Breadcrumb from './components/breadcrumb/Breadcrumb';
 import FilterButton from './components/filterButton/FilterButton';
 import NavItem from './components/nav/components/NavItem';
 import Nav from './components/nav/Nav';
+import Subtitle from './components/subtitle/Subtitle';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -37,4 +38,5 @@ export {
   FilterButton,
   NavItem,
   Nav,
+  Subtitle,
 };

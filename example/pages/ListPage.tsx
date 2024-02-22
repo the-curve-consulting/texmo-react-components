@@ -1,4 +1,4 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton, Subtitle } from '@the-curve-consulting/texmo-react-components';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const ListPage = () => {
         </Breadcrumb>
 
         <Title text='Dashboard'/>
-        <div>This is a list</div>
+        <Subtitle text='This is a list' />
       </Col>
 
       <Col className='d-flex align-items-end'>

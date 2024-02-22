@@ -37,7 +37,7 @@ const ListPage = () => {
 
     <List className='mt-4'>
       <List.Head>
-        <List.Cell style={{width: '400px'}}>Head 1</List.Cell>
+        <List.Cell>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>
         <List.Cell>Head 3</List.Cell>
         <List.Cell>Head 4</List.Cell>
@@ -45,79 +45,44 @@ const ListPage = () => {
       </List.Head>
 
       <List.Body>
-        <List.Row borderColour='red'>
-          <List.Col style={{width: '400px'}}>
-            <List.Cell>
-              <div className="mt-2">Test</div>
-                <div>
-                  <h3>
-                    Test 2
-                  </h3>
-              </div>
-            </List.Cell>
-          </List.Col>
+        {
+          Array.from({ length: 10 }).map((_, index) => (
+              <List.Row key={index}>
+                  <List.Col>
+                      <List.Cell>
+                          <div className="mt-2">Test</div>
+                          <div>
+                              <h3>Test {index}</h3>
+                          </div>
+                      </List.Cell>
+                  </List.Col>
 
-          <List.Col>
-            <List.Cell borderStart>
-              <Chip label="Test" color="#B8F1A6"/>
-            </List.Cell>
-          </List.Col>
+                  <List.Col>
+                      <List.Cell borderStart>
+                          <Chip label="Test" color="#B8F1A6" />
+                      </List.Cell>
+                  </List.Col>
 
-          <List.Col>
-            <List.Cell borderStart>
-              <ProgressBar percentage={40}/>
-            </List.Cell>
-          </List.Col>
+                  <List.Col>
+                      <List.Cell borderStart>
+                          <ProgressBar percentage={40} />
+                      </List.Cell>
+                  </List.Col>
 
-          <List.Col>
-            <List.Cell borderStart>
-              <p className="m-0">Test</p>
-            </List.Cell>
-          </List.Col>
+                  <List.Col>
+                      <List.Cell borderStart>
+                          <p className="m-0">Test {index}</p>
+                      </List.Cell>
+                  </List.Col>
 
-          <List.Col>
-            <List.Cell borderStart>
-              <p className="m-0">Test</p>
-            </List.Cell>
-          </List.Col>
-        </List.Row>
-
-        <List.Row>
-          <List.Col>
-            <List.Cell>
-              <div className="mt-2">Test</div>
-                <div>
-                  <h3>
-                    Test 2
-                  </h3>
-              </div>
-            </List.Cell>
-          </List.Col>
-
-          <List.Col>
-            <List.Cell borderStart>
-              <Chip label="Test" color="#B8F1A6"/>
-            </List.Cell>
-          </List.Col>
-
-          <List.Col>
-            <List.Cell borderStart>
-              <p className="m-0">Test</p>
-            </List.Cell>
-          </List.Col>
-
-          <List.Col>
-            <List.Cell borderStart>
-              <p className="m-0">Test</p>
-            </List.Cell>
-          </List.Col>
-          
-          <List.Col>
-            <List.Cell borderStart>
-              <p className="m-0">Test</p>
-            </List.Cell>
-          </List.Col>
-        </List.Row>
+                  <List.Col>
+                      <List.Cell borderStart>
+                          <p className="m-0">Test {index}</p>
+                      </List.Cell>
+                  </List.Col>
+              </List.Row>
+          ))
+        }
       </List.Body>
     </List>
   </div>

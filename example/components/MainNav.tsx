@@ -13,17 +13,14 @@ const Navbar = () => {
       <Nav.Item
         route={'/'} 
         icon={'house'}
-        label={'Home'}
       />
       <Nav.Item
         route={'/form'} 
         icon={'ui-checks'}
-        label={'Form'}
       />
       <Nav.Item
         route={'/list'} 
         icon={'list-task'}
-        label={'List'}
       />
     </Nav>
   )

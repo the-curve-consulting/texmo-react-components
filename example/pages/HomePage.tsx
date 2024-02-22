@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 const HomePage = () => {
   return (
     <>
-      <Row className="my-5">
+      <Row className="my-4">
         <Title text='Dashboard'/>
       </Row>
 

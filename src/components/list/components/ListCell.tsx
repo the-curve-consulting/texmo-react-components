@@ -20,7 +20,7 @@ const ListCell = ({
   switch (section) {
     case ListSection.HEAD:
       return (
-        <div className={`col ${className}`} {...rest}>
+        <div className={`col list-cell ${className}`} {...rest}>
           {children}
         </div>
       );
@@ -29,7 +29,7 @@ const ListCell = ({
     default:
       return (
         <div
-          className={`h-100 d-flex align-items-center ${className}`}
+          className={`h-100 d-flex align-items-center list-cell ${className}`}
           {...rest}
         >
           <Card

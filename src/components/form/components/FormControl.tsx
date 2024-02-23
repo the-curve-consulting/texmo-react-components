@@ -5,7 +5,9 @@ import {
 } from 'react-bootstrap';
 import Feedback from 'react-bootstrap/esm/Feedback';
 
-export interface FormControlProps extends BootstrapFormControlProps {}
+export interface FormControlProps extends BootstrapFormControlProps {
+  placeholder?: string;
+}
 
 const FormControl = ({ className, ...rest }: FormControlProps) => {
   return <BootstrapFormControl as="input" className={className} {...rest} />;

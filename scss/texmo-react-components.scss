@@ -3,6 +3,7 @@
 @import 'fonts.scss';
 
 // Import Bootstrap and its default variables
+@import 'react-bootstrap-typeahead/css/Typeahead.css';
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -10,3 +11,4 @@
 @import '../src/components/button/Button.scss';
 @import '../src/components/title/Title.scss';
 @import '../src/components/card/Card.scss';
+@import '../src/components/list/List.scss';

@@ -1,5 +1,5 @@
+import { Nav } from '@the-curve-consulting/texmo-react-components';
 import { NavLink } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
 
 export interface NavItemProps {
   route: string;
@@ -7,41 +7,25 @@ export interface NavItemProps {
   icon: string;
 }
 
-const NavItem = ({ route, label, icon }: NavItemProps) => {
-  const linkClass = (isActive: boolean): string => {
-    return isActive ? 'nav-link active' : 'nav-link link-dark';
-  };
-
-  return (
-    <Nav.Item>
-      <NavLink to={route} className={({ isActive }) => linkClass(isActive)}>
-        <i className={`bi bi-${icon} d-block`} />
-        {label}
-      </NavLink>
-      <hr />
-    </Nav.Item>
-  );
-};
-
 const Navbar = () => {
   return (
-    <>
-      <NavItem 
+    <Nav navLink={NavLink}>
+      <Nav.Item
         route={'/'} 
         icon={'house'}
         label={'Home'}
       />
-      <NavItem
+      <Nav.Item
         route={'/form'} 
         icon={'ui-checks'}
         label={'Form'}
       />
-      <NavItem
+      <Nav.Item
         route={'/list'} 
         icon={'list-task'}
         label={'List'}
       />
-    </>
+    </Nav>
   )
 }
 

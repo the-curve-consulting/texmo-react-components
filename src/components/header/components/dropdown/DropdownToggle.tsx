@@ -13,7 +13,7 @@ const DropdownToggle = ({ className }: DropdownToggleProps) => {
       as={NavLink}
       className={`topbar-item px-4 d-flex align-items-center user-toggle ${className}`}
     >
-      <i className="bi bi-person-circle fs-2 me-2"></i>
+      <i className="user-profile bi bi-person-circle fs-2"></i>
     </BootstrapDropdownToggle>
   );
 };

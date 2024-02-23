@@ -27479,7 +27479,7 @@ var DropdownMenu = function (_a) {
 var DropdownToggle = function (_a) {
     var className = _a.className;
     return (React.createElement(BootstrapDropdownToggle, { as: NavLink$2, className: "topbar-item px-4 d-flex align-items-center user-toggle ".concat(className) },
-        React.createElement("i", { className: "bi bi-person-circle fs-2 me-2" })));
+        React.createElement("i", { className: "user-profile bi bi-person-circle fs-2" })));
 };
 
 var HeaderDropdown = function (_a) {
@@ -27511,7 +27511,7 @@ Header.Navbar = HeaderNavbar;
 var UserProfile = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
     return (React.createElement("div", __assign$1({ className: "".concat(className, " d-inline-flex align-items-center text-muted") }, rest),
-        React.createElement("i", { className: "bi bi-person-circle fs-2 me-2" })));
+        React.createElement("i", { className: "user-profile bi bi-person-circle fs-2" })));
 };
 
 var Footer = function (_a) {

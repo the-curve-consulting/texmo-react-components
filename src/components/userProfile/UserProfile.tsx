@@ -8,7 +8,7 @@ const UserProfile = ({ className, ...rest }: UserProfileProps) => {
       className={`${className} d-inline-flex align-items-center text-muted`}
       {...rest}
     >
-      <i className="bi bi-person-circle fs-2 me-2"></i>
+      <i className="user-profile bi bi-person-circle fs-2" />
     </div>
   );
 };

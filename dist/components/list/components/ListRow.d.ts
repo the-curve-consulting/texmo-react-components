@@ -1,6 +1,7 @@
 import React from 'react';
+import { Themes } from 'types';
 export interface ListRowProps extends React.HTMLProps<HTMLDivElement> {
-    borderColour?: string;
+    borderTheme?: Themes;
 }
 declare const ListRow: React.ForwardRefExoticComponent<Omit<ListRowProps, "ref"> & React.RefAttributes<HTMLDivElement>>;
 export default ListRow;

@@ -7,7 +7,7 @@ export interface ListColProps extends ColProps {
 
 const ListCol = ({ className, children, ...rest }: ListColProps) => {
   return (
-    <Col className={`px-0 ${className}`} {...rest}>
+    <Col className={`px-0 overflow-hidden ${className}`} {...rest}>
       {children}
     </Col>
   );

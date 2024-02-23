@@ -26042,8 +26042,8 @@ var Card = function (_a) {
 };
 
 var Chip = function (_a) {
-    var style = _a.style, label = _a.label, theme = _a.theme, rest = __rest(_a, ["style", "label", "theme"]);
-    return (React.createElement("span", __assign$1({ className: "bg-".concat(theme), style: __assign$1({ padding: '10px 15px', fontSize: '16px', borderRadius: '8px', fontWeight: '500', color: 'white' }, style) }, rest), label));
+    var className = _a.className, label = _a.label, theme = _a.theme, rest = __rest(_a, ["className", "label", "theme"]);
+    return (React.createElement("div", __assign$1({ className: "".concat(className, " bg-").concat(theme, " text-center chip") }, rest), label));
 };
 
 var ListSection;
@@ -26061,9 +26061,9 @@ var ListHead = function (_a) {
 };
 
 var ListRow = React.forwardRef(function (_a, ref) {
-    var className = _a.className, style = _a.style, borderColour = _a.borderColour, children = _a.children, rest = __rest(_a, ["className", "style", "borderColour", "children"]);
+    var className = _a.className, style = _a.style, borderTheme = _a.borderTheme, children = _a.children, rest = __rest(_a, ["className", "style", "borderTheme", "children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement("div", __assign$1({ className: "".concat(className, " row text-center mt-3 mx-0 list-row"), style: __assign$1({ border: "2px solid ".concat(borderColour) }, style), ref: ref }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement("div", __assign$1({ className: "".concat(className, " row text-center mt-3 mx-0 list-row border-").concat(borderTheme), style: __assign$1({ border: "2px solid #dee2e6 !important" }, style), ref: ref }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,
@@ -26083,15 +26083,14 @@ var ListCell = function (_a) {
         case ListSection.NONE:
         default:
             return (React.createElement("div", __assign$1({ className: "h-100 d-flex align-items-center list-cell ".concat(className) }, rest),
-                React.createElement(Card$2, { className: "h-100 w-100 py-3", style: { backgroundColor: background } },
-                    React.createElement(Card$2.Body, { className: "d-flex justify-content-center align-items-center py-0 ".concat(border) },
-                        React.createElement("div", { className: "w-100" }, children)))));
+                React.createElement("div", { className: "card card-body h-100 w-100 py-3 d-flex justify-content-center align-items-center py-0 ".concat(border), style: { backgroundColor: background } },
+                    React.createElement("div", { className: "w-100" }, children))));
     }
 };
 
 var ListCol = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
-    return (React.createElement(Col$1, __assign$1({ className: "px-0 ".concat(className) }, rest), children));
+    return (React.createElement(Col$1, __assign$1({ className: "px-0 overflow-hidden ".concat(className) }, rest), children));
 };
 
 var ListBody = function (_a) {
@@ -27528,7 +27527,7 @@ var UserProfile = function (_a) {
 var Footer = function (_a) {
     var className = _a.className, organisation = _a.organisation;
     var currentYear = new Date().getFullYear();
-    return (React.createElement("footer", { className: "mt-auto pt-3 pb-2 text-end text-muted small ".concat(className) },
+    return (React.createElement("footer", { className: "mt-auto pt-3 pb-2 text-end text-muted small px-3 ".concat(className) },
         "Copyright \u00A9 ",
         organisation,
         " ",

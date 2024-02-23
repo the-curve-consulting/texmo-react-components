@@ -1,18 +1,20 @@
 import React from 'react';
+import { Themes } from 'types';
 
 interface ChipProps extends React.HTMLProps<HTMLSpanElement> {
-  color: string;
+  theme: Themes;
   label: string;
 }
-const Chip = ({ style, label, color, ...rest }: ChipProps) => {
+const Chip = ({ style, label, theme, ...rest }: ChipProps) => {
   return (
     <span
+      className={`bg-${theme}`}
       style={{
-        backgroundColor: color,
         padding: '10px 15px',
         fontSize: '16px',
-        borderRadius: '35px',
+        borderRadius: '8px',
         fontWeight: '500',
+        color: 'white',
         ...style,
       }}
       {...rest}

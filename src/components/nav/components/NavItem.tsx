@@ -4,11 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 
 export interface NavItemProps {
   route: string;
-  label: string;
   icon: string;
 }
 
-const NavItem = ({ route, label, icon }: NavItemProps) => {
+const NavItem = ({ route, icon }: NavItemProps) => {
   const NavLink = useContext(NavContext);
 
   const linkClass = (isActive: boolean): string => {
@@ -19,7 +18,6 @@ const NavItem = ({ route, label, icon }: NavItemProps) => {
     <Nav.Item>
       <NavLink to={route} className={({ isActive }) => linkClass(isActive)}>
         <i className={`bi bi-${icon} d-block`} />
-        {label}
       </NavLink>
       <hr />
     </Nav.Item>

@@ -6,7 +6,7 @@ import Card from './components/card/Card';
 import Chip from './components/chip/Chip';
 import List from './components/list/List';
 import ProgressBar from './components/progressBar/ProgressBar';
-import SideNavbar from './components/sideNavbar/SideNavBar';
+import SideNavbar from './components/sideNavbar/SideNavbar';
 import InfoTile from './components/infoTile/InfoTile';
 import Header from './components/header/Header';
 import UserProfile from './components/userProfile/UserProfile';
@@ -17,6 +17,7 @@ import FilterButton from './components/filterButton/FilterButton';
 import NavItem from './components/nav/components/NavItem';
 import Nav from './components/nav/Nav';
 import Subtitle from './components/subtitle/Subtitle';
+import Layout from './components/layout/Layout';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -39,4 +40,5 @@ export {
   NavItem,
   Nav,
   Subtitle,
+  Layout,
 };

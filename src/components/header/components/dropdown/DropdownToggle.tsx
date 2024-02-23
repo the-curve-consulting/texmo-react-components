@@ -7,13 +7,13 @@ import {
 
 export interface DropdownToggleProps extends BootstrapDropdownToggleProps {}
 
-const DropdownToggle = ({ className, children }: DropdownToggleProps) => {
+const DropdownToggle = ({ className }: DropdownToggleProps) => {
   return (
     <BootstrapDropdownToggle
       as={NavLink}
-      className={`d-flex align-items-center ${className}`}
+      className={`topbar-item px-4 d-flex align-items-center user-toggle ${className}`}
     >
-      {children}
+      <i className="bi bi-person-circle fs-2 me-2"></i>
     </BootstrapDropdownToggle>
   );
 };

@@ -22,6 +22,10 @@ const Navbar = () => {
         route={'/list'} 
         icon={'list-task'}
       />
+      <Nav.Item
+        route={'/table'} 
+        icon={'table'}
+      />
     </Nav>
   )
 }

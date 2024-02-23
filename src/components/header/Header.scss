@@ -1,0 +1,9 @@
+.header-container {
+  background: var(--texmo-bg-primary);
+  border-top: var(--texmo-bg-secondary-borders) solid 1px;
+  border-left: var(--texmo-bg-secondary-borders) solid 1px;
+}
+
+.user-toggle.dropdown-toggle::after {
+  display: none !important; 
+}

@@ -1,11 +1,16 @@
 import React from 'react';
+import { Themes } from 'types';
 
 export interface ProgressBarProps extends React.HTMLProps<HTMLDivElement> {
   percentage: number;
-  color?: string;
+  theme?: Themes;
 }
 
-const ProgressBar = ({ percentage, color, ...rest }: ProgressBarProps) => {
+const ProgressBar = ({
+  percentage,
+  theme = 'primary',
+  ...rest
+}: ProgressBarProps) => {
   return (
     <div {...rest} className="d-flex flex-column align-items-center">
       <div
@@ -18,10 +23,9 @@ const ProgressBar = ({ percentage, color, ...rest }: ProgressBarProps) => {
         }}
       >
         <div
-          className="h-100"
+          className={`h-100 bg-${theme}`}
           style={{
             width: `${percentage}%`,
-            backgroundColor: color || '#5cb85c',
             borderRadius: '2px',
           }}
         ></div>

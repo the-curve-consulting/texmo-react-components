@@ -1,7 +1,7 @@
 $primary: #6A955B;
 $secondary: #E5E5E5;
 $info: #0D6EFD;
-$danger: #FF002F;
+$danger: #99444f;
 
 :root {
   --texmo-primary-color: #6A955B;
@@ -11,4 +11,10 @@ $danger: #FF002F;
   --texmo-font: "kohinoor", sans-serif;
 
   --texmo-bg-secondary-borders: #c9c9c9;
+
+  --toastify-color-light: #{$secondary};
+  --toastify-color-success: #{$primary};
+  --toastify-color-error: #{$danger};
+  --toastify-text-color-light: var(--texmo-text-color);
+  --toastify-toast-width: 100vw;
 }

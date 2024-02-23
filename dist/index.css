@@ -986,13 +986,6 @@ h1, .h1 {
   }
 }
 
-.tile .segment {
-  background-color: var(--texmo-bg-primary);
-}
-.tile .count {
-  background-color: var(--texmo-primary-color);
-}
-
 .search-input {
   background-color: var(--texmo-bg-primary);
   padding: 15px;
@@ -13030,6 +13023,7 @@ textarea.form-control-lg {
   background: var(--texmo-bg-primary);
   border-top: var(--texmo-bg-secondary-borders) solid 1px;
   border-left: var(--texmo-bg-secondary-borders) solid 1px;
+  min-height: 50px;
 }
 
 .user-toggle.dropdown-toggle::after {
@@ -13046,4 +13040,37 @@ textarea.form-control-lg {
 
 .texmo-table.table > :not(caption) > * > * {
   border-bottom-width: 0px;
+}
+
+.user-profile.bi::before {
+  line-height: 0 !important;
+}
+
+.info-tile .segment {
+  background-color: var(--texmo-bg-primary);
+}
+.info-tile .count {
+  background-color: var(--texmo-primary-color);
+}
+
+.info-tile-col {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .info-tile-col {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.info-tile-body {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .info-tile-body {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
 }

@@ -1,0 +1,29 @@
+.info-tile {
+  .segment {
+    background-color: var(--texmo-bg-primary);
+  }
+
+  .count {
+    background-color: var(--texmo-primary-color);
+  }
+}
+
+.info-tile-col {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  @media(max-width: 1024px) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.info-tile-body {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+
+  @media(max-width: 1024px) {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}

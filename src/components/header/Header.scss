@@ -2,6 +2,7 @@
   background: var(--texmo-bg-primary);
   border-top: var(--texmo-bg-secondary-borders) solid 1px;
   border-left: var(--texmo-bg-secondary-borders) solid 1px;
+  min-height: 50px;
 }
 
 .user-toggle.dropdown-toggle::after {

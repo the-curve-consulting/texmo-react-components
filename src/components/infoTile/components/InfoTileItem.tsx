@@ -1,23 +1,27 @@
 import React from 'react';
 import { CardText } from 'react-bootstrap';
-import { Themes } from 'types';
 
 export interface InfoTileItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
-  value: number;
-  theme?: Themes;
 }
 
-const InfoTileItem = ({
-  text,
-  value,
-  theme = 'primary',
-}: InfoTileItemProps) => {
+const InfoTileItem = ({ text }: InfoTileItemProps) => {
   return (
     <CardText>
-      <span className="d-flex mb-3 justify-content-between">
+      <span
+        className="d-flex mb-3 justify-content-between"
+        style={{ fontSize: '1.2rem' }}
+      >
         {text}
-        <span className={`badge bg-${theme} p-2`}>{value}</span>
+
+        {/* <div>
+          <span
+            className={`badge bg-${theme} p-2`}
+            style={{ fontSize: '1rem', padding: '0.7rem' }}
+          >
+            {value}
+          </span>
+        </div> */}
       </span>
     </CardText>
   );

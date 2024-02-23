@@ -27446,25 +27446,36 @@ var InfoTileTitle = function (_a) {
 };
 
 var InfoTileItem = function (_a) {
-    var text = _a.text, value = _a.value, _b = _a.theme, theme = _b === void 0 ? 'primary' : _b;
+    var text = _a.text;
     return (React.createElement(CardText$1, null,
-        React.createElement("span", { className: "d-flex mb-3 justify-content-between" },
-            text,
-            React.createElement("span", { className: "badge bg-".concat(theme, " p-2") }, value))));
+        React.createElement("span", { className: "d-flex mb-3 justify-content-between", style: { fontSize: '1.2rem' } }, text)));
+};
+
+var InfoTileValue = function (_a) {
+    var className = _a.className, value = _a.value, _b = _a.theme, theme = _b === void 0 ? 'primary' : _b, rest = __rest(_a, ["className", "value", "theme"]);
+    return (React.createElement("div", { className: "w-100 mb-3" },
+        React.createElement("span", __assign$1({ className: "".concat(className, " w-100 badge bg-").concat(theme, " p-2"), style: { fontSize: '1rem', padding: '0.7rem' } }, rest), value)));
+};
+
+var InfoTileCol = function (_a) {
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement("div", __assign$1({ className: "".concat(className, " col") }, rest), children));
 };
 
 var InfoTile = function (_a) {
     var icon = _a.icon, children = _a.children;
-    return (React.createElement(Card$2, { className: "border-0 text-muted h-100 tile" },
+    return (React.createElement(Card$2, { className: "border-0 text-muted h-100 info-tile" },
         React.createElement(Row$1, { className: "g-0" },
-            React.createElement(Col$1, { xs: "auto", className: "p-4 d-none d-md-block" },
+            React.createElement(Col$1, { xs: "auto", className: "px-4 d-none d-md-block info-tile-col" },
                 React.createElement("div", { className: "segment p-4 h-100" },
                     React.createElement("i", { className: "bi bi-".concat(icon), style: { fontSize: '4rem' } }))),
-            React.createElement(Col$1, { className: "py-4 me-4" },
-                React.createElement(Card$2.Body, null, children)))));
+            React.createElement(Col$1, { className: "info-tile-col info-tile-body" },
+                React.createElement(Card$2.Body, { className: "justify-content-between row" }, children)))));
 };
 InfoTile.Item = InfoTileItem;
 InfoTile.Title = InfoTileTitle;
+InfoTile.Value = InfoTileValue;
+InfoTile.Col = InfoTileCol;
 
 var DropdownItem = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);

@@ -31,20 +31,10 @@ h1 {
   max-height: 80px;
   max-width: 260px;
   width: auto;
-  margin: 10px 0 10px 10px;
+  margin: 20px 0 20px 10px;
 
   @media(min-width: 1024px) {
     margin: 30px 0 30px 40px;
-  }
-}
-
-.tile {
-  .segment {
-    background-color: var(--texmo-bg-primary);
-  }
-
-  .count {
-    background-color: var(--texmo-primary-color);
   }
 }
 
@@ -123,4 +113,27 @@ a.breadcrumb-item:hover {
 
 .topbar-item {
   border-left: var(--texmo-bg-secondary-borders) 1px solid !important;
+}
+
+.Toastify__toast-container--top-center {
+  top: 0
+}
+
+.Toastify__toast-container {
+  padding: 0;
+}
+
+.Toastify__toast {
+  border-radius: 0px;
+  min-height: 80px;
+}
+
+.Toastify__toast-icon {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 30px;
+}
+
+.Toastify__close-button {
+  margin-right: 10px;
 }

@@ -137,3 +137,23 @@ a.breadcrumb-item:hover {
 .Toastify__close-button {
   margin-right: 10px;
 }
+
+.nav-link {
+  color: black !important;
+}
+
+.list-desktop {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+}
+
+.list-mobile {
+  display: block;
+  
+  @media(max-width: 1024px) {
+    display: none;
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"NavProvider.d.ts","sourceRoot":"","sources":["../../../src/components/nav/NavProvider.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAE1B,OAAO,EAAE,OAAO,EAAE,MAAM,kBAAkB,CAAC;AAE3C,MAAM,WAAW,QAAQ;IACvB,OAAO,EAAE,OAAO,OAAO,CAAC;IACxB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B;AAED,QAAA,MAAM,WAAW,0BAA2B,QAAQ,sBAMnD,CAAA;AAED,eAAe,WAAW,CAAC"}

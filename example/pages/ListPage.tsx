@@ -2,13 +2,10 @@ import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton, Su
 import { useEffect, useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import useResizeObserver from "use-resize-observer";
 
 const ListPage = () => {
   const row1Ref = useRef<HTMLDivElement>(null!);
   const row2Ref = useRef<HTMLDivElement>(null!);
-  // const { ref: row1Ref, width: width1, height: height1 = 1 } = useResizeObserver<HTMLDivElement>();
-  // const { ref: row2Ref, width: width2, height: height2 = 1 } = useResizeObserver<HTMLDivElement>();
 
   useEffect(() => {
     console.log(row1Ref.current.clientWidth);
@@ -46,7 +43,7 @@ const ListPage = () => {
       </Col>
     </Row>
 
-    <List className='mt-4'>
+    <List className='mt-4 list-desktop'>
       <List.Head>
         <List.Cell>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>
@@ -56,14 +53,12 @@ const ListPage = () => {
       </List.Head>
 
       <List.Body>
-        {/* {
-          Array.from({ length: 10 }).map((_, index) => ( */}
         <List.Row ref={row1Ref}>
             <List.Col>
                 <List.Cell>
                     <div className="mt-2">Test</div>
                     <div>
-                        <h3>{'ajskdladsfafjalkajskdlfasjldfsdfjkla'}</h3>
+                        <h3>{'Test'}</h3>
                     </div>
                 </List.Cell>
             </List.Col>
@@ -127,8 +122,6 @@ const ListPage = () => {
               </List.Cell>
           </List.Col>
         </List.Row>
-          {/* ))
-        } */}
       </List.Body>
     </List>
   </div>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Themes } from 'types';
 export interface ProgressBarProps extends React.HTMLProps<HTMLDivElement> {
     percentage: number;
-    color?: string;
+    theme?: Themes;
+    showPercentage?: boolean;
 }
-declare const ProgressBar: ({ percentage, color, ...rest }: ProgressBarProps) => React.JSX.Element;
+declare const ProgressBar: ({ percentage, theme, showPercentage, ...rest }: ProgressBarProps) => React.JSX.Element;
 export default ProgressBar;
 //# sourceMappingURL=ProgressBar.d.ts.map

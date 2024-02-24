@@ -1,7 +1,7 @@
 import React from 'react';
 import { Themes } from 'types';
 interface ChipProps extends React.HTMLProps<HTMLDivElement> {
-    theme: Themes;
+    theme?: Themes;
     label: string;
 }
 declare const Chip: ({ className, label, theme, ...rest }: ChipProps) => React.JSX.Element;

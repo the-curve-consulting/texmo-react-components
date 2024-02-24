@@ -26042,7 +26042,7 @@ var Card = function (_a) {
 };
 
 var Chip = function (_a) {
-    var className = _a.className, label = _a.label, theme = _a.theme, rest = __rest(_a, ["className", "label", "theme"]);
+    var className = _a.className, label = _a.label, _b = _a.theme, theme = _b === void 0 ? 'primary' : _b, rest = __rest(_a, ["className", "label", "theme"]);
     return (React.createElement("div", __assign$1({ className: "".concat(className, " bg-").concat(theme, " text-center chip") }, rest), label));
 };
 
@@ -26110,22 +26110,20 @@ List.Col = ListCol;
 List.Body = ListBody;
 
 var ProgressBar = function (_a) {
-    var percentage = _a.percentage, color = _a.color, rest = __rest(_a, ["percentage", "color"]);
-    return (React.createElement("div", __assign$1({}, rest, { className: "d-flex flex-column align-items-center" }),
-        React.createElement("div", { className: "mt-4 mb-2", style: {
+    var percentage = _a.percentage, _b = _a.theme, theme = _b === void 0 ? 'primary' : _b, _c = _a.showPercentage, showPercentage = _c === void 0 ? true : _c, rest = __rest(_a, ["percentage", "theme", "showPercentage"]);
+    return (React.createElement("div", __assign$1({ className: "d-flex flex-column align-items-center" }, rest),
+        React.createElement("div", { className: "mb-2 w-100", style: {
                 height: '10px',
-                width: '80%',
-                border: '1px solid #5cb85c',
+                border: '1px solid',
                 borderRadius: '2px',
             } },
-            React.createElement("div", { className: "h-100", style: {
+            React.createElement("div", { className: "h-100 bg-".concat(theme), style: {
                     width: "".concat(percentage, "%"),
-                    backgroundColor: color || '#5cb85c',
-                    borderRadius: '2px',
+                    borderRadius: '1px',
                 } })),
-        React.createElement("div", null,
+        showPercentage ? React.createElement("div", null,
             Math.floor(percentage),
-            "%")));
+            "%") : null));
 };
 
 var SideNavbar = function (_a) {

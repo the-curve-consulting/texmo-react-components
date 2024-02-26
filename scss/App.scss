@@ -12,10 +12,6 @@ h1 {
   font-style: normal;
 }
 
-.sidebar-bg-grey {
-  background-color: var(--texmo-bg-primary);
-}
-
 .main-nav {
   i {
     font-size: 3rem;
@@ -145,7 +141,7 @@ a.breadcrumb-item:hover {
 .list-desktop {
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
       display: block;
   }
 }
@@ -153,7 +149,7 @@ a.breadcrumb-item:hover {
 .list-mobile {
   display: none;
 
-  @media(max-width: 1024px) {
+  @media(max-width: 768px) {
       display: block;
   }
 }

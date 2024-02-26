@@ -12,7 +12,7 @@ const LayoutContainer = ({
   return (
     <Container
       fluid
-      className={`${className} d-flex flex-column px-0`}
+      className={`${className} layout-container d-flex flex-column px-0`}
       style={{ ...style, minHeight: '100vh' }}
       {...rest}
     >

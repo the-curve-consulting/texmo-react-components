@@ -26128,7 +26128,7 @@ var ProgressBar = function (_a) {
 
 var SideNavbar = function (_a) {
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
-    return (React.createElement("div", __assign$1({ className: "d-none d-md-flex flex-column flex-shrink-0 sticky-top sidebar-bg-grey p-3 side-navbar ".concat(className) }, rest), children));
+    return (React.createElement("div", __assign$1({ className: "d-none d-md-flex flex-column flex-shrink-0 sticky-top p-3 side-navbar ".concat(className) }, rest), children));
 };
 
 /**
@@ -27624,7 +27624,7 @@ var LayoutBrand = function (_a) {
 
 var LayoutContainer = function (_a) {
     var className = _a.className, children = _a.children, style = _a.style, rest = __rest(_a, ["className", "children", "style"]);
-    return (React.createElement(Container$1, __assign$1({ fluid: true, className: "".concat(className, " d-flex flex-column px-0"), style: __assign$1(__assign$1({}, style), { minHeight: '100vh' }) }, rest), children));
+    return (React.createElement(Container$1, __assign$1({ fluid: true, className: "".concat(className, " layout-container d-flex flex-column px-0"), style: __assign$1(__assign$1({}, style), { minHeight: '100vh' }) }, rest), children));
 };
 
 var LayoutMain = function (_a) {

@@ -1207,7 +1207,7 @@ a.breadcrumb-item:hover {
   --bs-primary-text-emphasis: #2a3c24;
   --bs-secondary-text-emphasis: #5c5c5c;
   --bs-success-text-emphasis: #0a3622;
-  --bs-info-text-emphasis: #052c65;
+  --bs-info-text-emphasis: #183157;
   --bs-warning-text-emphasis: #5c5b2a;
   --bs-danger-text-emphasis: #3d1b20;
   --bs-light-text-emphasis: #495057;
@@ -1215,7 +1215,7 @@ a.breadcrumb-item:hover {
   --bs-primary-bg-subtle: #e1eade;
   --bs-secondary-bg-subtle: #fafafa;
   --bs-success-bg-subtle: #d1e7dd;
-  --bs-info-bg-subtle: #cfe2ff;
+  --bs-info-bg-subtle: #d8e5f7;
   --bs-warning-bg-subtle: #faf9e1;
   --bs-danger-bg-subtle: #ebdadc;
   --bs-light-bg-subtle: #fcfcfd;
@@ -1223,7 +1223,7 @@ a.breadcrumb-item:hover {
   --bs-primary-border-subtle: #c3d5bd;
   --bs-secondary-border-subtle: whitesmoke;
   --bs-success-border-subtle: #a3cfbb;
-  --bs-info-border-subtle: #9ec5fe;
+  --bs-info-border-subtle: #b1caf0;
   --bs-warning-border-subtle: #f5f4c3;
   --bs-danger-border-subtle: #d6b4b9;
   --bs-light-border-subtle: #e9ecef;
@@ -1303,7 +1303,7 @@ a.breadcrumb-item:hover {
   --bs-primary-text-emphasis: #a6bf9d;
   --bs-secondary-text-emphasis: #efefef;
   --bs-success-text-emphasis: #75b798;
-  --bs-info-text-emphasis: #6ea8fe;
+  --bs-info-text-emphasis: #89b0e8;
   --bs-warning-text-emphasis: #f0eea5;
   --bs-danger-text-emphasis: #c28f95;
   --bs-light-text-emphasis: #f8f9fa;
@@ -1311,7 +1311,7 @@ a.breadcrumb-item:hover {
   --bs-primary-bg-subtle: #151e12;
   --bs-secondary-bg-subtle: #2e2e2e;
   --bs-success-bg-subtle: #051b11;
-  --bs-info-bg-subtle: #031633;
+  --bs-info-bg-subtle: #0c192b;
   --bs-warning-bg-subtle: #2e2d15;
   --bs-danger-bg-subtle: #1f0e10;
   --bs-light-bg-subtle: #343a40;
@@ -1319,7 +1319,7 @@ a.breadcrumb-item:hover {
   --bs-primary-border-subtle: #405937;
   --bs-secondary-border-subtle: #898989;
   --bs-success-border-subtle: #0f5132;
-  --bs-info-border-subtle: #084298;
+  --bs-info-border-subtle: #234a82;
   --bs-warning-border-subtle: #8a883f;
   --bs-danger-border-subtle: #5c292f;
   --bs-light-border-subtle: #495057;
@@ -3131,13 +3131,13 @@ progress {
 
 .table-info {
   --bs-table-color: #000;
-  --bs-table-bg: #cfe2ff;
-  --bs-table-border-color: #a6b5cc;
-  --bs-table-striped-bg: #c5d7f2;
+  --bs-table-bg: #d8e5f7;
+  --bs-table-border-color: #adb7c6;
+  --bs-table-striped-bg: #cddaeb;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #bacbe6;
+  --bs-table-active-bg: #c2cede;
   --bs-table-active-color: #000;
-  --bs-table-hover-bg: #bfd1ec;
+  --bs-table-hover-bg: #c8d4e4;
   --bs-table-hover-color: #000;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);

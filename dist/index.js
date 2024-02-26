@@ -26112,7 +26112,7 @@ List.Body = ListBody;
 var ProgressBar = function (_a) {
     var percentage = _a.percentage, _b = _a.theme, theme = _b === void 0 ? 'primary' : _b, _c = _a.showPercentage, showPercentage = _c === void 0 ? true : _c, rest = __rest(_a, ["percentage", "theme", "showPercentage"]);
     return (React.createElement("div", __assign$1({ className: "d-flex flex-column align-items-center" }, rest),
-        React.createElement("div", { className: "mb-2 w-100", style: {
+        React.createElement("div", { className: "my-2 w-100", style: {
                 height: '10px',
                 border: '1px solid',
                 borderRadius: '2px',

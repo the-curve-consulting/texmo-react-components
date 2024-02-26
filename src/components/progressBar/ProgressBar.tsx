@@ -16,7 +16,7 @@ const ProgressBar = ({
   return (
     <div className="d-flex flex-column align-items-center" {...rest}>
       <div
-        className="mb-2 w-100"
+        className="my-2 w-100"
         style={{
           height: '10px',
           border: '1px solid',

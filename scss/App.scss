@@ -146,14 +146,14 @@ a.breadcrumb-item:hover {
   display: none;
 
   @media (min-width: 1024px) {
-    display: block;
+      display: block;
   }
 }
 
 .list-mobile {
-  display: block;
-  
+  display: none;
+
   @media(max-width: 1024px) {
-    display: none;
+      display: block;
   }
 }

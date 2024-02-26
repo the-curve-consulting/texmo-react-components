@@ -1,17 +1,18 @@
 import React, { forwardRef } from 'react';
-import { Themes } from 'types';
 
 export interface ListRowProps extends React.HTMLProps<HTMLDivElement> {
-  borderTheme?: Themes;
+  overdue?: boolean;
 }
 
 const ListRow = forwardRef<HTMLDivElement, ListRowProps>(
-  ({ className, style, borderTheme, children, ...rest }, ref) => {
+  ({ className, style, overdue, children, ...rest }, ref) => {
     const childrenArray = React.Children.toArray(children);
 
     return (
       <div
-        className={`${className} row text-center mt-3 mx-0 list-row border-${borderTheme}`}
+        className={`${className} row text-center mt-3 mx-0 list-row ${
+          overdue ?? 'border-danger'
+        }`}
         style={{ border: `2px solid #dee2e6 !important`, ...style }}
         ref={ref}
         {...rest}

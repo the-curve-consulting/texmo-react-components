@@ -18,7 +18,7 @@ import NavItem from './components/nav/components/NavItem';
 import Nav from './components/nav/Nav';
 import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
-import Tabs from 'components/tabs/Tabs';
+import Tabs from './components/tabs/Tabs';
 import '../scss/texmo-react-components.scss';
 
 export {

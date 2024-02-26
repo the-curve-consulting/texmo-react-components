@@ -17,7 +17,7 @@ const NavItem = ({ route, icon }: NavItemProps) => {
   return (
     <Nav.Item>
       <NavLink to={route} className={({ isActive }) => linkClass(isActive)}>
-        <i className={`bi bi-${icon} d-block`} />
+        <i className={`p-0 fs-1 bi bi-${icon} d-block`} />
       </NavLink>
       <hr />
     </Nav.Item>

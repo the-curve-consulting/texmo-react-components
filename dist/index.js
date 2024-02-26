@@ -26061,9 +26061,9 @@ var ListHead = function (_a) {
 };
 
 var ListRow = React.forwardRef(function (_a, ref) {
-    var className = _a.className, style = _a.style, borderTheme = _a.borderTheme, children = _a.children, rest = __rest(_a, ["className", "style", "borderTheme", "children"]);
+    var className = _a.className, style = _a.style, overdue = _a.overdue, children = _a.children, rest = __rest(_a, ["className", "style", "overdue", "children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement("div", __assign$1({ className: "".concat(className, " row text-center mt-3 mx-0 list-row border-").concat(borderTheme), style: __assign$1({ border: "2px solid #dee2e6 !important" }, style), ref: ref }, rest), childrenArray.map(function (child, index) {
+    return (React.createElement("div", __assign$1({ className: "".concat(className, " row text-center mt-3 mx-0 list-row ").concat(overdue !== null && overdue !== void 0 ? overdue : 'border-danger'), style: __assign$1({ border: "2px solid #dee2e6 !important" }, style), ref: ref }, rest), childrenArray.map(function (child, index) {
         var childElement = child;
         return React.cloneElement(childElement, {
             borderStart: index !== 0,
@@ -27519,7 +27519,7 @@ Header.Navbar = HeaderNavbar;
 var UserProfile = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
     return (React.createElement("div", __assign$1({ className: "".concat(className, " d-inline-flex align-items-center text-muted") }, rest),
-        React.createElement("i", { className: "user-profile bi bi-person-circle fs-2" })));
+        React.createElement("i", { className: "user-profile pt-2 bi bi-person-circle fs-2" })));
 };
 
 var Footer = function (_a) {
@@ -27601,7 +27601,7 @@ var NavItem = function (_a) {
                 var isActive = _a.isActive;
                 return linkClass(isActive);
             } },
-            React.createElement("i", { className: "bi bi-".concat(icon, " d-block") })),
+            React.createElement("i", { className: "p-0 fs-1 bi bi-".concat(icon, " d-block") })),
         React.createElement("hr", null)));
 };
 

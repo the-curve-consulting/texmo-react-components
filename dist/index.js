@@ -27640,6 +27640,17 @@ Layout.Brand = LayoutBrand;
 Layout.Container = LayoutContainer;
 Layout.Main = LayoutMain;
 
+var TabButton = function (_a) {
+    var className = _a.className, _b = _a.selected, selected = _b === void 0 ? false : _b, text = _a.text, rest = __rest(_a, ["className", "selected", "text"]);
+    return (React.createElement(Button$2, __assign$1({ className: "".concat(className, " gray-text rounded-0 py-2 px-3"), variant: selected ? 'dark-secondary' : 'secondary' }, rest), text));
+};
+
+var Tabs = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return React.createElement("div", __assign$1({}, rest), children);
+};
+Tabs.Button = TabButton;
+
 exports.Breadcrumb = Breadcrumb;
 exports.Button = Button;
 exports.Card = Card;
@@ -27658,6 +27669,7 @@ exports.SearchBar = SearchBar;
 exports.SideNavbar = SideNavbar;
 exports.Subtitle = Subtitle;
 exports.Table = Table;
+exports.Tabs = Tabs;
 exports.Title = Title;
 exports.UserProfile = UserProfile;
 //# sourceMappingURL=index.js.map

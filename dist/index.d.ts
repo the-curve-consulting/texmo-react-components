@@ -18,6 +18,7 @@ import NavItem from './components/nav/components/NavItem';
 import Nav from './components/nav/Nav';
 import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
+import Tabs from 'components/tabs/Tabs';
 import '../scss/texmo-react-components.scss';
-export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Footer, SearchBar, Breadcrumb, FilterButton, NavItem, Nav, Subtitle, Layout, };
+export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Footer, SearchBar, Breadcrumb, FilterButton, NavItem, Nav, Subtitle, Layout, Tabs, };
 //# sourceMappingURL=index.d.ts.map

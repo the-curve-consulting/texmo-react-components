@@ -6,7 +6,7 @@ export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
 
 const Title = ({ text, className, ...rest }: TitleProps) => {
   return (
-    <h1 className={`${className} mb-0`} {...rest}>
+    <h1 className={`${className} text-nowrap mb-0`} {...rest}>
       {text}
     </h1>
   );

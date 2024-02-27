@@ -4,8 +4,12 @@ export interface SubTitleProps extends React.HTMLProps<HTMLDivElement> {
   text: string;
 }
 
-const Subtitle = ({ text, ...rest }: SubTitleProps) => {
-  return <div {...rest}>{text}</div>;
+const Subtitle = ({ className, text, ...rest }: SubTitleProps) => {
+  return (
+    <div className={`${className} text-nowrap`} {...rest}>
+      {text}
+    </div>
+  );
 };
 
 export default Subtitle;

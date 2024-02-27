@@ -8,7 +8,9 @@ export interface SearchBarProps extends InputGroupProps {}
 const SearchBar = ({ children, ...rest }: SearchBarProps) => {
   return (
     <div className="d-flex">
-      <InputGroup {...rest}>{children}</InputGroup>
+      <InputGroup className="flex-nowrap search-input-group" {...rest}>
+        {children}
+      </InputGroup>
     </div>
   );
 };

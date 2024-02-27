@@ -13241,3 +13241,7 @@ textarea.form-control-lg {
     width: 100%;
   }
 }
+
+.search-input-group {
+  min-width: 120px;
+}

@@ -26031,7 +26031,7 @@ Form$1.Typeahead = FormTypeahead;
 
 var Title = function (_a) {
     var text = _a.text, className = _a.className, rest = __rest(_a, ["text", "className"]);
-    return (React.createElement("h1", __assign$1({ className: "".concat(className, " mb-0") }, rest), text));
+    return (React.createElement("h1", __assign$1({ className: "".concat(className, " text-nowrap mb-0") }, rest), text));
 };
 
 var Card = function (_a) {
@@ -27546,7 +27546,7 @@ var SearchBarButton = function (_a) {
 var SearchBar = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     return (React.createElement("div", { className: "d-flex" },
-        React.createElement(InputGroup$1, __assign$1({}, rest), children)));
+        React.createElement(InputGroup$1, __assign$1({ className: "flex-nowrap search-input-group" }, rest), children)));
 };
 SearchBar.Input = SearchBarInput;
 SearchBar.Button = SearchBarButton;
@@ -27613,8 +27613,8 @@ var Nav = function (_a) {
 Nav.Item = NavItem;
 
 var Subtitle = function (_a) {
-    var text = _a.text, rest = __rest(_a, ["text"]);
-    return React.createElement("div", __assign$1({}, rest), text);
+    var className = _a.className, text = _a.text, rest = __rest(_a, ["className", "text"]);
+    return (React.createElement("div", __assign$1({ className: "".concat(className, " text-nowrap") }, rest), text));
 };
 
 var LayoutBrand = function (_a) {

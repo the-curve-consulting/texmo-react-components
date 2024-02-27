@@ -10,10 +10,8 @@ const ListRow = forwardRef<HTMLDivElement, ListRowProps>(
 
     return (
       <div
-        className={`${className} row text-center mt-3 mx-0 list-row ${
-          overdue ?? 'border-danger'
-        }`}
-        style={{ border: `2px solid #dee2e6 !important`, ...style }}
+        className={`${className} row text-center mt-3 mx-0 list-row`}
+        style={{ border: overdue ? '2px solid #99444f' : 'none', ...style }}
         ref={ref}
         {...rest}
       >

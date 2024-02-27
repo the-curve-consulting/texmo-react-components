@@ -58,79 +58,39 @@ const ListPage = () => {
       </List.Head>
 
       <List.Body>
-        <List.Row ref={row1Ref}>
-          <List.Cell>
-              <div className="mt-2">Test</div>
-              <div>
-                  <h3>{'Test'}</h3>
-              </div>
-          </List.Cell>
+        <List.Row overdue={true} ref={row1Ref}>
+          <List.Col>
+            <List.Cell>
+                <div className="mt-2">Test</div>
+                <div>
+                    <h3>{'Test'}</h3>
+                </div>
+            </List.Cell>
+          </List.Col>
 
-          <List.Cell borderStart>
-              <Chip label="Test" theme="primary" />
-          </List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
+                <Chip label="Test" theme="primary" />
+            </List.Cell>
+          </List.Col>
 
-          <List.Cell borderStart>
-              <ProgressBar percentage={40} />
-          </List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
+                <ProgressBar percentage={40} />
+            </List.Cell>
+          </List.Col>
 
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
+                <p className="m-0">Test</p>
+            </List.Cell>
+          </List.Col>
 
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
-        </List.Row>
-
-        <List.Row ref={row1Ref}>
-          <List.Cell>
-              <div className="mt-2">Test</div>
-              <div>
-                  <h3>{'Test'}</h3>
-              </div>
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <Chip label="Test" theme="primary" />
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <ProgressBar percentage={40} />
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
-        </List.Row>
-
-        <List.Row ref={row1Ref}>
-          <List.Cell>
-              <div className="mt-2">Test</div>
-              <div>
-                  <h3>{'Test'}</h3>
-              </div>
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <Chip label="Test" theme="primary" />
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <ProgressBar percentage={40} />
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
-
-          <List.Cell borderStart>
-              <p className="m-0">Test</p>
-          </List.Cell>
+          <List.Col>
+            <List.Cell borderStart>
+                <p className="m-0">Test</p>
+            </List.Cell>
+          </List.Col>
         </List.Row>
       </List.Body>
     </List>

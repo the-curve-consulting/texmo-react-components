@@ -1,4 +1,4 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton, Subtitle, Tabs } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumbs, FilterButton, Subtitle, Tabs } from '@the-curve-consulting/texmo-react-components';
 import { useEffect, useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -21,16 +21,16 @@ const ListPage = () => {
 
     <Row className="mt-4">
       <Col>
-        <Breadcrumb link={Link}>
-          <Breadcrumb.Item
+        <Breadcrumbs link={Link}>
+          <Breadcrumbs.Item
             text='Home' 
             route='/' 
           />
-          <Breadcrumb.Item 
+          <Breadcrumbs.Item 
             text='List'
             active
           />
-        </Breadcrumb>
+        </Breadcrumbs>
 
         <Title text='Dashboard'/>
         <Subtitle text='This is a list' />
@@ -55,7 +55,6 @@ const ListPage = () => {
         <List.Cell>Head 3</List.Cell>
         <List.Cell>Head 4</List.Cell>
         <List.Cell>Head 5</List.Cell>
-        <List.Cell link />
       </List.Head>
 
       <List.Body>
@@ -82,8 +81,6 @@ const ListPage = () => {
           <List.Cell borderStart>
               <p className="m-0">Test</p>
           </List.Cell>
-
-          <List.Cell borderStart link />
         </List.Row>
 
         <List.Row ref={row1Ref}>
@@ -109,8 +106,6 @@ const ListPage = () => {
           <List.Cell borderStart>
               <p className="m-0">Test</p>
           </List.Cell>
-
-          <List.Cell borderStart link />
         </List.Row>
 
         <List.Row ref={row1Ref}>
@@ -136,8 +131,6 @@ const ListPage = () => {
           <List.Cell borderStart>
               <p className="m-0">Test</p>
           </List.Cell>
-
-          <List.Cell borderStart link />
         </List.Row>
       </List.Body>
     </List>

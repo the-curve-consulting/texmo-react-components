@@ -34,21 +34,6 @@ h1 {
   }
 }
 
-.search-input {
-  background-color: var(--texmo-bg-primary);
-  padding: 15px;
-
-  &:focus {
-    background-color: var(--texmo-bg-primary);
-  }
-}
-
-.input-group {
-  .search-input {
-    border-right: 0;
-  }
-}
-
 .input-group-button {
   background-color: var(--texmo-bg-primary);
   color: #9c9b9b;
@@ -152,4 +137,8 @@ a.breadcrumb-item:hover {
   @media(max-width: 768px) {
       display: block;
   }
+}
+
+.sidebar-bg-grey {
+  background-color: var(--texmo-bg-primary);
 }

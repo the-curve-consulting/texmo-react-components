@@ -6,4 +6,13 @@ export type Themes =
   | 'dark-primary'
   | 'dark-secondary';
 
-export type BgThemes = 'bg-primary' | 'bg-secondary';
+export type TexmoIcons =
+  | 'assets'
+  | 'checklist'
+  | 'product-catalogue'
+  | 'stock-management'
+  | 'users1'
+  | 'users2'
+  | 'warranty'
+  | 'work-orders1'
+  | 'work-orders2';

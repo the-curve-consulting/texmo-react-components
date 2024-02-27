@@ -8,7 +8,7 @@ export interface HeaderProps extends NavbarProps {}
 const Header = ({ children, ...rest }: HeaderProps) => {
   return (
     <header>
-      <Navbar expand="md" className="pt-0" {...rest}>
+      <Navbar expand="md" className="py-0" {...rest}>
         <div className="py-2 header-container d-flex justify-content-end w-100">
           {children}
         </div>

@@ -27510,7 +27510,7 @@ var HeaderNavbar = function (_a) {
 var Header = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     return (React.createElement("header", null,
-        React.createElement(Navbar$1, __assign$1({ expand: "md", className: "pt-0" }, rest),
+        React.createElement(Navbar$1, __assign$1({ expand: "md", className: "py-0" }, rest),
             React.createElement("div", { className: "py-2 header-container d-flex justify-content-end w-100" }, children))));
 };
 Header.Dropdown = HeaderDropdown;
@@ -27551,11 +27551,11 @@ var SearchBar = function (_a) {
 SearchBar.Input = SearchBarInput;
 SearchBar.Button = SearchBarButton;
 
-var BreadcrumbContext = React.createContext(Link);
+var BreadcrumbsContext = React.createContext(Link);
 
 var BreadcrumbItem = function (_a) {
     var text = _a.text, active = _a.active, route = _a.route, showSlash = _a.showSlash, className = _a.className, rest = __rest(_a, ["text", "active", "route", "showSlash", "className"]);
-    var Link = React.useContext(BreadcrumbContext);
+    var Link = React.useContext(BreadcrumbsContext);
     if (active) {
         return (React.createElement("span", __assign$1({ className: "gray-text ".concat(className) }, rest),
             showSlash ? ' / ' : null,
@@ -27566,11 +27566,11 @@ var BreadcrumbItem = function (_a) {
         route ? (React.createElement(Link, { className: "breadcrumb-item", to: route }, text)) : (text)));
 };
 
-var Breadcrumb = function (_a) {
-    var link = _a.link, children = _a.children, rest = __rest(_a, ["link", "children"]);
+var Breadcrumbs = function (_a) {
+    var className = _a.className, link = _a.link, children = _a.children, rest = __rest(_a, ["className", "link", "children"]);
     var childrenArray = React.Children.toArray(children);
-    return (React.createElement("h5", __assign$1({}, rest),
-        React.createElement(BreadcrumbContext.Provider, { value: link }, childrenArray.map(function (child, index) {
+    return (React.createElement("h5", __assign$1({ className: "".concat(className, " breadcrumbs-container") }, rest),
+        React.createElement(BreadcrumbsContext.Provider, { value: link }, childrenArray.map(function (child, index) {
             var childElement = child;
             return React.cloneElement(childElement, {
                 key: index,
@@ -27578,7 +27578,7 @@ var Breadcrumb = function (_a) {
             });
         }))));
 };
-Breadcrumb.Item = BreadcrumbItem;
+Breadcrumbs.Item = BreadcrumbItem;
 
 var FilterButton = function (_a) {
     var _b = _a.variant, variant = _b === void 0 ? 'secondary' : _b, filterExists = _a.filterExists, className = _a.className, rest = __rest(_a, ["variant", "filterExists", "className"]);
@@ -27601,7 +27601,7 @@ var NavItem = function (_a) {
                 var isActive = _a.isActive;
                 return linkClass(isActive);
             } },
-            React.createElement("i", { className: "p-0 fs-1 bi bi-".concat(icon, " d-block") })),
+            React.createElement("i", { className: "nav-item-icon p-0 fs-1 bi bi-".concat(icon, " d-block") })),
         React.createElement("hr", null)));
 };
 
@@ -27651,7 +27651,7 @@ var Tabs = function (_a) {
 };
 Tabs.Button = TabButton;
 
-exports.Breadcrumb = Breadcrumb;
+exports.Breadcrumbs = Breadcrumbs;
 exports.Button = Button;
 exports.Card = Card;
 exports.Chip = Chip;

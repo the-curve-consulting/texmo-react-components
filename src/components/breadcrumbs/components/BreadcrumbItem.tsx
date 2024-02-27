@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import BreadcrumbContext from '../BreadCrumbContext';
+import BreadcrumbContext from '../BreadCrumbsContext';
 
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;

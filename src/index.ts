@@ -12,13 +12,14 @@ import Header from './components/header/Header';
 import UserProfile from './components/userProfile/UserProfile';
 import Footer from './components/footer/Footer';
 import SearchBar from './components/searchBar/SearchBar';
-import Breadcrumb from './components/breadcrumb/Breadcrumb';
+import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
 import FilterButton from './components/filterButton/FilterButton';
 import NavItem from './components/nav/components/NavItem';
 import Nav from './components/nav/Nav';
 import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
 import Tabs from './components/tabs/Tabs';
+// import TexmoIcon from './components/texmoIcon/TexmoIcon';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -36,7 +37,7 @@ export {
   UserProfile,
   Footer,
   SearchBar,
-  Breadcrumb,
+  Breadcrumbs,
   FilterButton,
   NavItem,
   Nav,

@@ -1,1 +1,0 @@
-{"version":3,"file":"TexmoIcon.d.ts","sourceRoot":"","sources":["../../../src/components/texmoIcon/TexmoIcon.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA8B,MAAM,OAAO,CAAC;AACnD,OAAO,EAAE,UAAU,EAAE,MAAM,OAAO,CAAC;AAEnC,MAAM,WAAW,cAAc;IAC7B,IAAI,EAAE,UAAU,CAAC;CAClB;AAED,QAAA,MAAM,SAAS,aAAc,cAAc,sBAsB1C,CAAC;AAEF,eAAe,SAAS,CAAC"}

@@ -19,7 +19,7 @@ import Nav from './components/nav/Nav';
 import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
 import Tabs from './components/tabs/Tabs';
-// import TexmoIcon from './components/texmoIcon/TexmoIcon';
+import TexmoIcon from './components/texmoIcon/TexmoIcon';
 import '../scss/texmo-react-components.scss';
 
 export {
@@ -44,4 +44,5 @@ export {
   Subtitle,
   Layout,
   Tabs,
+  TexmoIcon,
 };

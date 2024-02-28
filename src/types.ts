@@ -13,6 +13,7 @@ export type TexmoIcons =
   | 'stock-management'
   | 'users1'
   | 'users2'
+  | 'users3'
   | 'warranty'
   | 'work-orders1'
   | 'work-orders2';

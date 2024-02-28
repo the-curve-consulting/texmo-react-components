@@ -2,6 +2,7 @@ import { InfoTile, Title } from '@the-curve-consulting/texmo-react-components';
 import { Row, Col } from 'react-bootstrap';
 
 const HomePage = () => {
+
   return (
     <>
       <Row className="my-4">

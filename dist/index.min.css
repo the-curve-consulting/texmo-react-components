@@ -1111,13 +1111,11 @@ a.card-link {
 .open-content {
   flex: 1;
   max-width: fit-content;
-  border: solid green;
 }
 
 .open-dummy {
   flex: 0;
-  transition: flex 0.5s;
-  border: solid red;
+  transition: flex 0.3s;
 }
 
 .open-container-opened .opened {

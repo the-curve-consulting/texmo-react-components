@@ -39,6 +39,11 @@
 
 .nav-item-text {
   opacity: 0;
+
+  @media (max-width: 768px) {
+    opacity: 1;
+    margin-left: 15px;    
+  }
 }
 
 .nav-item-text.opened {

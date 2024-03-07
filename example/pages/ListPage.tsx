@@ -40,7 +40,6 @@ const ListPage = () => {
         <div className='d-flex mt-3 justify-content-end w-100'>
           <SearchBar>
             <SearchBar.Input />
-            <SearchBar.Button />
           </SearchBar>
 
           <FilterButton filterExists/>

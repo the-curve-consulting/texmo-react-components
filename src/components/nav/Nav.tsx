@@ -35,7 +35,7 @@ const Nav = ({ navLink, className, children, ...rest }: NavProps) => {
             onClick={() => setIsOpen(!isOpen)}
           >
             <div className="h-100 p-2 d-flex justify-content-center align-items-center">
-              <i className="h-100 bi bi-list fs-2"></i>
+              <i className={`h-100 bi bi-${isOpen ? 'x' : 'list'} fs-2`}></i>
             </div>
           </div>
         </div>

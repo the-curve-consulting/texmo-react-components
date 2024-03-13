@@ -11,35 +11,23 @@ const HomePage = () => {
 
       <Row className="g-4">
         <Col xl={6}>
-          <InfoTile icon='calendar-check'>
-            <InfoTile.Title title='My Work Requests'/>
-
+          <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Item text='Due in the next 24 hours tests' />
-              <InfoTile.Item text='Overdue' />
-              <InfoTile.Item text='Open Requests' />
+              <InfoTile.Title title='My Work Requests'/>
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={0} />
-              <InfoTile.Value theme='danger' value={1} />
               <InfoTile.Value value={1} />
             </InfoTile.Col>
           </InfoTile>
         </Col>
         <Col xl={6}>
-          <InfoTile icon='clipboard-check'>
-            <InfoTile.Title title='My Work Requests'/>
-            
+          <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Item text='Due in the next 24 hours' />
-              <InfoTile.Item text='Overdue' />
-              <InfoTile.Item text='Open Requests' />
+              <InfoTile.Title title='My Work Requests'/>
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={0} />
-              <InfoTile.Value theme='danger' value={1} />
               <InfoTile.Value value={1} />
             </InfoTile.Col>
           </InfoTile>

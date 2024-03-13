@@ -26748,9 +26748,9 @@ var InfoTile = function (_a) {
     var icon = _a.icon, children = _a.children;
     return (React.createElement(Card$2, { className: "border-0 text-muted h-100 info-tile" },
         React.createElement(Row$1, { className: "g-0" },
-            React.createElement(Col$1, { xs: "auto", className: "px-4 d-none d-md-block info-tile-col" },
+            icon ? (React.createElement(Col$1, { xs: "auto", className: "px-4 d-none d-md-block info-tile-col" },
                 React.createElement("div", { className: "segment p-4 h-100" },
-                    React.createElement("i", { className: "bi bi-".concat(icon), style: { fontSize: '4rem' } }))),
+                    React.createElement("i", { className: "bi bi-".concat(icon), style: { fontSize: '4rem' } })))) : null,
             React.createElement(Col$1, { className: "info-tile-col info-tile-body" },
                 React.createElement(Card$2.Body, { className: "justify-content-between row" }, children)))));
 };
@@ -28798,7 +28798,7 @@ var Nav = function (_a) {
                 React.createElement("div", { className: "open-dummy opened" }),
                 React.createElement("div", { className: "open-content nav-menu nav-item-menu-icon", onClick: function () { return setIsOpen(!isOpen); } },
                     React.createElement("div", { className: "h-100 p-2 d-flex justify-content-center align-items-center" },
-                        React.createElement("i", { className: "h-100 bi bi-list fs-2" })))),
+                        React.createElement("i", { className: "h-100 bi bi-".concat(isOpen ? 'x' : 'list', " fs-2") })))),
             children)));
 };
 Nav.Item = NavItem;

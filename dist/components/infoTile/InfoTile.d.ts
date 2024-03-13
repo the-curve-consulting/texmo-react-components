@@ -1,6 +1,6 @@
 import React from 'react';
 export interface InfoTileProps extends React.HTMLProps<HTMLBaseElement> {
-    icon: string;
+    icon?: string;
 }
 declare const InfoTile: {
     ({ icon, children }: InfoTileProps): React.JSX.Element;

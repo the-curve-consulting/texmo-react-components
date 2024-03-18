@@ -11,6 +11,10 @@
 }
 
 .nav-item-icon {
+  @media(min-width: 768px) {
+    width: 80px;
+  }
+  
   @media(max-width: 768px) {
     font-size: calc(2.8rem + 1.5vw) !important;
   }
@@ -39,8 +43,10 @@
 
 .nav-item-text {
   opacity: 0;
+  width: 0;
 
   @media (max-width: 768px) {
+    width: auto;
     opacity: 1;
     margin-left: 15px;    
   }

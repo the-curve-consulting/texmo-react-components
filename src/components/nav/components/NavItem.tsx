@@ -29,28 +29,19 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
         <NavLink
           to={route}
           className={({ isActive }) =>
-            `${linkClass(
-              isActive
-            )} align-items-center sidenav-link open-container ${
-              open ? 'open-container-opened' : ''
-            }`
+            `${linkClass(isActive)} d-flex align-items-center sidenav-link`
           }
         >
-          <div
-            className={`d-flex ${open ? 'pe-3' : ''}`}
-            style={{ width: open ? '75px' : 'auto' }}
-          >
+          <div className="d-flex justify-content-center nav-item-icon">
             <TexmoIcon icon={icon} height={40} />
           </div>
 
-          <div className={`open-dummy opened ${open ? 'w-auto' : 'closed'}`}>
-            <div
-              className={`d-flex justify-content-start nav-item-text ${
-                open ? 'opened' : ''
-              }`}
-            >
-              {text}
-            </div>
+          <div
+            className={`d-flex justify-content-start nav-item-text ${
+              open ? 'opened' : ''
+            }`}
+          >
+            {text}
           </div>
         </NavLink>
       </OverlayTrigger>

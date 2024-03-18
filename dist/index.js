@@ -26719,7 +26719,7 @@ var SideNavbar = function (_a) {
 
 var InfoTileTitle = function (_a) {
     var title = _a.title, _b = _a.route, route = _b === void 0 ? '' : _b, link = _a.link, linkProps = _a.linkProps, className = _a.className;
-    var titleComponent = (React.createElement("h4", { className: "".concat(className, " fw-bold") }, title));
+    var titleComponent = React.createElement("h4", { className: "".concat(className, " fw-bold") }, title);
     if (link) {
         var LinkComponent = link;
         return (React.createElement(LinkComponent, __assign$1({ to: route, className: "stretched-link text-reset link-underline-dark link-underline-opacity-0 link-underline-opacity-100-hover ".concat(linkProps === null || linkProps === void 0 ? void 0 : linkProps.className) }, linkProps), titleComponent));
@@ -28781,12 +28781,11 @@ var NavItem = function (_a) {
         React.createElement(OverlayTrigger$1, { placement: "right", trigger: "hover", overlay: !open ? React.createElement(Tooltip$1, null, text) : React.createElement(React.Fragment, null) },
             React.createElement(NavLink, { to: route, className: function (_a) {
                     var isActive = _a.isActive;
-                    return "".concat(linkClass(isActive), " align-items-center sidenav-link open-container ").concat(open ? 'open-container-opened' : '');
+                    return "".concat(linkClass(isActive), " d-flex align-items-center sidenav-link");
                 } },
-                React.createElement("div", { className: "d-flex ".concat(open ? 'pe-3' : ''), style: { width: open ? '75px' : 'auto' } },
+                React.createElement("div", { className: "d-flex justify-content-center nav-item-icon" },
                     React.createElement(TexmoIcon, { icon: icon, height: 40 })),
-                React.createElement("div", { className: "open-dummy opened ".concat(open ? 'w-auto' : 'closed') },
-                    React.createElement("div", { className: "d-flex justify-content-start nav-item-text ".concat(open ? 'opened' : '') }, text))))));
+                React.createElement("div", { className: "d-flex justify-content-start nav-item-text ".concat(open ? 'opened' : '') }, text)))));
 };
 
 var Nav = function (_a) {

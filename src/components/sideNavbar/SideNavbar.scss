@@ -1,16 +1,11 @@
 .side-navbar-container {
   background-color: var(--texmo-bg-primary);
+
+  transition: width 0.3s ease;
 }
 
 .side-navbar {
-  width: 120px;
-  transition: width 0.5s ease;
-
-  @media(max-width: 768px) {
-    width: 100%;    
-  }
-}
-
-.side-navbar.side-navbar-open {
-  width: 250px;
+  // @media(max-width: 768px) {
+  //   width: 100%;
+  // }
 }

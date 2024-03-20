@@ -1,47 +1,25 @@
-import React, { useState } from 'react';
-import NavContext from './NavContext';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import NavItem from './components/NavItem';
 import {
   Nav as BootstrapNav,
   NavProps as BootstrapNavProps,
 } from 'react-bootstrap';
+import NavButton from './components/NavButton';
+import classNames from 'classnames';
 
-export interface NavProps extends BootstrapNavProps {
-  navLink: typeof NavLink;
-}
+export interface NavProps extends BootstrapNavProps {}
 
-const Nav = ({ navLink, className, children, ...rest }: NavProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
+const Nav = ({ className, children, ...rest }: NavProps) => {
   return (
     <BootstrapNav
       navbar={false}
       variant="pills"
-      className={`${className} flex-column mb-auto mx-auto text-center main-nav side-navbar ${
-        isOpen ? 'side-navbar-open' : ''
-      }`}
+      className={classNames('flex-column main-nav side-navbar', className)}
       {...rest}
     >
-      <NavContext.Provider value={{ navLink, open: isOpen }}>
-        <div
-          className={`sidenav-item open-container ${
-            isOpen ? 'open-container-opened' : ''
-          }`}
-        >
-          <div className="open-dummy opened" />
-          <div
-            className="open-content nav-menu nav-item-menu-icon"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <div className="h-100 p-2 d-flex justify-content-center align-items-center">
-              <i className={`h-100 bi bi-${isOpen ? 'x' : 'list'} fs-2`}></i>
-            </div>
-          </div>
-        </div>
+      <NavButton />
 
-        {children}
-      </NavContext.Provider>
+      {children}
     </BootstrapNav>
   );
 };

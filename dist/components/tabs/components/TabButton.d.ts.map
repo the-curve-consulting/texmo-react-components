@@ -1,1 +1,0 @@
-{"version":3,"file":"TabButton.d.ts","sourceRoot":"","sources":["../../../../src/components/tabs/components/TabButton.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAU,WAAW,EAAE,MAAM,iBAAiB,CAAC;AAEtD,MAAM,WAAW,cAAe,SAAQ,WAAW;IAC/C,IAAI,EAAE,MAAM,CAAA;IACZ,QAAQ,CAAC,EAAE,OAAO,CAAA;CACrB;AAED,QAAA,MAAM,SAAS,2CAAoD,cAAc,sBAEhF,CAAA;AAED,eAAe,SAAS,CAAC"}

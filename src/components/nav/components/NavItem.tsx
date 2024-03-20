@@ -1,9 +1,12 @@
-import NavContext from 'components/nav/NavContext';
+// import { useNavContext } from 'components/nav/NavContext';
 import TexmoIcon from 'components/texmoIcon/TexmoIcon';
-import React, { useContext } from 'react';
+import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import { TexmoIcons } from '../../../types';
+import { useTexmoContext } from 'contexts/TexmoContext';
+import { useNavContext } from '../NavContext';
+import classNames from 'classnames';
 
 export interface NavItemProps extends React.HTMLProps<HTMLBaseElement> {
   route: string;
@@ -12,15 +15,15 @@ export interface NavItemProps extends React.HTMLProps<HTMLBaseElement> {
 }
 
 const NavItem = ({ route, icon, text }: NavItemProps) => {
-  const { navLink, open } = useContext(NavContext);
-  const NavLink = navLink;
+  const { open } = useNavContext();
+  const { navLink: NavLink } = useTexmoContext();
 
   const linkClass = (isActive: boolean): string => {
     return isActive ? 'nav-link active' : 'nav-link link-dark';
   };
 
   return (
-    <Nav.Item className="w-100 sidenav-item">
+    <Nav.Item className="sidenav-item">
       <OverlayTrigger
         placement="right"
         trigger="hover"
@@ -29,17 +32,21 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
         <NavLink
           to={route}
           className={({ isActive }) =>
-            `${linkClass(isActive)} d-flex align-items-center sidenav-link`
+            classNames(
+              'd-flex align-items-center sidenav-link',
+              linkClass(isActive)
+            )
           }
         >
-          <div className="d-flex justify-content-center nav-item-icon">
-            <TexmoIcon icon={icon} height={40} />
+          <div className="nav-item-icon">
+            <TexmoIcon icon={icon} height={26} />
           </div>
 
           <div
-            className={`d-flex justify-content-start nav-item-text ${
-              open ? 'opened' : ''
-            }`}
+            className={classNames(
+              'd-flex justify-content-start nav-item-text',
+              open ? 'opened' : null
+            )}
           >
             {text}
           </div>

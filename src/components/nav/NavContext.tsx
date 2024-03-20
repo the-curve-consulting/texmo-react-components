@@ -1,14 +1,15 @@
-import { createContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { createContext, useContext } from 'react';
 
 export interface NavContextProps {
-  navLink: typeof NavLink;
   open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
 const NavContext = createContext<NavContextProps>({
-  navLink: NavLink,
   open: false,
+  setOpen() {},
 });
+
+export const useNavContext = () => useContext(NavContext);
 
 export default NavContext;

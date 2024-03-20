@@ -16,8 +16,8 @@ const LayoutComponent = () => {
 
         <Layout.Container>
           <HeaderComponent />
-          
-          <main className="d-flex flex-grow-1">
+
+          <main className="d-flex">
             <Container fluid className="px-md-5">
               <Outlet />
             </Container>

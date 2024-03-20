@@ -1,7 +1,3 @@
-.nav-item-menu-icon:hover {
-  cursor: pointer;
-}
-
 .nav-item-menu-icon {
   display: block;
 
@@ -10,31 +6,52 @@
   }
 }
 
-.nav-item-icon {
-  @media(min-width: 768px) {
-    width: 80px;
-  }
-  
-  @media(max-width: 768px) {
-    font-size: calc(2.8rem + 1.5vw) !important;
-  }
-}
-
 .navbar-toggler:focus {
   box-shadow: none !important;
 }
 
-.nav-menu { 
+.sidenav-button {
   height: 54px;
+
+  &-container {
+    display: flex !important;
+    cursor: pointer;
+
+    justify-content: center;
+
+    // `md` applies to small devices (landscape phones, less than 768px)
+    @media (max-width: 767.98px) {
+      display: none !important;
+      background-color: red;
+    }
+
+    &-divider {
+      height: 1px;
+      width: 80%;
+      background: #ccc !important;
+      margin-left: 10%;
+    }
+  }
+
+  &-opened {
+    margin-right: 10%;
+  }
 }
 
 .sidenav-item {
-  border-bottom: #ccc 1px solid;
+  &::after {
+    content: '';
+
+    display: block;
+    background: #ccc !important;
+    width: 80%;
+    margin-left: 10%;
+    height: 1px;
+  }
 }
 
 .sidenav-link {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 16px 46px;
 }
 
 .nav-link {
@@ -43,17 +60,26 @@
 
 .nav-item-text {
   opacity: 0;
+  margin-left: 0;
   width: 0;
 
-  @media (max-width: 768px) {
-    width: auto;
-    opacity: 1;
-    margin-left: 15px;    
-  }
-}
+  transition: width 300ms ease;
+  transition: margin-left 300ms ease;
 
-.nav-item-text.opened {
-  opacity: 1;
+  &.opened {
+    transition: opacity 320ms ease;
+
+    margin-left: 18px;
+    opacity: 1;
+    width: auto;
+  }
+
+  // `md` applies to small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    opacity: 1 !important;
+    margin-left: 18px;
+    width: unset !important;
+  }
 }
 
 .nav-item-expand {

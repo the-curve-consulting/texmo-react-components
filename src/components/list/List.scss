@@ -2,17 +2,43 @@
   overflow-x: auto;
 }
 
-.list-row {
+.list-head {
   display: inline-flex !important;
   flex-wrap: nowrap !important;
   min-width: 100%;
 }
 
+.list-row {
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+  min-width: 100%;
+  background-color: var(--texmo-bg-primary);
+  position: relative;
+}
+
+.list-row:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(146, 146, 146, 0.3); /* Change the last value (alpha) for transparency */
+}
+
 .list-cell {
-  min-width: 150px;
   flex-shrink: 0;
 }
 
 .list-head {
   background-color: white;
+}
+
+.list-text {
+  font-size: 1rem;
+}
+
+.list-title {
+  font-size: 1rem;
+  font-weight: bolder;
 }

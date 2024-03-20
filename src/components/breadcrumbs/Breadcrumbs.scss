@@ -1,0 +1,23 @@
+.breadcrumbs-container {
+  font-size: 1rem;
+
+  @media(max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.breadcrumb-item {
+  color: var(--texmo-text-color);
+}
+
+a.breadcrumb-item:hover {
+  text-decoration: none;
+}
+
+.breadcrumb-active {
+  font-weight: 600;
+}
+
+.breadcrumb-inactive {
+  font-weight: 300;
+}

@@ -1,25 +1,25 @@
 import React from 'react';
-import NavContext from './NavContext';
-import { NavLink } from 'react-router-dom';
 import NavItem from './components/NavItem';
 import {
   Nav as BootstrapNav,
   NavProps as BootstrapNavProps,
 } from 'react-bootstrap';
+import NavButton from './components/NavButton';
+import classNames from 'classnames';
 
-export interface NavProps extends BootstrapNavProps {
-  navLink: typeof NavLink;
-}
+export interface NavProps extends BootstrapNavProps {}
 
-const Nav = ({ navLink, className, children, ...rest }: NavProps) => {
+const Nav = ({ className, children, ...rest }: NavProps) => {
   return (
     <BootstrapNav
       navbar={false}
       variant="pills"
-      className={`${className} flex-column mb-auto mx-auto text-center main-nav w-100`}
+      className={classNames('flex-column main-nav side-navbar', className)}
       {...rest}
     >
-      <NavContext.Provider value={navLink}>{children}</NavContext.Provider>
+      <NavButton />
+
+      {children}
     </BootstrapNav>
   );
 };

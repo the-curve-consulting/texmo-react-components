@@ -1,23 +1,36 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumb, FilterButton, Subtitle } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumbs, FilterButton, Subtitle, Tabs } from '@the-curve-consulting/texmo-react-components';
+import { useEffect, useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ListPage = () => {
+  const row1Ref = useRef<HTMLDivElement>(null!);
+
+  useEffect(() => {
+    console.log(row1Ref.current.clientWidth);
+  }, []);
+
   return (
     <div className="mt-5">
 
+      <Tabs>
+        <Tabs.Button text='Tab 1' selected/>
+        <Tabs.Button text='Tab 2'/>
+        <Tabs.Button text='Tab 3'/>
+      </Tabs>
+
     <Row className="mt-4">
       <Col>
-        <Breadcrumb link={Link}>
-          <Breadcrumb.Item
+        <Breadcrumbs link={Link}>
+          <Breadcrumbs.Item
             text='Home' 
             route='/' 
           />
-          <Breadcrumb.Item 
+          <Breadcrumbs.Item 
             text='List'
             active
           />
-        </Breadcrumb>
+        </Breadcrumbs>
 
         <Title text='Dashboard'/>
         <Subtitle text='This is a list' />
@@ -27,7 +40,6 @@ const ListPage = () => {
         <div className='d-flex mt-3 justify-content-end w-100'>
           <SearchBar>
             <SearchBar.Input />
-            <SearchBar.Button />
           </SearchBar>
 
           <FilterButton filterExists/>
@@ -35,7 +47,7 @@ const ListPage = () => {
       </Col>
     </Row>
 
-    <List className='mt-4'>
+    <List className='mt-4 list-desktop'>
       <List.Head>
         <List.Cell>Head 1</List.Cell>
         <List.Cell>Head 2</List.Cell>
@@ -45,44 +57,40 @@ const ListPage = () => {
       </List.Head>
 
       <List.Body>
-        {
-          Array.from({ length: 10 }).map((_, index) => (
-              <List.Row key={index}>
-                  <List.Col>
-                      <List.Cell>
-                          <div className="mt-2">Test</div>
-                          <div>
-                              <h3>Test {index}</h3>
-                          </div>
-                      </List.Cell>
-                  </List.Col>
+        <List.Row overdue={true} ref={row1Ref}>
+          <List.Col>
+            <List.Cell>
+                <div className="mt-2">Test</div>
+                <div>
+                    <h3>{'Test'}</h3>
+                </div>
+            </List.Cell>
+          </List.Col>
 
-                  <List.Col>
-                      <List.Cell borderStart>
-                          <Chip label="Test" color="#B8F1A6" />
-                      </List.Cell>
-                  </List.Col>
+          <List.Col>
+            <List.Cell borderStart>
+                <Chip label="Test" theme="primary" />
+            </List.Cell>
+          </List.Col>
 
-                  <List.Col>
-                      <List.Cell borderStart>
-                          <ProgressBar percentage={40} />
-                      </List.Cell>
-                  </List.Col>
+          <List.Col>
+            <List.Cell borderStart>
+                <ProgressBar percentage={40} />
+            </List.Cell>
+          </List.Col>
 
-                  <List.Col>
-                      <List.Cell borderStart>
-                          <p className="m-0">Test {index}</p>
-                      </List.Cell>
-                  </List.Col>
+          <List.Col>
+            <List.Cell borderStart>
+                <p className="m-0">Test</p>
+            </List.Cell>
+          </List.Col>
 
-                  <List.Col>
-                      <List.Cell borderStart>
-                          <p className="m-0">Test {index}</p>
-                      </List.Cell>
-                  </List.Col>
-              </List.Row>
-          ))
-        }
+          <List.Col>
+            <List.Cell borderStart>
+                <p className="m-0">Test</p>
+            </List.Cell>
+          </List.Col>
+        </List.Row>
       </List.Body>
     </List>
   </div>

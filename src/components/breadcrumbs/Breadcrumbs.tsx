@@ -1,18 +1,23 @@
 import React from 'react';
 import BreadcrumbItem from './components/BreadcrumbItem';
 import { Link } from 'react-router-dom';
-import BreadcrumbContext from './BreadCrumbContext';
+import BreadcrumbsContext from './BreadCrumbsContext';
 
-interface BreadcrumbProps extends React.HTMLProps<HTMLHeadingElement> {
+interface BreadcrumbsProps extends React.HTMLProps<HTMLHeadingElement> {
   link: typeof Link;
 }
 
-const Breadcrumb = ({ link, children, ...rest }: BreadcrumbProps) => {
+const Breadcrumbs = ({
+  className,
+  link,
+  children,
+  ...rest
+}: BreadcrumbsProps) => {
   const childrenArray = React.Children.toArray(children);
 
   return (
-    <h5 {...rest}>
-      <BreadcrumbContext.Provider value={link}>
+    <p className={`${className} breadcrumbs-container`} {...rest}>
+      <BreadcrumbsContext.Provider value={link}>
         {childrenArray.map((child, index) => {
           const childElement = child as React.ReactElement;
 
@@ -21,11 +26,11 @@ const Breadcrumb = ({ link, children, ...rest }: BreadcrumbProps) => {
             showSlash: index !== 0,
           });
         })}
-      </BreadcrumbContext.Provider>
-    </h5>
+      </BreadcrumbsContext.Provider>
+    </p>
   );
 };
 
-Breadcrumb.Item = BreadcrumbItem;
+Breadcrumbs.Item = BreadcrumbItem;
 
-export default Breadcrumb;
+export default Breadcrumbs;

@@ -6,6 +6,7 @@ const postcss = require('rollup-plugin-postcss');
 const terser = require('@rollup/plugin-terser');
 const typescript = require('@rollup/plugin-typescript');
 const pkg = require('./package.json');
+const image = require('@rollup/plugin-image');
 
 module.exports = {
   input: `src/index.ts`,
@@ -52,5 +53,6 @@ module.exports = {
     resolve(),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
+    image(),
   ],
 };

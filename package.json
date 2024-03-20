@@ -21,7 +21,10 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:ci": "cross-env CI=1 jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "svgr": "svgr --icon 'auto' --typescript -d src/icons src/assets/icons",
+    "generate-icon-types": "node ./scripts/GenerateIconTypes.js",
+    "build:icons": "npm run svgr && npm run generate-icon-types"
   },
   "engines": {
     "node": ">=18"
@@ -32,10 +35,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@svgr/cli": "^8.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.1",
@@ -66,6 +71,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
+    "rimraf": "^5.0.5",
     "rollup": "^3.29.4",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
@@ -82,6 +88,7 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.3",
+    "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "react-bootstrap": "^2.10.0",
     "react-bootstrap-typeahead": "^6.3.2",

@@ -12,7 +12,7 @@ interface TableProps extends BootstrapTableProps {}
 
 const Table = ({ className, children, ...rest }: TableProps) => {
   return (
-    <BootstrapTable className={className} {...rest}>
+    <BootstrapTable className={`${className} texmo-table`} {...rest}>
       {children}
     </BootstrapTable>
   );

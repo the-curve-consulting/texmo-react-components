@@ -1,0 +1,30 @@
+.header-container {
+  background: var(--texmo-bg-primary);
+  height: 54px;
+}
+
+.header-container::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  top: 0;
+  pointer-events: none;
+}
+
+.user-toggle.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.topbar-item {
+  height: 100%;
+  font-size: 1.6rem;
+  border-left: var(--texmo-bg-secondary-borders) 1px solid !important;
+}
+
+.topbar-item:hover {
+  background-color: #e0e0e0;
+}
+

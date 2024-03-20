@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import BreadcrumbContext from '../BreadCrumbContext';
+import BreadcrumbContext from '../BreadCrumbsContext';
 
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
@@ -20,7 +20,7 @@ const BreadcrumbItem = ({
 
   if (active) {
     return (
-      <span className={`gray-text ${className}`} {...rest}>
+      <span className={`${className} breadcrumb-active`} {...rest}>
         {showSlash ? ' / ' : null}
         {text}
       </span>
@@ -31,7 +31,7 @@ const BreadcrumbItem = ({
     <span className={className} {...rest}>
       {showSlash ? ' / ' : null}
       {route ? (
-        <Link className="breadcrumb-item" to={route}>
+        <Link className="breadcrumb-item breadcrumb-inactive" to={route}>
           {text}
         </Link>
       ) : (

@@ -1,31 +1,24 @@
 import React from 'react';
-import HeaderBrand from './components/HeaderBrand';
 import HeaderDropdown from './components/HeaderDropdown';
 import HeaderNavbar from './components/HeaderNavbar';
-import {
-  NavbarProps,
-  ContainerProps,
-  Navbar,
-  Container,
-} from 'react-bootstrap';
+import { NavbarProps, Navbar } from 'react-bootstrap';
 
-export interface HeaderProps extends NavbarProps {
-  container?: ContainerProps;
-}
+export interface HeaderProps extends NavbarProps {}
 
-const Header = ({ container, children, ...rest }: HeaderProps) => {
+const Header = ({ children, ...rest }: HeaderProps) => {
   return (
     <header>
-      <Navbar expand="md" {...rest}>
-        <Container fluid className="px-4" {...container}>
-          {children}
-        </Container>
+      <Navbar expand="md" className="py-0" {...rest}>
+        <div className="py-2 header-container w-100">
+          <div className="d-flex justify-content-end h-100 w-100">
+            {children}
+          </div>
+        </div>
       </Navbar>
     </header>
   );
 };
 
-Header.Brand = HeaderBrand;
 Header.Dropdown = HeaderDropdown;
 Header.Navbar = HeaderNavbar;
 

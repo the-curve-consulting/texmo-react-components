@@ -1,13 +1,12 @@
+import classNames from 'classnames';
 import React from 'react';
 import { ColProps, Col } from 'react-bootstrap';
 
-export interface ListColProps extends ColProps {
-  borderStart?: boolean;
-}
+export interface ListColProps extends ColProps {}
 
 const ListCol = ({ className, children, ...rest }: ListColProps) => {
   return (
-    <Col className={`px-0 overflow-hidden ${className}`} {...rest}>
+    <Col className={classNames(className, 'px-0 overflow-hidden')} {...rest}>
       {children}
     </Col>
   );

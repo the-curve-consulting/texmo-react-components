@@ -1,15 +1,8 @@
 import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumbs, FilterButton, Subtitle, Tabs } from '@the-curve-consulting/texmo-react-components';
-import { useEffect, useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ListPage = () => {
-  const row1Ref = useRef<HTMLDivElement>(null!);
-
-  useEffect(() => {
-    console.log(row1Ref.current.clientWidth);
-  }, []);
-
   return (
     <div className="mt-5">
 
@@ -23,10 +16,10 @@ const ListPage = () => {
       <Col>
         <Breadcrumbs link={Link}>
           <Breadcrumbs.Item
-            text='Home' 
-            route='/' 
+            text='Home'
+            route='/'
           />
-          <Breadcrumbs.Item 
+          <Breadcrumbs.Item
             text='List'
             active
           />
@@ -57,7 +50,7 @@ const ListPage = () => {
       </List.Head>
 
       <List.Body>
-        <List.Row overdue={true} ref={row1Ref}>
+        <List.Row overdue={true}>
           <List.Col>
             <List.Cell>
                 <div className="mt-2">Test</div>

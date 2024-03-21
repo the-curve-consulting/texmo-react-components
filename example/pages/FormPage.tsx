@@ -44,7 +44,8 @@ const FormPage = () => {
         </Form.Group>
 
         <Form.Group label='Typeahead' className='mt-3'>
-          <Form.Typeahead 
+          <Form.Typeahead
+            id='example-typeahead'
             options={options}
             multiple
           />

@@ -26,7 +26,6 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
     <Nav.Item className="sidenav-item">
       <OverlayTrigger
         placement="right"
-        trigger="hover"
         overlay={!open ? <Tooltip>{text}</Tooltip> : <></>}
       >
         <NavLink
@@ -39,7 +38,7 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
           }
         >
           <div className="nav-item-icon">
-            <TexmoIcon icon={icon} height={26} />
+            <TexmoIcon icon={icon} height={28} />
           </div>
 
           <div

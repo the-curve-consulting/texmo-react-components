@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import {
   DropdownToggle as BootstrapDropdownToggle,
@@ -11,7 +12,10 @@ const DropdownToggle = ({ className }: DropdownToggleProps) => {
   return (
     <BootstrapDropdownToggle
       as={NavLink}
-      className={`topbar-item px-4 d-flex align-items-center user-toggle ${className}`}
+      className={classNames(
+        className,
+        'topbar-item px-4 d-flex align-items-center user-toggle'
+      )}
     >
       <i className="h-100 d-flex align-items-center user-profile bi bi-person-fill"></i>
     </BootstrapDropdownToggle>

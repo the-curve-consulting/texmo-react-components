@@ -13,22 +13,25 @@ const HomePage = () => {
         <Col xl={6}>
           <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Title title='My Work Requests'/>
+              <InfoTile.Title title='My Work Requests' className='mb-0'/>
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={1} />
+              <InfoTile.Value value={1} className='mb-0'/>
             </InfoTile.Col>
           </InfoTile>
         </Col>
         <Col xl={6}>
           <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Title title='My Work Requests'/>
+              <InfoTile.Title 
+                title='My Work Requests'
+                className='mb-0'
+              />
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={1} />
+              <InfoTile.Value value={1} className='mb-0' />
             </InfoTile.Col>
           </InfoTile>
         </Col>

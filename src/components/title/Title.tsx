@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
@@ -6,7 +7,7 @@ export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
 
 const Title = ({ text, className, ...rest }: TitleProps) => {
   return (
-    <h1 className={`${className} text-nowrap mb-0 title`} {...rest}>
+    <h1 className={classNames(className, 'text-nowrap mb-0 title')} {...rest}>
       {text}
     </h1>
   );

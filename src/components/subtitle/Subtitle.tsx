@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 export interface SubTitleProps extends React.HTMLProps<HTMLDivElement> {
@@ -6,7 +7,7 @@ export interface SubTitleProps extends React.HTMLProps<HTMLDivElement> {
 
 const Subtitle = ({ className, text, ...rest }: SubTitleProps) => {
   return (
-    <div className={`${className} text-nowrap`} {...rest}>
+    <div className={classNames(className, 'text-nowrap')} {...rest}>
       {text}
     </div>
   );

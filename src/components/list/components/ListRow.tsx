@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { forwardRef } from 'react';
 
 export interface ListRowProps extends React.HTMLProps<HTMLDivElement> {
@@ -10,7 +11,7 @@ const ListRow = forwardRef<HTMLDivElement, ListRowProps>(
 
     return (
       <div
-        className={`${className} row text-center mt-2 mx-0 list-row`}
+        className={classNames(className, 'row text-center mt-2 mx-0 list-row')}
         style={{ border: overdue ? '2px solid #99444f' : 'none', ...style }}
         ref={ref}
         {...rest}

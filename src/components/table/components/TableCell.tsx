@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import TableSectionContext, { TableSection } from '../TableSectionContext';
 import { Card } from 'react-bootstrap';
+import classNames from 'classnames';
 
 export interface TableCellProps extends React.HTMLProps<HTMLTableCellElement> {
   borderStart?: boolean;
@@ -28,7 +29,10 @@ const TableCell = ({
       return (
         <td className="px-0 pt-0 pb-3 texmo-table" {...rest}>
           <div
-            className={`h-100 d-flex align-items-center list-cell ${className}`}
+            className={classNames(
+              className,
+              'h-100 d-flex align-items-center list-cell'
+            )}
             {...rest}
           >
             <Card className="h-100 w-100 py-3">

@@ -21,7 +21,11 @@ const NavButton = () => {
               : 'align-items-center'
           )}
         >
-          <i className={`h-100 bi bi-${open ? 'x' : 'list'} fs-2`}></i>
+          <i
+            className={`h-100 d-flex align-items-center bi bi-${
+              open ? 'x' : 'list'
+            } fs-3`}
+          ></i>
         </div>
       </div>
       <div className="sidenav-button-container-divider" />

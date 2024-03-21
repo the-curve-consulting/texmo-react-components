@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import {
   Card as BootstrapCard,
@@ -11,7 +12,7 @@ interface CardProps extends BootstrapCardProps {
 const Card = ({ header, children, className, ...rest }: CardProps) => {
   return (
     <BootstrapCard {...rest}>
-      <h3 className={`mb-3 card-header + ${className}`}>{header}</h3>
+      <h3 className={classNames(className, 'mb-3 card-header')}>{header}</h3>
       {children}
     </BootstrapCard>
   );

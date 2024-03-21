@@ -12,6 +12,10 @@ h1 {
   font-style: normal;
 }
 
+option {
+  font-family: sans-serif !important;
+}
+
 .main-nav {
   i {
     font-size: 3rem;
@@ -23,14 +27,20 @@ h1 {
   }
 }
 
+.logo-containter {
+  height: 8rem;
+}
+
 .logo {
-  max-height: 80px;
-  max-width: 260px;
+  height: auto;
   width: auto;
-  margin: 1.5rem;
+  margin: 1.8rem;
+  max-height: 80px;
 
   @media(min-width: 1024px) {
-    margin: 2.5rem;
+    margin-left: 3rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
   }
 }
 
@@ -98,17 +108,32 @@ a.card-link {
 
 .Toastify__toast {
   border-radius: 0px;
-  min-height: 80px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  height: 8rem;
 }
 
 .Toastify__toast-icon {
   margin-left: 10px;
-  margin-right: 20px;
-  width: 30px;
+  width: auto;
+  font-size: 2.5rem;
 }
 
-.Toastify__close-button {
-  margin-right: 10px;
+.Toastify__toast-body {
+  font-family: var(--texmo-font);
+  justify-content: center;
+  text-align: center;
+}
+
+.Toastify__toast-body > div:last-child {
+  display: flex;
+  flex: initial;
+  margin-top: 3px;
+  align-items: center;
+}
+
+i.toast-icon {
+  display: flex;
 }
 
 .nav-link {
@@ -163,4 +188,8 @@ a.card-link {
       width: 100%;
     }
   }
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }

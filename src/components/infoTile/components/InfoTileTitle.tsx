@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
@@ -16,7 +17,9 @@ const InfoTileTitle = ({
   linkProps,
   className,
 }: InfoTileTitleProps) => {
-  const titleComponent = <h4 className={`${className} fw-bold`}>{title}</h4>;
+  const titleComponent = (
+    <h4 className={classNames(className, 'fw-bold')}>{title}</h4>
+  );
 
   if (link) {
     const LinkComponent = link;

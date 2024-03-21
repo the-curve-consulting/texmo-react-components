@@ -1,6 +1,6 @@
 @import './App.scss';
-@import '_variables.scss';
 @import 'fonts.scss';
+@import '_variables.scss';
 
 // Import Bootstrap and its default variables
 @import 'react-bootstrap-typeahead/css/Typeahead.css';
@@ -22,3 +22,4 @@
 @import '../src/components/searchBar/SearchBar.scss';
 @import '../src/components/nav/Nav.scss';
 @import '../src/components/breadcrumbs/Breadcrumbs.scss';
+@import '../src/components/form/Form.scss';

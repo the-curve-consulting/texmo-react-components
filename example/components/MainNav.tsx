@@ -28,8 +28,8 @@ const Navbar = () => {
       />
       <Nav.Item
         route="/table"
-        icon='stock-management'
-        text='Table'
+        icon='users2'
+        text='Work Requests'
       />
     </Nav>
   )

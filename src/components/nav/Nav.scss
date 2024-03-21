@@ -48,6 +48,11 @@
     margin-left: 10%;
     height: 1px;
   }
+
+  &:hover {
+    background: #f9f8f9;
+    text-decoration: underline !important;
+  }
 }
 
 .sidenav-link {
@@ -65,9 +70,12 @@
 
   transition: width 300ms ease;
   transition: margin-left 300ms ease;
+  white-space: nowrap;
 
   &.opened {
     transition: opacity 320ms ease;
+    text-wrap: unset;
+    white-space: unset;
 
     margin-left: 18px;
     opacity: 1;
@@ -91,4 +99,8 @@
 .nav-item-expand-open {
   flex: auto;
   width: auto;
+}
+
+.nav-item-icon {
+  width: 30px;
 }

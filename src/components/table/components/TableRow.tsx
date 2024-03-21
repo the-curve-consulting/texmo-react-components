@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 export interface TableRowProps extends React.HTMLProps<HTMLTableRowElement> {
@@ -13,7 +14,10 @@ const TableRow = ({
 }: TableRowProps) => {
   return (
     <tr
-      className={`table-responsive text-center h-100 mt-3 mx-0 ${className}`}
+      className={classNames(
+        className,
+        'table-responsive text-center h-100 mt-3 mx-0'
+      )}
       style={{ border: `2px solid ${borderColour}`, ...style }}
       {...rest}
     >

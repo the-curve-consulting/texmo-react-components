@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 export interface FooterProps extends React.HTMLProps<HTMLBaseElement> {
@@ -9,7 +10,10 @@ const Footer = ({ className, organisation }: FooterProps) => {
 
   return (
     <footer
-      className={`mt-auto pt-3 pb-2 text-end text-muted small px-3 ${className}`}
+      className={classNames(
+        className,
+        'mt-auto pt-3 pb-2 text-end text-muted small px-3'
+      )}
     >
       Copyright © {organisation} {currentYear}
     </footer>

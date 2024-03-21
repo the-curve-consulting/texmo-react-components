@@ -1,0 +1,1 @@
+{"version":3,"file":"TableCell.d.ts","sourceRoot":"","sources":["../../../../src/components/table/components/TableCell.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAqB,MAAM,OAAO,CAAC;AAK1C,MAAM,WAAW,cAAe,SAAQ,KAAK,CAAC,SAAS,CAAC,oBAAoB,CAAC;IAC3E,WAAW,CAAC,EAAE,OAAO,CAAC;CACvB;AAED,QAAA,MAAM,SAAS,kDAKZ,cAAc,sBAkChB,CAAC;AAEF,eAAe,SAAS,CAAC"}

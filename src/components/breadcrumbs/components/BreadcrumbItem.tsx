@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import BreadcrumbContext from '../BreadCrumbsContext';
+import classNames from 'classnames';
 
 export interface BreadcrumbItemProps extends React.HTMLProps<HTMLSpanElement> {
   text: string;
@@ -20,7 +21,7 @@ const BreadcrumbItem = ({
 
   if (active) {
     return (
-      <span className={`${className} breadcrumb-active`} {...rest}>
+      <span className={classNames(className, 'breadcrumb-active')} {...rest}>
         {showSlash ? ' / ' : null}
         {text}
       </span>

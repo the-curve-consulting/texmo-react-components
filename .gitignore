@@ -130,6 +130,3 @@ public/
 .history
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
-
-# Ignore distribution files. They can always be generated manually via `npm run buiild`.
-dist

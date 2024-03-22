@@ -65,9 +65,11 @@
 
   transition: width 300ms ease;
   transition: margin-left 300ms ease;
+  text-wrap: nowrap;
 
   &.opened {
     transition: opacity 320ms ease;
+    text-wrap: unset;
 
     margin-left: 18px;
     opacity: 1;

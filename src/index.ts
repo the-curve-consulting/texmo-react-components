@@ -20,7 +20,7 @@ import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
 import Tabs from './components/tabs/Tabs';
 import TexmoIcon from './components/texmoIcon/TexmoIcon';
-import { TexmoProvider } from './contexts/TexmoContext';
+import TexmoProvider from './contexts/TexmoContext';
 import * as Icons from './icons/index';
 import '../scss/texmo-react-components.scss';
 

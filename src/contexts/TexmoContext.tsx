@@ -7,7 +7,7 @@ type TexmoContextValue = {
 
 const TexmoContext = createContext<TexmoContextValue>({} as TexmoContextValue);
 
-export const TexmoProvider = ({
+const TexmoProvider = ({
   children,
   ...value
 }: PropsWithChildren<TexmoContextValue>) => {
@@ -17,3 +17,5 @@ export const TexmoProvider = ({
 };
 
 export const useTexmoContext = () => useContext(TexmoContext);
+
+export default TexmoProvider;

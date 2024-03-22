@@ -13386,11 +13386,12 @@ textarea.form-control-lg {
   width: 0;
   transition: width 300ms ease;
   transition: margin-left 300ms ease;
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 .nav-item-text.opened {
   transition: opacity 320ms ease;
   text-wrap: unset;
+  white-space: unset;
   margin-left: 18px;
   opacity: 1;
   width: auto;

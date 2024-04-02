@@ -37,7 +37,7 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
             )
           }
         >
-          <div className="nav-item-icon">
+          <div className="d-flex justify-content-center nav-item-icon">
             <TexmoIcon icon={icon} height={28} />
           </div>
 

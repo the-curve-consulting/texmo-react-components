@@ -28793,7 +28793,7 @@ var NavItem = function (_a) {
                     var isActive = _a.isActive;
                     return classNames('d-flex align-items-center sidenav-link', linkClass(isActive));
                 } },
-                React.createElement("div", { className: "nav-item-icon" },
+                React.createElement("div", { className: "d-flex justify-content-center nav-item-icon" },
                     React.createElement(TexmoIcon, { icon: icon, height: 28 })),
                 React.createElement("div", { className: classNames('d-flex justify-content-start nav-item-text', open ? 'opened' : null) }, text)))));
 };

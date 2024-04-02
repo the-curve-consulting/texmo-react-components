@@ -13415,6 +13415,10 @@ textarea.form-control-lg {
   width: auto;
 }
 
+.nav-item-icon {
+  width: 30px;
+}
+
 .breadcrumbs-container {
   font-size: 1rem;
 }

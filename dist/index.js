@@ -2761,7 +2761,7 @@ const isDOM = typeof document !== 'undefined';
  */
 var useIsomorphicEffect = isDOM || isReactNative ? React.useLayoutEffect : React.useEffect;
 
-const _excluded$m = ["as", "disabled"];
+const _excluded$n = ["as", "disabled"];
 function _objectWithoutPropertiesLoose$8(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function isTrivialHref$1(href) {
   return !href || href.trim() === '#';
@@ -2835,7 +2835,7 @@ const Button$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       as: asProp,
       disabled
     } = _ref,
-    props = _objectWithoutPropertiesLoose$8(_ref, _excluded$m);
+    props = _objectWithoutPropertiesLoose$8(_ref, _excluded$n);
   const [buttonProps, {
     tagName: Component
   }] = useButtonProps(Object.assign({
@@ -2848,7 +2848,7 @@ const Button$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
 });
 Button$3.displayName = 'Button';
 
-const _excluded$l = ["onKeyDown"];
+const _excluded$m = ["onKeyDown"];
 function _objectWithoutPropertiesLoose$7(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function isTrivialHref(href) {
   return !href || href.trim() === '#';
@@ -2861,7 +2861,7 @@ const Anchor = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   let {
       onKeyDown
     } = _ref,
-    props = _objectWithoutPropertiesLoose$7(_ref, _excluded$l);
+    props = _objectWithoutPropertiesLoose$7(_ref, _excluded$m);
   const [buttonProps] = useButtonProps(Object.assign({
     tagName: 'a'
   }, props));
@@ -4993,7 +4993,7 @@ function orderModifiers(modifiers) {
   }, []);
 }
 
-function debounce(fn) {
+function debounce$2(fn) {
   var pending;
   return function () {
     if (!pending) {
@@ -5153,7 +5153,7 @@ function popperGenerator(generatorOptions) {
       },
       // Async and optimistically optimized update – it will not be executed if
       // not necessary (debounced to run at most once-per-tick)
-      update: debounce(function () {
+      update: debounce$2(function () {
         return new Promise(function (resolve) {
           instance.forceUpdate();
           resolve(state);
@@ -5218,7 +5218,7 @@ const createPopper$1 = popperGenerator({
   defaultModifiers: [hide$1, popperOffsets$1, computeStyles$1, eventListeners, offset$1, flip$1, preventOverflow$1, arrow$1]
 });
 
-const _excluded$k = ["enabled", "placement", "strategy", "modifiers"];
+const _excluded$l = ["enabled", "placement", "strategy", "modifiers"];
 function _objectWithoutPropertiesLoose$6(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 const disabledApplyStylesModifier = {
   name: 'applyStyles',
@@ -5286,7 +5286,7 @@ function usePopper$1(referenceElement, popperElement, _ref = {}) {
       strategy = 'absolute',
       modifiers = EMPTY_MODIFIERS$1
     } = _ref,
-    config = _objectWithoutPropertiesLoose$6(_ref, _excluded$k);
+    config = _objectWithoutPropertiesLoose$6(_ref, _excluded$l);
   const prevModifiers = React.useRef(modifiers);
   const popperInstanceRef = React.useRef();
   const update = React.useCallback(() => {
@@ -5602,7 +5602,7 @@ function mergeOptionsWithPopperConfig({
   });
 }
 
-const _excluded$j = ["children"];
+const _excluded$k = ["children"];
 function _objectWithoutPropertiesLoose$5(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 const noop$5 = () => {};
 
@@ -5690,7 +5690,7 @@ function DropdownMenu$3(_ref) {
   let {
       children
     } = _ref,
-    options = _objectWithoutPropertiesLoose$5(_ref, _excluded$j);
+    options = _objectWithoutPropertiesLoose$5(_ref, _excluded$k);
   const [props, meta] = useDropdownMenu(options);
   return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
     children: children(props, meta)
@@ -5871,6 +5871,7 @@ const makeEventKey = (eventKey, href = null) => {
   if (eventKey != null) return String(eventKey);
   return href || null;
 };
+var SelectableContext$1 = SelectableContext;
 
 const NavContext$1 = /*#__PURE__*/React__namespace.createContext(null);
 NavContext$1.displayName = 'NavContext';
@@ -5885,7 +5886,7 @@ function dataProp(property) {
   return `${PROPERTY_PREFIX}${property}`;
 }
 
-const _excluded$i = ["eventKey", "disabled", "onClick", "active", "as"];
+const _excluded$j = ["eventKey", "disabled", "onClick", "active", "as"];
 function _objectWithoutPropertiesLoose$4(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 /**
  * Create a dropdown item. Returns a set of props for the dropdown item component
@@ -5898,7 +5899,7 @@ function useDropdownItem({
   disabled,
   onClick
 }) {
-  const onSelectCtx = React.useContext(SelectableContext);
+  const onSelectCtx = React.useContext(SelectableContext$1);
   const navContext = React.useContext(NavContext$2);
   const {
     activeKey
@@ -5929,7 +5930,7 @@ const DropdownItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       active,
       as: Component = Button$3
     } = _ref,
-    props = _objectWithoutPropertiesLoose$4(_ref, _excluded$i);
+    props = _objectWithoutPropertiesLoose$4(_ref, _excluded$j);
   const [dropdownItemProps] = useDropdownItem({
     key: eventKey,
     href: props.href,
@@ -5994,7 +5995,7 @@ function Dropdown$2({
   const lastShow = usePrevious(show);
   const lastSourceEvent = React.useRef(null);
   const focusInDropdown = React.useRef(false);
-  const onSelectCtx = React.useContext(SelectableContext);
+  const onSelectCtx = React.useContext(SelectableContext$1);
   const toggle = React.useCallback((nextShow, event, source = event == null ? void 0 : event.type) => {
     onToggle(nextShow, {
       originalEvent: event,
@@ -6120,7 +6121,7 @@ function Dropdown$2({
         break;
     }
   });
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(DropdownContext$3.Provider, {
       value: context,
@@ -6919,7 +6920,7 @@ var InputGroup$1 = Object.assign(InputGroup, {
 const TabContext = /*#__PURE__*/React__namespace.createContext(null);
 var TabContext$1 = TabContext;
 
-const _excluded$h = ["as", "active", "eventKey"];
+const _excluded$i = ["as", "active", "eventKey"];
 function _objectWithoutPropertiesLoose$3(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function useNavItem({
   key,
@@ -6929,7 +6930,7 @@ function useNavItem({
   role,
   disabled
 }) {
-  const parentOnSelect = React.useContext(SelectableContext);
+  const parentOnSelect = React.useContext(SelectableContext$1);
   const navContext = React.useContext(NavContext$2);
   const tabContext = React.useContext(TabContext$1);
   let isActive = active;
@@ -6987,7 +6988,7 @@ const NavItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       active,
       eventKey
     } = _ref,
-    options = _objectWithoutPropertiesLoose$3(_ref, _excluded$h);
+    options = _objectWithoutPropertiesLoose$3(_ref, _excluded$i);
   const [props, meta] = useNavItem(Object.assign({
     key: makeEventKey(eventKey, options.href),
     active
@@ -7002,7 +7003,7 @@ const NavItem$3 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
 NavItem$3.displayName = 'NavItem';
 var NavItem$4 = NavItem$3;
 
-const _excluded$g = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
+const _excluded$h = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
 function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop$3 = () => {};
@@ -7016,12 +7017,12 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
       role,
       onKeyDown
     } = _ref,
-    props = _objectWithoutPropertiesLoose$2(_ref, _excluded$g);
+    props = _objectWithoutPropertiesLoose$2(_ref, _excluded$h);
   // A ref and forceUpdate for refocus, b/c we only want to trigger when needed
   // and don't want to reset the set in the effect
   const forceUpdate = useForceUpdate();
   const needsRefocusRef = React.useRef(false);
-  const parentOnSelect = React.useContext(SelectableContext);
+  const parentOnSelect = React.useContext(SelectableContext$1);
   const tabContext = React.useContext(TabContext$1);
   let getControlledId, getControllerId;
   if (tabContext) {
@@ -7082,7 +7083,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
     needsRefocusRef.current = false;
   });
   const mergedRef = useMergedRefs(ref, listNode);
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(NavContext$2.Provider, {
       value: {
@@ -7384,7 +7385,7 @@ function isEscKey(e) {
   return e.code === 'Escape' || e.keyCode === 27;
 }
 
-const _excluded$f = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "runTransition", "backdropTransition", "runBackdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
+const _excluded$g = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "runTransition", "backdropTransition", "runBackdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
 function _objectWithoutPropertiesLoose$1(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 let manager;
 function getManager(window) {
@@ -7444,7 +7445,7 @@ const Modal = /*#__PURE__*/React.forwardRef((_ref, ref) => {
       onEntering,
       onEntered
     } = _ref,
-    rest = _objectWithoutPropertiesLoose$1(_ref, _excluded$f);
+    rest = _objectWithoutPropertiesLoose$1(_ref, _excluded$g);
   const ownerWindow = useWindow();
   const container = useWaitForDOMRef(containerRef);
   const modal = useModalManager(providedManager);
@@ -8453,7 +8454,7 @@ const Navbar = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
   }), [bsPrefix, expanded, expand, onToggle]);
   return /*#__PURE__*/jsxRuntime.jsx(NavbarContext.Provider, {
     value: navbarContext,
-    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
       value: handleCollapse,
       children: /*#__PURE__*/jsxRuntime.jsx(Component, {
         ref: ref,
@@ -9449,31 +9450,31 @@ var freeGlobal$1 = _freeGlobal;
 var freeSelf$1 = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
-var root$8 = freeGlobal$1 || freeSelf$1 || Function('return this')();
+var root$9 = freeGlobal$1 || freeSelf$1 || Function('return this')();
 
-var _root = root$8;
+var _root = root$9;
 
-var root$7 = _root;
+var root$8 = _root;
 
 /** Built-in value references. */
-var Symbol$4 = root$7.Symbol;
+var Symbol$4 = root$8.Symbol;
 
 var _Symbol = Symbol$4;
 
 var Symbol$3 = _Symbol;
 
 /** Used for built-in method references. */
-var objectProto$b = Object.prototype;
+var objectProto$c = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$9 = objectProto$b.hasOwnProperty;
+var hasOwnProperty$9 = objectProto$c.hasOwnProperty;
 
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
  */
-var nativeObjectToString$1 = objectProto$b.toString;
+var nativeObjectToString$1 = objectProto$c.toString;
 
 /** Built-in value references. */
 var symToStringTag$1 = Symbol$3 ? Symbol$3.toStringTag : undefined;
@@ -9509,14 +9510,14 @@ var _getRawTag = getRawTag$1;
 
 /** Used for built-in method references. */
 
-var objectProto$a = Object.prototype;
+var objectProto$b = Object.prototype;
 
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
  */
-var nativeObjectToString = objectProto$a.toString;
+var nativeObjectToString = objectProto$b.toString;
 
 /**
  * Converts `value` to a string using `Object.prototype.toString`.
@@ -9525,15 +9526,15 @@ var nativeObjectToString = objectProto$a.toString;
  * @param {*} value The value to convert.
  * @returns {string} Returns the converted string.
  */
-function objectToString$1(value) {
+function objectToString$2(value) {
   return nativeObjectToString.call(value);
 }
 
-var _objectToString = objectToString$1;
+var _objectToString = objectToString$2;
 
 var Symbol$2 = _Symbol,
     getRawTag = _getRawTag,
-    objectToString = _objectToString;
+    objectToString$1 = _objectToString;
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -9555,7 +9556,7 @@ function baseGetTag$4(value) {
   }
   return (symToStringTag && symToStringTag in Object(value))
     ? getRawTag(value)
-    : objectToString(value);
+    : objectToString$1(value);
 }
 
 var _baseGetTag = baseGetTag$4;
@@ -9586,15 +9587,15 @@ var _baseGetTag = baseGetTag$4;
  * // => false
  */
 
-function isObject$2(value) {
+function isObject$3(value) {
   var type = typeof value;
   return value != null && (type == 'object' || type == 'function');
 }
 
-var isObject_1 = isObject$2;
+var isObject_1 = isObject$3;
 
 var baseGetTag$3 = _baseGetTag,
-    isObject$1 = isObject_1;
+    isObject$2 = isObject_1;
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -9620,7 +9621,7 @@ var asyncTag = '[object AsyncFunction]',
  * // => false
  */
 function isFunction$3(value) {
-  if (!isObject$1(value)) {
+  if (!isObject$2(value)) {
     return false;
   }
   // The use of `Object#toString` avoids issues with the `typeof` operator
@@ -9631,10 +9632,10 @@ function isFunction$3(value) {
 
 var isFunction_1 = isFunction$3;
 
-var root$6 = _root;
+var root$7 = _root;
 
 /** Used to detect overreaching core-js shims. */
-var coreJsData$1 = root$6['__core-js_shared__'];
+var coreJsData$1 = root$7['__core-js_shared__'];
 
 var _coreJsData = coreJsData$1;
 
@@ -9689,7 +9690,7 @@ var _toSource = toSource$2;
 
 var isFunction$2 = isFunction_1,
     isMasked = _isMasked,
-    isObject = isObject_1,
+    isObject$1 = isObject_1,
     toSource$1 = _toSource;
 
 /**
@@ -9703,13 +9704,13 @@ var reIsHostCtor = /^\[object .+?Constructor\]$/;
 
 /** Used for built-in method references. */
 var funcProto = Function.prototype,
-    objectProto$9 = Object.prototype;
+    objectProto$a = Object.prototype;
 
 /** Used to resolve the decompiled source of functions. */
 var funcToString = funcProto.toString;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$8 = objectProto$9.hasOwnProperty;
+var hasOwnProperty$8 = objectProto$a.hasOwnProperty;
 
 /** Used to detect if a method is native. */
 var reIsNative = RegExp('^' +
@@ -9726,7 +9727,7 @@ var reIsNative = RegExp('^' +
  *  else `false`.
  */
 function baseIsNative$1(value) {
-  if (!isObject(value) || isMasked(value)) {
+  if (!isObject$1(value) || isMasked(value)) {
     return false;
   }
   var pattern = isFunction$2(value) ? reIsNative : reIsHostCtor;
@@ -9769,10 +9770,10 @@ function getNative$6(object, key) {
 var _getNative = getNative$6;
 
 var getNative$5 = _getNative,
-    root$5 = _root;
+    root$6 = _root;
 
 /* Built-in method references that are verified to be native. */
-var Map$4 = getNative$5(root$5, 'Map');
+var Map$4 = getNative$5(root$6, 'Map');
 
 var _Map = Map$4;
 
@@ -9824,10 +9825,10 @@ var nativeCreate$2 = _nativeCreate;
 var HASH_UNDEFINED$2 = '__lodash_hash_undefined__';
 
 /** Used for built-in method references. */
-var objectProto$8 = Object.prototype;
+var objectProto$9 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$7 = objectProto$8.hasOwnProperty;
+var hasOwnProperty$7 = objectProto$9.hasOwnProperty;
 
 /**
  * Gets the hash value for `key`.
@@ -9852,10 +9853,10 @@ var _hashGet = hashGet$1;
 var nativeCreate$1 = _nativeCreate;
 
 /** Used for built-in method references. */
-var objectProto$7 = Object.prototype;
+var objectProto$8 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$6 = objectProto$7.hasOwnProperty;
+var hasOwnProperty$6 = objectProto$8.hasOwnProperty;
 
 /**
  * Checks if a hash value for `key` exists.
@@ -10350,10 +10351,10 @@ function equalArrays$2(array, other, bitmask, customizer, equalFunc, stack) {
 
 var _equalArrays = equalArrays$2;
 
-var root$4 = _root;
+var root$5 = _root;
 
 /** Built-in value references. */
-var Uint8Array$2 = root$4.Uint8Array;
+var Uint8Array$2 = root$5.Uint8Array;
 
 var _Uint8Array = Uint8Array$2;
 
@@ -10417,7 +10418,7 @@ var boolTag$1 = '[object Boolean]',
     regexpTag$1 = '[object RegExp]',
     setTag$2 = '[object Set]',
     stringTag$1 = '[object String]',
-    symbolTag = '[object Symbol]';
+    symbolTag$1 = '[object Symbol]';
 
 var arrayBufferTag$1 = '[object ArrayBuffer]',
     dataViewTag$2 = '[object DataView]';
@@ -10500,7 +10501,7 @@ function equalByTag$1(object, other, tag, bitmask, customizer, equalFunc, stack)
       stack['delete'](object);
       return result;
 
-    case symbolTag:
+    case symbolTag$1:
       if (symbolValueOf) {
         return symbolValueOf.call(object) == symbolValueOf.call(other);
       }
@@ -10637,10 +10638,10 @@ var arrayFilter = _arrayFilter,
     stubArray = stubArray_1;
 
 /** Used for built-in method references. */
-var objectProto$6 = Object.prototype;
+var objectProto$7 = Object.prototype;
 
 /** Built-in value references. */
-var propertyIsEnumerable$1 = objectProto$6.propertyIsEnumerable;
+var propertyIsEnumerable$1 = objectProto$7.propertyIsEnumerable;
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeGetSymbols = Object.getOwnPropertySymbols;
@@ -10711,14 +10712,14 @@ var _baseTimes = baseTimes$1;
  * // => false
  */
 
-function isObjectLike$4(value) {
+function isObjectLike$5(value) {
   return value != null && typeof value == 'object';
 }
 
-var isObjectLike_1 = isObjectLike$4;
+var isObjectLike_1 = isObjectLike$5;
 
 var baseGetTag$2 = _baseGetTag,
-    isObjectLike$3 = isObjectLike_1;
+    isObjectLike$4 = isObjectLike_1;
 
 /** `Object#toString` result references. */
 var argsTag$2 = '[object Arguments]';
@@ -10731,22 +10732,22 @@ var argsTag$2 = '[object Arguments]';
  * @returns {boolean} Returns `true` if `value` is an `arguments` object,
  */
 function baseIsArguments$1(value) {
-  return isObjectLike$3(value) && baseGetTag$2(value) == argsTag$2;
+  return isObjectLike$4(value) && baseGetTag$2(value) == argsTag$2;
 }
 
 var _baseIsArguments = baseIsArguments$1;
 
 var baseIsArguments = _baseIsArguments,
-    isObjectLike$2 = isObjectLike_1;
+    isObjectLike$3 = isObjectLike_1;
 
 /** Used for built-in method references. */
-var objectProto$5 = Object.prototype;
+var objectProto$6 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$5 = objectProto$5.hasOwnProperty;
+var hasOwnProperty$5 = objectProto$6.hasOwnProperty;
 
 /** Built-in value references. */
-var propertyIsEnumerable = objectProto$5.propertyIsEnumerable;
+var propertyIsEnumerable = objectProto$6.propertyIsEnumerable;
 
 /**
  * Checks if `value` is likely an `arguments` object.
@@ -10767,7 +10768,7 @@ var propertyIsEnumerable = objectProto$5.propertyIsEnumerable;
  * // => false
  */
 var isArguments$1 = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike$2(value) && hasOwnProperty$5.call(value, 'callee') &&
+  return isObjectLike$3(value) && hasOwnProperty$5.call(value, 'callee') &&
     !propertyIsEnumerable.call(value, 'callee');
 };
 
@@ -10906,7 +10907,7 @@ var isLength_1 = isLength$2;
 
 var baseGetTag$1 = _baseGetTag,
     isLength$1 = isLength_1,
-    isObjectLike$1 = isObjectLike_1;
+    isObjectLike$2 = isObjectLike_1;
 
 /** `Object#toString` result references. */
 var argsTag$1 = '[object Arguments]',
@@ -10959,7 +10960,7 @@ typedArrayTags[weakMapTag$1] = false;
  * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
  */
 function baseIsTypedArray$1(value) {
-  return isObjectLike$1(value) &&
+  return isObjectLike$2(value) &&
     isLength$1(value.length) && !!typedArrayTags[baseGetTag$1(value)];
 }
 
@@ -11056,10 +11057,10 @@ var baseTimes = _baseTimes,
     isTypedArray$1 = isTypedArray_1;
 
 /** Used for built-in method references. */
-var objectProto$4 = Object.prototype;
+var objectProto$5 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$4 = objectProto$4.hasOwnProperty;
+var hasOwnProperty$4 = objectProto$5.hasOwnProperty;
 
 /**
  * Creates an array of the enumerable property names of the array-like `value`.
@@ -11100,7 +11101,7 @@ var _arrayLikeKeys = arrayLikeKeys$1;
 
 /** Used for built-in method references. */
 
-var objectProto$3 = Object.prototype;
+var objectProto$4 = Object.prototype;
 
 /**
  * Checks if `value` is likely a prototype object.
@@ -11111,7 +11112,7 @@ var objectProto$3 = Object.prototype;
  */
 function isPrototype$1(value) {
   var Ctor = value && value.constructor,
-      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$3;
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$4;
 
   return value === proto;
 }
@@ -11146,10 +11147,10 @@ var isPrototype = _isPrototype,
     nativeKeys = _nativeKeys;
 
 /** Used for built-in method references. */
-var objectProto$2 = Object.prototype;
+var objectProto$3 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$3 = objectProto$2.hasOwnProperty;
+var hasOwnProperty$3 = objectProto$3.hasOwnProperty;
 
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
@@ -11268,10 +11269,10 @@ var getAllKeys = _getAllKeys;
 var COMPARE_PARTIAL_FLAG$1 = 1;
 
 /** Used for built-in method references. */
-var objectProto$1 = Object.prototype;
+var objectProto$2 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$2 = objectProto$1.hasOwnProperty;
+var hasOwnProperty$2 = objectProto$2.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqualDeep` for objects with support for
@@ -11354,34 +11355,34 @@ function equalObjects$1(object, other, bitmask, customizer, equalFunc, stack) {
 var _equalObjects = equalObjects$1;
 
 var getNative$3 = _getNative,
-    root$3 = _root;
+    root$4 = _root;
 
 /* Built-in method references that are verified to be native. */
-var DataView$2 = getNative$3(root$3, 'DataView');
+var DataView$2 = getNative$3(root$4, 'DataView');
 
 var _DataView = DataView$2;
 
 var getNative$2 = _getNative,
-    root$2 = _root;
+    root$3 = _root;
 
 /* Built-in method references that are verified to be native. */
-var Promise$2 = getNative$2(root$2, 'Promise');
+var Promise$2 = getNative$2(root$3, 'Promise');
 
 var _Promise = Promise$2;
 
 var getNative$1 = _getNative,
-    root$1 = _root;
+    root$2 = _root;
 
 /* Built-in method references that are verified to be native. */
-var Set$2 = getNative$1(root$1, 'Set');
+var Set$2 = getNative$1(root$2, 'Set');
 
 var _Set = Set$2;
 
 var getNative = _getNative,
-    root = _root;
+    root$1 = _root;
 
 /* Built-in method references that are verified to be native. */
-var WeakMap$2 = getNative(root, 'WeakMap');
+var WeakMap$2 = getNative(root$1, 'WeakMap');
 
 var _WeakMap = WeakMap$2;
 
@@ -11462,10 +11463,10 @@ var argsTag = '[object Arguments]',
     objectTag = '[object Object]';
 
 /** Used for built-in method references. */
-var objectProto = Object.prototype;
+var objectProto$1 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$1 = objectProto.hasOwnProperty;
+var hasOwnProperty$1 = objectProto$1.hasOwnProperty;
 
 /**
  * A specialized version of `baseIsEqual` for arrays and objects which performs
@@ -11529,7 +11530,7 @@ function baseIsEqualDeep$1(object, other, bitmask, customizer, equalFunc, stack)
 var _baseIsEqualDeep = baseIsEqualDeep$1;
 
 var baseIsEqualDeep = _baseIsEqualDeep,
-    isObjectLike = isObjectLike_1;
+    isObjectLike$1 = isObjectLike_1;
 
 /**
  * The base implementation of `_.isEqual` which supports partial comparisons
@@ -11549,7 +11550,7 @@ function baseIsEqual$1(value, other, bitmask, customizer, stack) {
   if (value === other) {
     return true;
   }
-  if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
+  if (value == null || other == null || (!isObjectLike$1(value) && !isObjectLike$1(other))) {
     return value !== value && other !== other;
   }
   return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual$1, stack);
@@ -23503,6 +23504,30 @@ function _objectWithoutProperties(source, excluded) {
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
 
+/** Used as the `TypeError` message for "Functions" methods. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/** Used as references for various `Number` constants. */
+var NAN = 0 / 0;
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
@@ -23510,7 +23535,345 @@ var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjs
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
-freeGlobal || freeSelf || Function('return this')();
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max,
+    nativeMin = Math.min;
+
+/**
+ * Gets the timestamp of the number of milliseconds that have elapsed since
+ * the Unix epoch (1 January 1970 00:00:00 UTC).
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Date
+ * @returns {number} Returns the timestamp.
+ * @example
+ *
+ * _.defer(function(stamp) {
+ *   console.log(_.now() - stamp);
+ * }, _.now());
+ * // => Logs the number of milliseconds it took for the deferred invocation.
+ */
+var now = function() {
+  return root.Date.now();
+};
+
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked. The debounced function comes with a `cancel` method to cancel
+ * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * Provide `options` to indicate whether `func` should be invoked on the
+ * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+ * with the last arguments provided to the debounced function. Subsequent
+ * calls to the debounced function return the result of the last `func`
+ * invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `_.debounce` and `_.throttle`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {Object} [options={}] The options object.
+ * @param {boolean} [options.leading=false]
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {number} [options.maxWait]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {boolean} [options.trailing=true]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * jQuery(element).on('click', _.debounce(sendMail, 300, {
+ *   'leading': true,
+ *   'trailing': false
+ * }));
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+ * var source = new EventSource('/stream');
+ * jQuery(source).on('message', debounced);
+ *
+ * // Cancel the trailing debounced invocation.
+ * jQuery(window).on('popstate', debounced.cancel);
+ */
+function debounce(func, wait, options) {
+  var lastArgs,
+      lastThis,
+      maxWait,
+      result,
+      timerId,
+      lastCallTime,
+      lastInvokeTime = 0,
+      leading = false,
+      maxing = false,
+      trailing = true;
+
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  wait = toNumber(wait) || 0;
+  if (isObject(options)) {
+    leading = !!options.leading;
+    maxing = 'maxWait' in options;
+    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+    trailing = 'trailing' in options ? !!options.trailing : trailing;
+  }
+
+  function invokeFunc(time) {
+    var args = lastArgs,
+        thisArg = lastThis;
+
+    lastArgs = lastThis = undefined;
+    lastInvokeTime = time;
+    result = func.apply(thisArg, args);
+    return result;
+  }
+
+  function leadingEdge(time) {
+    // Reset any `maxWait` timer.
+    lastInvokeTime = time;
+    // Start the timer for the trailing edge.
+    timerId = setTimeout(timerExpired, wait);
+    // Invoke the leading edge.
+    return leading ? invokeFunc(time) : result;
+  }
+
+  function remainingWait(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime,
+        result = wait - timeSinceLastCall;
+
+    return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+  }
+
+  function shouldInvoke(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime;
+
+    // Either this is the first call, activity has stopped and we're at the
+    // trailing edge, the system time has gone backwards and we're treating
+    // it as the trailing edge, or we've hit the `maxWait` limit.
+    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
+      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+  }
+
+  function timerExpired() {
+    var time = now();
+    if (shouldInvoke(time)) {
+      return trailingEdge(time);
+    }
+    // Restart the timer.
+    timerId = setTimeout(timerExpired, remainingWait(time));
+  }
+
+  function trailingEdge(time) {
+    timerId = undefined;
+
+    // Only invoke if we have `lastArgs` which means `func` has been
+    // debounced at least once.
+    if (trailing && lastArgs) {
+      return invokeFunc(time);
+    }
+    lastArgs = lastThis = undefined;
+    return result;
+  }
+
+  function cancel() {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+    lastInvokeTime = 0;
+    lastArgs = lastCallTime = lastThis = timerId = undefined;
+  }
+
+  function flush() {
+    return timerId === undefined ? result : trailingEdge(now());
+  }
+
+  function debounced() {
+    var time = now(),
+        isInvoking = shouldInvoke(time);
+
+    lastArgs = arguments;
+    lastThis = this;
+    lastCallTime = time;
+
+    if (isInvoking) {
+      if (timerId === undefined) {
+        return leadingEdge(lastCallTime);
+      }
+      if (maxing) {
+        // Handle invocations in a tight loop.
+        timerId = setTimeout(timerExpired, wait);
+        return invokeFunc(lastCallTime);
+      }
+    }
+    if (timerId === undefined) {
+      timerId = setTimeout(timerExpired, wait);
+    }
+    return result;
+  }
+  debounced.cancel = cancel;
+  debounced.flush = flush;
+  return debounced;
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && objectToString.call(value) == symbolTag);
+}
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? (other + '') : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return (isBinary || reIsOctal.test(value))
+    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    : (reIsBadHex.test(value) ? NAN : +value);
+}
+
+var lodash_debounce = debounce;
+
+var debounce$1 = /*@__PURE__*/getDefaultExportFromCjs(lodash_debounce);
 
 var ALIGN_VALUES = ['justify', 'left', 'right'];
 var DEFAULT_LABELKEY = 'label';
@@ -24118,9 +24481,9 @@ function getMenuItemId() {
   return "".concat(id, "-item-").concat(position);
 }
 
-var _excluded$e = ["activeIndex", "id", "isFocused", "isMenuShown", "multiple", "onClick", "onFocus", "placeholder"];
-function ownKeys$a(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread$a(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$a(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$a(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var _excluded$f = ["activeIndex", "id", "isFocused", "isMenuShown", "multiple", "onClick", "onFocus", "placeholder"];
+function ownKeys$b(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$b(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$b(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$b(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 var getInputProps = function getInputProps(_ref) {
   var activeIndex = _ref.activeIndex,
     id = _ref.id,
@@ -24130,12 +24493,12 @@ var getInputProps = function getInputProps(_ref) {
     onClick = _ref.onClick,
     onFocus = _ref.onFocus,
     placeholder = _ref.placeholder,
-    props = _objectWithoutProperties(_ref, _excluded$e);
+    props = _objectWithoutProperties(_ref, _excluded$f);
   return function () {
     var _cx;
     var inputProps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var className = hasOwnProperty(inputProps, 'className') ? String(inputProps.className) : undefined;
-    return _objectSpread$a(_objectSpread$a(_objectSpread$a(_objectSpread$a({
+    return _objectSpread$b(_objectSpread$b(_objectSpread$b(_objectSpread$b({
       // These props can be overridden by values in `inputProps`.
       autoComplete: 'off',
       placeholder: placeholder,
@@ -24256,9 +24619,9 @@ function isSizeSmall(size) {
   return size === 'sm';
 }
 
-var _excluded$d = ["className", "isInvalid", "isValid", "size"];
-function ownKeys$9(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread$9(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$9(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$9(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var _excluded$e = ["className", "isInvalid", "isValid", "size"];
+function ownKeys$a(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$a(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$a(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$a(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * Returns Bootstrap classnames from `size` and validation props, along
  * with pass-through props.
@@ -24268,8 +24631,8 @@ function propsWithBsClassName(_ref) {
     isInvalid = _ref.isInvalid,
     isValid = _ref.isValid,
     size = _ref.size,
-    props = _objectWithoutProperties(_ref, _excluded$d);
-  return _objectSpread$9(_objectSpread$9({}, props), {}, {
+    props = _objectWithoutProperties(_ref, _excluded$e);
+  return _objectSpread$a(_objectSpread$a({}, props), {}, {
     className: classNames('form-control', 'rbt-input', {
       'form-control-lg': isSizeLarge(size),
       'form-control-sm': isSizeSmall(size),
@@ -24378,6 +24741,9 @@ function selectedType(_ref5) {
   warn(!selected || selected && isFunction(onChange), 'You provided a `selected` prop without an `onChange` handler. If you ' + 'want the typeahead to be uncontrolled, use `defaultSelected`. ' + 'Otherwise, set `onChange`.');
 }
 
+var _excluded$d = ["allowNew", "delay", "emptyLabel", "isLoading", "minLength", "onInputChange", "onSearch", "options", "promptText", "searchText", "useCache"];
+function ownKeys$9(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread$9(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$9(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$9(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 ({
   /**
    * Delay, in milliseconds, before performing search.
@@ -24414,6 +24780,94 @@ function selectedType(_ref5) {
    */
   useCache: PropTypes.bool
 });
+/**
+ * Logic that encapsulates common behavior and functionality around
+ * asynchronous searches, including:
+ *
+ *  - Debouncing user input
+ *  - Optional query caching
+ *  - Search prompt and empty results behaviors
+ */
+function useAsync(props) {
+  var allowNew = props.allowNew,
+    _props$delay = props.delay,
+    delay = _props$delay === void 0 ? 200 : _props$delay,
+    emptyLabel = props.emptyLabel,
+    isLoading = props.isLoading,
+    _props$minLength = props.minLength,
+    minLength = _props$minLength === void 0 ? 2 : _props$minLength,
+    onInputChange = props.onInputChange,
+    onSearch = props.onSearch,
+    _props$options = props.options,
+    options = _props$options === void 0 ? [] : _props$options,
+    _props$promptText = props.promptText,
+    promptText = _props$promptText === void 0 ? 'Type to search...' : _props$promptText,
+    _props$searchText = props.searchText,
+    searchText = _props$searchText === void 0 ? 'Searching...' : _props$searchText,
+    _props$useCache = props.useCache,
+    useCache = _props$useCache === void 0 ? true : _props$useCache,
+    otherProps = _objectWithoutProperties(props, _excluded$d);
+  var cacheRef = React.useRef({});
+  var handleSearchDebouncedRef = React.useRef(null);
+  var queryRef = React.useRef(props.defaultInputValue || '');
+  var forceUpdate = useForceUpdate();
+  var prevProps = usePrevious(props);
+  var handleSearch = React.useCallback(function (query) {
+    queryRef.current = query;
+    if (!query || minLength && query.length < minLength) {
+      return;
+    }
+
+    // Use cached results, if applicable.
+    if (useCache && cacheRef.current[query]) {
+      // Re-render the component with the cached results.
+      forceUpdate();
+      return;
+    }
+
+    // Perform the search.
+    onSearch(query);
+  }, [forceUpdate, minLength, onSearch, useCache]);
+
+  // Set the debounced search function.
+  React.useEffect(function () {
+    handleSearchDebouncedRef.current = debounce$1(handleSearch, delay);
+    return function () {
+      handleSearchDebouncedRef.current && handleSearchDebouncedRef.current.cancel();
+    };
+  }, [delay, handleSearch]);
+  React.useEffect(function () {
+    // Ensure that we've gone from a loading to a completed state. Otherwise
+    // an empty response could get cached if the component updates during the
+    // request (eg: if the parent re-renders for some reason).
+    if (!isLoading && prevProps && prevProps.isLoading && useCache) {
+      cacheRef.current[queryRef.current] = options;
+    }
+  });
+  var getEmptyLabel = function getEmptyLabel() {
+    if (!queryRef.current.length) {
+      return promptText;
+    }
+    if (isLoading) {
+      return searchText;
+    }
+    return emptyLabel;
+  };
+  var handleInputChange = React.useCallback(function (query, e) {
+    onInputChange && onInputChange(query, e);
+    handleSearchDebouncedRef.current && handleSearchDebouncedRef.current(query);
+  }, [onInputChange]);
+  var cachedQuery = cacheRef.current[queryRef.current];
+  return _objectSpread$9(_objectSpread$9({}, otherProps), {}, {
+    // Disable custom selections during a search if `allowNew` isn't a function.
+    allowNew: isFunction(allowNew) ? allowNew : allowNew && !isLoading,
+    emptyLabel: getEmptyLabel(),
+    isLoading: isLoading,
+    minLength: minLength,
+    onInputChange: handleInputChange,
+    options: useCache && cachedQuery ? cachedQuery : options
+  });
+}
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -26594,11 +27048,23 @@ var Typeahead = /*#__PURE__*/React.forwardRef(function (props, ref) {
   }));
 });
 
+var AsyncTypeahead = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  return /*#__PURE__*/React.createElement(Typeahead, _extends$3({}, useAsync(props), {
+    ref: ref
+  }));
+});
+
 var FormTypeahead = function (_a) {
     var rest = __rest(_a, []);
     return React.createElement(Typeahead, __assign$1({}, rest));
 };
 FormTypeahead.Feedback = Feedback$1;
+
+var FormAsyncTypeahead = function (_a) {
+    var rest = __rest(_a, []);
+    return React.createElement(AsyncTypeahead, __assign$1({}, rest));
+};
+FormAsyncTypeahead.Feedback = Feedback$1;
 
 var Form$1 = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
@@ -26614,6 +27080,7 @@ Form$1.DateTime = FormDateTime;
 Form$1.Feedback = Feedback$1;
 Form$1.Text = FormText$1;
 Form$1.Typeahead = FormTypeahead;
+Form$1.AsyncTypeahead = FormAsyncTypeahead;
 
 var Title = function (_a) {
     var text = _a.text, className = _a.className, rest = __rest(_a, ["text", "className"]);
@@ -28891,4 +29358,3 @@ exports.TexmoIcon = TexmoIcon;
 exports.TexmoProvider = TexmoProvider;
 exports.Title = Title;
 exports.UserProfile = UserProfile;
-//# sourceMappingURL=index.js.map

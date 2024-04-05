@@ -32,6 +32,10 @@ declare const Form: {
         ({ ...rest }: import("./components/FormTypeahead").FormSearchSelectProps): React.JSX.Element;
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
     };
+    AsyncTypeahead: {
+        ({ ...rest }: import("./components/FormAsyncTypeahead").FormSearchSelectProps): React.JSX.Element;
+        Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
+    };
 };
 export default Form;
 //# sourceMappingURL=Form.d.ts.map

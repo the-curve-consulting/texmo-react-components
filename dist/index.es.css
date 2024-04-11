@@ -962,6 +962,10 @@ h1, .h1 {
   font-style: normal;
 }
 
+option {
+  font-family: sans-serif !important;
+}
+
 .main-nav i {
   font-size: 3rem;
 }
@@ -970,9 +974,12 @@ h1, .h1 {
   color: var(--texmo-text-color) !important;
 }
 
+.logo-containter {
+  height: 8rem;
+}
+
 .logo {
-  max-height: 80px;
-  max-width: 260px;
+  height: auto;
   width: auto;
   margin: 1.5rem;
 }
@@ -1042,9 +1049,15 @@ a.card-link {
   padding: 0;
 }
 
+.Toastify__toast-body {
+  text-align: center;
+}
+
 .Toastify__toast {
   border-radius: 0px;
-  min-height: 80px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  height: 8rem;
 }
 
 .Toastify__toast-icon {
@@ -1053,8 +1066,8 @@ a.card-link {
   width: 30px;
 }
 
-.Toastify__close-button {
-  margin-right: 10px;
+.Toastify__toast-body {
+  font-family: var(--texmo-font);
 }
 
 .nav-link {
@@ -1112,20 +1125,6 @@ a.card-link {
   }
 }
 
-:root {
-  --texmo-primary-color: #6A955B;
-  --texmo-text-color: #424244;
-  --texmo-bg-primary: #F2F2F2;
-  --texmo-bg-secondary: #E5E5E5;
-  --texmo-font: "kohinoor", sans-serif;
-  --texmo-bg-secondary-borders: #c9c9c9;
-  --toastify-color-light: #f2f2f2;
-  --toastify-color-success: #6A955B;
-  --toastify-color-error: #99444f;
-  --toastify-text-color-light: var(--texmo-text-color);
-  --toastify-toast-width: 100vw;
-}
-
 @font-face {
   font-family: "kohinoor";
   src: url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/l?subset_id=2&fvd=n5&v=3") format("woff2"), url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/d?subset_id=2&fvd=n5&v=3") format("woff"), url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/a?subset_id=2&fvd=n5&v=3") format("opentype");
@@ -1168,6 +1167,22 @@ a.card-link {
 }
 .tk-kohinoor {
   font-family: "kohinoor", sans-serif;
+}
+
+:root {
+  --texmo-primary-color: #6A955B;
+  --texmo-text-color: #424244;
+  --texmo-bg-primary: #F2F2F2;
+  --texmo-bg-secondary: #E5E5E5;
+  --texmo-font: "kohinoor", sans-serif;
+  --texmo-bg-secondary-borders: #c9c9c9;
+  --toastify-color-light: #f2f2f2;
+  --toastify-color-success: #D1DECD;
+  --toastify-color-error: #FFD9D5;
+  --toastify-text-color-success: #6A955B;
+  --toastify-text-color-error: #99444f;
+  --toastify-text-color-light: var(--texmo-text-color);
+  --toastify-toast-width: 100vw;
 }
 
 /*!

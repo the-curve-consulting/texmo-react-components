@@ -1,5 +1,6 @@
-import { InfoTile, Title } from '@the-curve-consulting/texmo-react-components';
+import { Button, InfoTile, Title } from '@the-curve-consulting/texmo-react-components';
 import { Row, Col } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const HomePage = () => {
 
@@ -66,6 +67,20 @@ const HomePage = () => {
           </InfoTile>
         </Col>
       </Row>
+
+      <div className='mt-3 d-flex justify-content-end'>
+        <Button 
+          label='Show Toast' 
+          className='me-2'
+          onClick={() => toast.success("This is a test") }
+        />
+
+        <Button 
+          label='Show Toast' 
+          variant="danger" 
+          onClick={() => toast.error("This is a test") }
+        />
+      </div>
     </>
   )
 }

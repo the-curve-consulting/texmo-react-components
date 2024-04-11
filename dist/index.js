@@ -5871,7 +5871,6 @@ const makeEventKey = (eventKey, href = null) => {
   if (eventKey != null) return String(eventKey);
   return href || null;
 };
-var SelectableContext$1 = SelectableContext;
 
 const NavContext$1 = /*#__PURE__*/React__namespace.createContext(null);
 NavContext$1.displayName = 'NavContext';
@@ -5899,7 +5898,7 @@ function useDropdownItem({
   disabled,
   onClick
 }) {
-  const onSelectCtx = React.useContext(SelectableContext$1);
+  const onSelectCtx = React.useContext(SelectableContext);
   const navContext = React.useContext(NavContext$2);
   const {
     activeKey
@@ -5995,7 +5994,7 @@ function Dropdown$2({
   const lastShow = usePrevious(show);
   const lastSourceEvent = React.useRef(null);
   const focusInDropdown = React.useRef(false);
-  const onSelectCtx = React.useContext(SelectableContext$1);
+  const onSelectCtx = React.useContext(SelectableContext);
   const toggle = React.useCallback((nextShow, event, source = event == null ? void 0 : event.type) => {
     onToggle(nextShow, {
       originalEvent: event,
@@ -6121,7 +6120,7 @@ function Dropdown$2({
         break;
     }
   });
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(DropdownContext$3.Provider, {
       value: context,
@@ -6930,7 +6929,7 @@ function useNavItem({
   role,
   disabled
 }) {
-  const parentOnSelect = React.useContext(SelectableContext$1);
+  const parentOnSelect = React.useContext(SelectableContext);
   const navContext = React.useContext(NavContext$2);
   const tabContext = React.useContext(TabContext$1);
   let isActive = active;
@@ -7022,7 +7021,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   // and don't want to reset the set in the effect
   const forceUpdate = useForceUpdate();
   const needsRefocusRef = React.useRef(false);
-  const parentOnSelect = React.useContext(SelectableContext$1);
+  const parentOnSelect = React.useContext(SelectableContext);
   const tabContext = React.useContext(TabContext$1);
   let getControlledId, getControllerId;
   if (tabContext) {
@@ -7083,7 +7082,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
     needsRefocusRef.current = false;
   });
   const mergedRef = useMergedRefs(ref, listNode);
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(NavContext$2.Provider, {
       value: {
@@ -8454,7 +8453,7 @@ const Navbar = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
   }), [bsPrefix, expanded, expand, onToggle]);
   return /*#__PURE__*/jsxRuntime.jsx(NavbarContext.Provider, {
     value: navbarContext,
-    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
       value: handleCollapse,
       children: /*#__PURE__*/jsxRuntime.jsx(Component, {
         ref: ref,
@@ -27114,14 +27113,8 @@ var ListHead = function (_a) {
 };
 
 var ListRow = React.forwardRef(function (_a, ref) {
-    var className = _a.className, style = _a.style, overdue = _a.overdue, children = _a.children, rest = __rest(_a, ["className", "style", "overdue", "children"]);
-    var childrenArray = React.Children.toArray(children);
-    return (React.createElement("div", __assign$1({ className: classNames(className, 'row text-center mt-2 mx-0 list-row'), style: __assign$1({ border: overdue ? '2px solid #99444f' : 'none' }, style), ref: ref }, rest), childrenArray.map(function (child, index) {
-        var childElement = child;
-        return React.cloneElement(childElement, {
-            borderStart: index !== 0,
-        });
-    })));
+    var className = _a.className, style = _a.style, children = _a.children, overdue = _a.overdue, rest = __rest(_a, ["className", "style", "children", "overdue"]);
+    return (React.createElement("div", __assign$1({ className: classNames(className, 'row text-center mt-2 mx-0 list-row'), style: __assign$1({ border: overdue ? '2px solid #99444f' : 'none' }, style), ref: ref }, rest), children));
 });
 ListRow.displayName = 'ListRow';
 
@@ -29292,7 +29285,8 @@ var Subtitle = function (_a) {
 
 var LayoutBrand = function (_a) {
     var rest = __rest(_a, []);
-    return React.createElement("img", __assign$1({ alt: "logo", className: "logo" }, rest));
+    return (React.createElement("div", { className: "d-flex logo-containter" },
+        React.createElement("img", __assign$1({ alt: "logo", className: "logo" }, rest))));
 };
 
 var LayoutContainer = function (_a) {

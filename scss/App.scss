@@ -12,6 +12,10 @@ h1 {
   font-style: normal;
 }
 
+option {
+  font-family: sans-serif !important;
+}
+
 .main-nav {
   i {
     font-size: 3rem;
@@ -23,9 +27,12 @@ h1 {
   }
 }
 
+.logo-containter {
+  height: 8rem;
+}
+
 .logo {
-  max-height: 80px;
-  max-width: 260px;
+  height: auto;
   width: auto;
   margin: 1.5rem;
 
@@ -96,9 +103,15 @@ a.card-link {
   padding: 0;
 }
 
+.Toastify__toast-body {
+  text-align: center;
+}
+
 .Toastify__toast {
   border-radius: 0px;
-  min-height: 80px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  height: 8rem;
 }
 
 .Toastify__toast-icon {
@@ -107,8 +120,8 @@ a.card-link {
   width: 30px;
 }
 
-.Toastify__close-button {
-  margin-right: 10px;
+.Toastify__toast-body {
+  font-family: var(--texmo-font);
 }
 
 .nav-link {

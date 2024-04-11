@@ -11,7 +11,7 @@ import FormPage from '../pages/FormPage';
 import HomePage from '../pages/HomePage';
 import TablePage from '../pages/TablePage';
 import './index.scss';
-import TexmoProvider from "@the-curve-consulting/texmo-react-components";
+import { TexmoProvider } from "@the-curve-consulting/texmo-react-components";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

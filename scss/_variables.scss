@@ -18,8 +18,11 @@ $warning: #e6e369;
   --texmo-bg-secondary-borders: #c9c9c9;
 
   --toastify-color-light: #{$secondary};
-  --toastify-color-success: #{$primary};
-  --toastify-color-error: #{$danger};
+  --toastify-color-success: #D1DECD;
+  --toastify-color-error: #FFD9D5;
+
+  --toastify-text-color-success: #{$primary};
+  --toastify-text-color-error: #{$danger};
   --toastify-text-color-light: var(--texmo-text-color);
   --toastify-toast-width: 100vw;
 }

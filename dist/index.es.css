@@ -982,6 +982,7 @@ option {
   height: auto;
   width: auto;
   margin: 1.8rem;
+  max-height: 80px;
 }
 @media (min-width: 1024px) {
   .logo {

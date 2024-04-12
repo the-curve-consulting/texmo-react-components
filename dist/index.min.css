@@ -981,11 +981,13 @@ option {
 .logo {
   height: auto;
   width: auto;
-  margin: 1.5rem;
+  margin: 1.8rem;
 }
 @media (min-width: 1024px) {
   .logo {
-    margin: 2.5rem;
+    margin-left: 3rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
   }
 }
 
@@ -1049,10 +1051,6 @@ a.card-link {
   padding: 0;
 }
 
-.Toastify__toast-body {
-  text-align: center;
-}
-
 .Toastify__toast {
   border-radius: 0px;
   font-weight: 600;
@@ -1062,12 +1060,25 @@ a.card-link {
 
 .Toastify__toast-icon {
   margin-left: 10px;
-  margin-right: 20px;
-  width: 30px;
+  width: auto;
+  font-size: 2.5rem;
 }
 
 .Toastify__toast-body {
   font-family: var(--texmo-font);
+  justify-content: center;
+  text-align: center;
+}
+
+.Toastify__toast-body > div:last-child {
+  display: flex;
+  flex: initial;
+  margin-top: 3px;
+  align-items: center;
+}
+
+i.toast-icon {
+  display: flex;
 }
 
 .nav-link {
@@ -13385,6 +13396,10 @@ textarea.form-control-lg {
   width: 80%;
   margin-left: 10%;
   height: 1px;
+}
+.sidenav-item:hover {
+  background: #f9f8f9;
+  text-decoration: underline !important;
 }
 
 .sidenav-link {

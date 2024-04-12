@@ -27173,7 +27173,6 @@ var ProgressBar = function (_a) {
 };
 
 var SideNavbar = function (_a) {
-    // const { open } = useNavContext();
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement("div", __assign$1({ className: classNames('d-none d-md-flex flex-column side-navbar-container', className, 'col-auto') }, rest), children));
 };
@@ -29244,15 +29243,9 @@ var NavItem = function (_a) {
     var route = _a.route, icon = _a.icon, text = _a.text;
     var open = useNavContext().open;
     var NavLink = useTexmoContext().navLink;
-    var linkClass = function (isActive) {
-        return isActive ? 'nav-link active' : 'nav-link link-dark';
-    };
     return (React.createElement(BootstrapNav.Item, { className: "sidenav-item" },
         React.createElement(OverlayTrigger$1, { placement: "right", overlay: !open ? React.createElement(Tooltip$1, null, text) : React.createElement(React.Fragment, null) },
-            React.createElement(NavLink, { to: route, className: function (_a) {
-                    var isActive = _a.isActive;
-                    return classNames('d-flex align-items-center sidenav-link', linkClass(isActive));
-                } },
+            React.createElement(NavLink, { to: route, className: function () { return 'd-flex align-items-center sidenav-link nav-link'; } },
                 React.createElement("div", { className: "d-flex justify-content-center nav-item-icon" },
                     React.createElement(TexmoIcon, { icon: icon, height: 28 })),
                 React.createElement("div", { className: classNames('d-flex justify-content-start nav-item-text', open ? 'opened' : null) }, text)))));

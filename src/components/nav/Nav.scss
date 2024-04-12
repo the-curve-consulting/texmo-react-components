@@ -48,6 +48,11 @@
     margin-left: 10%;
     height: 1px;
   }
+
+  &:hover {
+    background: #f9f8f9;
+    text-decoration: underline !important;
+  }
 }
 
 .sidenav-link {

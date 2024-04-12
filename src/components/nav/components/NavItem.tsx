@@ -18,10 +18,6 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
   const { open } = useNavContext();
   const { navLink: NavLink } = useTexmoContext();
 
-  const linkClass = (isActive: boolean): string => {
-    return isActive ? 'nav-link active' : 'nav-link link-dark';
-  };
-
   return (
     <Nav.Item className="sidenav-item">
       <OverlayTrigger
@@ -30,12 +26,7 @@ const NavItem = ({ route, icon, text }: NavItemProps) => {
       >
         <NavLink
           to={route}
-          className={({ isActive }) =>
-            classNames(
-              'd-flex align-items-center sidenav-link',
-              linkClass(isActive)
-            )
-          }
+          className={() => 'd-flex align-items-center sidenav-link nav-link'}
         >
           <div className="d-flex justify-content-center nav-item-icon">
             <TexmoIcon icon={icon} height={28} />

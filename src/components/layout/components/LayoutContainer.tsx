@@ -7,7 +7,6 @@ export interface LayoutContainerProps extends ContainerProps {}
 const LayoutContainer = ({
   className,
   children,
-  style,
   ...rest
 }: LayoutContainerProps) => {
   return (
@@ -18,7 +17,6 @@ const LayoutContainer = ({
         className,
         'col'
       )}
-      style={{ ...style, minHeight: '100vh' }}
       {...rest}
     >
       {children}

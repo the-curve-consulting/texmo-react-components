@@ -29283,8 +29283,8 @@ var LayoutBrand = function (_a) {
 };
 
 var LayoutContainer = function (_a) {
-    var className = _a.className, children = _a.children, style = _a.style, rest = __rest(_a, ["className", "children", "style"]);
-    return (React.createElement(Container$1, __assign$1({ fluid: true, className: classNames('d-flex flex-column px-0 layout-container', className, 'col'), style: __assign$1(__assign$1({}, style), { minHeight: '100vh' }) }, rest), children));
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement(Container$1, __assign$1({ fluid: true, className: classNames('d-flex flex-column px-0 layout-container', className, 'col') }, rest), children));
 };
 
 var LayoutMain = function (_a) {

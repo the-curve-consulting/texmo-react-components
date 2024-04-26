@@ -1,4 +1,4 @@
-import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumbs, FilterButton, Subtitle, Tabs } from '@the-curve-consulting/texmo-react-components';
+import { Chip, List, ProgressBar, SearchBar, Title, Breadcrumbs, FilterButton, Subtitle, Tabs, Comments } from '@the-curve-consulting/texmo-react-components';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -86,6 +86,18 @@ const ListPage = () => {
         </List.Row>
       </List.Body>
     </List>
+
+    <Comments className='mt-3'>
+      <Comments.Input onSubmit={() => {}}/>
+
+      <Comments.Item 
+        text='THis is a comment'
+        inbound={false}
+        createdAt={new Date()}
+        createdBy='John Doe'
+        onDelete={() => {}}
+      />
+    </Comments>
   </div>
   )
 }

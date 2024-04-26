@@ -5871,6 +5871,7 @@ const makeEventKey = (eventKey, href = null) => {
   if (eventKey != null) return String(eventKey);
   return href || null;
 };
+var SelectableContext$1 = SelectableContext;
 
 const NavContext$1 = /*#__PURE__*/React__namespace.createContext(null);
 NavContext$1.displayName = 'NavContext';
@@ -5898,7 +5899,7 @@ function useDropdownItem({
   disabled,
   onClick
 }) {
-  const onSelectCtx = React.useContext(SelectableContext);
+  const onSelectCtx = React.useContext(SelectableContext$1);
   const navContext = React.useContext(NavContext$2);
   const {
     activeKey
@@ -5994,7 +5995,7 @@ function Dropdown$2({
   const lastShow = usePrevious(show);
   const lastSourceEvent = React.useRef(null);
   const focusInDropdown = React.useRef(false);
-  const onSelectCtx = React.useContext(SelectableContext);
+  const onSelectCtx = React.useContext(SelectableContext$1);
   const toggle = React.useCallback((nextShow, event, source = event == null ? void 0 : event.type) => {
     onToggle(nextShow, {
       originalEvent: event,
@@ -6120,7 +6121,7 @@ function Dropdown$2({
         break;
     }
   });
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(DropdownContext$3.Provider, {
       value: context,
@@ -6845,7 +6846,7 @@ const Form$2 = /*#__PURE__*/React__namespace.forwardRef(({
 }));
 Form$2.displayName = 'Form';
 Form$2.propTypes = propTypes$8;
-var BootstrapForm = Object.assign(Form$2, {
+var Form$3 = Object.assign(Form$2, {
   Group: BootstrapFormGroup,
   Control: FormControl$2,
   Floating: FormFloating$1,
@@ -6929,7 +6930,7 @@ function useNavItem({
   role,
   disabled
 }) {
-  const parentOnSelect = React.useContext(SelectableContext);
+  const parentOnSelect = React.useContext(SelectableContext$1);
   const navContext = React.useContext(NavContext$2);
   const tabContext = React.useContext(TabContext$1);
   let isActive = active;
@@ -7021,7 +7022,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   // and don't want to reset the set in the effect
   const forceUpdate = useForceUpdate();
   const needsRefocusRef = React.useRef(false);
-  const parentOnSelect = React.useContext(SelectableContext);
+  const parentOnSelect = React.useContext(SelectableContext$1);
   const tabContext = React.useContext(TabContext$1);
   let getControlledId, getControllerId;
   if (tabContext) {
@@ -7082,7 +7083,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
     needsRefocusRef.current = false;
   });
   const mergedRef = useMergedRefs(ref, listNode);
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(NavContext$2.Provider, {
       value: {
@@ -8453,7 +8454,7 @@ const Navbar = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
   }), [bsPrefix, expanded, expand, onToggle]);
   return /*#__PURE__*/jsxRuntime.jsx(NavbarContext.Provider, {
     value: navbarContext,
-    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
       value: handleCollapse,
       children: /*#__PURE__*/jsxRuntime.jsx(Component, {
         ref: ref,
@@ -23433,7 +23434,7 @@ FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
-    return (React.createElement(BootstrapForm.Control, __assign$1({ as: "input", type: "datetime-local", className: className }, rest)));
+    return (React.createElement(Form$3.Control, __assign$1({ as: "input", type: "datetime-local", className: className }, rest)));
 };
 FormDateTime.Feedback = Feedback$1;
 
@@ -27067,7 +27068,7 @@ FormAsyncTypeahead.Feedback = Feedback$1;
 
 var Form$1 = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
-    return React.createElement(BootstrapForm, __assign$1({}, rest), children);
+    return React.createElement(Form$3, __assign$1({}, rest), children);
 };
 Form$1.Group = FormGroup;
 Form$1.Label = FormLabel;
@@ -29321,10 +29322,46 @@ var Tabs = function (_a) {
 };
 Tabs.Button = TabButton;
 
+var CommentItem = function (_a) {
+    var inbound = _a.inbound, text = _a.text, className = _a.className, createdAt = _a.createdAt, createdBy = _a.createdBy, onDelete = _a.onDelete, rest = __rest(_a, ["inbound", "text", "className", "createdAt", "createdBy", "onDelete"]);
+    var itemClass = classNames(className, 'w-75 border rounded p-3 mt-3', inbound ? 'bg-secondary' : 'text-white bg-primary');
+    var localeFormat = new Intl.DateTimeFormat('default', {
+        dateStyle: 'short',
+        timeStyle: 'short',
+    });
+    return (React.createElement("div", { className: classNames('d-flex', inbound ? 'justify-content-start' : 'justify-content-end') },
+        React.createElement("div", __assign$1({ className: itemClass }, rest),
+            text,
+            React.createElement("div", { className: "d-flex justify-content-between mt-2 opacity-75" },
+                React.createElement("span", null,
+                    "From: ",
+                    createdBy),
+                React.createElement("div", null,
+                    React.createElement("span", { className: classNames(!inbound ? "me-2" : null) }, localeFormat.format(createdAt)),
+                    !inbound ? (React.createElement("span", { className: "text-decoration-underline cursor-pointer", onClick: onDelete }, "Delete")) : null)))));
+};
+
+var CommentInput = function (_a) {
+    var onSubmit = _a.onSubmit, rest = __rest(_a, ["onSubmit"]);
+    return (React.createElement("div", null,
+        React.createElement(Subtitle, { text: "Comments:", className: "mb-2" }),
+        React.createElement(Form$3.Control, __assign$1({ as: "textarea", placeholder: "Leave a comment..." }, rest)),
+        React.createElement("div", { className: "d-flex justify-content-end mt-2" },
+            React.createElement(Button, { onClick: onSubmit }, "Comment"))));
+};
+
+var Comments = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return React.createElement("div", __assign$1({}, rest), children);
+};
+Comments.Input = CommentInput;
+Comments.Item = CommentItem;
+
 exports.Breadcrumbs = Breadcrumbs;
 exports.Button = Button;
 exports.Card = Card;
 exports.Chip = Chip;
+exports.Comments = Comments;
 exports.FilterButton = FilterButton;
 exports.Footer = Footer;
 exports.Form = Form$1;

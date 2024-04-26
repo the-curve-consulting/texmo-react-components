@@ -1137,6 +1137,10 @@ i.toast-icon {
   }
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "kohinoor";
   src: url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/l?subset_id=2&fvd=n5&v=3") format("woff2"), url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/d?subset_id=2&fvd=n5&v=3") format("woff"), url("https://use.typekit.net/af/90bc9f/0000000000000000774f4a9a/30/a?subset_id=2&fvd=n5&v=3") format("opentype");

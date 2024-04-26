@@ -20,8 +20,9 @@ import Subtitle from './components/subtitle/Subtitle';
 import Layout from './components/layout/Layout';
 import Tabs from './components/tabs/Tabs';
 import TexmoIcon from './components/texmoIcon/TexmoIcon';
+import Comments from './components/comments/Comments';
 import TexmoProvider from './contexts/TexmoContext';
 import * as Icons from './icons/index';
 import '../scss/texmo-react-components.scss';
-export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Footer, SearchBar, Breadcrumbs, FilterButton, NavItem, Nav, Subtitle, Layout, Tabs, TexmoIcon, Icons, TexmoProvider, };
+export { Button, Table, Form, Title, Card, Chip, List, ProgressBar, SideNavbar, InfoTile, Header, UserProfile, Footer, SearchBar, Breadcrumbs, FilterButton, NavItem, Nav, Subtitle, Layout, Tabs, TexmoIcon, Comments, Icons, TexmoProvider, };
 //# sourceMappingURL=index.d.ts.map

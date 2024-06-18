@@ -13,12 +13,12 @@ export interface QuillEditorProps {
   style?: CSSProperties;
   id?: string;
   modules?: Record<string, unknown>;
-  onChange?: (value: string) => string | void;
+  valueChange?(value: string): any;
   value?: string;
 }
 
 const FormRichText: React.ForwardRefRenderFunction<Quill, QuillEditorProps> = (
-  { modules, value, onChange, ...rest }: QuillEditorProps,
+  { modules, value, valueChange, ...rest }: QuillEditorProps,
   ref: ForwardedRef<Quill>
 ) => {
   const editorRef = useRef<HTMLDivElement | null>(null);
@@ -31,8 +31,8 @@ const FormRichText: React.ForwardRefRenderFunction<Quill, QuillEditorProps> = (
 
   const configureListeners = (quill: Quill) => {
     quill.on('text-change', () => {
-      if (onChange) {
-        onChange(quillRef.current?.getSemanticHTML() || '');
+      if (valueChange) {
+        valueChange(quillRef.current?.getSemanticHTML() || '');
       }
     });
   };
@@ -54,7 +54,7 @@ const FormRichText: React.ForwardRefRenderFunction<Quill, QuillEditorProps> = (
         configureListeners(quill);
       }
     }
-  });
+  }, []);
 
   useImperativeHandle(ref, () => quillRef.current as Quill);
 

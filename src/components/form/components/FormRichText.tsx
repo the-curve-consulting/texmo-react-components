@@ -1,6 +1,7 @@
 import React, { useRef, CSSProperties, useEffect } from 'react';
 import Quill from 'quill';
 import Feedback from 'react-bootstrap/Feedback';
+import 'quill/dist/quill.snow.css';
 
 export interface QuillEditorProps {
   className?: string;

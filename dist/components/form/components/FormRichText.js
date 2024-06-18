@@ -22,7 +22,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import React, { useRef, useEffect } from 'react';
 import Quill from 'quill';
-import Feedback from "react-bootstrap/Feedback";
+import Feedback from 'react-bootstrap/Feedback';
+import 'quill/dist/quill.snow.css';
 var FormRichText = function (_a) {
     var theme = _a.theme, modules = _a.modules, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["theme", "modules", "value", "onChange"]);
     var editorRef = useRef(null);

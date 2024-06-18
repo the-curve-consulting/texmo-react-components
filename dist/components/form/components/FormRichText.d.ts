@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import 'quill/dist/quill.snow.css';
 export interface QuillEditorProps {
     className?: string;
     style?: CSSProperties;

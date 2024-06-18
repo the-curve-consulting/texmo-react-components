@@ -25532,9 +25532,10 @@ Quill.register({
 }, true);
 
 var FormRichText = function (_a) {
-    var modules = _a.modules, value = _a.value, valueChange = _a.valueChange, rest = __rest(_a, ["modules", "value", "valueChange"]);
+    var theme = _a.theme, modules = _a.modules, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["theme", "modules", "value", "onChange"]);
     var editorRef = React.useRef(null);
     var quillRef = React.useRef(null);
+    var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
     var setValue = function (quillRef) {
         var delta = quillRef.clipboard.convert({ html: value });
         quillRef.setContents(delta, 'silent');
@@ -25542,14 +25543,14 @@ var FormRichText = function (_a) {
     var configureListeners = function (quill) {
         quill.on('text-change', function () {
             var _a;
-            if (valueChange) {
-                valueChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
+            if (onChange) {
+                onChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
             }
         });
     };
     React.useEffect(function () {
         if (editorRef.current) {
-            var quill = new Quill(editorRef.current, modules);
+            var quill = new Quill(editorRef.current, quillOptions);
             quillRef.current = quill; // Store the Quill instance in a ref
             if (value) {
                 setValue(quill);
@@ -25559,6 +25560,7 @@ var FormRichText = function (_a) {
     }, []);
     return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
 };
+FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);

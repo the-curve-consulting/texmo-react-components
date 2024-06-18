@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -20,14 +9,42 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React from 'react';
-import Feedback from 'react-bootstrap/esm/Feedback';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-var FormRichText = function (_a) {
-    var style = _a.style, rest = __rest(_a, ["style"]);
-    return React.createElement(ReactQuill, __assign({ theme: "snow", style: __assign({}, style) }, rest));
+import React, { useEffect, useRef, useImperativeHandle, forwardRef, } from 'react';
+import Quill from 'quill';
+var FormRichText = function (_a, ref) {
+    var modules = _a.modules, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["modules", "value", "onChange"]);
+    var editorRef = useRef(null);
+    var quillRef = useRef(null);
+    useEffect(function () {
+        if (editorRef.current) {
+            var quill = new Quill(editorRef.current, modules);
+            quillRef.current = quill; // Store the Quill instance in a ref
+            if (ref) {
+                // Assign the Quill instance to the forwarded ref
+                if (typeof ref !== 'function') {
+                    ref.current = quill; // For object refs
+                }
+                if (value) {
+                    setValue(quill);
+                }
+                configureListeners(quill);
+            }
+        }
+    }, []);
+    useImperativeHandle(ref, function () { return quillRef.current; });
+    var setValue = function (quillRef) {
+        var delta = quillRef.clipboard.convert({ html: value });
+        quillRef.setContents(delta, 'silent');
+    };
+    var configureListeners = function (quill) {
+        quill.on('text-change', function (e) {
+            var _a;
+            if (onChange) {
+                onChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
+            }
+        });
+    };
+    return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
 };
-FormRichText.Feedback = Feedback;
-export default FormRichText;
+export default forwardRef(FormRichText);
 //# sourceMappingURL=FormRichText.js.map

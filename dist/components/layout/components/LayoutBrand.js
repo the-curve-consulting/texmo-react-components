@@ -23,7 +23,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React from 'react';
 var LayoutBrand = function (_a) {
     var rest = __rest(_a, []);
-    return React.createElement("img", __assign({ alt: "logo", className: "logo" }, rest));
+    return (React.createElement("div", { className: "d-flex logo-containter" },
+        React.createElement("img", __assign({ alt: "logo", className: "logo" }, rest))));
 };
 export default LayoutBrand;
 //# sourceMappingURL=LayoutBrand.js.map

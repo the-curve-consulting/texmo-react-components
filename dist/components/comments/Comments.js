@@ -20,12 +20,14 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import classNames from 'classnames';
-import React, { forwardRef } from 'react';
-var ListRow = forwardRef(function (_a, ref) {
-    var className = _a.className, style = _a.style, children = _a.children, overdue = _a.overdue, rest = __rest(_a, ["className", "style", "children", "overdue"]);
-    return (React.createElement("div", __assign({ className: classNames(className, 'row text-center mt-2 mx-0 list-row'), style: __assign({ border: overdue ? '2px solid #99444f' : 'none' }, style), ref: ref }, rest), children));
-});
-ListRow.displayName = 'ListRow';
-export default ListRow;
-//# sourceMappingURL=ListRow.js.map
+import React from 'react';
+import CommentItem from './components/CommentItem';
+import CommentInput from './components/CommentInput';
+var Comments = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return React.createElement("div", __assign({}, rest), children);
+};
+Comments.Input = CommentInput;
+Comments.Item = CommentItem;
+export default Comments;
+//# sourceMappingURL=Comments.js.map

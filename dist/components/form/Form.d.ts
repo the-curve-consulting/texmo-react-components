@@ -18,10 +18,7 @@ declare const Form: {
         ({ type, className, ...rest }: import("./components/FormCheck").FormCheckProps): React.JSX.Element;
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
     };
-    RichText: {
-        ({ style, ...rest }: import("./components/FormRichText").FormRichTextProps): React.JSX.Element;
-        Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
-    };
+    RichText: React.ForwardRefExoticComponent<import("./components/FormRichText").QuillEditorProps & React.RefAttributes<import("quill/core/quill").default>>;
     DateTime: {
         ({ className, ...rest }: import("./components/FormDateTime").FormDateTimeProps): React.JSX.Element;
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;

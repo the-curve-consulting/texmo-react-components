@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-export interface FormRichTextProps extends ReactQuill.ReactQuillProps {
+import React, { CSSProperties } from 'react';
+import Quill from 'quill';
+export interface QuillEditorProps {
+    className?: string;
+    style?: CSSProperties;
+    id?: string;
+    modules?: Record<string, unknown>;
+    onChange?: (value: string) => string;
+    value?: string;
 }
-declare const FormRichText: {
-    ({ style, ...rest }: FormRichTextProps): React.JSX.Element;
-    Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
-};
-export default FormRichText;
+declare const _default: React.ForwardRefExoticComponent<QuillEditorProps & React.RefAttributes<Quill>>;
+export default _default;
 //# sourceMappingURL=FormRichText.d.ts.map

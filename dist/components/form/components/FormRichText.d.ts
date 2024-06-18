@@ -1,13 +1,12 @@
 import React, { CSSProperties } from 'react';
-import Quill from 'quill';
 export interface QuillEditorProps {
     className?: string;
     style?: CSSProperties;
     id?: string;
     modules?: Record<string, unknown>;
-    valueChange?(value: string): any;
     value?: string;
+    valueChange?(value: string): any;
 }
-declare const _default: React.ForwardRefExoticComponent<QuillEditorProps & React.RefAttributes<Quill>>;
-export default _default;
+declare const FormRichText: ({ modules, value, valueChange, ...rest }: QuillEditorProps) => React.JSX.Element;
+export default FormRichText;
 //# sourceMappingURL=FormRichText.d.ts.map

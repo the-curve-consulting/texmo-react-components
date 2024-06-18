@@ -9,9 +9,9 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useEffect, useRef, useImperativeHandle, forwardRef, } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Quill from 'quill';
-var FormRichText = function (_a, ref) {
+var FormRichText = function (_a) {
     var modules = _a.modules, value = _a.value, valueChange = _a.valueChange, rest = __rest(_a, ["modules", "value", "valueChange"]);
     var editorRef = useRef(null);
     var quillRef = useRef(null);
@@ -31,20 +31,13 @@ var FormRichText = function (_a, ref) {
         if (editorRef.current) {
             var quill = new Quill(editorRef.current, modules);
             quillRef.current = quill; // Store the Quill instance in a ref
-            if (ref) {
-                // Assign the Quill instance to the forwarded ref
-                if (typeof ref !== 'function') {
-                    ref.current = quill; // For object refs
-                }
-                if (value) {
-                    setValue(quill);
-                }
-                configureListeners(quill);
+            if (value) {
+                setValue(quill);
             }
+            configureListeners(quill);
         }
     }, []);
-    useImperativeHandle(ref, function () { return quillRef.current; });
     return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
 };
-export default forwardRef(FormRichText);
+export default FormRichText;
 //# sourceMappingURL=FormRichText.js.map

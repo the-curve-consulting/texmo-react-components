@@ -25531,7 +25531,7 @@ Quill.register({
   'ui/tooltip': Tooltip
 }, true);
 
-var FormRichText = function (_a, ref) {
+var FormRichText = function (_a) {
     var modules = _a.modules, value = _a.value, valueChange = _a.valueChange, rest = __rest(_a, ["modules", "value", "valueChange"]);
     var editorRef = React.useRef(null);
     var quillRef = React.useRef(null);
@@ -25551,22 +25551,14 @@ var FormRichText = function (_a, ref) {
         if (editorRef.current) {
             var quill = new Quill(editorRef.current, modules);
             quillRef.current = quill; // Store the Quill instance in a ref
-            if (ref) {
-                // Assign the Quill instance to the forwarded ref
-                if (typeof ref !== 'function') {
-                    ref.current = quill; // For object refs
-                }
-                if (value) {
-                    setValue(quill);
-                }
-                configureListeners(quill);
+            if (value) {
+                setValue(quill);
             }
+            configureListeners(quill);
         }
     }, []);
-    React.useImperativeHandle(ref, function () { return quillRef.current; });
     return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
 };
-var FormRichText$1 = React.forwardRef(FormRichText);
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);
@@ -29211,7 +29203,7 @@ Form$1.Label = FormLabel;
 Form$1.Control = FormControl;
 Form$1.Select = FormSelect;
 Form$1.Check = FormCheck;
-Form$1.RichText = FormRichText$1;
+Form$1.RichText = FormRichText;
 Form$1.DateTime = FormDateTime;
 Form$1.Feedback = Feedback$1;
 Form$1.Text = FormText$1;

@@ -12,9 +12,21 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { useEffect, useRef, useImperativeHandle, forwardRef, } from 'react';
 import Quill from 'quill';
 var FormRichText = function (_a, ref) {
-    var modules = _a.modules, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["modules", "value", "onChange"]);
+    var modules = _a.modules, value = _a.value, valueChange = _a.valueChange, rest = __rest(_a, ["modules", "value", "valueChange"]);
     var editorRef = useRef(null);
     var quillRef = useRef(null);
+    var setValue = function (quillRef) {
+        var delta = quillRef.clipboard.convert({ html: value });
+        quillRef.setContents(delta, 'silent');
+    };
+    var configureListeners = function (quill) {
+        quill.on('text-change', function () {
+            var _a;
+            if (valueChange) {
+                valueChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
+            }
+        });
+    };
     useEffect(function () {
         if (editorRef.current) {
             var quill = new Quill(editorRef.current, modules);
@@ -32,18 +44,6 @@ var FormRichText = function (_a, ref) {
         }
     }, []);
     useImperativeHandle(ref, function () { return quillRef.current; });
-    var setValue = function (quillRef) {
-        var delta = quillRef.clipboard.convert({ html: value });
-        quillRef.setContents(delta, 'silent');
-    };
-    var configureListeners = function (quill) {
-        quill.on('text-change', function (e) {
-            var _a;
-            if (onChange) {
-                onChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
-            }
-        });
-    };
     return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
 };
 export default forwardRef(FormRichText);

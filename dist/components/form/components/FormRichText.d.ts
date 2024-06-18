@@ -5,7 +5,7 @@ export interface QuillEditorProps {
     style?: CSSProperties;
     id?: string;
     modules?: Record<string, unknown>;
-    onChange?: (value: string) => string;
+    onChange?: (value: string) => string | void;
     value?: string;
 }
 declare const _default: React.ForwardRefExoticComponent<QuillEditorProps & React.RefAttributes<Quill>>;

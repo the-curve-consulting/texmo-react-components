@@ -9,6 +9,7 @@ export interface QuillEditorProps {
   modules?: Record<string, unknown>;
   value?: string;
   theme?: string;
+  debug?: boolean;
 
   onChange?(value: string): any;
   importCallback?(): any;
@@ -20,10 +21,14 @@ const FormRichText = ({
   onChange,
   theme,
   importCallback,
+  debug,
   ...rest
 }: QuillEditorProps) => {
   const quillRef = useRef<Quill | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Set debug mode, false results in no output.
+  Quill.debug(debug || false);
 
   const quillOptions = {
     ...modules,
@@ -45,9 +50,7 @@ const FormRichText = ({
 
   useEffect(() => {
     if (containerRef.current) {
-      console.log(importCallback);
       if (importCallback) {
-        console.log('import callback called');
         // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
         importCallback();
       }

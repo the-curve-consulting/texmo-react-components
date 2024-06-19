@@ -24,9 +24,11 @@ import React, { useRef, useEffect } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 var FormRichText = function (_a) {
-    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, importCallback = _a.importCallback, rest = __rest(_a, ["modules", "value", "onChange", "theme", "importCallback"]);
+    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, importCallback = _a.importCallback, debug = _a.debug, rest = __rest(_a, ["modules", "value", "onChange", "theme", "importCallback", "debug"]);
     var quillRef = useRef(null);
     var containerRef = useRef(null);
+    //Set debug mode, false results in no output.
+    Quill.debug(debug || false);
     var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
     var setValue = function (quillRef) {
         var delta = quillRef.clipboard.convert({ html: value });
@@ -42,10 +44,8 @@ var FormRichText = function (_a) {
     };
     useEffect(function () {
         if (containerRef.current) {
-            console.log(importCallback);
             if (importCallback) {
-                console.log("import callback called");
-                // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+                //Callback to import new modules into quill, needs to be done within the same instance as the quill object.
                 importCallback();
             }
             var container_1 = containerRef.current;
@@ -64,7 +64,7 @@ var FormRichText = function (_a) {
         // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    return (React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className }));
+    return React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className });
 };
 export default FormRichText;
 //# sourceMappingURL=FormRichText.js.map

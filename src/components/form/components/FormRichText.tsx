@@ -45,7 +45,9 @@ const FormRichText = ({
 
   useEffect(() => {
     if (containerRef.current) {
+      console.log(importCallback);
       if (importCallback) {
+        console.log('import callback called');
         // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
         importCallback();
       }

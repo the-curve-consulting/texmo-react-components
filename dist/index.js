@@ -25550,8 +25550,10 @@ var FormRichText = function (_a) {
     };
     React.useEffect(function () {
         if (containerRef.current) {
+            console.log(importCallback);
             if (importCallback) {
-                //Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+                console.log("import callback called");
+                // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
                 importCallback();
             }
             var container_1 = containerRef.current;
@@ -25570,7 +25572,7 @@ var FormRichText = function (_a) {
         // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    return React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className });
+    return (React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className }));
 };
 
 var FormDateTime = function (_a) {

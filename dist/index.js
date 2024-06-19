@@ -25532,16 +25532,16 @@ Quill.register({
 }, true);
 
 var FormRichText = function (_a) {
-    var theme = _a.theme, modules = _a.modules, value = _a.value, onChange = _a.onChange, rest = __rest(_a, ["theme", "modules", "value", "onChange"]);
-    var editorRef = React.useRef(null);
+    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, rest = __rest(_a, ["modules", "value", "onChange", "theme"]);
     var quillRef = React.useRef(null);
+    var containerRef = React.useRef(null);
     var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
     var setValue = function (quillRef) {
         var delta = quillRef.clipboard.convert({ html: value });
         quillRef.setContents(delta, 'silent');
     };
     var configureListeners = function (quill) {
-        quill.on('text-change', function () {
+        quill.on(Quill.events.TEXT_CHANGE, function () {
             var _a;
             if (onChange) {
                 onChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
@@ -25549,18 +25549,23 @@ var FormRichText = function (_a) {
         });
     };
     React.useEffect(function () {
-        if (editorRef.current) {
-            var quill = new Quill(editorRef.current, quillOptions);
-            quillRef.current = quill; // Store the Quill instance in a ref
+        if (containerRef.current) {
+            var container_1 = containerRef.current;
+            var editorContainer = container_1.appendChild(container_1.ownerDocument.createElement('div'));
+            var quill_1 = new Quill(editorContainer, quillOptions);
+            quillRef.current = quill_1; // Store the Quill instance in a ref
             if (value) {
-                setValue(quill);
+                setValue(quill_1);
             }
-            configureListeners(quill);
+            configureListeners(quill_1);
+            return function () {
+                container_1.innerHTML = '';
+                quill_1.off(Quill.events.TEXT_CHANGE);
+            };
         }
     }, []);
-    return React.createElement("div", { ref: editorRef, style: rest.style, id: rest.id });
+    return React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className });
 };
-FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);

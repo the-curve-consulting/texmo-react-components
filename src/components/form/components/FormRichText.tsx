@@ -1,6 +1,5 @@
 import React, { useRef, CSSProperties, useEffect } from 'react';
 import Quill from 'quill';
-import Feedback from 'react-bootstrap/Feedback';
 import 'quill/dist/quill.snow.css';
 
 export interface QuillEditorProps {
@@ -15,14 +14,14 @@ export interface QuillEditorProps {
 }
 
 const FormRichText = ({
-  theme,
   modules,
   value,
   onChange,
+  theme,
   ...rest
 }: QuillEditorProps) => {
-  const editorRef = useRef<HTMLDivElement | null>(null);
   const quillRef = useRef<Quill | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const quillOptions = {
     ...modules,
@@ -35,7 +34,7 @@ const FormRichText = ({
   };
 
   const configureListeners = (quill: Quill) => {
-    quill.on('text-change', () => {
+    quill.on(Quill.events.TEXT_CHANGE, () => {
       if (onChange) {
         onChange(quillRef.current?.getSemanticHTML() || '');
       }
@@ -43,20 +42,35 @@ const FormRichText = ({
   };
 
   useEffect(() => {
-    if (editorRef.current) {
-      const quill = new Quill(editorRef.current, quillOptions);
+    if (containerRef.current) {
+      const container = containerRef.current as HTMLDivElement;
+      const editorContainer = container.appendChild(
+        container.ownerDocument.createElement('div')
+      );
+
+      const quill = new Quill(editorContainer, quillOptions);
       quillRef.current = quill; // Store the Quill instance in a ref
 
       if (value) {
         setValue(quill);
       }
       configureListeners(quill);
+
+      return () => {
+        container.innerHTML = '';
+        quill.off(Quill.events.TEXT_CHANGE);
+      };
     }
   }, []);
 
-  return <div ref={editorRef} style={rest.style} id={rest.id} />;
+  return (
+    <div
+      ref={containerRef}
+      style={rest.style}
+      id={rest.id}
+      className={rest.className}
+    />
+  );
 };
-
-FormRichText.Feedback = Feedback;
 
 export default FormRichText;

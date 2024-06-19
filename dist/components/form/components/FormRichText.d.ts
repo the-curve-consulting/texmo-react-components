@@ -11,6 +11,9 @@ export interface QuillEditorProps {
     onChange?(value: string): any;
     importCallback?(): any;
 }
-declare const FormRichText: ({ modules, value, onChange, theme, importCallback, debug, ...rest }: QuillEditorProps) => React.JSX.Element;
+declare const FormRichText: {
+    ({ modules, value, onChange, theme, importCallback, debug, ...rest }: QuillEditorProps): React.JSX.Element;
+    Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
+};
 export default FormRichText;
 //# sourceMappingURL=FormRichText.d.ts.map

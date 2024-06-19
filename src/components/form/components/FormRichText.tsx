@@ -1,4 +1,5 @@
 import React, { useRef, CSSProperties, useEffect } from 'react';
+import Feedback from 'react-bootstrap/esm/Feedback';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
@@ -87,5 +88,7 @@ const FormRichText = ({
     />
   );
 };
+
+FormRichText.Feedback = Feedback;
 
 export default FormRichText;

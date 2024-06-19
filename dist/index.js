@@ -25535,7 +25535,7 @@ var FormRichText = function (_a) {
     var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, importCallback = _a.importCallback, debug = _a.debug, rest = __rest(_a, ["modules", "value", "onChange", "theme", "importCallback", "debug"]);
     var quillRef = React.useRef(null);
     var containerRef = React.useRef(null);
-    //Set debug mode, false results in no output.
+    // Set debug mode, false results in no output.
     Quill.debug(debug || false);
     var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
     var setValue = function (quillRef) {
@@ -25553,7 +25553,7 @@ var FormRichText = function (_a) {
     React.useEffect(function () {
         if (containerRef.current) {
             if (importCallback) {
-                //Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+                // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
                 importCallback();
             }
             var container_1 = containerRef.current;
@@ -25572,8 +25572,9 @@ var FormRichText = function (_a) {
         // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    return React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className });
+    return (React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className }));
 };
+FormRichText.Feedback = Feedback$1;
 
 var FormDateTime = function (_a) {
     var className = _a.className, rest = __rest(_a, ["className"]);

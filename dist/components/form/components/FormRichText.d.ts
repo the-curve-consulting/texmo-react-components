@@ -8,7 +8,8 @@ export interface QuillEditorProps {
     value?: string;
     theme?: string;
     onChange?(value: string): any;
+    importCallback?(): any;
 }
-declare const FormRichText: ({ modules, value, onChange, theme, ...rest }: QuillEditorProps) => React.JSX.Element;
+declare const FormRichText: ({ modules, value, onChange, theme, importCallback, ...rest }: QuillEditorProps) => React.JSX.Element;
 export default FormRichText;
 //# sourceMappingURL=FormRichText.d.ts.map

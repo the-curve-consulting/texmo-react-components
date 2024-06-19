@@ -25532,7 +25532,7 @@ Quill.register({
 }, true);
 
 var FormRichText = function (_a) {
-    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, rest = __rest(_a, ["modules", "value", "onChange", "theme"]);
+    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, importCallback = _a.importCallback, rest = __rest(_a, ["modules", "value", "onChange", "theme", "importCallback"]);
     var quillRef = React.useRef(null);
     var containerRef = React.useRef(null);
     var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
@@ -25550,19 +25550,25 @@ var FormRichText = function (_a) {
     };
     React.useEffect(function () {
         if (containerRef.current) {
+            if (importCallback) {
+                //Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+                importCallback();
+            }
             var container_1 = containerRef.current;
             var editorContainer = container_1.appendChild(container_1.ownerDocument.createElement('div'));
-            var quill_1 = new Quill(editorContainer, quillOptions);
-            quillRef.current = quill_1; // Store the Quill instance in a ref
+            var quill = new Quill(editorContainer, quillOptions);
+            quillRef.current = quill; // Store the Quill instance in a ref
             if (value) {
-                setValue(quill_1);
+                setValue(quill);
             }
-            configureListeners(quill_1);
+            configureListeners(quill);
             return function () {
                 container_1.innerHTML = '';
-                quill_1.off(Quill.events.TEXT_CHANGE);
+                quillRef.current.off(Quill.events.TEXT_CHANGE);
             };
         }
+        // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className });
 };

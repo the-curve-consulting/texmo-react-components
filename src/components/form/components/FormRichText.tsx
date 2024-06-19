@@ -11,6 +11,7 @@ export interface QuillEditorProps {
   theme?: string;
 
   onChange?(value: string): any;
+  importCallback?(): any;
 }
 
 const FormRichText = ({
@@ -18,6 +19,7 @@ const FormRichText = ({
   value,
   onChange,
   theme,
+  importCallback,
   ...rest
 }: QuillEditorProps) => {
   const quillRef = useRef<Quill | null>(null);
@@ -43,6 +45,11 @@ const FormRichText = ({
 
   useEffect(() => {
     if (containerRef.current) {
+      if (importCallback) {
+        // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+        importCallback();
+      }
+
       const container = containerRef.current as HTMLDivElement;
       const editorContainer = container.appendChild(
         container.ownerDocument.createElement('div')
@@ -58,9 +65,12 @@ const FormRichText = ({
 
       return () => {
         container.innerHTML = '';
-        quill.off(Quill.events.TEXT_CHANGE);
+        (quillRef.current as Quill).off(Quill.events.TEXT_CHANGE);
       };
     }
+
+    // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

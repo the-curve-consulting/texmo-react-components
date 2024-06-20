@@ -5871,7 +5871,6 @@ const makeEventKey = (eventKey, href = null) => {
   if (eventKey != null) return String(eventKey);
   return href || null;
 };
-var SelectableContext$1 = SelectableContext;
 
 const NavContext$1 = /*#__PURE__*/React__namespace.createContext(null);
 NavContext$1.displayName = 'NavContext';
@@ -5899,7 +5898,7 @@ function useDropdownItem({
   disabled,
   onClick
 }) {
-  const onSelectCtx = React.useContext(SelectableContext$1);
+  const onSelectCtx = React.useContext(SelectableContext);
   const navContext = React.useContext(NavContext$2);
   const {
     activeKey
@@ -5995,7 +5994,7 @@ function Dropdown$2({
   const lastShow = usePrevious(show);
   const lastSourceEvent = React.useRef(null);
   const focusInDropdown = React.useRef(false);
-  const onSelectCtx = React.useContext(SelectableContext$1);
+  const onSelectCtx = React.useContext(SelectableContext);
   const toggle = React.useCallback((nextShow, event, source = event == null ? void 0 : event.type) => {
     onToggle(nextShow, {
       originalEvent: event,
@@ -6121,7 +6120,7 @@ function Dropdown$2({
         break;
     }
   });
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(DropdownContext$3.Provider, {
       value: context,
@@ -6930,7 +6929,7 @@ function useNavItem({
   role,
   disabled
 }) {
-  const parentOnSelect = React.useContext(SelectableContext$1);
+  const parentOnSelect = React.useContext(SelectableContext);
   const navContext = React.useContext(NavContext$2);
   const tabContext = React.useContext(TabContext$1);
   let isActive = active;
@@ -7022,7 +7021,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
   // and don't want to reset the set in the effect
   const forceUpdate = useForceUpdate();
   const needsRefocusRef = React.useRef(false);
-  const parentOnSelect = React.useContext(SelectableContext$1);
+  const parentOnSelect = React.useContext(SelectableContext);
   const tabContext = React.useContext(TabContext$1);
   let getControlledId, getControllerId;
   if (tabContext) {
@@ -7083,7 +7082,7 @@ const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
     needsRefocusRef.current = false;
   });
   const mergedRef = useMergedRefs(ref, listNode);
-  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
     value: handleSelect,
     children: /*#__PURE__*/jsxRuntime.jsx(NavContext$2.Provider, {
       value: {
@@ -8454,7 +8453,7 @@ const Navbar = /*#__PURE__*/React__namespace.forwardRef((props, ref) => {
   }), [bsPrefix, expanded, expand, onToggle]);
   return /*#__PURE__*/jsxRuntime.jsx(NavbarContext.Provider, {
     value: navbarContext,
-    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext$1.Provider, {
+    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
       value: handleCollapse,
       children: /*#__PURE__*/jsxRuntime.jsx(Component, {
         ref: ref,
@@ -29337,7 +29336,7 @@ var CommentItem = function (_a) {
                     "From: ",
                     createdBy),
                 React.createElement("div", null,
-                    React.createElement("span", { className: classNames(!inbound ? "me-2" : null) }, localeFormat.format(createdAt)),
+                    React.createElement("span", { className: classNames(!inbound ? 'me-2' : null) }, localeFormat.format(createdAt)),
                     !inbound ? (React.createElement("span", { className: "text-decoration-underline cursor-pointer", onClick: onDelete }, "Delete")) : null)))));
 };
 

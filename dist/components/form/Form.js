@@ -29,6 +29,7 @@ import FormLabel from './components/FormLabel';
 import FormRichText from './components/FormRichText';
 import FormDateTime from './components/FormDateTime';
 import FormTypeahead from './components/FormTypeahead';
+import FormAsyncTypeahead from './components/FormAsyncTypeahead';
 import Feedback from 'react-bootstrap/esm/Feedback';
 import { FormText, Form as BootstrapForm, } from 'react-bootstrap';
 var Form = function (_a) {
@@ -45,5 +46,6 @@ Form.DateTime = FormDateTime;
 Form.Feedback = Feedback;
 Form.Text = FormText;
 Form.Typeahead = FormTypeahead;
+Form.AsyncTypeahead = FormAsyncTypeahead;
 export default Form;
 //# sourceMappingURL=Form.js.map

@@ -24,8 +24,8 @@ import classNames from 'classnames';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 var LayoutContainer = function (_a) {
-    var className = _a.className, children = _a.children, style = _a.style, rest = __rest(_a, ["className", "children", "style"]);
-    return (React.createElement(Container, __assign({ fluid: true, className: classNames('d-flex flex-column px-0 layout-container', className, 'col'), style: __assign(__assign({}, style), { minHeight: '100vh' }) }, rest), children));
+    var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
+    return (React.createElement(Container, __assign({ fluid: true, className: classNames('d-flex flex-column px-0 layout-container', className, 'col') }, rest), children));
 };
 export default LayoutContainer;
 //# sourceMappingURL=LayoutContainer.js.map

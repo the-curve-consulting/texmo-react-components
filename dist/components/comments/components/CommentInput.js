@@ -20,12 +20,17 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import classNames from 'classnames';
-import React, { forwardRef } from 'react';
-var ListRow = forwardRef(function (_a, ref) {
-    var className = _a.className, style = _a.style, children = _a.children, overdue = _a.overdue, rest = __rest(_a, ["className", "style", "children", "overdue"]);
-    return (React.createElement("div", __assign({ className: classNames(className, 'row text-center mt-2 mx-0 list-row'), style: __assign({ border: overdue ? '2px solid #99444f' : 'none' }, style), ref: ref }, rest), children));
-});
-ListRow.displayName = 'ListRow';
-export default ListRow;
-//# sourceMappingURL=ListRow.js.map
+import Button from 'components/button/Button';
+import Subtitle from 'components/subtitle/Subtitle';
+import React from 'react';
+import { Form } from 'react-bootstrap';
+var CommentInput = function (_a) {
+    var onSubmit = _a.onSubmit, rest = __rest(_a, ["onSubmit"]);
+    return (React.createElement("div", null,
+        React.createElement(Subtitle, { text: "Comments:", className: "mb-2" }),
+        React.createElement(Form.Control, __assign({ as: "textarea", placeholder: "Leave a comment..." }, rest)),
+        React.createElement("div", { className: "d-flex justify-content-end mt-2" },
+            React.createElement(Button, { onClick: onSubmit }, "Comment"))));
+};
+export default CommentInput;
+//# sourceMappingURL=CommentInput.js.map

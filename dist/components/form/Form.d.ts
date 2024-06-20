@@ -19,7 +19,7 @@ declare const Form: {
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
     };
     RichText: {
-        ({ style, ...rest }: import("./components/FormRichText").FormRichTextProps): React.JSX.Element;
+        ({ modules, value, onChange, theme, importCallback, debug, ...rest }: import("./components/FormRichText").QuillEditorProps): React.JSX.Element;
         Feedback: import("react-bootstrap/esm/helpers").BsPrefixRefForwardingComponent<"div", import("react-bootstrap/esm/Feedback").FeedbackProps>;
     };
     DateTime: {

@@ -24,7 +24,6 @@ import classNames from 'classnames';
 // import { useNavContext } from 'components/nav/NavContext';
 import React from 'react';
 var SideNavbar = function (_a) {
-    // const { open } = useNavContext();
     var className = _a.className, children = _a.children, rest = __rest(_a, ["className", "children"]);
     return (React.createElement("div", __assign({ className: classNames('d-none d-md-flex flex-column side-navbar-container', className, 'col-auto') }, rest), children));
 };

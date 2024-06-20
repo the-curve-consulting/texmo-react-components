@@ -20,13 +20,52 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Feedback from 'react-bootstrap/esm/Feedback';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css';
 var FormRichText = function (_a) {
-    var style = _a.style, rest = __rest(_a, ["style"]);
-    return React.createElement(ReactQuill, __assign({ theme: "snow", style: __assign({}, style) }, rest));
+    var modules = _a.modules, value = _a.value, onChange = _a.onChange, theme = _a.theme, importCallback = _a.importCallback, debug = _a.debug, rest = __rest(_a, ["modules", "value", "onChange", "theme", "importCallback", "debug"]);
+    var quillRef = useRef(null);
+    var containerRef = useRef(null);
+    // Set debug mode, false results in no output.
+    Quill.debug(debug || false);
+    var quillOptions = __assign(__assign({}, modules), { theme: theme || 'snow' });
+    var setValue = function (quillRef) {
+        var delta = quillRef.clipboard.convert({ html: value });
+        quillRef.setContents(delta, 'silent');
+    };
+    var configureListeners = function (quill) {
+        quill.on(Quill.events.TEXT_CHANGE, function () {
+            var _a;
+            if (onChange) {
+                onChange(((_a = quillRef.current) === null || _a === void 0 ? void 0 : _a.getSemanticHTML()) || '');
+            }
+        });
+    };
+    useEffect(function () {
+        if (containerRef.current) {
+            if (importCallback) {
+                // Callback to import new modules into quill, needs to be done within the same instance as the quill object.
+                importCallback();
+            }
+            var container_1 = containerRef.current;
+            var editorContainer = container_1.appendChild(container_1.ownerDocument.createElement('div'));
+            var quill = new Quill(editorContainer, quillOptions);
+            quillRef.current = quill; // Store the Quill instance in a ref
+            if (value) {
+                setValue(quill);
+            }
+            configureListeners(quill);
+            return function () {
+                container_1.innerHTML = '';
+                quillRef.current.off(Quill.events.TEXT_CHANGE);
+            };
+        }
+        // NOTE: Run effect once on component mount, please recheck dependencies if effect is updated.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    return (React.createElement("div", { ref: containerRef, style: rest.style, id: rest.id, className: rest.className }));
 };
 FormRichText.Feedback = Feedback;
 export default FormRichText;

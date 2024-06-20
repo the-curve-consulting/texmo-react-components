@@ -5,8 +5,6 @@ import React from 'react';
 export interface SideNavbarProps extends React.HTMLProps<HTMLDivElement> {}
 
 const SideNavbar = ({ className, children, ...rest }: SideNavbarProps) => {
-  // const { open } = useNavContext();
-
   return (
     <div
       className={classNames(

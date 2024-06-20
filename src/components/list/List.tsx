@@ -4,12 +4,13 @@ import ListRow from './components/ListRow';
 import ListCell from './components/ListCell';
 import ListCol from './components/ListCol';
 import ListBody from './components/ListBody';
+import classNames from 'classnames';
 
 interface ListProps extends React.HTMLProps<HTMLDivElement> {}
 
 const List = ({ className, children, ...rest }: ListProps) => {
   return (
-    <div className={`list-container ${className}`} {...rest}>
+    <div className={classNames(className, 'list-container')} {...rest}>
       {children}
     </div>
   );

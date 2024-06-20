@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Button, ButtonProps } from 'react-bootstrap';
 
@@ -14,7 +15,7 @@ const FilterButton = ({
   return (
     <Button
       variant={variant}
-      className={`${className} position-relative ms-2`}
+      className={classNames(className, 'position-relative ms-2')}
       {...rest}
     >
       <i className="bi bi-filter"></i>

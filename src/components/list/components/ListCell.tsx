@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ListSectionContext, { ListSection } from '../ListSectionContext';
+import classNames from 'classnames';
 
 export interface ListCellProps extends React.HTMLProps<HTMLDivElement> {
   borderStart?: boolean;
@@ -19,7 +20,10 @@ const ListCell = ({
   switch (section) {
     case ListSection.HEAD:
       return (
-        <div className={`col list-cell ${className} text-uppercase`} {...rest}>
+        <div
+          className={classNames(className, 'col list-cell text-uppercase')}
+          {...rest}
+        >
           {children}
         </div>
       );
@@ -28,7 +32,10 @@ const ListCell = ({
     default:
       return (
         <div
-          className={`h-100 d-flex align-items-center list-cell ${className}`}
+          className={classNames(
+            className,
+            'h-100 d-flex align-items-center list-cell'
+          )}
           {...rest}
         >
           <div

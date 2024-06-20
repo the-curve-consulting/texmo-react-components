@@ -1,5 +1,6 @@
-import { InfoTile, Title } from '@the-curve-consulting/texmo-react-components';
+import { Button, InfoTile, Title } from '@the-curve-consulting/texmo-react-components';
 import { Row, Col } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const HomePage = () => {
 
@@ -13,22 +14,25 @@ const HomePage = () => {
         <Col xl={6}>
           <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Title title='My Work Requests'/>
+              <InfoTile.Title title='My Work Requests' className='mb-0'/>
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={1} />
+              <InfoTile.Value value={1} className='mb-0'/>
             </InfoTile.Col>
           </InfoTile>
         </Col>
         <Col xl={6}>
           <InfoTile>
             <InfoTile.Col>
-              <InfoTile.Title title='My Work Requests'/>
+              <InfoTile.Title 
+                title='My Work Requests'
+                className='mb-0'
+              />
             </InfoTile.Col>
 
             <InfoTile.Col className='col-auto'>
-              <InfoTile.Value value={1} />
+              <InfoTile.Value value={1} className='mb-0' />
             </InfoTile.Col>
           </InfoTile>
         </Col>
@@ -63,6 +67,20 @@ const HomePage = () => {
           </InfoTile>
         </Col>
       </Row>
+
+      <div className='mt-3 d-flex justify-content-end'>
+        <Button 
+          label='Show Toast' 
+          className='me-2'
+          onClick={() => toast.success("This is a test") }
+        />
+
+        <Button 
+          label='Show Toast' 
+          variant="danger" 
+          onClick={() => toast.error("This is a test") }
+        />
+      </div>
     </>
   )
 }

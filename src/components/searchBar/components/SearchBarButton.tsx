@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { ButtonProps, Button } from 'react-bootstrap';
 
@@ -7,7 +8,7 @@ const SearchBarButton = ({ className, ...rest }: SearchBarButtonProps) => {
   return (
     <Button
       variant="light"
-      className={`input-group-button ${className}`}
+      className={classNames(className, 'input-group-button')}
       {...rest}
     >
       <i className="bi bi-search"></i>

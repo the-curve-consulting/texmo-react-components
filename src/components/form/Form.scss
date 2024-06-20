@@ -1,0 +1,27 @@
+.rbt-input-multi.focus {
+  border-color: var(--texmo-primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(106, 149, 91, 0.25);
+}
+
+.rbt-token {
+  background-color: rgba(106, 149, 91, 0.3);
+  color: #415a38;
+}
+
+.dropdown-item {
+  width: calc(100% - 10px);
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: black !important;
+}
+
+.dropdown-item.active {
+  background-color: rgba(221,221,221,255);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(221,221,221,255);
+}

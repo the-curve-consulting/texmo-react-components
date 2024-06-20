@@ -7,12 +7,13 @@ import {
   Table as BootstrapTable,
   TableProps as BootstrapTableProps,
 } from 'react-bootstrap';
+import classNames from 'classnames';
 
 interface TableProps extends BootstrapTableProps {}
 
 const Table = ({ className, children, ...rest }: TableProps) => {
   return (
-    <BootstrapTable className={`${className} texmo-table`} {...rest}>
+    <BootstrapTable className={classNames(className, 'texmo-table')} {...rest}>
       {children}
     </BootstrapTable>
   );
